@@ -1,0 +1,10 @@
+@import './base.css';
+
+#app {
+  margin: 0 auto;
+  font-weight: normal;
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+  background-color: #66666634; /* adjust the color as needed */
+}

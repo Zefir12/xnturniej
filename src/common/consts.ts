@@ -1,0 +1,16 @@
+export enum PlayerAccounts {
+    Hiszpan = 'JakubJD',
+    Kasix = 'Kasix909',
+    Niuczesana = 'nieuczeszek',
+    Delord = 'Pablosabre',
+    Nitro = 'nitro69penetrator',
+    Fornal = 'TomaszFornal',
+    RandomBruces = 'szachowytapir',
+    Diables = 'xdiables',
+    Netrodal = 'didaskyler',
+    Bagieta = 'bagietkaofficial',
+    Suchar = 'mokrysucharek',
+    Overpow = 'szachowychogath',
+    Kubon = 'JaKubon000',
+    Demonz = 'demonzz1',
+}
