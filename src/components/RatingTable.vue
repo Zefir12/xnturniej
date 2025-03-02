@@ -14,7 +14,9 @@
                             :style="{ width: '50px', height: '50px', margin: '0' }"
                             :src="playerMappings[data.username as PlayerAccounts].avatar"
                         />
-                        <b :style="{ cursor: 'pointer' }">{{ playerMappings[data.username as PlayerAccounts].name }}</b>
+                        <b :style="{ cursor: 'pointer', marginLeft: '0.5rem' }">{{
+                            playerMappings[data.username as PlayerAccounts].name
+                        }}</b>
                     </div>
                 </template>
             </Column>

@@ -100,7 +100,7 @@ export const useMainStore = defineStore('main', () => {
     const getAllHistoryData = async () => {
         const p = <{ username: string; data: HistoryData }[]>[]
         const promises = Object.values(PlayerAccounts).map((playerName) => {
-            return import(`../assets/${playerName}.json`).then((module) => {
+            return import(`../assets/playerdata/${playerName}.json`).then((module) => {
                 return { data: module.default as HistoryData, username: playerName }
             })
         })
