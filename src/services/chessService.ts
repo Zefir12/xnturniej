@@ -1,4 +1,4 @@
-import type { ChessStatsResponse } from '@/models/models'
+import type { ChessGame, ChessStatsResponse } from '@/models/models'
 
 const getUserStats = async (username: string): Promise<string> => {
     try {
@@ -28,7 +28,7 @@ const getUserMemberStats = async (username: string): Promise<ChessStatsResponse>
     }
 }
 
-const getUserGamesFromCurrentMonth = async (username: string): Promise<string> => {
+const getUserGamesFromCurrentMonth = async (username: string): Promise<{ games: ChessGame[] }> => {
     try {
         const date = new Date()
         const year = date.getFullYear()
@@ -38,7 +38,7 @@ const getUserGamesFromCurrentMonth = async (username: string): Promise<string> =
             throw new Error(`HTTP error! status: ${response.status}`)
         }
         const data = await response.json()
-        return data as string
+        return data as { games: ChessGame[] }
     } catch (error) {
         throw new Error(`Network error: ${error}`)
     }

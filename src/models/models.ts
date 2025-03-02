@@ -190,5 +190,7 @@ export type HistoryData = {
         won: number
         draw: number
         lose: number
+        elo: number
+        lastgame: number
     }
 }

@@ -12,15 +12,37 @@
                     <b :style="{ cursor: 'pointer' }">{{ data.username }}</b>
                 </template>
             </Column>
-            <Column field="rating" header="Ranking Rapidów" sortable style="width: 3rem">
+            <Column field="rating" sortable style="width: 16rem">
+                <template #header>
+                    <div :style="{ textAlign: 'center', width: '100%' }">
+                        <span>Ranking Rapidów</span>
+                        <span :style="{ color: 'orange', textWrap: 'nowrap' }"> [zmiana dzisiaj]</span>
+                    </div>
+                </template>
                 <template #body="{ data }">
                     <div
                         :style="{
+                            display: 'flex',
+                            flexDirection: 'row',
                             color: getColor(data.rating, lowest('rating'), highest('rating')),
-                            textAlign: 'center',
                         }"
                     >
-                        {{ data.rating }}
+                        <div :style="{ width: '110px', textAlign: 'end', marginRight: '0.3rem' }">
+                            {{ data.rating }}
+                        </div>
+                        <div>
+                            <span
+                                v-if="getRankingChangeToday(data.username) != 0"
+                                :style="{ color: getRankingChangeToday(data.username) >= 0 ? 'orange' : 'red' }"
+                            >
+                                {{
+                                    '[' +
+                                    (getRankingChangeToday(data.username) > 0 ? '+' : '') +
+                                    getRankingChangeToday(data.username) +
+                                    ']'
+                                }}
+                            </span>
+                        </div>
                     </div>
                 </template>
             </Column>
@@ -81,6 +103,14 @@ import Column from 'primevue/column'
 
 const store = useMainStore()
 
+const getRankingChangeToday = (username: string): number => {
+    const data = store.playerEloGainsAndGames.find((player) => player.username === username)
+    if (data) {
+        return data.eloGains
+    }
+    return 0
+}
+
 const getColor = (value: number, min: number, max: number) => {
     const ratio = (value - min) / (max - min)
     const r = Math.round(255 * (1 - ratio)) // red
@@ -102,5 +132,9 @@ const lowest = <T extends keyof ChessStats>(fieldName: T): number => {
     overflow: hidden;
     line-height: 1.6;
     font-size: 16px;
+    z-index: 10;
+    box-shadow:
+        0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
