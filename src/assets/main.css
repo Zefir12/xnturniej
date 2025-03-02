@@ -8,3 +8,7 @@
 .p-datatable .p-datatable-tbody > tr:hover {
   background-color: #66666634; /* adjust the color as needed */
 }
+
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 0;
+}

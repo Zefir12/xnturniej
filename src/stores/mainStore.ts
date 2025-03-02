@@ -46,7 +46,6 @@ export const useMainStore = defineStore('main', () => {
         const unixTimestamp = Math.floor(today.getTime() / 1000)
         //check if played any games today otherwise 0
         for (const player of Object.values(PlayerAccounts)) {
-            console.log(player)
             const games = playerGames.value
                 .find((x) => x.username === player)
                 ?.games.filter((x) => x.time_class == 'rapid')

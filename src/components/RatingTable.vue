@@ -9,7 +9,13 @@
         >
             <Column field="username" header="Zawodnik" :style="{ width: '12rem' }">
                 <template #body="{ data }">
-                    <b :style="{ cursor: 'pointer' }">{{ data.username }}</b>
+                    <div :style="{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: '0px' }">
+                        <img
+                            :style="{ width: '50px', height: '50px', margin: '0' }"
+                            :src="playerMappings[data.username as PlayerAccounts].avatar"
+                        />
+                        <b :style="{ cursor: 'pointer' }">{{ playerMappings[data.username as PlayerAccounts].name }}</b>
+                    </div>
                 </template>
             </Column>
             <Column field="rating" sortable style="width: 16rem">
@@ -100,6 +106,7 @@ import type { ChessStats } from '@/models/models'
 import { useMainStore } from '../stores/mainStore'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
+import { PlayerAccounts, playerMappings } from '@/common/consts'
 
 const store = useMainStore()
 
