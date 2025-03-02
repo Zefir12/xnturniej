@@ -28,9 +28,12 @@ const getUserMemberStats = async (username: string): Promise<ChessStatsResponse>
     }
 }
 
-const getUserGames = async (username: string): Promise<string> => {
+const getUserGamesFromCurrentMonth = async (username: string): Promise<string> => {
     try {
-        const response = await fetch(`https://api.chess.com/pub/player/${username}/stats`)
+        const date = new Date()
+        const year = date.getFullYear()
+        const month = String(date.getMonth() + 1).padStart(2, '0')
+        const response = await fetch(`https://api.chess.com/pub/player/${username}/games/${year}/${month}`)
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`)
         }
@@ -41,4 +44,4 @@ const getUserGames = async (username: string): Promise<string> => {
     }
 }
 
-export { getUserStats, getUserMemberStats }
+export { getUserStats, getUserMemberStats, getUserGamesFromCurrentMonth }

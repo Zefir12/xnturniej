@@ -28,6 +28,8 @@ export const useMainStore = defineStore('main', () => {
         players.value = [...playerDataList]
     }
 
+    const getAllPlayerGames = () => {}
+
     onMounted(() => {
         getStats()
     })

@@ -5,7 +5,7 @@ export enum PlayerAccounts {
     Delord = 'Pablosabre',
     Nitro = 'nitro69penetrator',
     Fornal = 'TomaszFornal',
-    RandomBruces = 'szachowytapir',
+    RandomBruces = 'SzachowyTapir',
     Diables = 'xdiables',
     Netrodal = 'didaskyler',
     Bagieta = 'bagietkaofficial',
