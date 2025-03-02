@@ -1,14 +1,17 @@
 import { defineStore } from 'pinia'
 import { onMounted, ref } from 'vue'
-import { getUserMemberStats } from '@/services/chessService'
+import { getUserGamesFromCurrentMonth, getUserMemberStats } from '@/services/chessService'
 import { PlayerAccounts } from '@/common/consts'
-import type { ChessStats, Rapid, Tactics } from '@/models/models'
+import type { ChessGame, ChessStats, HistoryData, Rapid, Tactics } from '@/models/models'
 
 export const useMainStore = defineStore('main', () => {
     const players = ref<ChessStats[]>([])
+    const playerGames = ref<{ username: string; games: ChessGame[] }[]>([])
+    const playerHistoryData = ref<{ username: string; data: HistoryData[] }[]>([])
 
     const getStats = async () => {
         const playerDataList = <ChessStats[]>[]
+
         const promises = Object.values(PlayerAccounts).map((name) => {
             return getUserMemberStats(name).then((data) => {
                 return {
@@ -18,7 +21,7 @@ export const useMainStore = defineStore('main', () => {
                     playedMatches: (data.stats.find((x) => x.key === 'rapid') as unknown as Rapid).stats
                         .total_game_count,
                     tacticsDone: (data.stats.find((x) => x.key === 'tactics') as unknown as Tactics)?.stats
-                        .attempt_count, //f
+                        .attempt_count,
                 } as ChessStats
             })
         })
@@ -28,10 +31,34 @@ export const useMainStore = defineStore('main', () => {
         players.value = [...playerDataList]
     }
 
-    const getAllPlayerGames = () => {}
+    const getAllPlayerGames = async () => {
+        const pgames = <{ username: string; games: ChessGame[] }[]>[]
+        const promises = Object.values(PlayerAccounts).map((name) => {
+            return getUserGamesFromCurrentMonth(name).then((data) => {
+                return { username: name, games: data } as unknown as { username: string; games: ChessGame[] }
+            })
+        })
+        const results = await Promise.all(promises)
+        pgames.push(...results)
+        playerGames.value = [...pgames]
+    }
 
-    onMounted(() => {
-        getStats()
+    const getAllHistoryData = async () => {
+        const p = <{ username: string; data: HistoryData[] }[]>[]
+        const promises = Object.values(PlayerAccounts).map((playerName) => {
+            return import(`../assets/${playerName}.json`).then((module) => {
+                return { data: module.default as HistoryData[], username: playerName }
+            })
+        })
+        const jsonDatas = await Promise.all(promises)
+        p.push(...jsonDatas)
+        playerHistoryData.value = [...p]
+    }
+
+    onMounted(async () => {
+        await getStats()
+        await getAllPlayerGames()
+        await getAllHistoryData()
     })
-    return { getStats, players }
+    return { getStats, players, playerGames, playerHistoryData }
 })

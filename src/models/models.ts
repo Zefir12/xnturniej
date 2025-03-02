@@ -118,3 +118,77 @@ export type Rapid = {
     lastPlayed: boolean
     lastDate: string // ISO date string
 }
+
+export type ChessGame = {
+    url: string
+    pgn: string
+    time_control: string
+    end_time: number
+    rated: boolean
+    tcn: string
+    uuid: string
+    initial_setup: string
+    fen: string
+    time_class: string
+    rules: string
+    white: {
+        rating: number
+        result: string
+        '@id': string
+        username: string
+        uuid: string
+    }
+    black: {
+        rating: number
+        result: string
+        '@id': string
+        username: string
+        uuid: string
+    }
+    eco: string
+}
+
+export type HistoryData = {
+    vs: {
+        player: string
+        lose: number
+        won: number
+        draw: number
+        detailed: {
+            win: number
+            checkmated: number
+            agreed: number
+            repetition: number
+            timeout: number
+            resigned: number
+            stalemate: number
+            lose: number
+            insufficient: number
+            '50move': number
+            timevsinsufficient: number
+        }
+    }[]
+
+    openings: {
+        name: string
+        total: number
+        results: {
+            win: number
+            checkmated: number
+            agreed: number
+            repetition: number
+            timeout: number
+            resigned: number
+            stalemate: number
+            lose: number
+            insufficient: number
+            '50move': number
+            timevsinsufficient: number
+        }
+    }[]
+    stats: {
+        won: number
+        draw: number
+        lose: number
+    }
+}

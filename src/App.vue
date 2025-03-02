@@ -28,9 +28,8 @@ import RatingTable from './components/RatingTable.vue'
 }
 .content-container {
     display: flex;
-
     flex-direction: row;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
 }
 </style>

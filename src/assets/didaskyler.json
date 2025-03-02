@@ -1,0 +1,3796 @@
+{
+    "openings": [
+        {
+            "name": "Birds-Opening-Dutch-Variation-2.g3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Caro-Kann-Defense-2.Nc3-d5-3.d3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Philidor-Defense-3.Bc4",
+            "total": 4,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 2,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kadas-Opening-1...d5-2.d4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Sicilian-Defense-Myers-Attack",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kadas-Opening",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "English-Opening",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Clemenz-Opening",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Birds-Opening-Froms-Gambit-2.fxe5-d6-3.exd6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Fianchetto-Opening-1...d5-2.Bg2-e5-3.d3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Pirc-Defense-2.Nc3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-Knights-Variation-East-Indian-Defense-3.Nc3-Bg7-4.e4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Alekhines-Defense",
+            "total": 3,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 2,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Van-t-Kruijs-Opening-1...e5",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 2,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Modern-Defense-with-1-e4-2.Bc4",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 1,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Alekhines-Defense-Krejcik-Variation",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 1,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Alekhines-Defense-Samisch-Attack-3...Nxc3-4.dxc3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Birds-Opening",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-Knights-Variation-East-Indian-Defense-3.c3-Bg7",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Van-Geet-Opening-1...e6",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Vienna-Game",
+            "total": 3,
+            "results": {
+                "win": 2,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Van-Geet-Opening",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Barnes-Defense-2.d4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Philidor-Defense-Nimzowitsch-Variation-4.Nc3",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Van-t-Kruijs-Opening-1...Nf6",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Kings-Head-Opening-2...Nf6",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Alekhines-Defense-Normal-Variation",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Vienna-Game-Falkbeer-Variation-3.d4-exd4-4.Qxd4-Nc6",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Petrovs-Defense-Three-Knights-Game",
+            "total": 4,
+            "results": {
+                "win": 1,
+                "checkmated": 2,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Vienna-Game-Falkbeer-Variation-3.d3",
+            "total": 3,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 1,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Petrovs-Defense-Classical-Damiano-Variation-4.Qe2",
+            "total": 3,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 2,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Alekhines-Defense-Maroczy-Variation",
+            "total": 3,
+            "results": {
+                "win": 2,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Leonardis-Variation",
+            "total": 3,
+            "results": {
+                "win": 1,
+                "checkmated": 1,
+                "agreed": 1,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-Omega-Gambit",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Mikenas-Defense",
+            "total": 4,
+            "results": {
+                "win": 2,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Van-Geet-Opening-1...Nc6-2.d4-d5",
+            "total": 17,
+            "results": {
+                "win": 4,
+                "checkmated": 4,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 2,
+                "resigned": 5,
+                "stalemate": 2,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Kings-Head-Opening-2...Nf6-3.Nc3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Pirc-Defense-2.d4",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Vienna-Game-Falkbeer-Variation",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-Omega-Gambit-2...Nxe4",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 1
+            }
+        },
+        {
+            "name": "Indian-Game-Knights-Variation-2...e6-3.Nc3-d5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Kings-Knight-Damiano-Defense",
+            "total": 4,
+            "results": {
+                "win": 3,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Wayward-Queen-Attack",
+            "total": 11,
+            "results": {
+                "win": 6,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 3,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 1
+            }
+        },
+        {
+            "name": "Petrovs-Defense-Steinitz-Attack-3...exd4",
+            "total": 4,
+            "results": {
+                "win": 2,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-1...d5-2.e3",
+            "total": 9,
+            "results": {
+                "win": 3,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 3,
+                "resigned": 3,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Scotch-Game-Scotch-Gambit-Dubois-Reti-Defense",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Ware-Opening",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Horwitz-Defense-2.Nc3",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 2,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Barnes-Opening-1...f5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-2.Nc3-g6-3.e4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Modern-Defense-with-1-e4-2.d3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Birds-Opening-Dutch-Variation-2.Nf3-Nf6-3.g3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Birds-Opening-Dutch-Variation-2.Nf3-Nf6-3.e3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Birds-Opening-1...Nf6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Shaviliuk-Gambit",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Barnes-Opening",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Nimzowitsch-Defense-Declined-2...Nf6",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Petrovs-Defense-Urusov-Gambit",
+            "total": 3,
+            "results": {
+                "win": 1,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Vienna-Game-Anderssen-Defense",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-2.e3-g6",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Philidor-Defense-3.d4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Alekhines-Defense-John-Tracy-Gambit",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Englund-Gambit-Mosquito-Gambit",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Leonardis-Variation-2...Nf6-3.Nf3",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Englund-Gambit-Declined-2...Bc5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 1,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Nimzowitsch-Larsen-Attack-Indian-Variation-2.Bb2-g6-3.e4",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Petrovs-Defense-Urusov-Lichtenhein-Defense",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Danish-Gambit-3...dxc3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Alburt-Defense",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Van-Geet-Opening-1...Nf6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Blackmar-Diemer-Lemberger-Endgame-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Scandinavian-Defense-Mieses-Kotrc-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Birds-Opening-Dutch-Variation-2.Nf3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Englund-Gambit-Hartlaub-Charlick-Gambit",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "French-Defense-Normal-Variation",
+            "total": 3,
+            "results": {
+                "win": 2,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-2.Bf4-g6-3.Nc3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Blackmar-Diemer-Vienna-Diemer-Gambit",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Reti-Opening-Kingside-Fianchetto-Variation-2.e4",
+            "total": 3,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 1,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Modern-Defense-with-1-e4-2.d4-Bg7-3.Nf3",
+            "total": 2,
+            "results": {
+                "win": 2,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Owens-Defense-2.d4-Bb7-3.Nc3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Modern-Defense-with-1-e4...3.c3-d5-4.exd5-Qxd5",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Modern-Defense-with-1-e4-2.Bc4-Bg7",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "French-Defense-Advance-Variation",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation-2...Nf6",
+            "total": 9,
+            "results": {
+                "win": 3,
+                "checkmated": 2,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 3,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Petrovs-Defense-Classical-Damiano-Variation",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Blackmar-Gambit-2...dxe4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Englund-Gambit-Felbecker-Gambit",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-Canard-Variation",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Polish-Opening-1...d5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Saragossa-Opening-1...e5",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 1,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Dutch-Defense-Staunton-Gambit-Accepted-3.Nc3-g6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "English-Opening-Anglo-Scandinavian-Defense-2.cxd5",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Leonardis-Variation-2...Nf6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Caro-Kann-Defense-Exchange-Variation-3...cxd5",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation",
+            "total": 3,
+            "results": {
+                "win": 1,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 1,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Fianchetto-Opening-1...e5",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Birds-Opening-1...Nf6-2.Nf3-g6",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Zukertort-Chigorin-Variation-3.e3",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-1...d6-2.Nc3",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Englund-Gambit-2.dxe5-Nc6-3.Nf3-Qe7",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 2,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Italian-Game",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Zukertort-Chigorin-Variation-3.Bf4-Bf5-4.e3-e6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-1...e5-2.b3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Van-Geet-Opening-1...Nc6-2.d4",
+            "total": 7,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 4,
+                "stalemate": 1,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Colle-System-Anti-Colle-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 1,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Grob-Opening",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Kings-Knight-Damiano-Defense-Damiano-Gambit-3...fxe5-4.Qh5-g6-5.Qxe5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation-2...e6",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Dutch-Defense-Raphael-Variation",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Englund-Gambit-2.dxe5",
+            "total": 5,
+            "results": {
+                "win": 3,
+                "checkmated": 0,
+                "agreed": 1,
+                "repetition": 1,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Bishops-Opening-Philidor-Counterattack",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Bishops-Opening-Boi-Variation-3.Nf3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Van-t-Kruijs-Opening-1...d5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Sicilian-Defense-Bowdler-Attack",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Van-Geet-Opening-1...c5-2.Nf3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Zukertort-Variation-2...Bf5",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "English-Opening-Kings-English-Nimzowitsch-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation-2...Nf6-3.Bf4",
+            "total": 8,
+            "results": {
+                "win": 2,
+                "checkmated": 3,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 2,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Modern-Defense-with-1-d4-2.Nf3-Bg7-3.Bf4-d6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Petrovs-Defense",
+            "total": 3,
+            "results": {
+                "win": 2,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Mason-Attack",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Nimzowitsch-Larsen-Attack-Classical-Variation",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Reti-Opening-Quiet-System-2...g6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Giuoco-Piano-Game-Four-Knights-Game",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Vienna-Game-Anderssen-Defense-3.Bc4-Nf6",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "French-Defense-Normal-Variation...3.Nc3-Nc6-4.e5-Nge7",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-1...d5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Reti-Opening-Black-Mustang-Defense-2.g3-e5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Reti-Opening-Pirc-Invitation-2.g3-e5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Modern-Defense-with-1-e4-2.Bc4-Bg7-3.Qf3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Scandinavian-Defense-Mieses-Kotrc-Variation-3.Nc3-Qe5",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Nimzowitsch-Defense-2.Nc3-Nf6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Bishops-Opening-Boi-Variation-3.Nc3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Kings-Knight-Elephant-Gambit-3.exd5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Sicilian-Defense-Hyperaccelerated-Dragon-Variation-3.Bc4",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Alekhines-Defense-2.Nc3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Alekhines-Defense-Normal-Variation-3.Nf3",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Nimzowitsch-Defense-Scandinavian-Exchange-Variation",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-2.Bf4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation-2...Nf6-3.Bf4-e6-4.e3",
+            "total": 2,
+            "results": {
+                "win": 2,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation...3.Bf4-c5-4.e3-cxd4-5.exd4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Alekhines-Defense-Samisch-Attack-3...Nxc3-4.bxc3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-East-Indian-Colle-System-4...O-O-5.O-O-d6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-1...d5-2.e3-Nf6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Petrovs-Defense-Classical-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Four-Knights-Game-Scotch-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Dutch-Defense-Queens-Knight-Ozols-Variation-5.e3-O-O",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Blackmar-Blackmar-Diemer-Gambit",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Leonardis-Variation-2...d5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-2.c4",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Reti-Opening...2.e3-Nf6-3.b3-e6-4.Bb2",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Caro-Kann-Defense-Main-Line-4...Nf6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-1...d6",
+            "total": 2,
+            "results": {
+                "win": 2,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-1...d6-2.Bf4",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-1...d6-2.g3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Pirc-Defense-Small-Center-Defense",
+            "total": 3,
+            "results": {
+                "win": 2,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "French-Defense-Knight-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Philidor-Defense",
+            "total": 3,
+            "results": {
+                "win": 3,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Mieses-Opening-Reversed-Rat-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Wayward-Queen-Kiddie-Countergambit",
+            "total": 2,
+            "results": {
+                "win": 2,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation-2...Nf6-3.Bf4-c5",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Pirc-Defense-Classical-Variation-4...Bg7-5.Bf4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "French-Defense-Normal-Variation-2...d5-3.Nc3-Nc6-4.Nf3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Old-Benoni-Defense-2.e3-e6",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Napoleon-Attack",
+            "total": 4,
+            "results": {
+                "win": 2,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation-2...e6-3.Bf4",
+            "total": 6,
+            "results": {
+                "win": 2,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 3,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "English-Opening-Anglo-Lithuanian-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Zukertort-Variation-2...c6",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Petrovs-Defense-3.d3-Nc6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Dutch-Defense-2.Bf4-Nf6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Petrovs-Defense-3.Qe2",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-2.e3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-2.Nc3-d6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Englund-Gambit-Declined-Reversed-French-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Three-Knights-Opening",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-2.Nc3",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-1...d5-2.c3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "English-Opening-Reversed-Sicilian-Closed...4.Bg2-Bc5-5.e3-d6-6.Nge2",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Zukertort-Variation-2...e6-3.e3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "French-Defense-Rubinstein-Maric-Variation-5.Nc3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Gambit-Accepted-Kings-Knight-Gambit",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Indian-Game-2.Nc3-e6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation-2...Nf6-3.Bf4-Bf5-4.e3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Zukertort-Chigorin-Variation-3.Bf4-Bf5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Zukertort-Variation-2...c6-3.e3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Vienna-Game-Falkbeer-Stanley-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation-2...c6",
+            "total": 2,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Fianchetto-Opening-1...e5-2.Bg2-Nc6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Englund-Gambit-2.dxe5-Nc6-3.Nf3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Philidor-Defense-Exchange-Variation-4.Nxd4-Nf6-5.Nc3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Anti-Torre-Attack",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Zukertort-Chigorin-Variation-3.Bf4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Zukertort-Chigorin-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Old-Benoni-Defense-2.dxc5-e6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "English-Opening-Kings-English-Variation-2.d3-Nf6",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Reti-Opening-Reversed-Mexican-Defense",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Pirc-Defense-Modern-Defense-Geller-System-2...Nf6-3.Nc3-e5-4.Bc4",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Center-Game-Accepted-Normal-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Philidor-Defense-3.Bc4-Nf6",
+            "total": 2,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Van-Geet-Opening-Reversed-Nimzowitsch-Variation-2.d4-exd4",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Bishops-Opening-Boi-Variation",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Nimzowitsch-Larsen-Attack-Modern-Variation-2.Bb2-Nc6-3.Nf3",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Scotch-Game-Goring-Double-Pawn-Sacrifice-Variation-5...cxb2-6.Bxb2",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Kings-Pawn-Opening-Goldsmith-Defense-2.d4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Bishops-Opening-Berlin-Defense",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Englund-Gambit-Soller-Gambit",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        }
+    ],
+    "vs": [
+        {
+            "player": "jakubjd",
+            "lose": 2,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "kasix909",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "nieuczeszek",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "pablosabre",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "nitro69penetrator",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "tomaszfornal",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "szachowytapir",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "xdiables",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "bagietkaofficial",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "mokrysucharek",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "szachowychogath",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "jakubon000",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "demonzz1",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        }
+    ],
+    "stats": {
+        "won": 136,
+        "draw": 16,
+        "lose": 192,
+        "lastgame": 1740797655,
+        "elo": 354
+    }
+}

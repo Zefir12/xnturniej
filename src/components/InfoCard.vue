@@ -14,8 +14,8 @@ console.log(getUserGamesFromCurrentMonth(PlayerAccounts.Kasix))
 <style scoped>
 .main-container {
     width: 30rem;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 </style>

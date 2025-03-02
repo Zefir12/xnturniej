@@ -1,0 +1,379 @@
+{
+    "openings": [
+        {
+            "name": "Queens-Pawn-Opening-Mikenas-Defense-2.d5-Ne5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Dresden-Opening",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-1...d5-2.c3",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Italian-Game-Two-Knights-Modern-Bishops-Opening",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation-2...Nf6-3.Bf4",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Giuoco-Piano-Game-Giuoco-Pianissimo-Variation-4...Nf6-5.Bg5-h6-6.Bh4",
+            "total": 1,
+            "results": {
+                "win": 1,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "name": "Queens-Pawn-Opening-Chigorin-Variation...3.Bf4-c6-4.e3-Bf5",
+            "total": 1,
+            "results": {
+                "win": 0,
+                "checkmated": 1,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        }
+    ],
+    "vs": [
+        {
+            "player": "jakubjd",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "kasix909",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "nieuczeszek",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "pablosabre",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "nitro69penetrator",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "tomaszfornal",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "szachowytapir",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "xdiables",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "didaskyler",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "bagietkaofficial",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "mokrysucharek",
+            "lose": 4,
+            "won": 2,
+            "draw": 0,
+            "detailed": {
+                "win": 2,
+                "checkmated": 2,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 1,
+                "resigned": 1,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "jakubon000",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        },
+        {
+            "player": "demonzz1",
+            "lose": 0,
+            "won": 0,
+            "draw": 0,
+            "detailed": {
+                "win": 0,
+                "checkmated": 0,
+                "agreed": 0,
+                "repetition": 0,
+                "timeout": 0,
+                "resigned": 0,
+                "stalemate": 0,
+                "lose": 0,
+                "insufficient": 0,
+                "50move": 0,
+                "timevsinsufficient": 0
+            }
+        }
+    ],
+    "stats": {
+        "won": 2,
+        "draw": 0,
+        "lose": 5,
+        "lastgame": 1740682836,
+        "elo": 535
+    }
+}
