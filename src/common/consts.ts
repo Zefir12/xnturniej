@@ -32,7 +32,7 @@ import hiszpan from '../assets/twitchicons/hiszpan.png'
 export const playerMappings = {
     [PlayerAccounts.Hiszpan]: { name: 'Hiszpan', avatar: hiszpan },
     [PlayerAccounts.Kasix]: { name: 'Kasix', avatar: kasix },
-    [PlayerAccounts.Nieuczesana]: { name: 'Niuczesana', avatar: nieuczesana },
+    [PlayerAccounts.Nieuczesana]: { name: 'Nieuczesana', avatar: nieuczesana },
     [PlayerAccounts.Delord]: { name: 'Delord', avatar: delord },
     [PlayerAccounts.Nitro]: { name: 'Nitro', avatar: nitro },
     [PlayerAccounts.Fornal]: { name: 'Tomasz Fornal', avatar: fornal },
