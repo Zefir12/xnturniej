@@ -10,6 +10,8 @@ export const useMainStore = defineStore('main', () => {
     const playerHistoryData = ref<{ username: string; data: HistoryData }[]>([])
     const playerEloGainsAndGames = ref<{ username: string; eloGains: number; gamesPlayedToday: number }[]>([])
 
+    const mostEloToday = ref({ player: '', elo: 0 })
+
     const getStats = async () => {
         const playerDataList = <ChessStats[]>[]
 
@@ -50,7 +52,7 @@ export const useMainStore = defineStore('main', () => {
                 .find((x) => x.username === player)
                 ?.games.filter((x) => x.time_class == 'rapid')
 
-            if (games && games.length > 0) {
+            if (games && games.length > 0 && games.filter((x) => x.end_time >= unixTimestamp).length > 0) {
                 //get last elo before today
                 let lastelo = 0
                 const beforegames = games.filter((x) => x.end_time < unixTimestamp)
@@ -75,7 +77,10 @@ export const useMainStore = defineStore('main', () => {
                     }
                     return lastGame
                 }, games[0])
-
+                if (mostEloToday.value.elo <= getRatingFromGame(player, lastGameToday) - lastelo) {
+                    mostEloToday.value.elo = getRatingFromGame(player, lastGameToday) - lastelo
+                    mostEloToday.value.player = player
+                }
                 playerEloGainsAndGames.value.push({
                     username: player,
                     eloGains: getRatingFromGame(player, lastGameToday) - lastelo,
@@ -115,5 +120,5 @@ export const useMainStore = defineStore('main', () => {
         await getAllHistoryData()
         getEloGainsTodayForPlayer()
     })
-    return { getStats, players, playerGames, playerHistoryData, playerEloGainsAndGames }
+    return { getStats, players, playerGames, playerHistoryData, playerEloGainsAndGames, mostEloToday }
 })

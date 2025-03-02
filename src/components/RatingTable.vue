@@ -5,7 +5,7 @@
             :defaultSortOrder="-1"
             :sortField="'rating'"
             :sortOrder="-1"
-            tableStyle="min-width: 50rem"
+            tableStyle="min-width: 50rem; background-color: #18181b"
         >
             <Column field="username" header="Zawodnik" :style="{ width: '12rem' }">
                 <template #body="{ data }">
@@ -76,7 +76,7 @@
                 <template #body="{ data }">
                     <div
                         :style="{
-                            color: getColor(data.playedMatches ?? 0, lowest('playedMatches'), highest('playedMatches')),
+                            color: getColor(data.playedMatches ?? 0, lowest('playedMatches'), 800),
                             textAlign: 'center',
                         }"
                     >
@@ -91,7 +91,7 @@
                 <template #body="{ data }">
                     <div
                         :style="{
-                            color: getColor(data.tacticsDone ?? 0, lowest('tacticsDone'), highest('tacticsDone')),
+                            color: getColor(data.tacticsDone ?? 0, lowest('tacticsDone'), 1500),
                             textAlign: 'center',
                         }"
                     >
@@ -109,6 +109,7 @@ import { useMainStore } from '../stores/mainStore'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import { PlayerAccounts, playerMappings } from '@/common/consts'
+import { isDarkMode } from '@/common/helpers'
 
 const store = useMainStore()
 
@@ -121,10 +122,14 @@ const getRankingChangeToday = (username: string): number => {
 }
 
 const getColor = (value: number, min: number, max: number) => {
+    const isDark = isDarkMode()
     const ratio = (value - min) / (max - min)
     const r = Math.round(255 * (1 - ratio)) // red
     //const g = Math.round(255 * ratio) // green
-    return `rgb(${r}, ${255}, ${r})`
+    if (isDark) {
+        return `rgb(${r}, ${255}, ${r})`
+    }
+    return `rgb(${0}, ${255 - r}, ${0})`
 }
 
 const highest = <T extends keyof ChessStats>(fieldName: T): number => {
