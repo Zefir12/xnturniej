@@ -18,7 +18,7 @@ export const useMainStore = defineStore('main', () => {
                     playedMatches: (data.stats.find((x) => x.key === 'rapid') as unknown as Rapid).stats
                         .total_game_count,
                     tacticsDone: (data.stats.find((x) => x.key === 'tactics') as unknown as Tactics)?.stats
-                        .attempt_count,
+                        .attempt_count, //f
                 } as ChessStats
             })
         })
