@@ -3,8 +3,10 @@ export type ChessStats = {
     username: string
     tacticsRating: number
     playedMatches: number
+    allPlayedGames: number
     tacticsDone: number
     timeSpentOnTatics: number
+    stalemateGamesPercent: number
 }
 
 export type ChessStatsResponse = {
@@ -190,6 +192,7 @@ export type HistoryData = {
     stats: {
         won: number
         draw: number
+        stalemate: number
         lose: number
         elo: number
         lastgame: number

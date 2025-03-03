@@ -3,13 +3,22 @@
         <DataTable
             :value="store.players"
             :defaultSortOrder="-1"
+            scrollable
             :sortField="'rating'"
             :sortOrder="-1"
             tableStyle="min-width: 50rem; background-color: #18181b"
         >
-            <Column field="username" header="Zawodnik" :style="{ width: '14rem' }">
+            <Column field="username" header="Zawodnik" frozen>
                 <template #body="{ data }">
-                    <div :style="{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: '0px' }">
+                    <div
+                        :style="{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            margin: '0px',
+                            width: '15rem',
+                        }"
+                    >
                         <img
                             :style="{ width: '50px', height: '50px', margin: '0' }"
                             :src="playerMappings[data.username as PlayerAccounts].avatar"
@@ -43,9 +52,9 @@
                     </div>
                 </template>
             </Column>
-            <Column field="rating" sortable style="width: 16rem">
+            <Column field="rating" sortable>
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '100%' }">
+                    <div :style="{ textAlign: 'center', width: '10rem' }">
                         <span>Ranking Rapidów</span>
                         <span :style="{ color: 'orange', textWrap: 'nowrap' }"> [zmiana dzisiaj]</span>
                     </div>
@@ -77,6 +86,30 @@
                     </div>
                 </template>
             </Column>
+            <Column field="stalemateGamesPercent" sortable>
+                <template #header>
+                    <div :style="{ textAlign: 'center', width: '100%' }">
+                        Partie zakończone patem
+                        <span :style="{ color: 'orange' }">[%] 💀</span>
+                    </div>
+                </template>
+                <template #body="{ data }">
+                    <div
+                        :style="{
+                            width: '12rem',
+                            textAlign: 'center',
+                            color: getColor(
+                                data.stalemateGamesPercent,
+                                lowest('stalemateGamesPercent'),
+                                highest('stalemateGamesPercent'),
+                                true,
+                            ),
+                        }"
+                    >
+                        {{ data.stalemateGamesPercent + '%' }}
+                    </div>
+                </template>
+            </Column>
             <Column field="tacticsRating" sortable style="max-width: 10rem">
                 <template #header>
                     <div :style="{ textAlign: 'center', width: '100%' }">Ranking w Zadaniach</div>
@@ -94,7 +127,9 @@
             </Column>
             <Column field="playedMatches" sortable>
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '100%' }">Zagrane rapidy</div>
+                    <div :style="{ textAlign: 'center', width: '10rem' }">
+                        Zagrane rapidy <span :style="{ color: 'orange' }">[zagrane dzisiaj]</span>
+                    </div>
                 </template>
                 <template #body="{ data }">
                     <div
@@ -103,7 +138,19 @@
                             textAlign: 'center',
                         }"
                     >
-                        {{ data.playedMatches }}
+                        {{ data.playedMatches
+                        }}<span
+                            :style="{ color: 'orange' }"
+                            v-if="
+                                store.playerEloGainsAndGames.find((player) => player.username === data.username)
+                                    ?.gamesPlayedToday
+                            "
+                        >
+                            [{{
+                                store.playerEloGainsAndGames.find((player) => player.username === data.username)
+                                    ?.gamesPlayedToday
+                            }}]</span
+                        >
                     </div>
                 </template>
             </Column>
@@ -174,10 +221,10 @@ const getRankingChangeToday = (username: string): number => {
     return 0
 }
 
-const getColor = (value: number, min: number, max: number) => {
+const getColor = (value: number, min: number, max: number, reverse = false) => {
     const isDark = isDarkMode()
     const ratio = (value - min) / (max - min)
-    const r = Math.round(255 * (1 - ratio)) // red
+    const r = Math.round(255 * (reverse ? ratio : 1 - ratio)) // red
     //const g = Math.round(255 * ratio) // green
     if (isDark) {
         return `rgb(${r}, ${255}, ${r})`
@@ -196,6 +243,7 @@ const lowest = <T extends keyof ChessStats>(fieldName: T): number => {
 <style scoped>
 .datatable {
     border-radius: 12px;
+    width: 1200px;
     overflow: hidden;
     line-height: 1.6;
     font-size: 16px;

@@ -12,3 +12,15 @@
 .p-datatable .p-datatable-tbody > tr > td {
   padding: 0;
 }
+
+::-webkit-scrollbar-corner {
+  background: #00000000;
+}
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #303030;
+  /* -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0); */
+}

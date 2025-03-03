@@ -27,7 +27,7 @@ export const useMainStore = defineStore('main', () => {
                     username: name,
                     tacticsRating: (data.stats.find((x) => x.key === 'tactics') as unknown as Tactics)?.stats.rating,
                     playedMatches: (data.stats.find((x) => x.key === 'rapid') as unknown as Rapid).stats
-                        .total_game_count,
+                        .total_game_count, //its rapids
                     tacticsDone: (data.stats.find((x) => x.key === 'tactics') as unknown as Tactics)?.stats
                         .attempt_count,
                     timeSpentOnTatics: (data.stats.find((x) => x.key === 'tactics') as unknown as Tactics)?.stats
@@ -125,6 +125,41 @@ export const useMainStore = defineStore('main', () => {
         }
     }
 
+    const getStalmatedGames = () => {
+        for (const player of Object.values(PlayerAccounts)) {
+            const games = playerGames.value
+                .find((x) => x.username.toLowerCase() == player.toLowerCase())
+                ?.games.filter(
+                    (x) =>
+                        (x.white.result == 'stalemate' && x.white.username.toLowerCase() == player.toLowerCase()) ||
+                        (x.black.result == 'stalemate' && x.black.username.toLowerCase() == player.toLowerCase()),
+                )
+            if (games) {
+                const aplayer = players.value.find((x) => x.username.toLowerCase() == player.toLowerCase())
+                if (aplayer) {
+                    aplayer.stalemateGamesPercent =
+                        Math.round(
+                            ((games.length +
+                                (playerHistoryData.value.find((x) => x.username == player)?.data.stats.stalemate ??
+                                    0)) /
+                                getPlayerAllTypeTotalGames(player)) *
+                                1000,
+                        ) / 10
+                }
+            }
+        }
+    }
+
+    const getPlayerAllTypeTotalGames = (username: string): number => {
+        const games = playerGames.value.find((player) => player.username.toLowerCase() == username.toLowerCase())?.games
+        const stats = playerHistoryData.value.find((player) => player.username == username)?.data.stats
+        const tgam = (stats?.draw ?? 0) + (stats?.lose ?? 0) + (stats?.won ?? 0) + (stats?.stalemate ?? 0)
+        if (games) {
+            return games.length + tgam
+        }
+        return 0 + tgam
+    }
+
     const getAllPlayerGames = async () => {
         const pgames = <{ username: string; games: ChessGame[] }[]>[]
         const promises = Object.values(PlayerAccounts).map((name) => {
@@ -155,6 +190,7 @@ export const useMainStore = defineStore('main', () => {
         await getAllHistoryData()
         getEloGainsTodayForPlayer()
         findMostRecentGameBetweenPlayers()
+        getStalmatedGames()
     })
     return {
         getStats,

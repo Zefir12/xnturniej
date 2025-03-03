@@ -1682,6 +1682,7 @@
         "won": 47,
         "draw": 2,
         "lose": 49,
+        "stalemate": 0,
         "lastgame": 1740789060,
         "elo": 449
     }

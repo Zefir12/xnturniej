@@ -3873,8 +3873,9 @@
     ],
     "stats": {
         "won": 208,
-        "draw": 35,
+        "draw": 21,
         "lose": 221,
+        "stalemate": 14,
         "lastgame": 1677955992,
         "elo": 924
     }
