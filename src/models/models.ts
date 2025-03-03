@@ -4,6 +4,7 @@ export type ChessStats = {
     tacticsRating: number
     playedMatches: number
     tacticsDone: number
+    timeSpentOnTatics: number
 }
 
 export type ChessStatsResponse = {

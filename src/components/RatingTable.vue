@@ -27,11 +27,18 @@
                         /></a>
                         <a
                             v-if="playerMappings[data.username as PlayerAccounts].kick"
-                            :style="{ width: '16px', height: '16px', marginLeft: '8px', cursor: 'pointer' }"
+                            :style="{ width: '16px', height: '16px', marginLeft: '4px', cursor: 'pointer' }"
                             :href="playerMappings[data.username as PlayerAccounts].kick"
                             target="_blank"
                         >
                             <img :style="{ width: '16px', height: '16px' }" :src="KickIcon"
+                        /></a>
+                        <a
+                            :style="{ width: '16px', height: '16px', marginLeft: '4px', cursor: 'pointer' }"
+                            :href="`https://www.chess.com/member/${data.username}`"
+                            target="_blank"
+                        >
+                            <img class="hoverable" :style="{ width: '16px', height: '16px' }" :src="ChesscomIcon"
                         /></a>
                     </div>
                 </template>
@@ -115,6 +122,33 @@
                     </div>
                 </template>
             </Column>
+            <Column field="timeSpentOnTatics" sortable style="max-width: 12rem">
+                <template #header>
+                    <div :style="{ textAlign: 'center', width: '100%' }">Czas spędzony na zadaniach[HH:MM]</div>
+                </template>
+                <template #body="{ data }">
+                    <div
+                        :style="{
+                            color: getColor(
+                                data.timeSpentOnTatics ?? 0,
+                                lowest('timeSpentOnTatics'),
+                                highest('timeSpentOnTatics'),
+                            ),
+                            textAlign: 'center',
+                        }"
+                    >
+                        {{
+                            Math.floor((data.timeSpentOnTatics ?? 0) / 3600)
+                                .toString()
+                                .padStart(2, '0') +
+                            ':' +
+                            Math.floor(((data.timeSpentOnTatics ?? 0) / 60) % 60)
+                                .toString()
+                                .padStart(2, '0')
+                        }}
+                    </div>
+                </template>
+            </Column>
         </DataTable>
     </div>
 </template>
@@ -128,6 +162,7 @@ import { PlayerAccounts, playerMappings } from '@/common/consts'
 import { isDarkMode } from '@/common/helpers'
 import TwitchIcon from '../assets/icons/twitch-icon.png'
 import KickIcon from '../assets/icons/kick.png'
+import ChesscomIcon from '../assets/icons/chesscom.png'
 
 const store = useMainStore()
 

@@ -4,6 +4,7 @@
         <div class="inside-container">
             <span :style="{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }">Wydarzenia</span>
             <MostEloCard :player="store.mostEloToday.player" :elo="store.mostEloToday.elo" />
+            <MostGamesCard :player="store.mostGamesToday.player" :elo="store.mostGamesToday.games" />
         </div>
     </div>
 </template>
@@ -12,10 +13,10 @@
 import { isDarkMode } from '@/common/helpers'
 import { useMainStore } from '@/stores/mainStore'
 import MostEloCard from './InfoCardComponents/MostEloCard.vue'
+import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
 
 const store = useMainStore()
 
-//get the most elo today
 //get most played games today
 //get last pat that happend
 //get last game between players and result

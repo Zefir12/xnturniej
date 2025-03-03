@@ -11,6 +11,7 @@ export const useMainStore = defineStore('main', () => {
     const playerEloGainsAndGames = ref<{ username: string; eloGains: number; gamesPlayedToday: number }[]>([])
 
     const mostEloToday = ref({ player: '', elo: 0 })
+    const mostGamesToday = ref({ player: '', games: 0 })
 
     const getStats = async () => {
         const playerDataList = <ChessStats[]>[]
@@ -25,6 +26,8 @@ export const useMainStore = defineStore('main', () => {
                         .total_game_count,
                     tacticsDone: (data.stats.find((x) => x.key === 'tactics') as unknown as Tactics)?.stats
                         .attempt_count,
+                    timeSpentOnTatics: (data.stats.find((x) => x.key === 'tactics') as unknown as Tactics)?.stats
+                        .total_seconds,
                 } as ChessStats
             })
         })
@@ -51,41 +54,47 @@ export const useMainStore = defineStore('main', () => {
             const games = playerGames.value
                 .find((x) => x.username === player)
                 ?.games.filter((x) => x.time_class == 'rapid')
+            if (games && games.length > 0) {
+                const gamesTodayCount = games.filter((x) => x.end_time >= unixTimestamp).length
+                if (gamesTodayCount > 0) {
+                    //get last elo before today
+                    let lastelo = 0
+                    const beforegames = games.filter((x) => x.end_time < unixTimestamp)
+                    if (beforegames.length > 0) {
+                        const lastGameBeforeTimestamp = beforegames.reduce((lastGame, currentGame) => {
+                            if (!lastGame || currentGame.end_time > lastGame.end_time) {
+                                return currentGame
+                            }
+                            return lastGame
+                        }, games[0])
+                        lastelo = getRatingFromGame(player, lastGameBeforeTimestamp)
+                    } else {
+                        lastelo = playerHistoryData.value.find((x) => x.username === player)?.data.stats.elo ?? 0
+                    }
 
-            if (games && games.length > 0 && games.filter((x) => x.end_time >= unixTimestamp).length > 0) {
-                //get last elo before today
-                let lastelo = 0
-                const beforegames = games.filter((x) => x.end_time < unixTimestamp)
-                if (beforegames.length > 0) {
-                    const lastGameBeforeTimestamp = beforegames.reduce((lastGame, currentGame) => {
-                        if (!lastGame || currentGame.end_time > lastGame.end_time) {
+                    const lastGameToday = games.reduce((lastGame, currentGame) => {
+                        if (
+                            currentGame.end_time >= unixTimestamp && // Ensure the game ends on or after today (not before)
+                            (!lastGame || currentGame.end_time > lastGame.end_time)
+                        ) {
                             return currentGame
                         }
                         return lastGame
                     }, games[0])
-                    lastelo = getRatingFromGame(player, lastGameBeforeTimestamp)
-                } else {
-                    lastelo = playerHistoryData.value.find((x) => x.username === player)?.data.stats.elo ?? 0
-                }
-
-                const lastGameToday = games.reduce((lastGame, currentGame) => {
-                    if (
-                        currentGame.end_time >= unixTimestamp && // Ensure the game ends on or after today (not before)
-                        (!lastGame || currentGame.end_time > lastGame.end_time)
-                    ) {
-                        return currentGame
+                    if (mostEloToday.value.elo <= getRatingFromGame(player, lastGameToday) - lastelo) {
+                        mostEloToday.value.elo = getRatingFromGame(player, lastGameToday) - lastelo
+                        mostEloToday.value.player = player
                     }
-                    return lastGame
-                }, games[0])
-                if (mostEloToday.value.elo <= getRatingFromGame(player, lastGameToday) - lastelo) {
-                    mostEloToday.value.elo = getRatingFromGame(player, lastGameToday) - lastelo
-                    mostEloToday.value.player = player
+                    if (mostGamesToday.value.games <= gamesTodayCount) {
+                        mostGamesToday.value.games = gamesTodayCount
+                        mostGamesToday.value.player = player
+                    }
+                    playerEloGainsAndGames.value.push({
+                        username: player,
+                        eloGains: getRatingFromGame(player, lastGameToday) - lastelo,
+                        gamesPlayedToday: games.filter((x) => x.end_time >= unixTimestamp).length,
+                    })
                 }
-                playerEloGainsAndGames.value.push({
-                    username: player,
-                    eloGains: getRatingFromGame(player, lastGameToday) - lastelo,
-                    gamesPlayedToday: games.filter((x) => x.end_time >= unixTimestamp).length,
-                })
             }
         }
     }
@@ -120,5 +129,5 @@ export const useMainStore = defineStore('main', () => {
         await getAllHistoryData()
         getEloGainsTodayForPlayer()
     })
-    return { getStats, players, playerGames, playerHistoryData, playerEloGainsAndGames, mostEloToday }
+    return { getStats, players, playerGames, playerHistoryData, playerEloGainsAndGames, mostEloToday, mostGamesToday }
 })
