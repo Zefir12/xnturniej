@@ -21,15 +21,22 @@ import RatingTable from './components/RatingTable.vue'
 .page-container {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
 }
 .content-container {
+    margin: auto;
     display: flex;
     flex-direction: row;
     align-items: stretch;
     justify-content: center;
+}
+/* add a media query for smaller screens */
+@media (max-width: 868px) {
+    .content-container {
+        flex-direction: column; /* switch to column layout on smaller screens */
+        align-items: center;
+        justify-content: center;
+    }
 }
 </style>
