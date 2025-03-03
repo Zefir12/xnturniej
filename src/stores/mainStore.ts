@@ -221,7 +221,7 @@ export const useMainStore = defineStore('main', () => {
 
     onMounted(async () => {
         try {
-            await getStats2()
+            await getStats()
         } catch (error) {
             await getStats2()
         }
