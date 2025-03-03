@@ -16,7 +16,8 @@ const getUserStats = async (username: string): Promise<string> => {
 const getUserMemberStats = async (username: string): Promise<ChessStatsResponse> => {
     try {
         const response = await fetch(
-            `https://cors-bypass.biazej.workers.dev/?url=https://www.chess.com/callback/member/stats/${username}`,
+            //`https://cors-bypass.biazej.workers.dev/?url=https://www.chess.com/callback/member/stats/${username}`,
+            `https://wandering-snow-df1b.szefer397.workers.dev/?url=https://www.chess.com/callback/member/stats/${username}`,
         )
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`)
