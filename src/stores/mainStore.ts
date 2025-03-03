@@ -12,6 +12,10 @@ export const useMainStore = defineStore('main', () => {
 
     const mostEloToday = ref({ player: '', elo: 0 })
     const mostGamesToday = ref({ player: '', games: 0 })
+    const mostRecentGameBetweenPlayers = ref<{ game: ChessGame | undefined; date: number }>({
+        game: undefined,
+        date: 0,
+    })
 
     const getStats = async () => {
         const playerDataList = <ChessStats[]>[]
@@ -99,6 +103,28 @@ export const useMainStore = defineStore('main', () => {
         }
     }
 
+    const findMostRecentGameBetweenPlayers = () => {
+        const validUsernames = Object.values(PlayerAccounts).map((u) => u.toLowerCase())
+        for (const player of Object.values(PlayerAccounts)) {
+            const games = playerGames.value
+                .find((x) => x.username.toLowerCase() == player.toLowerCase())
+                ?.games.filter(
+                    (game) =>
+                        validUsernames.includes(game.white.username.toLowerCase()) &&
+                        validUsernames.includes(game.black.username.toLowerCase()),
+                )
+            if (games) {
+                const sortedGames = games.sort((a, b) => b.end_time - a.end_time)
+                if (sortedGames.length > 0) {
+                    if (sortedGames[0].end_time > mostRecentGameBetweenPlayers.value.date) {
+                        mostRecentGameBetweenPlayers.value.game = sortedGames[0]
+                        mostRecentGameBetweenPlayers.value.date = sortedGames[0].end_time
+                    }
+                }
+            }
+        }
+    }
+
     const getAllPlayerGames = async () => {
         const pgames = <{ username: string; games: ChessGame[] }[]>[]
         const promises = Object.values(PlayerAccounts).map((name) => {
@@ -128,6 +154,16 @@ export const useMainStore = defineStore('main', () => {
         await getAllPlayerGames()
         await getAllHistoryData()
         getEloGainsTodayForPlayer()
+        findMostRecentGameBetweenPlayers()
     })
-    return { getStats, players, playerGames, playerHistoryData, playerEloGainsAndGames, mostEloToday, mostGamesToday }
+    return {
+        getStats,
+        players,
+        playerGames,
+        playerHistoryData,
+        playerEloGainsAndGames,
+        mostEloToday,
+        mostGamesToday,
+        mostRecentGameBetweenPlayers,
+    }
 })

@@ -3,8 +3,20 @@
         <div :style="{ backgroundColor: isDarkMode() ? '#121212' : '#fff' }" class="shadow-div"></div>
         <div class="inside-container">
             <span :style="{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }">Wydarzenia</span>
-            <MostEloCard :player="store.mostEloToday.player" :elo="store.mostEloToday.elo" />
-            <MostGamesCard :player="store.mostGamesToday.player" :elo="store.mostGamesToday.games" />
+            <MostEloCard
+                v-if="store.mostEloToday.elo != 0"
+                :player="store.mostEloToday.player"
+                :elo="store.mostEloToday.elo"
+            />
+            <MostGamesCard
+                v-if="store.mostEloToday.elo != 0"
+                :player="store.mostGamesToday.player"
+                :elo="store.mostGamesToday.games"
+            />
+            <LastPlayedEachother
+                v-if="store.mostRecentGameBetweenPlayers.game"
+                :game="store.mostRecentGameBetweenPlayers.game"
+            />
         </div>
     </div>
 </template>
@@ -14,6 +26,7 @@ import { isDarkMode } from '@/common/helpers'
 import { useMainStore } from '@/stores/mainStore'
 import MostEloCard from './InfoCardComponents/MostEloCard.vue'
 import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
+import LastPlayedEachother from './InfoCardComponents/LastPlayedEachother.vue'
 
 const store = useMainStore()
 
