@@ -7,7 +7,7 @@
             :sortOrder="-1"
             tableStyle="min-width: 50rem; background-color: #18181b"
         >
-            <Column field="username" header="Zawodnik" :style="{ width: '12rem' }">
+            <Column field="username" header="Zawodnik" :style="{ width: '14rem' }">
                 <template #body="{ data }">
                     <div :style="{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: '0px' }">
                         <img
@@ -17,6 +17,22 @@
                         <b :style="{ cursor: 'pointer', marginLeft: '0.5rem' }">{{
                             playerMappings[data.username as PlayerAccounts].name
                         }}</b>
+                        <a
+                            v-if="playerMappings[data.username as PlayerAccounts].twitch"
+                            :style="{ width: '16px', height: '16px', marginLeft: '8px' }"
+                            :href="playerMappings[data.username as PlayerAccounts].twitch"
+                            target="_blank"
+                        >
+                            <img class="hoverable" :style="{ width: '16px', height: '16px' }" :src="TwitchIcon"
+                        /></a>
+                        <a
+                            v-if="playerMappings[data.username as PlayerAccounts].kick"
+                            :style="{ width: '16px', height: '16px', marginLeft: '8px', cursor: 'pointer' }"
+                            :href="playerMappings[data.username as PlayerAccounts].kick"
+                            target="_blank"
+                        >
+                            <img :style="{ width: '16px', height: '16px' }" :src="KickIcon"
+                        /></a>
                     </div>
                 </template>
             </Column>
@@ -110,6 +126,8 @@ import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
 import { PlayerAccounts, playerMappings } from '@/common/consts'
 import { isDarkMode } from '@/common/helpers'
+import TwitchIcon from '../assets/icons/twitch-icon.png'
+import KickIcon from '../assets/icons/kick.png'
 
 const store = useMainStore()
 
@@ -150,5 +168,13 @@ const lowest = <T extends keyof ChessStats>(fieldName: T): number => {
     box-shadow:
         0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.hoverable:hover {
+    filter: saturate(4);
+    filter: contrast(1.2);
+}
+.hoverable {
+    filter: contrast(0.7);
+    cursor: pointer;
 }
 </style>
