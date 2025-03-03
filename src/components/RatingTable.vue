@@ -196,6 +196,25 @@
                     </div>
                 </template>
             </Column>
+            <Column field="allPlayedGames" sortable>
+                <template #header>
+                    <div :style="{ textAlign: 'center', width: '8rem' }">Wszystkie partie w sumie</div>
+                </template>
+                <template #body="{ data }">
+                    <div
+                        :style="{
+                            color: getColor(
+                                data.allPlayedGames ?? 0,
+                                lowest('allPlayedGames'),
+                                highest('allPlayedGames'),
+                            ),
+                            textAlign: 'center',
+                        }"
+                    >
+                        {{ data.allPlayedGames ?? 0 }}
+                    </div>
+                </template>
+            </Column>
         </DataTable>
     </div>
 </template>

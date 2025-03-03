@@ -41,6 +41,25 @@ export const useMainStore = defineStore('main', () => {
         players.value = [...playerDataList]
     }
 
+    const getStats2 = async () => {
+        const playerDataList = <ChessStats[]>[]
+
+        const promises = Object.values(PlayerAccounts).map((name) => {
+            return {
+                rating: 0,
+                username: name,
+                tacticsRating: 0,
+                playedMatches: 0,
+                tacticsDone: 0,
+                timeSpentOnTatics: 0,
+            } as ChessStats
+        })
+
+        const results = await Promise.all(promises)
+        playerDataList.push(...results)
+        players.value = [...playerDataList]
+    }
+
     const getRatingFromGame = (playername: string, game: ChessGame): number => {
         if (game.white.username.toLowerCase() == playername.toLowerCase()) {
             return game.white.rating
@@ -142,7 +161,8 @@ export const useMainStore = defineStore('main', () => {
                             ((games.length +
                                 (playerHistoryData.value.find((x) => x.username == player)?.data.stats.stalemate ??
                                     0)) /
-                                getPlayerAllTypeTotalGames(player)) *
+                                (players.value.find((x) => x.username.toLowerCase() == player.toLowerCase())
+                                    ?.allPlayedGames ?? 0)) *
                                 1000,
                         ) / 10
                 }
@@ -150,14 +170,25 @@ export const useMainStore = defineStore('main', () => {
         }
     }
 
-    const getPlayerAllTypeTotalGames = (username: string): number => {
-        const games = playerGames.value.find((player) => player.username.toLowerCase() == username.toLowerCase())?.games
-        const stats = playerHistoryData.value.find((player) => player.username == username)?.data.stats
-        const tgam = (stats?.draw ?? 0) + (stats?.lose ?? 0) + (stats?.won ?? 0) + (stats?.stalemate ?? 0)
-        if (games) {
-            return games.length + tgam
+    const getPlayerAllTypeTotalGames = () => {
+        for (const playerr of Object.values(PlayerAccounts)) {
+            const games = playerGames.value.find(
+                (player) => player.username.toLowerCase() == playerr.toLowerCase(),
+            )?.games
+            const stats = playerHistoryData.value.find((player) => player.username == playerr)?.data.stats
+            const tgam = (stats?.draw ?? 0) + (stats?.lose ?? 0) + (stats?.won ?? 0) + (stats?.stalemate ?? 0)
+            const pla = players.value.find((x) => x.username.toLowerCase() == playerr.toLowerCase())
+            if (games) {
+                if (pla) {
+                    console.log(games.length, playerr, tgam)
+                    pla.allPlayedGames = games.length + tgam
+                }
+            } else {
+                if (pla) {
+                    pla.allPlayedGames = 0 + tgam
+                }
+            }
         }
-        return 0 + tgam
     }
 
     const getAllPlayerGames = async () => {
@@ -185,15 +216,16 @@ export const useMainStore = defineStore('main', () => {
     }
 
     onMounted(async () => {
-        await getStats()
+        await getStats2()
         await getAllPlayerGames()
         await getAllHistoryData()
         getEloGainsTodayForPlayer()
         findMostRecentGameBetweenPlayers()
+        getPlayerAllTypeTotalGames()
         getStalmatedGames()
     })
     return {
-        getStats,
+        getStats2,
         players,
         playerGames,
         playerHistoryData,
