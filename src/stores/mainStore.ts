@@ -43,15 +43,19 @@ export const useMainStore = defineStore('main', () => {
 
     const getStats2 = async () => {
         const playerDataList = <ChessStats[]>[]
+        const data = await import(`../assets/data.json`)
 
         const promises = Object.values(PlayerAccounts).map((name) => {
             return {
-                rating: 0,
+                rating: (data[name].stats.find((x) => x.key === 'rapid') as unknown as Rapid)?.stats.rating,
                 username: name,
-                tacticsRating: 0,
-                playedMatches: 0,
-                tacticsDone: 0,
-                timeSpentOnTatics: 0,
+                tacticsRating: (data[name].stats.find((x) => x.key === 'tactics') as unknown as Tactics)?.stats.rating,
+                playedMatches: (data[name].stats.find((x) => x.key === 'rapid') as unknown as Rapid)?.stats
+                    .total_game_count,
+                tacticsDone: (data[name].stats.find((x) => x.key === 'tactics') as unknown as Tactics)?.stats
+                    .attempt_count,
+                timeSpentOnTatics: (data[name].stats.find((x) => x.key === 'tactics') as unknown as Tactics)?.stats
+                    .total_seconds,
             } as ChessStats
         })
 
@@ -216,7 +220,12 @@ export const useMainStore = defineStore('main', () => {
     }
 
     onMounted(async () => {
-        await getStats()
+        try {
+            await getStats2()
+        } catch (error) {
+            await getStats2()
+        }
+
         await getAllPlayerGames()
         await getAllHistoryData()
         getEloGainsTodayForPlayer()
@@ -225,7 +234,6 @@ export const useMainStore = defineStore('main', () => {
         getStalmatedGames()
     })
     return {
-        getStats2,
         players,
         playerGames,
         playerHistoryData,
