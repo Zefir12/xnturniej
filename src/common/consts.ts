@@ -50,7 +50,12 @@ export const playerMappings = {
         kick: undefined,
     },
     [PlayerAccounts.Nitro]: { name: 'Nitro', avatar: nitro, twitch: undefined, kick: 'https://kick.com/niter' },
-    [PlayerAccounts.Fornal]: { name: 'Tomasz Fornal', avatar: fornal, twitch: undefined, kick: undefined },
+    [PlayerAccounts.Fornal]: {
+        name: 'Tomasz Fornal',
+        avatar: fornal,
+        twitch: 'https://www.twitch.tv/tytusc',
+        kick: undefined,
+    },
     [PlayerAccounts.RandomBruces]: {
         name: 'RandomBruce',
         avatar: randombruce,
