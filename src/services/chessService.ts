@@ -1,4 +1,5 @@
 import type { ChessGame, ChessStatsResponse } from '@/models/models'
+import type { TacticsDTO } from '@/models/tactics'
 
 const getUserStats = async (username: string): Promise<string> => {
     try {
@@ -8,6 +9,19 @@ const getUserStats = async (username: string): Promise<string> => {
         }
         const data = await response.json()
         return data as string
+    } catch (error) {
+        throw new Error(`Network error: ${error}`)
+    }
+}
+
+const getTactics = async (): Promise<TacticsDTO> => {
+    try {
+        const response = await fetch(`http://localhost:3000/playerdata`)
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json()
+        return data as TacticsDTO
     } catch (error) {
         throw new Error(`Network error: ${error}`)
     }
@@ -46,4 +60,4 @@ const getUserGamesFromCurrentMonth = async (username: string): Promise<{ games: 
     }
 }
 
-export { getUserStats, getUserMemberStats, getUserGamesFromCurrentMonth }
+export { getUserStats, getUserMemberStats, getUserGamesFromCurrentMonth, getTactics }

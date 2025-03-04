@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { onMounted, ref } from 'vue'
-import { getUserGamesFromCurrentMonth, getUserMemberStats } from '@/services/chessService'
+import { getTactics, getUserGamesFromCurrentMonth, getUserMemberStats } from '@/services/chessService'
 import { PlayerAccounts } from '@/common/consts'
 import type { ChessGame, ChessStats, HistoryData, Rapid, Tactics } from '@/models/models'
 
@@ -16,6 +16,23 @@ export const useMainStore = defineStore('main', () => {
         game: undefined,
         date: 0,
     })
+
+    const getPlayerTactics = async () => {
+        const tactics = await getTactics()
+        const playerList = []
+        for (const name of Object.values(PlayerAccounts)) {
+            playerList.push({
+                username: name,
+                playedMatches: tactics[name]?.rapids ?? 0,
+                rating: tactics[name]?.elo ?? 0,
+                tacticsRating: tactics[name]?.rating ?? 0,
+                tacticsDone: tactics[name]?.totalCount ?? 0,
+                timeSpentOnTatics: tactics[name]?.totalSeconds ?? 0,
+            } as ChessStats)
+        }
+
+        players.value = [...playerList]
+    }
 
     const getStats = async () => {
         const playerDataList = <ChessStats[]>[]
@@ -184,7 +201,6 @@ export const useMainStore = defineStore('main', () => {
             const pla = players.value.find((x) => x.username.toLowerCase() == playerr.toLowerCase())
             if (games) {
                 if (pla) {
-                    console.log(games.length, playerr, tgam)
                     pla.allPlayedGames = games.length + tgam
                 }
             } else {
@@ -220,12 +236,7 @@ export const useMainStore = defineStore('main', () => {
     }
 
     onMounted(async () => {
-        try {
-            await getStats()
-        } catch (error) {
-            await getStats2()
-        }
-
+        await getPlayerTactics()
         await getAllPlayerGames()
         await getAllHistoryData()
         getEloGainsTodayForPlayer()
