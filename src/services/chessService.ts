@@ -16,7 +16,7 @@ const getUserStats = async (username: string): Promise<string> => {
 
 const getTactics = async (): Promise<TacticsDTO> => {
     try {
-        const response = await fetch(`http://localhost:3000/playerdata`)
+        const response = await fetch(`http://167.86.106.29:3000/playerdata`)
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`)
         }
