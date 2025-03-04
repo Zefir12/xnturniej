@@ -236,7 +236,8 @@ export const useMainStore = defineStore('main', () => {
     }
 
     onMounted(async () => {
-        await getPlayerTactics()
+        //await getPlayerTactics()
+        await getStats2()
         await getAllPlayerGames()
         await getAllHistoryData()
         getEloGainsTodayForPlayer()
