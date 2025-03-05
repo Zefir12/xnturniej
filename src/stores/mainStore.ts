@@ -214,9 +214,13 @@ export const useMainStore = defineStore('main', () => {
     const getAllPlayerGames = async () => {
         const pgames = <{ username: string; games: ChessGame[] }[]>[]
         const promises = Object.values(PlayerAccounts).map((name) => {
-            return getUserGamesFromCurrentMonth(name).then((data) => {
-                return { username: name, games: data.games } as { username: string; games: ChessGame[] }
-            })
+            if (name != PlayerAccounts.Kubon) {
+                return getUserGamesFromCurrentMonth(name).then((data) => {
+                    return { username: name, games: data.games } as { username: string; games: ChessGame[] }
+                })
+            } else {
+                return { username: name, games: [] }
+            }
         })
         const results = await Promise.all(promises)
         pgames.push(...results)

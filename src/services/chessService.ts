@@ -16,8 +16,8 @@ const getUserStats = async (username: string): Promise<string> => {
 
 const getTactics = async (): Promise<TacticsDTO> => {
     try {
-        //const response = await fetch(`http://localhost:3000/playerdata`)
-        const response = await fetch(`https://xnturniej.online/playerdata`)
+        const response = await fetch(`http://localhost:3000/playerdata`)
+        //const response = await fetch(`https://xnturniej.online/playerdata`)
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`)
         }

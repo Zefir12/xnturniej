@@ -17,9 +17,7 @@
                 v-if="store.mostRecentGameBetweenPlayers.game"
                 :game="store.mostRecentGameBetweenPlayers.game"
             />
-            {{
-                'Konto nieuczesanej, kasix i kubona z jakiegoś powodu sie wypierdalają z api chesscomu, albo sie samo naprawi albo dopiero wieczorem zrobie jakiś fix/obejście, dlatego niektóre dane są zjebane'
-            }}
+            {{ 'Jeszcze tylko statystyki kubona są lekko pospute, reszta git' }}
         </div>
     </div>
 </template>
