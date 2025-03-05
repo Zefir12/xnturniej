@@ -17,7 +17,6 @@
                 v-if="store.mostRecentGameBetweenPlayers.game"
                 :game="store.mostRecentGameBetweenPlayers.game"
             />
-            {{ 'Jeszcze tylko statystyki kubona są lekko pospute, reszta git' }}
         </div>
     </div>
 </template>
