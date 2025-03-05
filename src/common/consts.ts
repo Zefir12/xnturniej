@@ -102,6 +102,6 @@ export const playerMappings = {
         name: 'Demonz',
         avatar: demonz,
         twitch: 'https://www.twitch.tv/demonzz1',
-        kick: undefined,
+        kick: 'https://kick.com/demonzz1',
     },
 }
