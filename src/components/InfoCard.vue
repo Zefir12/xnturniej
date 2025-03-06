@@ -17,6 +17,9 @@
                 v-if="store.mostRecentGameBetweenPlayers.game"
                 :game="store.mostRecentGameBetweenPlayers.game"
             /> -->
+            {{
+                'Chwile bedzie nieczynne okienko wydarzeń bo wujaszek niter zminił nick na chess.com a nie byłem gotowy na takie manewry 💀'
+            }}
         </div>
     </div>
 </template>

@@ -4,10 +4,11 @@ import type { PlayerDTO } from '@/models/player'
 
 const getPlayerData = async (): Promise<PlayerRnkingPackedDTO> => {
     try {
-        let url = 'https://xnturniej.online/playerdata'
+        let url = 'http://localhost:3000/playerdata'
         if (import.meta.env.VITE_ENV == 'prod') {
             url = 'https://xnturniej.online/playerdata'
         }
+        console.log(url, import.meta.env.VITE_ENV)
         const yesterday = new Date()
         yesterday.setDate(yesterday.getDate() - 1)
         yesterday.setHours(23)
