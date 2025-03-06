@@ -125,22 +125,29 @@
                             color: getColor(data.mostPlayedOpening.count ?? 0, 0, 200),
                             textAlign: 'center',
                             minHeight: '52px',
+                            display: 'flex',
+                            justifyContent: 'flex-start',
+                            gap: '4px',
+                            alignItems: 'center',
                         }"
                     >
+                        <span :style="{ color: 'orange', marginLeft: '40px' }">{{
+                            ' [' + data.mostPlayedOpening.count + ']'
+                        }}</span>
                         <span
                             :style="{
                                 color: getColor(data.mostPlayedOpening.count ?? 0, 0, 200),
                                 textAlign: 'center',
+                                marginLeft: '4px',
                                 textDecoration: 'none',
                             }"
-                        >
+                            >{{ '&nbsp;'.repeat(6 - data.mostPlayedOpening.count.toString().length) }}
                             {{
                                 data.mostPlayedOpening.name
                                     .replace('https://www.chess.com/openings/', '')
                                     .replace(/-/g, ' ') ?? '-'
                             }}</span
                         >
-                        <span :style="{ color: 'orange' }">{{ ' [' + data.mostPlayedOpening.count + ']' }}</span>
                     </div>
                 </template>
             </Column>
