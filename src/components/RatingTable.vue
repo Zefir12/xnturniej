@@ -124,6 +124,7 @@
                         :style="{
                             color: getColor(data.mostPlayedOpening.count ?? 0, 0, 200),
                             textAlign: 'center',
+                            minHeight: '52px',
                         }"
                     >
                         <a
