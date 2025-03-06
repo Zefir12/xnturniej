@@ -130,6 +130,7 @@
                             :style="{
                                 color: getColor(data.mostPlayedOpening.count ?? 0, 0, 200),
                                 textAlign: 'center',
+                                textDecoration: 'none',
                             }"
                             :href="data.mostPlayedOpening.name"
                             target="_blank"
