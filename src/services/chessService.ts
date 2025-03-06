@@ -8,12 +8,12 @@ const getPlayerData = async (): Promise<PlayerRnkingPackedDTO> => {
         if (import.meta.env.VITE_ENV == 'prod') {
             url = 'https://xnturniej.online/playerdata'
         }
-        console.log(url, import.meta.env.VITE_ENV)
         const yesterday = new Date()
         yesterday.setDate(yesterday.getDate() - 1)
         yesterday.setHours(23)
         yesterday.setMinutes(59)
         yesterday.setSeconds(59)
+        yesterday.setMilliseconds(999)
         const response = await fetch(url, {
             method: 'POST',
             headers: {
