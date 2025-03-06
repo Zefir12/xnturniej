@@ -42,9 +42,9 @@ jobs:
         run: pnpm install
       - name: Find and Replace keys - Using Secrets
         env:
-          SUPA_URL: ${{ secrets.ENV }}
+          ENV: ${{ secrets.ENV }}
         run: |
-          echo "Replacing #{SUPA_URL}# with $SUPA_URL";
+          echo "Replacing #{ENV}# with $ENV";
           find . -name '.env' -type f -exec sed -i "s/#{ENV}#/${ENV//\//\\/}/g" {} \;
       - name: Build
         run: pnpm run build && cp ./dist/index.html ./dist/404.html
