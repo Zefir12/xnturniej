@@ -127,20 +127,18 @@
                             minHeight: '52px',
                         }"
                     >
-                        <a
+                        <span
                             :style="{
                                 color: getColor(data.mostPlayedOpening.count ?? 0, 0, 200),
                                 textAlign: 'center',
                                 textDecoration: 'none',
                             }"
-                            :href="data.mostPlayedOpening.name"
-                            target="_blank"
                         >
                             {{
                                 data.mostPlayedOpening.name
                                     .replace('https://www.chess.com/openings/', '')
                                     .replace(/-/g, ' ') ?? '-'
-                            }}</a
+                            }}</span
                         >
                         <span :style="{ color: 'orange' }">{{ ' [' + data.mostPlayedOpening.count + ']' }}</span>
                     </div>
