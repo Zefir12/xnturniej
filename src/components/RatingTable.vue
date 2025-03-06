@@ -4,7 +4,7 @@
             :value="store.players"
             :defaultSortOrder="-1"
             scrollable
-            :sortField="'rating'"
+            :sortField="'rapids.rating'"
             :sortOrder="-1"
             tableStyle="min-width: 50rem; background-color: #18181b"
         >
