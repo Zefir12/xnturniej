@@ -13,7 +13,15 @@ export interface PlayerRankingDto {
     }
     pategGamesPercent: number
     allGamesPlayed: number
+    mostPlayedOpening: {
+        opening: string
+        count: number
+        winPercent: number
+        lossPercent: number
+        drawPercent: number
+    }
 }
+
 export interface PlayerRnkingPackedDTO {
     [key: string]: PlayerRankingDto | null
 }

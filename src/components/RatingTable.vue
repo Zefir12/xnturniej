@@ -24,9 +24,13 @@
                             :style="{ width: '50px', height: '50px', margin: '0' }"
                             :src="playerMappings[data.player as PlayerAccounts].avatar"
                         />
-                        <b :style="{ cursor: 'pointer', marginLeft: '0.5rem' }">{{
-                            playerMappings[data.player as PlayerAccounts].name
-                        }}</b>
+                        <div>
+                            <HoverableText>
+                                <b :style="{ cursor: 'pointer', marginLeft: '0.5rem' }">
+                                    {{ playerMappings[data.player as PlayerAccounts].name }}
+                                </b>
+                            </HoverableText>
+                        </div>
                         <a
                             v-if="playerMappings[data.player as PlayerAccounts].twitch"
                             :style="{ width: '16px', height: '16px', marginLeft: '8px' }"
@@ -98,6 +102,45 @@
                         }"
                     >
                         {{ data.pategGamesPercent + '%' }}
+                    </div>
+                </template>
+            </Column>
+            <Column field="mostPlayedOpening.count" sortable>
+                <template #header>
+                    <div
+                        :style="{
+                            margin: 'auto',
+                            textAlign: 'center',
+                            width: '12rem',
+                            maxWidth: '12rem',
+                        }"
+                    >
+                        Najczęsciej grany opening
+                        <span :style="{ color: 'orange' }"> [Ilość partii]</span>
+                    </div>
+                </template>
+                <template #body="{ data }">
+                    <div
+                        :style="{
+                            color: getColor(data.mostPlayedOpening.count ?? 0, 0, 200),
+                            textAlign: 'center',
+                        }"
+                    >
+                        <a
+                            :style="{
+                                color: getColor(data.mostPlayedOpening.count ?? 0, 0, 200),
+                                textAlign: 'center',
+                            }"
+                            :href="data.mostPlayedOpening.name"
+                            target="_blank"
+                        >
+                            {{
+                                data.mostPlayedOpening.name
+                                    .replace('https://www.chess.com/openings/', '')
+                                    .replace(/-/g, ' ') ?? '-'
+                            }}</a
+                        >
+                        <span :style="{ color: 'orange' }">{{ ' [' + data.mostPlayedOpening.count + ']' }}</span>
                     </div>
                 </template>
             </Column>
@@ -200,6 +243,7 @@ import TwitchIcon from '../assets/icons/twitch-icon.png'
 import KickIcon from '../assets/icons/kick.png'
 import ChesscomIcon from '../assets/icons/chesscom.png'
 import { useUiStore } from '@/stores/uiStore'
+import HoverableText from './HoverableText.vue'
 
 const uiStore = useUiStore()
 const store = useMainStore()
@@ -220,6 +264,7 @@ const getColor = (value: number, min: number, max: number, reverse = false) => {
     transition: all 0.4s ease;
     border-radius: 12px;
     overflow: hidden;
+    max-width: 90vw;
     line-height: 1.6;
     font-size: 16px;
     z-index: 10;
