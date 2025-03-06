@@ -3,7 +3,7 @@
         <div :style="{ backgroundColor: isDarkMode() ? '#121212' : '#fff' }" class="shadow-div"></div>
         <div class="inside-container">
             <span :style="{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold' }">Wydarzenia</span>
-            <MostEloCard
+            <!-- <MostEloCard
                 v-if="store.mostEloToday.elo != 0"
                 :player="store.mostEloToday.player"
                 :elo="store.mostEloToday.elo"
@@ -16,19 +16,19 @@
             <LastPlayedEachother
                 v-if="store.mostRecentGameBetweenPlayers.game"
                 :game="store.mostRecentGameBetweenPlayers.game"
-            />
+            /> -->
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { isDarkMode } from '@/common/helpers'
-import { useMainStore } from '@/stores/mainStore'
-import MostEloCard from './InfoCardComponents/MostEloCard.vue'
-import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
-import LastPlayedEachother from './InfoCardComponents/LastPlayedEachother.vue'
+// import { useMainStore } from '@/stores/mainStore'
+// import MostEloCard from './InfoCardComponents/MostEloCard.vue'
+// import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
+// import LastPlayedEachother from './InfoCardComponents/LastPlayedEachother.vue'
 
-const store = useMainStore()
+// const store = useMainStore()
 
 //get most played games today
 //get last pat that happend

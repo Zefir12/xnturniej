@@ -3,7 +3,7 @@ export enum PlayerAccounts {
     Kasix = 'kasix909',
     Nieuczesana = 'nieuczeszek',
     Delord = 'pablosabre',
-    Nitro = 'nitro69penetrator',
+    Nitro = 'niter77',
     Fornal = 'tomaszfornal',
     RandomBruces = 'szachowytapir',
     Diables = 'xdiables',
@@ -47,7 +47,7 @@ export const playerMappings = {
         name: 'Delord',
         avatar: delord,
         twitch: 'https://www.twitch.tv/delordione',
-        kick: undefined,
+        kick: 'https://kick.com/delordione',
     },
     [PlayerAccounts.Nitro]: { name: 'Nitro', avatar: nitro, twitch: undefined, kick: 'https://kick.com/niter' },
     [PlayerAccounts.Fornal]: {
