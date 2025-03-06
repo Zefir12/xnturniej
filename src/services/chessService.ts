@@ -1,4 +1,4 @@
-import type { PlayerRankingDto, PlayerRnkingPackedDTO } from '@/models/dto'
+import type { EventDataDto, PlayerRankingDto, PlayerRnkingPackedDTO } from '@/models/dto'
 import type { PlayerStats } from '@/models/models'
 import type { PlayerDTO } from '@/models/player'
 
@@ -34,4 +34,24 @@ const getPlayerData = async (): Promise<PlayerRnkingPackedDTO> => {
     }
 }
 
-export { getPlayerData }
+const getEventdata = async (): Promise<EventDataDto> => {
+    try {
+        let url = 'http://localhost:3000/eventdata'
+        if (import.meta.env.VITE_ENV == 'prod') {
+            url = 'https://xnturniej.online/eventdata'
+        }
+        const response = await fetch(url, {
+            method: 'GET',
+        })
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json()
+        return data as EventDataDto
+    } catch (error) {
+        throw new Error(`Network error: ${error}`)
+    }
+}
+
+export { getPlayerData, getEventdata }

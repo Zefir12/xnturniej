@@ -25,3 +25,7 @@ export interface PlayerRankingDto {
 export interface PlayerRnkingPackedDTO {
     [key: string]: PlayerRankingDto | null
 }
+
+export interface EventDataDto {
+    maxPlayedToday: { uuid: string; count: number }
+}

@@ -16,23 +16,20 @@
                     </HoverableIcon>
                 </div>
             </span>
-            <!-- <MostEloCard
-                v-if="store.mostEloToday.elo != 0"
-                :player="store.mostEloToday.player"
-                :elo="store.mostEloToday.elo"
+            <MostEloCard
+                v-if="store.players.find((x) => x.rapids.change)"
+                :player="store.players.find((x) => x.rapids.change)?.player ?? ''"
+                :elo="store.players.find((x) => x.rapids.change)?.rapids.change ?? 0"
             />
             <MostGamesCard
-                v-if="store.mostEloToday.elo != 0"
-                :player="store.mostGamesToday.player"
-                :elo="store.mostGamesToday.games"
+                v-if="store.events?.maxPlayedToday?.count != 0"
+                :player="uuidToPlayer(store.events?.maxPlayedToday?.uuid ?? '')"
+                :elo="store.events?.maxPlayedToday?.count ?? 0"
             />
-            <LastPlayedEachother
+            <!-- <LastPlayedEachother
                 v-if="store.mostRecentGameBetweenPlayers.game"
                 :game="store.mostRecentGameBetweenPlayers.game"
             /> -->
-            {{
-                'Chwile bedzie nieczynne okienko wydarzeń bo wujaszek niter zminił nick na chess.com a nie byłem gotowy na takie manewry 💀'
-            }}
         </div>
         <div v-else :style="{ padding: '1rem' }">
             <span :style="{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold', position: 'relative' }">
@@ -52,19 +49,15 @@ import HoverableIcon from './HoverableIcon.vue'
 import { useUiStore } from '@/stores/uiStore'
 import { IconArrowBadgeLeftFilled } from '@tabler/icons-vue'
 import { IconArrowBadgeRightFilled } from '@tabler/icons-vue'
+import { uuidToPlayer } from '@/common/consts'
 
-// import { useMainStore } from '@/stores/mainStore'
-// import MostEloCard from './InfoCardComponents/MostEloCard.vue'
-// import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
+import { useMainStore } from '@/stores/mainStore'
+import MostEloCard from './InfoCardComponents/MostEloCard.vue'
+import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
 // import LastPlayedEachother from './InfoCardComponents/LastPlayedEachother.vue'
 
-// const store = useMainStore()
-
+const store = useMainStore()
 const uiStore = useUiStore()
-
-//get most played games today
-//get last pat that happend
-//get last game between players and result
 </script>
 
 <style scoped>
