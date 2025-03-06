@@ -21,6 +21,7 @@ import RatingTable from './components/RatingTable.vue'
 .page-container {
     display: flex;
     width: 100vw;
+    overflow: hidden;
     min-height: 100vh;
     flex-direction: row;
 }
@@ -37,6 +38,12 @@ import RatingTable from './components/RatingTable.vue'
         flex-direction: column; /* switch to column layout on smaller screens */
         align-items: center;
         justify-content: center;
+    }
+}
+/* Add this media query */
+@media (max-width: 768px) {
+    .page-container {
+        overflow: auto; /* or overflow: visible; */
     }
 }
 </style>

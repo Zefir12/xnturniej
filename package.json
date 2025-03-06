@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@primeuix/themes": "^1.0.0",
+    "@tabler/icons-vue": "^3.31.0",
     "pinia": "^3.0.1",
     "primevue": "^4.3.1",
     "vite-svg-loader": "^5.1.0",

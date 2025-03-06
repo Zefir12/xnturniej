@@ -1,9 +1,10 @@
 <template>
-    <div class="datatable">
+    <div class="datatable" :style="{ width: uiStore.sidePanelOpen ? '100%' : '1200px' }">
         <DataTable
             :value="store.players"
             :defaultSortOrder="-1"
             scrollable
+            class="custom-datatable"
             :sortField="'rapids.rating'"
             :sortOrder="-1"
             tableStyle="min-width: 50rem; background-color: #18181b"
@@ -83,7 +84,7 @@
             </Column>
             <Column field="pategGamesPercent" sortable>
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '100%' }">
+                    <div :style="{ textAlign: 'center', width: '9rem' }">
                         Partie zakończone patem
                         <span :style="{ color: 'orange' }">[%] 💀</span>
                     </div>
@@ -102,7 +103,7 @@
             </Column>
             <Column field="tactics.rating" sortable style="max-width: 10rem">
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '100%' }">Ranking w Zadaniach</div>
+                    <div :style="{ textAlign: 'center', width: '5rem' }">Ranking w Zadaniach</div>
                 </template>
                 <template #body="{ data }">
                     <div
@@ -134,7 +135,7 @@
             </Column>
             <Column field="tactics.amountDone" sortable>
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '100%' }">Zrobione zadanka</div>
+                    <div :style="{ textAlign: 'center', width: '4.5rem' }">Zrobione zadanka</div>
                 </template>
                 <template #body="{ data }">
                     <div
@@ -149,7 +150,7 @@
             </Column>
             <Column field="tactics.timeSpent" sortable style="max-width: 12rem">
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '100%' }">Czas spędzony na zadaniach[HH:MM]</div>
+                    <div :style="{ textAlign: 'center', width: '12rem' }">Czas spędzony na zadaniach[HH:MM]</div>
                 </template>
                 <template #body="{ data }">
                     <div
@@ -198,7 +199,9 @@ import { isDarkMode } from '@/common/helpers'
 import TwitchIcon from '../assets/icons/twitch-icon.png'
 import KickIcon from '../assets/icons/kick.png'
 import ChesscomIcon from '../assets/icons/chesscom.png'
+import { useUiStore } from '@/stores/uiStore'
 
+const uiStore = useUiStore()
 const store = useMainStore()
 
 const getColor = (value: number, min: number, max: number, reverse = false) => {
@@ -214,8 +217,8 @@ const getColor = (value: number, min: number, max: number, reverse = false) => {
 
 <style scoped>
 .datatable {
+    transition: all 0.4s ease;
     border-radius: 12px;
-    width: 1200px;
     overflow: hidden;
     line-height: 1.6;
     font-size: 16px;
@@ -224,12 +227,24 @@ const getColor = (value: number, min: number, max: number, reverse = false) => {
         0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.hoverable:hover {
-    filter: saturate(4);
-    filter: contrast(1.2);
+
+/* Scoped to your component */
+.custom-datatable :deep(.p-datatable-table-container) {
+    overflow-x: scroll !important;
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
 }
-.hoverable {
-    filter: contrast(0.7);
-    cursor: pointer;
+
+/* .custom-datatable :deep(.p-datatable-table-container)::-webkit-scrollbar {
+    height: 12px;
 }
+
+.custom-datatable :deep(.p-datatable-table-container)::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 6px;
+}
+
+.custom-datatable :deep(.p-datatable-table-container)::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+} */
 </style>
