@@ -16,11 +16,7 @@
                     </HoverableIcon>
                 </div>
             </span>
-            <MostEloCard
-                v-if="store.players.find((x) => x.rapids.change)"
-                :player="store.players.find((x) => x.rapids.change)?.player ?? ''"
-                :elo="store.players.find((x) => x.rapids.change)?.rapids.change ?? 0"
-            />
+            <MostEloCard v-if="mostElo()" :player="mostElo()?.player ?? ''" :elo="mostElo()?.elo ?? 0" />
             <MostGamesCard
                 v-if="store.events?.maxPlayedToday?.count != 0"
                 :player="uuidToPlayer(store.events?.maxPlayedToday?.uuid ?? '')"
@@ -58,6 +54,13 @@ import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
 
 const store = useMainStore()
 const uiStore = useUiStore()
+
+const mostElo = (): { player: string; elo: number } | null => {
+    const maxPlayer = store.players.reduce((max, current) => {
+        return current.rapids.change > max.rapids.change ? current : max
+    }, store.players[0])
+    return { player: maxPlayer.player, elo: maxPlayer.rapids.change }
+}
 </script>
 
 <style scoped>
