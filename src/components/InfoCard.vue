@@ -17,11 +17,11 @@
                 </div>
             </span>
             <MostEloCard v-if="mostElo()" :player="mostElo()?.player ?? ''" :elo="mostElo()?.elo ?? 0" />
-            <MostGamesCard
+            <!-- <MostGamesCard
                 v-if="store.events?.maxPlayedToday?.count != 0"
                 :player="uuidToPlayer(store.events?.maxPlayedToday?.uuid ?? '')"
                 :elo="store.events?.maxPlayedToday?.count ?? 0"
-            />
+            /> -->
             <!-- <LastPlayedEachother
                 v-if="store.mostRecentGameBetweenPlayers.game"
                 :game="store.mostRecentGameBetweenPlayers.game"
@@ -45,11 +45,11 @@ import HoverableIcon from './HoverableIcon.vue'
 import { useUiStore } from '@/stores/uiStore'
 import { IconArrowBadgeLeftFilled } from '@tabler/icons-vue'
 import { IconArrowBadgeRightFilled } from '@tabler/icons-vue'
-import { uuidToPlayer } from '@/common/consts'
+//import { uuidToPlayer } from '@/common/consts'
 
 import { useMainStore } from '@/stores/mainStore'
 import MostEloCard from './InfoCardComponents/MostEloCard.vue'
-import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
+//import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
 // import LastPlayedEachother from './InfoCardComponents/LastPlayedEachother.vue'
 
 const store = useMainStore()
