@@ -11,55 +11,54 @@
         >
             <Column field="username" header="Zawodnik" frozen>
                 <template #body="{ data }">
-                    <div
-                        :style="{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            margin: '0px',
-                            width: '15rem',
-                        }"
-                    >
+                    <div class="player-name-column">
                         <img
                             :style="{ width: '50px', height: '50px', margin: '0' }"
                             :src="playerMappings[data.player as PlayerAccounts].avatar"
                         />
-                        <div>
-                            <HoverableText>
-                                <b :style="{ cursor: 'pointer', marginLeft: '0.5rem' }">
-                                    {{ playerMappings[data.player as PlayerAccounts].name }}
-                                </b>
-                            </HoverableText>
+                        <div class="player-name-container">
+                            <div>
+                                <HoverableText>
+                                    <b :style="{ cursor: 'pointer', marginLeft: '0.5rem' }">
+                                        {{ playerMappings[data.player as PlayerAccounts].name }}
+                                    </b>
+                                </HoverableText>
+                            </div>
+                            <div :style="{ display: 'flex', flexDirection: 'row' }">
+                                <a
+                                    v-if="playerMappings[data.player as PlayerAccounts].twitch"
+                                    :style="{ width: '16px', height: '16px', marginLeft: '8px' }"
+                                    :href="playerMappings[data.player as PlayerAccounts].twitch"
+                                    target="_blank"
+                                >
+                                    <img class="hoverable" :style="{ width: '16px', height: '16px' }" :src="TwitchIcon"
+                                /></a>
+                                <a
+                                    v-if="playerMappings[data.player as PlayerAccounts].kick"
+                                    :style="{ width: '16px', height: '16px', marginLeft: '4px', cursor: 'pointer' }"
+                                    :href="playerMappings[data.player as PlayerAccounts].kick"
+                                    target="_blank"
+                                >
+                                    <img :style="{ width: '16px', height: '16px' }" :src="KickIcon"
+                                /></a>
+                                <a
+                                    :style="{ width: '16px', height: '16px', marginLeft: '4px', cursor: 'pointer' }"
+                                    :href="`https://www.chess.com/member/${data.player}`"
+                                    target="_blank"
+                                >
+                                    <img
+                                        class="hoverable"
+                                        :style="{ width: '16px', height: '16px' }"
+                                        :src="ChesscomIcon"
+                                /></a>
+                            </div>
                         </div>
-                        <a
-                            v-if="playerMappings[data.player as PlayerAccounts].twitch"
-                            :style="{ width: '16px', height: '16px', marginLeft: '8px' }"
-                            :href="playerMappings[data.player as PlayerAccounts].twitch"
-                            target="_blank"
-                        >
-                            <img class="hoverable" :style="{ width: '16px', height: '16px' }" :src="TwitchIcon"
-                        /></a>
-                        <a
-                            v-if="playerMappings[data.player as PlayerAccounts].kick"
-                            :style="{ width: '16px', height: '16px', marginLeft: '4px', cursor: 'pointer' }"
-                            :href="playerMappings[data.player as PlayerAccounts].kick"
-                            target="_blank"
-                        >
-                            <img :style="{ width: '16px', height: '16px' }" :src="KickIcon"
-                        /></a>
-                        <a
-                            :style="{ width: '16px', height: '16px', marginLeft: '4px', cursor: 'pointer' }"
-                            :href="`https://www.chess.com/member/${data.player}`"
-                            target="_blank"
-                        >
-                            <img class="hoverable" :style="{ width: '16px', height: '16px' }" :src="ChesscomIcon"
-                        /></a>
                     </div>
                 </template>
             </Column>
             <Column field="rapids.rating" sortable>
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '10rem' }">
+                    <div :style="{ textAlign: 'center', width: '10em' }">
                         <span>Ranking Rapidów</span>
                         <span :style="{ color: 'orange', textWrap: 'nowrap' }"> [zmiana dzisiaj]</span>
                     </div>
@@ -88,7 +87,7 @@
             </Column>
             <Column field="pategGamesPercent" sortable>
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '9rem' }">
+                    <div :style="{ textAlign: 'center', width: '9em' }">
                         Partie zakończone patem
                         <span :style="{ color: 'orange' }">[%] 💀</span>
                     </div>
@@ -96,7 +95,7 @@
                 <template #body="{ data }">
                     <div
                         :style="{
-                            width: '12rem',
+                            width: '12em',
                             textAlign: 'center',
                             color: getColor(data.pategGamesPercent, 0, 6, true),
                         }"
@@ -111,8 +110,8 @@
                         :style="{
                             margin: 'auto',
                             textAlign: 'center',
-                            width: '12rem',
-                            maxWidth: '12rem',
+                            width: '12em',
+                            maxWidth: '12em',
                         }"
                     >
                         Najczęsciej grany opening
@@ -151,9 +150,9 @@
                     </div>
                 </template>
             </Column>
-            <Column field="tactics.rating" sortable style="max-width: 10rem">
+            <Column field="tactics.rating" sortable style="max-width: 10em">
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '5rem' }">Ranking w Zadaniach</div>
+                    <div :style="{ textAlign: 'center', width: '5em' }">Ranking w Zadaniach</div>
                 </template>
                 <template #body="{ data }">
                     <div
@@ -168,7 +167,7 @@
             </Column>
             <Column field="rapids.amountPlayed" sortable>
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '10rem' }">
+                    <div :style="{ textAlign: 'center', width: '10em' }">
                         Zagrane rapidy <span :style="{ color: 'orange' }">[zagrane dzisiaj]</span>
                     </div>
                 </template>
@@ -185,7 +184,7 @@
             </Column>
             <Column field="tactics.amountDone" sortable>
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '4.5rem' }">Zrobione zadanka</div>
+                    <div :style="{ textAlign: 'center', width: '4.5em' }">Zrobione zadanka</div>
                 </template>
                 <template #body="{ data }">
                     <div
@@ -198,9 +197,9 @@
                     </div>
                 </template>
             </Column>
-            <Column field="tactics.timeSpent" sortable style="max-width: 12rem">
+            <Column field="tactics.timeSpent" sortable style="max-width: 12em">
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '12rem' }">Czas spędzony na zadaniach[HH:MM]</div>
+                    <div :style="{ textAlign: 'center', width: '12em' }">Czas spędzony na zadaniach[HH:MM]</div>
                 </template>
                 <template #body="{ data }">
                     <div
@@ -223,7 +222,7 @@
             </Column>
             <Column field="allGamesPlayed" sortable>
                 <template #header>
-                    <div :style="{ textAlign: 'center', width: '8rem' }">Wszystkie partie w sumie</div>
+                    <div :style="{ textAlign: 'center', width: '8em' }">Wszystkie partie w sumie</div>
                 </template>
                 <template #body="{ data }">
                     <div
@@ -278,6 +277,41 @@ const getColor = (value: number, min: number, max: number, reverse = false) => {
     box-shadow:
         0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 868px) {
+    .datatable {
+        max-width: 100vw;
+        font-size: 12px;
+    }
+}
+
+.player-name-column {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px;
+    width: 15rem;
+}
+
+@media (max-width: 868px) {
+    .player-name-column {
+        width: 140px;
+        flex-wrap: nowrap;
+        overflow: hidden;
+    }
+}
+
+.player-name-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media (max-width: 868px) {
+    .player-name-container {
+        flex-direction: column;
+    }
 }
 
 /* Scoped to your component */

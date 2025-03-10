@@ -12,7 +12,7 @@ import RatingTable from './components/RatingTable.vue'
     <div class="page-container">
         <div class="content-container">
             <RatingTable />
-            <InfoCard />
+            <InfoCard class="info-card" />
         </div>
     </div>
 </template>
@@ -36,14 +36,24 @@ import RatingTable from './components/RatingTable.vue'
 @media (max-width: 868px) {
     .content-container {
         flex-direction: column; /* switch to column layout on smaller screens */
-        align-items: center;
-        justify-content: center;
+        align-items: stretch;
+        justify-content: stretch;
     }
 }
 /* Add this media query */
 @media (max-width: 768px) {
     .page-container {
         overflow: auto; /* or overflow: visible; */
+    }
+}
+
+.info-card {
+    display: flex;
+}
+
+@media (max-width: 868px) {
+    .info-card {
+        display: none;
     }
 }
 </style>
