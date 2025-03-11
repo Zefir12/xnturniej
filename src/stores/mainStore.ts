@@ -13,7 +13,9 @@ export const useMainStore = defineStore('main', () => {
         const data = await getPlayerData()
         const playerList = []
         for (const name of Object.values(PlayerAccounts)) {
-            playerList.push(data[name] as PlayerRankingDto)
+            const p = data.find((player) => player.player == name)
+            if (!p) throw new Error(`Player ${name} not found`)
+            playerList.push(p)
         }
         players.value = [...playerList]
     }
@@ -21,7 +23,6 @@ export const useMainStore = defineStore('main', () => {
     const getEventDataFromServer = async () => {
         const data = await getEventdata()
         events.value = data
-        console.log(uuidToPlayer(data.maxPlayedToday.uuid))
     }
 
     onMounted(async () => {

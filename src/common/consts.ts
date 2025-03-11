@@ -13,6 +13,8 @@ export enum PlayerAccounts {
     Overpow = 'szachowychogath',
     Kubon = 'jakubon000',
     Demonz = 'demonzz1',
+    Bladii = 'kptbladii',
+    Zwierzak = 'zwierzaak',
 }
 import bagieta from '../assets/twitchicons/bagieta.png'
 import kasix from '../assets/twitchicons/kasix.png'
@@ -27,6 +29,8 @@ import suchar from '../assets/twitchicons/mokrysuchar.png'
 import overpow from '../assets/twitchicons/overpow.png'
 import kubon from '../assets/twitchicons/kubon.png'
 import demonz from '../assets/twitchicons/demonz.png'
+import bladii from '../assets/twitchicons/bladii.png'
+import zwierzak from '../assets/twitchicons/zwierzak.png'
 import hiszpan from '../assets/twitchicons/hiszpan.png'
 
 export const uuidToPlayer = (uuid: string): string => {
@@ -55,10 +59,14 @@ export const uuidToPlayer = (uuid: string): string => {
             return PlayerAccounts.Suchar
         case 'dd3a3172-ee19-11ef-84e3-1d869f158093':
             return PlayerAccounts.Overpow
-        case 'v5177ad7a-3e3e-11eb-b1e4-4fc24844be0f':
+        case '5177ad7a-3e3e-11eb-b1e4-4fc24844be0f':
             return PlayerAccounts.Kubon
         case '8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1':
             return PlayerAccounts.Demonz
+        case 'cc9cbaec-71fe-11eb-b3f6-4b737133070f':
+            return PlayerAccounts.Bladii
+        case '661e726e-b17c-11ed-97ad-175efc8ca79c':
+            return PlayerAccounts.Zwierzak
         default:
             throw new Error('Player not found')
     }
@@ -161,6 +169,20 @@ export const playerMappings = {
         avatar: demonz,
         twitch: 'https://www.twitch.tv/demonzz1',
         kick: 'https://kick.com/demonzz1',
+        uuid: '8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1',
+    },
+    [PlayerAccounts.Bladii]: {
+        name: 'Bladii',
+        avatar: bladii,
+        twitch: 'https://www.twitch.tv/bladii309',
+        kick: undefined,
+        uuid: '8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1',
+    },
+    [PlayerAccounts.Zwierzak]: {
+        name: 'Zwierzak',
+        avatar: zwierzak,
+        twitch: 'https://www.twitch.tv/zwierzaaak',
+        kick: undefined,
         uuid: '8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1',
     },
 }
