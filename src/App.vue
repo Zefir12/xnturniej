@@ -20,7 +20,7 @@ import RatingTable from './components/RatingTable.vue'
 <style scoped>
 .page-container {
     display: flex;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
     min-height: 100vh;
     flex-direction: row;
