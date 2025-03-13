@@ -302,7 +302,7 @@ const getColor = (value: number, min: number, max: number, reverse = false) => {
 
 <style scoped>
 .datatable {
-    transition: all 0.4s ease;
+    /* transition: all 0.4s ease; */
     border-radius: 12px;
     line-height: 1.6;
     font-size: 16px;

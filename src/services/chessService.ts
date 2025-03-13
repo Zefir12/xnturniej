@@ -9,7 +9,13 @@ const getPlayerData = async (): Promise<PlayerRankingDto[]> => {
             url = 'https://xnturniej.online/playerdata'
         }
         const yesterday = new Date()
-        yesterday.setDate(yesterday.getDate())
+
+        const gmt =
+            (yesterday.getHours() < yesterday.getUTCHours() ? yesterday.getHours() + 24 : yesterday.getHours()) -
+            yesterday.getUTCHours()
+        yesterday.setUTCDate(yesterday.getUTCDate())
+        yesterday.setUTCHours(yesterday.getUTCHours() + gmt)
+
         const response = await fetch(url, {
             method: 'POST',
             headers: {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted } from 'vue'
 import CountDownTimer from './components/CountDownTimer.vue'
-import InfoCard from './components/InfoCard.vue'
 import MyInfo from './components/MyInfo.vue'
 import RatingTable from './components/RatingTable.vue'
 import { useUiStore } from './stores/uiStore'
+import ContentPanel from './components/ContentPanel.vue'
 
 const uiStore = useUiStore()
 
@@ -28,8 +28,12 @@ onBeforeUnmount(() => {
         <div class="content-container">
             <div :style="{ marginBottom: '3rem', marginTop: '1rem' }">
                 <CountDownTimer text="Do startu turnieju pozostało: " :date="new Date('2025-04-24T17:00:00')" />
+                <div :style="{ position: 'absolute', top: '0.4rem', right: '1rem' }">
+                    <MyInfo />
+                </div>
             </div>
             <RatingTable :class="{ 'fullscreen-table': uiStore.dataTableFullscreen }" />
+            <ContentPanel />
         </div>
     </div>
 </template>
@@ -65,6 +69,13 @@ onBeforeUnmount(() => {
 @media (max-width: 768px) {
     .page-container {
         overflow: auto; /* or overflow: visible; */
+    }
+}
+
+@media (min-width: 868px) {
+    .page-container {
+        margin-left: 16px;
+        margin-right: 16px;
     }
 }
 
