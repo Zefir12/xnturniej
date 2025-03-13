@@ -1,37 +1,58 @@
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted } from 'vue'
+import CountDownTimer from './components/CountDownTimer.vue'
 import InfoCard from './components/InfoCard.vue'
 import MyInfo from './components/MyInfo.vue'
 import RatingTable from './components/RatingTable.vue'
+import { useUiStore } from './stores/uiStore'
+
+const uiStore = useUiStore()
+
+const handleKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape' && uiStore.dataTableFullscreen) {
+        uiStore.dataTableFullscreen = false
+    }
+}
+
+onMounted(() => {
+    document.addEventListener('keydown', handleKeydown)
+})
+
+onBeforeUnmount(() => {
+    document.removeEventListener('keydown', handleKeydown)
+})
 </script>
 
 <template>
-    <div :style="{ position: 'absolute', bottom: '0', right: '0', opacity: '0.5' }">
-        <MyInfo :style="{ padding: '0.2rem' }" />
-    </div>
-
     <div class="page-container">
         <div class="content-container">
-            <RatingTable />
-            <InfoCard class="info-card" />
+            <div :style="{ marginBottom: '3rem', marginTop: '1rem' }">
+                <CountDownTimer text="Do startu turnieju pozostało: " :date="new Date('2025-04-24T17:00:00')" />
+            </div>
+            <RatingTable :class="{ 'fullscreen-table': uiStore.dataTableFullscreen }" />
         </div>
     </div>
 </template>
 
 <style scoped>
-.page-container {
-    display: flex;
-    width: 100%;
-    overflow: hidden;
-    min-height: 100vh;
-    flex-direction: row;
-}
 .content-container {
     margin: auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: stretch;
     justify-content: center;
 }
+
+.fullscreen-table {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    z-index: 1000;
+    overflow: auto;
+}
+
 /* add a media query for smaller screens */
 @media (max-width: 868px) {
     .content-container {

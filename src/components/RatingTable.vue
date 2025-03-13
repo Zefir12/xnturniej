@@ -1,5 +1,5 @@
 <template>
-    <div class="datatable" :style="{ width: uiStore.sidePanelOpen ? '100%' : '1200px' }">
+    <div class="datatable">
         <DataTable
             :value="store.players"
             :defaultSortOrder="-1"
@@ -9,7 +9,34 @@
             :sortOrder="-1"
             tableStyle="min-width: 50rem; background-color: #18181b"
         >
-            <Column field="username" header="Zawodnik" frozen>
+            <Column field="username" frozen>
+                <template #header>
+                    <div
+                        :style="{
+                            display: 'flex',
+                            width: '100%',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'space-around',
+                        }"
+                    >
+                        <div :style="{ textAlign: 'center' }">Fullscreen:</div>
+                        <div :style="{ backgroundColor: 'transparent', cursor: 'pointer', display: 'flex' }">
+                            <HoverableText>
+                                <IconArrowsMaximize
+                                    v-if="!uiStore.dataTableFullscreen"
+                                    @click="uiStore.setDataTableFullscreen(true)"
+                                    color="orange"
+                                />
+                                <IconArrowsMinimize
+                                    v-if="uiStore.dataTableFullscreen"
+                                    @click="uiStore.setDataTableFullscreen(false)"
+                                    color="orange"
+                                />
+                            </HoverableText>
+                        </div>
+                    </div>
+                </template>
                 <template #body="{ data }">
                     <div class="player-name-column">
                         <img
@@ -254,11 +281,13 @@ import { isDarkMode } from '@/common/helpers'
 import TwitchIcon from '../assets/icons/twitch-icon.png'
 import KickIcon from '../assets/icons/kick.png'
 import ChesscomIcon from '../assets/icons/chesscom.png'
-import { useUiStore } from '@/stores/uiStore'
-import HoverableText from './HoverableText.vue'
+import { IconArrowsMaximize, IconArrowsMinimize } from '@tabler/icons-vue'
 
-const uiStore = useUiStore()
+import HoverableText from './HoverableText.vue'
+import { useUiStore } from '@/stores/uiStore'
+
 const store = useMainStore()
+const uiStore = useUiStore()
 
 const getColor = (value: number, min: number, max: number, reverse = false) => {
     const isDark = isDarkMode()
@@ -275,11 +304,9 @@ const getColor = (value: number, min: number, max: number, reverse = false) => {
 .datatable {
     transition: all 0.4s ease;
     border-radius: 12px;
-    overflow: hidden;
-    max-width: 90vw;
     line-height: 1.6;
     font-size: 16px;
-    z-index: 10;
+    width: 100%;
     box-shadow:
         0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
