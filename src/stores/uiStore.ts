@@ -2,7 +2,11 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useUiStore = defineStore('ui', () => {
-    const sidePanelOpen = ref(true)
+    const dataTableFullscreen = ref(false)
 
-    return { sidePanelOpen }
+    const setDataTableFullscreen = (value: boolean) => {
+        dataTableFullscreen.value = value
+    }
+
+    return { dataTableFullscreen, setDataTableFullscreen }
 })
