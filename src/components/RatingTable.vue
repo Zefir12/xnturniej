@@ -178,7 +178,13 @@
                             textAlign: 'center',
                         }"
                     >
-                        {{ data.rapids.amountPlayed }}<span :style="{ color: 'orange' }" v-if="false"> [{{ 0 }}]</span>
+                        {{ data.rapids.amountPlayed
+                        }}<span
+                            :style="{ color: 'orange' }"
+                            v-if="data.rapids.changePlayed && data.rapids.changePlayed > 0"
+                        >
+                            [{{ data.rapids.changePlayed }}]</span
+                        >
                     </div>
                 </template>
             </Column>

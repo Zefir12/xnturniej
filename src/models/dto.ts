@@ -4,6 +4,7 @@ export interface PlayerRankingDto {
         rating: number
         change: number
         amountPlayed: number
+        changePlayed: number
     }
     tactics: {
         rating: number
