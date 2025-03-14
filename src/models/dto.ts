@@ -25,4 +25,5 @@ export interface PlayerRankingDto {
 
 export interface EventDataDto {
     maxPlayedToday: { uuid: string; count: number }
+    lastPlayedEachOther: { uuidWinner: string; uuidLoser: string; date: number; game: string }
 }
