@@ -7,7 +7,6 @@ import { useUiStore } from './stores/uiStore'
 import ContentPanel from './components/ContentPanel.vue'
 
 const uiStore = useUiStore()
-
 const handleKeydown = (event: KeyboardEvent) => {
     if (event.key === 'Escape' && uiStore.dataTableFullscreen) {
         uiStore.dataTableFullscreen = false

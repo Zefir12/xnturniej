@@ -1,5 +1,7 @@
 <template>
-    <div
+    <a
+        :href="game.url"
+        target="_blank"
         :class="(isDarkMode() ? 'card-class' : 'card-class-light') + ' cardon'"
         :style="{
             backgroundColor: isDarkMode() ? '#2e2e34' : '#fff',
@@ -28,13 +30,13 @@
             >
         </div>
         <img width="50px" :src="playerMappings[props.game.black.username.toLowerCase() as PlayerAccounts]?.avatar" />
-    </div>
+    </a>
 </template>
 <script setup lang="ts">
 import { isDarkMode } from '@/common/helpers'
 import type { PlayerAccounts } from '@/common/consts'
 import { playerMappings } from '@/common/consts'
-import type { ChessGame } from '@/models/models'
+import type { GameDbData } from '@/models/models'
 
 const getWinText = (): string => {
     if (props.game.white.result == 'win') return 'Wygrał/a'
@@ -47,7 +49,7 @@ const getWinner = (): string => {
     return props.game.black.username.toLowerCase()
 }
 
-const props = defineProps<{ game: ChessGame }>()
+const props = defineProps<{ game: GameDbData }>()
 </script>
 <style scoped>
 .cardon {

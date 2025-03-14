@@ -10,31 +10,30 @@
                 >Wydarzenia
             </span>
             <MostEloCard v-if="mostElo()" :player="mostElo()?.player ?? ''" :elo="mostElo()?.elo ?? 0" />
-            <!-- <MostGamesCard
-                v-if="store.events?.maxPlayedToday?.count != 0"
+            <MostGamesCard
+                v-if="store.events?.maxPlayedToday && store.events?.maxPlayedToday?.count != 0"
                 :player="uuidToPlayer(store.events?.maxPlayedToday?.uuid ?? '')"
                 :elo="store.events?.maxPlayedToday?.count ?? 0"
-            /> -->
-            <!-- <LastPlayedEachother
-                v-if="store.mostRecentGameBetweenPlayers.game"
-                :game="store.mostRecentGameBetweenPlayers.game"
-            /> -->
+            />
+            <LastPlayedEachother
+                :style="{ flexGrow: '1' }"
+                v-if="store.events?.lastPlayedEachOther"
+                :game="JSON.parse(store.events?.lastPlayedEachOther.game)"
+            />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { isDarkMode } from '@/common/helpers'
-import { useUiStore } from '@/stores/uiStore'
-//import { uuidToPlayer } from '@/common/consts'
+import { uuidToPlayer } from '@/common/consts'
 
 import { useMainStore } from '@/stores/mainStore'
 import MostEloCard from './InfoCardComponents/MostEloCard.vue'
-//import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
-// import LastPlayedEachother from './InfoCardComponents/LastPlayedEachother.vue'
+import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
+import LastPlayedEachother from './InfoCardComponents/LastPlayedEachother.vue'
 
 const store = useMainStore()
-const uiStore = useUiStore()
 
 const mostElo = (): { player: string; elo: number } | null => {
     const maxPlayer = store.players.reduce((max, current) => {
@@ -48,21 +47,19 @@ const mostElo = (): { player: string; elo: number } | null => {
 .main-container {
     position: relative;
     display: flex;
+    height: 600px;
     flex-direction: column;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-    z-index: 8;
+    align-items: center;
+    border-radius: 12px;
     overflow: hidden;
     transition: all 0.4s ease;
-    box-shadow:
-        0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .inside-container {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    min-width: 425px;
     gap: 1rem;
     align-items: stretch;
 }
