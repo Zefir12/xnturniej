@@ -7,7 +7,19 @@
     >
         <div class="inside-container">
             <span :style="{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold', position: 'relative' }"
-                >Wydarzenia
+                >Nadchodzące Wydarzenia
+            </span>
+            <CustomCard />
+            <CustomCard2 />
+            <span
+                :style="{
+                    textAlign: 'center',
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    position: 'relative',
+                    marginTop: '20px',
+                }"
+                >Najnowsze
             </span>
             <MostEloCard
                 v-if="mostElo() && mostElo()?.elo != 0"
@@ -36,6 +48,8 @@ import { useMainStore } from '@/stores/mainStore'
 import MostEloCard from './InfoCardComponents/MostEloCard.vue'
 import MostGamesCard from './InfoCardComponents/MostGamesCard.vue'
 import LastPlayedEachother from './InfoCardComponents/LastPlayedEachother.vue'
+import CustomCard from './InfoCardComponents/CustomCard.vue'
+import CustomCard2 from './InfoCardComponents/CustomCard2.vue'
 
 const store = useMainStore()
 
