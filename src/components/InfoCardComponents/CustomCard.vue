@@ -19,7 +19,7 @@
                 justifyContent: 'space-around',
             }"
         >
-            <span>W niedziele, 16 marca</span>
+            <span>W niedziele, 16 marca, 11:00</span>
             <span
                 ><span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'Nieuczasana' }}</span
                 >{{ ' vs ' }}<span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'Diables' }}</span></span
