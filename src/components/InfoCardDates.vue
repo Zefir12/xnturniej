@@ -144,9 +144,9 @@ function getRandomRGBA() {
 
 onMounted(async () => {
     const a = []
-    for (const name of Object.values(PlayerAccounts)) {
+    const promises = Object.values(PlayerAccounts).map(async (name) => {
         const res = await fetchEloData(playerMappings[name as PlayerAccounts].uuid, '2025-02-11')
-        a.push({
+        return {
             label: playerMappings[name as PlayerAccounts].name,
             backgroundColor: 'rgba(26, 21, 1, 0.2)',
             borderColor: playerMappings[name as PlayerAccounts].charColor,
@@ -155,8 +155,9 @@ onMounted(async () => {
             tension: 0.4,
             avatar: playerMappings[name as PlayerAccounts].avatar,
             data: res.map((x: { elo: number; date: number }) => ({ elo: x.elo, date: new Date(x.date * 1000) })),
-        })
-    }
+        }
+    })
+    a.push(...(await Promise.all(promises)))
     eloDatasets.value = a
 })
 </script>
