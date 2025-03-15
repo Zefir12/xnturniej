@@ -79,6 +79,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/hiszpanitos',
         kick: undefined,
         uuid: '071f3ac4-5f0c-11eb-828b-1768796e906d',
+        charColor: '#57312f',
     },
     [PlayerAccounts.Kasix]: {
         name: 'Kasix',
@@ -86,6 +87,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/kasix',
         kick: undefined,
         uuid: '98f224b0-998c-11eb-9cd5-abe66a43618c',
+        charColor: '#e1e11e',
     },
     [PlayerAccounts.Nieuczesana]: {
         name: 'Nieuczesana',
@@ -93,6 +95,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/nieuczesana',
         kick: undefined,
         uuid: '59482f96-4e7b-11eb-b365-3d75dc4dac27',
+        charColor: '#942603',
     },
     [PlayerAccounts.Delord]: {
         name: 'Delord',
@@ -100,6 +103,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/delordione',
         kick: 'https://kick.com/delordione',
         uuid: '2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b',
+        charColor: '#211f29',
     },
     [PlayerAccounts.Nitro]: {
         name: 'Nitro',
@@ -107,6 +111,7 @@ export const playerMappings = {
         twitch: undefined,
         kick: 'https://kick.com/niter',
         uuid: 'a869eba0-ad12-11eb-b429-1d193d279471',
+        charColor: '#040202',
     },
     [PlayerAccounts.Fornal]: {
         name: 'Tomasz Fornal',
@@ -114,6 +119,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/tytusc',
         kick: undefined,
         uuid: '420d7862-acbe-11eb-9289-c516bf3f58be',
+        charColor: '#98fb04',
     },
     [PlayerAccounts.RandomBruces]: {
         name: 'RandomBruce',
@@ -121,6 +127,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/randombrucetv',
         kick: undefined,
         uuid: 'd56506e2-747d-11ed-b280-8d2bac408b0d',
+        charColor: '#52a42b',
     },
     [PlayerAccounts.Diables]: {
         name: 'Diables',
@@ -128,6 +135,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/diables',
         kick: undefined,
         uuid: '7814e9b0-410a-11eb-8e01-ef8706c45d64',
+        charColor: '#6f1212',
     },
     [PlayerAccounts.Netrodal]: {
         name: 'Netrodal',
@@ -135,6 +143,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/netrodalo',
         kick: undefined,
         uuid: 'c49386f0-a924-11ed-88da-cd5896a24560',
+        charColor: '#fb9804',
     },
     [PlayerAccounts.Bagieta]: {
         name: 'Bagieta',
@@ -142,6 +151,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/mbagietson',
         kick: undefined,
         uuid: '9182bba4-8cec-11ed-9f28-a1a555fdd6af',
+        charColor: '#7e7ec8',
     },
     [PlayerAccounts.Suchar]: {
         name: 'MokrySuchar',
@@ -149,6 +159,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/mokrysuchar',
         kick: 'https://kick.com/mokrysuchar',
         uuid: 'b68f03f2-41ef-11eb-b636-9ddfe076e3d4',
+        charColor: '#09dff7',
     },
     [PlayerAccounts.Overpow]: {
         name: 'Overpow',
@@ -156,13 +167,15 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/overpow',
         kick: undefined,
         uuid: 'dd3a3172-ee19-11ef-84e3-1d869f158093',
+        charColor: '#73717a',
     },
     [PlayerAccounts.Kubon]: {
         name: 'Kubon',
         avatar: kubon,
         twitch: 'https://www.twitch.tv/kubon_',
         kick: 'https://kick.com/kubon',
-        uuid: 'v5177ad7a-3e3e-11eb-b1e4-4fc24844be0f',
+        uuid: '5177ad7a-3e3e-11eb-b1e4-4fc24844be0f',
+        charColor: '#c48687',
     },
     [PlayerAccounts.Demonz]: {
         name: 'Demonz',
@@ -170,19 +183,22 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/demonzz1',
         kick: 'https://kick.com/demonzz1',
         uuid: '8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1',
+        charColor: '#4b2f29',
     },
     [PlayerAccounts.Bladii]: {
         name: 'Bladii',
         avatar: bladii,
         twitch: 'https://www.twitch.tv/bladii309',
         kick: undefined,
-        uuid: '8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1',
+        uuid: 'cc9cbaec-71fe-11eb-b3f6-4b737133070f',
+        charColor: '#4f4f4dX',
     },
     [PlayerAccounts.Zwierzak]: {
         name: 'Zwierzak',
         avatar: zwierzak,
         twitch: 'https://www.twitch.tv/zwierzaaak',
         kick: undefined,
-        uuid: '8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1',
+        uuid: '661e726e-b17c-11ed-97ad-175efc8ca79c',
+        charColor: '#d02f9f',
     },
 }

@@ -17,4 +17,10 @@ import InfoCardDates from './InfoCardDates.vue'
     gap: 1rem;
     margin-top: 8px;
 }
+
+@media (min-width: 868px) {
+    .main-containerr {
+        flex-wrap: nowrap;
+    }
+}
 </style>
