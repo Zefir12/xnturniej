@@ -45,7 +45,9 @@
                         />
                         <div class="player-name-container">
                             <div>
-                                <HoverableText>
+                                <HoverableText
+                                    @click="goToPlayerPage(playerMappings[data.player as PlayerAccounts].name)"
+                                >
                                     <b :style="{ cursor: 'pointer', marginLeft: '0.5rem' }">
                                         {{ playerMappings[data.player as PlayerAccounts].name }}
                                     </b>
@@ -285,6 +287,13 @@ import { IconArrowsMaximize, IconArrowsMinimize } from '@tabler/icons-vue'
 
 import HoverableText from './HoverableText.vue'
 import { useUiStore } from '@/stores/uiStore'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToPlayerPage = (playerName: string) => {
+    router.push(`/player/${playerName}`)
+}
 
 const store = useMainStore()
 const uiStore = useUiStore()

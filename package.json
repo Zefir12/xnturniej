@@ -17,6 +17,9 @@
   "dependencies": {
     "@primeuix/themes": "^1.0.0",
     "@tabler/icons-vue": "^3.31.0",
+    "chart.js": "^4.4.8",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "date-fns": "^4.1.0",
     "pinia": "^3.0.1",
     "primevue": "^4.3.1",
     "vite-svg-loader": "^5.1.0",
@@ -25,6 +28,7 @@
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
+    "@types/chart.js": "^2.9.41",
     "@types/node": "^22.13.4",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/eslint-config-prettier": "^10.2.0",

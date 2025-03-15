@@ -9,7 +9,11 @@
             <span :style="{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold', position: 'relative' }"
                 >Wydarzenia
             </span>
-            <MostEloCard v-if="mostElo()" :player="mostElo()?.player ?? ''" :elo="mostElo()?.elo ?? 0" />
+            <MostEloCard
+                v-if="mostElo() && mostElo()?.elo != 0"
+                :player="mostElo()?.player ?? ''"
+                :elo="mostElo()?.elo ?? 0"
+            />
             <MostGamesCard
                 v-if="store.events?.maxPlayedToday && store.events?.maxPlayedToday?.count != 0"
                 :player="uuidToPlayer(store.events?.maxPlayedToday?.uuid ?? '')"
@@ -55,21 +59,19 @@ const mostElo = (): { player: string; elo: number } | null => {
     transition: all 0.4s ease;
 }
 
+@media (max-width: 868px) {
+    .inside-container {
+        font-size: 12px;
+        width: 100vw;
+    }
+}
+
 .inside-container {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    min-width: 425px;
+    min-width: 325px;
     gap: 1rem;
     align-items: stretch;
-}
-.shadow-div {
-    position: absolute;
-    border-radius: 12px;
-    top: 0;
-    left: -20px;
-    width: 24px;
-    height: 100%;
-    z-index: 9;
 }
 </style>
