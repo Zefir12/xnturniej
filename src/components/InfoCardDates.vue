@@ -24,86 +24,6 @@ import { onMounted, ref } from 'vue'
 import EloChart from './EloChart.vue'
 import { PlayerAccounts, playerMappings } from '@/common/consts'
 
-// const chartData = ref({
-//     type: 'line' as const,
-//     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-//     datasets: [
-//         {
-//             label: 'Dataset One',
-//             backgroundColor: 'rgba(75, 192, 192, 0.2)',
-//             borderColor: 'rgba(75, 192, 192, 1)',
-//             borderWidth: 2,
-//             pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-//             tension: 0.4, // This enables cubic interpolation
-//             data: [65, 59, 80, 81, 56, 55],
-//             avatar: zwierzak,
-//         },
-//         {
-//             label: 'Dataset Two',
-//             backgroundColor: 'rgba(54, 162, 235, 0.2)',
-//             borderColor: 'rgba(54, 162, 235, 1)',
-//             borderWidth: 2,
-//             pointBackgroundColor: 'rgba(54, 162, 235, 1)',
-//             tension: 0.4,
-//             data: [28, 48, 40, 19, 86, 27],
-//             avatar: overpow,
-//         },
-//         {
-//             label: 'Dataset Three',
-//             backgroundColor: 'rgba(255, 99, 132, 0.2)',
-//             borderColor: 'rgba(255, 99, 132, 1)',
-//             borderWidth: 2,
-//             pointBackgroundColor: 'rgba(255, 99, 132, 1)',
-//             tension: 0.4,
-//             data: [33, 65, 58, 45, 71, 90],
-//             avatar: kubon,
-//         },
-//         {
-//             label: 'Dataset Four',
-//             backgroundColor: 'rgba(255, 206, 86, 0.2)',
-//             borderColor: 'rgba(255, 206, 86, 1)',
-//             borderWidth: 2,
-//             pointBackgroundColor: 'rgba(255, 206, 86, 1)',
-//             tension: 0.4,
-//             data: [45, 25, 62, 56, 48, 70],
-//             avatar: demonz,
-//         },
-//         {
-//             label: 'Dataset Five',
-//             backgroundColor: 'rgba(153, 102, 255, 0.2)',
-//             borderColor: 'rgba(153, 102, 255, 1)',
-//             borderWidth: 2,
-//             pointBackgroundColor: 'rgba(153, 102, 255, 1)',
-//             tension: 0.4,
-//             data: [12, 34, 67, 23, 56, 78],
-//             avatar: bladii,
-//         },
-//     ],
-// })
-
-// const chartOptions = ref<ChartOptions>({
-//     responsive: true,
-//     maintainAspectRatio: false,
-//     scales: {
-//         y: {
-//             beginAtZero: true,
-//         },
-//     },
-//     elements: {
-//         point: {
-//             radius: 4,
-//             hoverRadius: 6,
-//         },
-//         line: {
-//             tension: 0.4,
-//         },
-//     },
-//     interaction: {
-//         intersect: false,
-//         mode: 'index',
-//     },
-// })
-
 const eloDatasets = ref([])
 
 const fetchEloData = async (playerUuid: string, date: string) => {
@@ -152,7 +72,8 @@ onMounted(async () => {
             borderColor: playerMappings[name as PlayerAccounts].charColor,
             borderWidth: 2,
             pointBackgroundColor: 'rgba(21, 21, 1, 1)',
-            tension: 0.4,
+            tension: 0.5,
+            cubicInterpolationMode: 'monotone',
             avatar: playerMappings[name as PlayerAccounts].avatar,
             data: res.map((x: { elo: number; date: number }) => ({ elo: x.elo, date: new Date(x.date * 1000) })),
         }

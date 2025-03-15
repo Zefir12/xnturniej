@@ -103,7 +103,7 @@ export const playerMappings = {
         twitch: 'https://www.twitch.tv/delordione',
         kick: 'https://kick.com/delordione',
         uuid: '2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b',
-        charColor: '#211f29',
+        charColor: '#0078d4',
     },
     [PlayerAccounts.Nitro]: {
         name: 'Nitro',
