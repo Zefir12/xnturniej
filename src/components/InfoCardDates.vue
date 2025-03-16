@@ -65,7 +65,7 @@ function getRandomRGBA() {
 onMounted(async () => {
     const a = []
     const promises = Object.values(PlayerAccounts).map(async (name) => {
-        const res = await fetchEloData(playerMappings[name as PlayerAccounts].uuid, '2025-02-11')
+        const res = await fetchEloData(playerMappings[name as PlayerAccounts].uuid, '2025-02-15')
 
         return {
             label: playerMappings[name as PlayerAccounts].name,

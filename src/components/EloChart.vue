@@ -226,6 +226,7 @@ const renderChart = async () => {
             point: {
                 radius: 1,
                 hoverRadius: 16,
+                hitRadius: 26,
             },
         },
         interaction: {

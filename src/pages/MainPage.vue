@@ -8,7 +8,7 @@
                 </div>
             </div>
             <RatingTable :class="{ 'fullscreen-table': uiStore.dataTableFullscreen }" />
-            <ContentPanel />
+            <ContentPanel :style="{ display: uiStore.dataTableFullscreen ? 'none' : 'flex' }" />
         </div>
     </div>
 </template>
