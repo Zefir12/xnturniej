@@ -9,7 +9,7 @@
             <span :style="{ textAlign: 'center', fontSize: '20px', fontWeight: 'bold', position: 'relative' }"
                 >Nadchodzące Wydarzenia
             </span>
-            <CustomCard />
+
             <CustomCard2 />
             <span
                 :style="{
@@ -21,6 +21,7 @@
                 }"
                 >Najnowsze
             </span>
+            <CustomCard />
             <MostEloCard
                 v-if="mostElo() && mostElo()?.elo != 0"
                 :player="mostElo()?.player ?? ''"

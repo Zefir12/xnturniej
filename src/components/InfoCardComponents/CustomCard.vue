@@ -8,7 +8,8 @@
             justifyContent: 'stretch',
         }"
     >
-        <a href="https://www.twitch.tv/diables" target="_blank"><img width="80px" :src="diables" /></a>
+        <a href="https://www.twitch.tv/nieuczesana" target="_blank"><img width="80px" :src="nieuczesana" /></a>
+
         <div
             :style="{
                 display: 'flex',
@@ -19,27 +20,36 @@
                 justifyContent: 'space-around',
             }"
         >
-            <span>W niedziele, 16 marca, 11:00</span>
+            <span>16 marca, 11:00</span>
             <span
-                ><span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'Nieuczasana' }}</span
-                >{{ ' vs ' }}<span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'Diables' }}</span></span
+                ><span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'Nieuczesana' }}</span
+                >{{ ' vs ' }}<span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'Diables' }}</span
+                >[+<span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'Bladii' }}</span
+                >]</span
             >
             <span>Best of 9, o 50 subów</span>
+            <span :style="{ color: 'orange', fontWeight: 'bold' }">Wygrała Nieuczesana 5:2</span>
         </div>
-        <a href="https://www.twitch.tv/nieuczesana" target="_blank"><img width="80px" :src="nieuczesana" /></a>
+        <div :style="{ display: 'flex', flexDirection: 'column', alignItems: 'center' }">
+            <a href="https://www.twitch.tv/diables" target="_blank"><img width="80px" :src="diables" /></a>
+            <a href="https://www.twitch.tv/bladii309" target="_blank"
+                ><img width="80px" :src="bladii" :style="{ marginTop: '-4px' }"
+            /></a>
+        </div>
     </div>
 </template>
 <script setup lang="ts">
 import { isDarkMode } from '@/common/helpers'
 import nieuczesana from '../../assets/twitchicons/nieuczesana.png'
 import diables from '../../assets/twitchicons/diables.png'
+import bladii from '../../assets/twitchicons/bladii.png'
 </script>
 <style scoped>
 .cardon {
     transition-property: all;
     transition-duration: 0.2s;
     overflow: hidden;
-    height: 80px;
+    height: 160px;
     font-size: 12px;
 }
 

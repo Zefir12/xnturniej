@@ -40,6 +40,7 @@ const props = defineProps<{ player: string; elo: number }>()
     transition-duration: 0.2s;
     overflow: hidden;
     height: 50px;
+    font-size: 12px;
 }
 
 .cardon:hover {

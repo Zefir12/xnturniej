@@ -57,6 +57,7 @@ const props = defineProps<{ game: GameDbData }>()
     transition-duration: 0.2s;
     overflow: hidden;
     height: 50px;
+    font-size: 12px;
 }
 
 .cardon:hover {

@@ -66,6 +66,7 @@ onMounted(async () => {
     const a = []
     const promises = Object.values(PlayerAccounts).map(async (name) => {
         const res = await fetchEloData(playerMappings[name as PlayerAccounts].uuid, '2025-02-11')
+
         return {
             label: playerMappings[name as PlayerAccounts].name,
             backgroundColor: 'rgba(26, 21, 1, 0.2)',
