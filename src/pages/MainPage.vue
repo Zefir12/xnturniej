@@ -28,12 +28,37 @@ const handleKeydown = (event: KeyboardEvent) => {
     }
 }
 
+const saveScrollPosition = () => {
+    try {
+        sessionStorage.setItem('scrollPosition', JSON.stringify(window.scrollY))
+    } catch (error) {
+        console.error('Failed to save scroll position:', error)
+    }
+}
+
+const restoreScrollPosition = () => {
+    try {
+        const savedPosition = sessionStorage.getItem('scrollPosition')
+        if (savedPosition !== null) {
+            window.scrollTo(0, parseInt(JSON.parse(savedPosition)))
+        } else {
+            window.scrollTo(0, 0) // Default to top if no saved position
+        }
+    } catch (error) {
+        console.error('Failed to restore scroll position:', error)
+        window.scrollTo(0, 0) // Default to top on error
+    }
+}
+
 onMounted(() => {
     document.addEventListener('keydown', handleKeydown)
+    restoreScrollPosition()
+    window.addEventListener('beforeunload', saveScrollPosition)
 })
 
 onBeforeUnmount(() => {
     document.removeEventListener('keydown', handleKeydown)
+    window.removeEventListener('beforeunload', saveScrollPosition)
 })
 </script>
 

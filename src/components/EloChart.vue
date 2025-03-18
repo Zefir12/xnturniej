@@ -188,8 +188,75 @@ const renderChart = async () => {
         },
     }
 
+    const delayBetweenPoints = 10
+    const previousY = (ctx) => {
+        if (ctx.index === 0) {
+            return ctx.chart.scales.y.getPixelForValue(100)
+        }
+
+        const previousPoint = ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1]
+        // Check if the previous point exists and has the getProps method
+        if (previousPoint && typeof previousPoint.getProps === 'function') {
+            return previousPoint.getProps(['y'], true).y
+        }
+
+        // Fallback to a default value if the previous point isn't available
+        return ctx.chart.scales.y.getPixelForValue(100)
+    }
+    const animation = {
+        x: {
+            type: 'number',
+            easing: 'linear',
+            duration(ctx) {
+                // Get total points in this dataset
+                const totalPoints = ctx.chart.getDatasetMeta(ctx.datasetIndex).data.length
+                // Base delay value divided by the ratio of points
+                // Using a minimum to prevent extremely slow animations for very small datasets
+                return Math.max(200 / totalPoints, 10)
+            },
+            from: NaN, // the point is initially skipped
+            delay(ctx) {
+                if (ctx.type !== 'data' || ctx.xStarted) {
+                    return 0
+                }
+                ctx.xStarted = true
+
+                // Get total points in this dataset
+                const totalPoints = ctx.chart.getDatasetMeta(ctx.datasetIndex).data.length
+                // Calculate delay based on index and total points
+                const baseDelay = 1000 / totalPoints
+                return ctx.index * baseDelay
+            },
+        },
+        y: {
+            type: 'number',
+            easing: 'linear',
+            duration(ctx) {
+                // Get total points in this dataset
+                const totalPoints = ctx.chart.getDatasetMeta(ctx.datasetIndex).data.length
+                // Base delay value divided by the ratio of points
+                return Math.max(200 / totalPoints, 10)
+            },
+            from: previousY,
+            delay(ctx) {
+                if (ctx.type !== 'data' || ctx.yStarted) {
+                    return 0
+                }
+                ctx.yStarted = true
+
+                // Get total points in this dataset
+                const totalPoints = ctx.chart.getDatasetMeta(ctx.datasetIndex).data.length
+
+                // Calculate delay based on index and total points
+                const baseDelay = 10 / totalPoints
+                return ctx.index * baseDelay
+            },
+        },
+    }
+
     // Default options for time scale
     const defaultOptions = {
+        animation,
         responsive: true,
         maintainAspectRatio: false,
         scales: {
