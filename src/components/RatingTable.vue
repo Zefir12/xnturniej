@@ -1,7 +1,7 @@
 <template>
     <div class="datatable">
         <DataTable
-            :value="store.players"
+            :value="store.players.length > 0 ? store.players : Array(16).fill({} as PlayerRankingDto)"
             :defaultSortOrder="-1"
             scrollable
             class="custom-datatable"
@@ -38,7 +38,7 @@
                     </div>
                 </template>
                 <template #body="{ data }">
-                    <div class="player-name-column">
+                    <div v-if="data?.player" class="player-name-column">
                         <img
                             :style="{ width: '50px', height: '50px', margin: '0' }"
                             :src="playerMappings[data.player as PlayerAccounts].avatar"
@@ -83,6 +83,14 @@
                             </div>
                         </div>
                     </div>
+                    <div v-else>
+                        <div class="player-name-column">
+                            <img
+                                :style="{ width: '50px', height: '50px', margin: '0', opacity: '0.5' }"
+                                :src="avatar"
+                            />
+                        </div>
+                    </div>
                 </template>
             </Column>
             <Column field="rapids.rating" sortable>
@@ -94,14 +102,15 @@
                 </template>
                 <template #body="{ data }">
                     <div
+                        v-if="data?.rapids"
                         :style="{
                             display: 'flex',
                             flexDirection: 'row',
-                            color: getColor(data.rapids.rating, 100, 1200),
+                            color: getColor(data?.rapids?.rating ?? 0, 100, 1200),
                         }"
                     >
                         <div :style="{ width: '110px', textAlign: 'end', marginRight: '0.3rem' }">
-                            {{ data.rapids.rating }}
+                            {{ data?.rapids?.rating ?? 0 }}
                         </div>
                         <div>
                             <span
@@ -112,6 +121,7 @@
                             </span>
                         </div>
                     </div>
+                    <div v-else>0</div>
                 </template>
             </Column>
             <Column field="pategGamesPercent" sortable>
@@ -126,10 +136,10 @@
                         :style="{
                             width: '12em',
                             textAlign: 'center',
-                            color: getColor(data.pategGamesPercent, 0, 6, true),
+                            color: getColor(data?.pategGamesPercent ?? 0, 0, 6, true),
                         }"
                     >
-                        {{ data.pategGamesPercent + '%' }}
+                        {{ (data?.pategGamesPercent ?? 0) + '%' }}
                     </div>
                 </template>
             </Column>
@@ -149,10 +159,11 @@
                 </template>
                 <template #body="{ data }">
                     <div
+                        v-if="data?.mostPlayedOpening"
                         :style="{
-                            color: getColor(data.mostPlayedOpening.count ?? 0, 0, 200),
+                            color: getColor(data?.mostPlayedOpening?.count ?? 0, 0, 200),
                             textAlign: 'center',
-                            minHeight: '52px',
+                            minHeight: '50px',
                             display: 'flex',
                             justifyContent: 'flex-start',
                             gap: '4px',
@@ -160,11 +171,11 @@
                         }"
                     >
                         <span :style="{ color: 'orange', marginLeft: '40px' }">{{
-                            ' [' + data.mostPlayedOpening.count + ']'
+                            ' [' + (data?.mostPlayedOpening?.count ?? 0) + ']'
                         }}</span>
                         <span
                             :style="{
-                                color: getColor(data.mostPlayedOpening.count ?? 0, 0, 200),
+                                color: getColor(data?.mostPlayedOpening?.count ?? 0, 0, 200),
                                 textAlign: 'center',
                                 marginLeft: '4px',
                                 textDecoration: 'none',
@@ -177,6 +188,7 @@
                             }}</span
                         >
                     </div>
+                    <div v-else>-</div>
                 </template>
             </Column>
             <Column field="tactics.rating" sortable style="max-width: 10em">
@@ -186,11 +198,11 @@
                 <template #body="{ data }">
                     <div
                         :style="{
-                            color: getColor(data.tactics.rating ?? 0, 800, 2300),
+                            color: getColor(data?.tactics?.rating ?? 0, 800, 2300),
                             textAlign: 'center',
                         }"
                     >
-                        {{ data.tactics.rating ?? '-' }}
+                        {{ data?.tactics?.rating ?? '-' }}
                     </div>
                 </template>
             </Column>
@@ -203,16 +215,16 @@
                 <template #body="{ data }">
                     <div
                         :style="{
-                            color: getColor(data.rapids.amountPlayed ?? 0, 1, 1000),
+                            color: getColor(data?.rapids?.amountPlayed ?? 0, 1, 1000),
                             textAlign: 'center',
                         }"
                     >
-                        {{ data.rapids.amountPlayed
+                        {{ data?.rapids?.amountPlayed ?? 0
                         }}<span
                             :style="{ color: 'orange' }"
-                            v-if="data.rapids.changePlayed && data.rapids.changePlayed > 0"
+                            v-if="data?.rapids?.changePlayed && data?.rapids?.changePlayed > 0"
                         >
-                            [{{ data.rapids.changePlayed }}]</span
+                            [{{ data?.rapids?.changePlayed }}]</span
                         >
                     </div>
                 </template>
@@ -224,11 +236,11 @@
                 <template #body="{ data }">
                     <div
                         :style="{
-                            color: getColor(data.tactics.amountDone ?? 0, 100, 1500),
+                            color: getColor(data?.tactics?.amountDone ?? 0, 100, 1500),
                             textAlign: 'center',
                         }"
                     >
-                        {{ data.tactics.amountDone ?? 0 }}
+                        {{ data?.tactics?.amountDone ?? 0 }}
                     </div>
                 </template>
             </Column>
@@ -239,16 +251,16 @@
                 <template #body="{ data }">
                     <div
                         :style="{
-                            color: getColor(data.tactics.timeSpent ?? 0, 0, 100000),
+                            color: getColor(data?.tactics?.timeSpent ?? 0, 0, 100000),
                             textAlign: 'center',
                         }"
                     >
                         {{
-                            Math.floor((data.tactics.timeSpent ?? 0) / 3600)
+                            Math.floor((data?.tactics?.timeSpent ?? 0) / 3600)
                                 .toString()
                                 .padStart(2, '0') +
                             ':' +
-                            Math.floor(((data.tactics.timeSpent ?? 0) / 60) % 60)
+                            Math.floor(((data?.tactics?.timeSpent ?? 0) / 60) % 60)
                                 .toString()
                                 .padStart(2, '0')
                         }}
@@ -284,10 +296,12 @@ import TwitchIcon from '../assets/icons/twitch-icon.png'
 import KickIcon from '../assets/icons/kick.png'
 import ChesscomIcon from '../assets/icons/chesscom.png'
 import { IconArrowsMaximize, IconArrowsMinimize } from '@tabler/icons-vue'
+import avatar from '../assets/twitchicons/defaultavatar.png'
 
 import HoverableText from './HoverableText.vue'
 import { useUiStore } from '@/stores/uiStore'
 import { useRouter } from 'vue-router'
+import type { PlayerRankingDto } from '@/models/dto'
 
 const router = useRouter()
 

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, onBeforeMount } from 'vue'
 import { getEventdata, getPlayerData } from '@/services/chessService'
 import { PlayerAccounts, uuidToPlayer } from '@/common/consts'
 import type { PlayerStats } from '@/models/models'
