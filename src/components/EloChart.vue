@@ -256,7 +256,7 @@ const renderChart = async () => {
 
     // Default options for time scale
     const defaultOptions = {
-        animation,
+        animation: false,
         responsive: true,
         maintainAspectRatio: false,
         scales: {
