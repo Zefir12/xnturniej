@@ -9,6 +9,14 @@ export const getAllPlayers = () => {
     return playerKeys.map((player) => playerMappings[player as PlayerAccounts])
 }
 
+export const getPlayerByNiceName = (name: string) => {
+    return Object.values(playerMappings).find((player) => player.name == name)
+}
+
+export const getPlayerByUuid = (uuid: string) => {
+    return Object.values(playerMappings).find((player) => player.uuid == uuid)
+}
+
 export const playerByUuid = (
     uuid: string,
 ): { name: string; avatar: string; twitch: string; kick: undefined; uuid: string } | undefined => {

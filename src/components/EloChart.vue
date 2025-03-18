@@ -188,7 +188,6 @@ const renderChart = async () => {
         },
     }
 
-    const delayBetweenPoints = 10
     const previousY = (ctx) => {
         if (ctx.index === 0) {
             return ctx.chart.scales.y.getPixelForValue(100)
