@@ -4,6 +4,11 @@ export const isDarkMode = () => {
     return window.matchMedia('(prefers-color-scheme: dark)').matches
 }
 
+export const getAllPlayers = () => {
+    const playerKeys = Object.keys(playerMappings)
+    return playerKeys.map((player) => playerMappings[player as PlayerAccounts])
+}
+
 export const playerByUuid = (
     uuid: string,
 ): { name: string; avatar: string; twitch: string; kick: undefined; uuid: string } | undefined => {

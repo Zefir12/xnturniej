@@ -212,7 +212,7 @@ const renderChart = async () => {
                 const totalPoints = ctx.chart.getDatasetMeta(ctx.datasetIndex).data.length
                 // Base delay value divided by the ratio of points
                 // Using a minimum to prevent extremely slow animations for very small datasets
-                return Math.max(200 / totalPoints, 10)
+                return 1
             },
             from: NaN, // the point is initially skipped
             delay(ctx) {
@@ -224,7 +224,7 @@ const renderChart = async () => {
                 // Get total points in this dataset
                 const totalPoints = ctx.chart.getDatasetMeta(ctx.datasetIndex).data.length
                 // Calculate delay based on index and total points
-                const baseDelay = 1000 / totalPoints
+                const baseDelay = 10 / totalPoints
                 return ctx.index * baseDelay
             },
         },
@@ -235,7 +235,7 @@ const renderChart = async () => {
                 // Get total points in this dataset
                 const totalPoints = ctx.chart.getDatasetMeta(ctx.datasetIndex).data.length
                 // Base delay value divided by the ratio of points
-                return Math.max(200 / totalPoints, 10)
+                return 1
             },
             from: previousY,
             delay(ctx) {
@@ -325,6 +325,7 @@ onBeforeMount(async () => {
 watch(
     () => props.datasets,
     async () => {
+        chart.value?.stop()
         loadedAvatars.value = {} // Clear cached avatars when data changes
         await renderChart()
     },
