@@ -141,6 +141,9 @@ onBeforeMount(async () => {
 
 <style scoped>
 .styled-button {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     border-radius: 20px;
     border-style: solid;
     border-color: rgb(68, 68, 68);
@@ -152,6 +155,9 @@ onBeforeMount(async () => {
 }
 
 .filled-button {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     border-radius: 20px;
     border-style: solid;
     border-color: rgb(68, 68, 68);

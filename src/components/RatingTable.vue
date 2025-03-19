@@ -173,20 +173,41 @@
                         <span :style="{ color: 'orange', marginLeft: '40px' }">{{
                             ' [' + (data?.mostPlayedOpening?.count ?? 0) + ']'
                         }}</span>
-                        <span
-                            :style="{
-                                color: getColor(data?.mostPlayedOpening?.count ?? 0, 0, 200),
-                                textAlign: 'center',
-                                marginLeft: '4px',
-                                textDecoration: 'none',
-                            }"
-                            >{{ '&nbsp;'.repeat(6 - data.mostPlayedOpening.count.toString().length) }}
-                            {{
-                                data.mostPlayedOpening.name
-                                    .replace('https://www.chess.com/openings/', '')
-                                    .replace(/-/g, ' ') ?? '-'
-                            }}</span
-                        >
+                        <HoverableText>
+                            <span
+                                v-if="playerMappings[data.player as PlayerAccounts].name == 'Nieuczesana'"
+                                v-tooltip="'Podobno wariant morzeszczański 🤷‍♀️'"
+                                :style="{
+                                    color: getColor(data?.mostPlayedOpening?.count ?? 0, 0, 200),
+                                    textAlign: 'center',
+                                    marginLeft: '4px',
+                                    textDecoration: 'none',
+                                }"
+                            >
+                                {{ '&nbsp;'.repeat(6 - data.mostPlayedOpening.count.toString().length) }}
+                                {{
+                                    data.mostPlayedOpening.name
+                                        .replace('https://www.chess.com/openings/', '')
+                                        .replace(/-/g, ' ') ?? '-'
+                                }}
+                            </span>
+                            <span
+                                v-else
+                                :style="{
+                                    color: getColor(data?.mostPlayedOpening?.count ?? 0, 0, 200),
+                                    textAlign: 'center',
+                                    marginLeft: '4px',
+                                    textDecoration: 'none',
+                                }"
+                            >
+                                {{ '&nbsp;'.repeat(6 - data.mostPlayedOpening.count.toString().length) }}
+                                {{
+                                    data.mostPlayedOpening.name
+                                        .replace('https://www.chess.com/openings/', '')
+                                        .replace(/-/g, ' ') ?? '-'
+                                }}
+                            </span>
+                        </HoverableText>
                     </div>
                     <div v-else>-</div>
                 </template>
