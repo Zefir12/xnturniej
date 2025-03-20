@@ -19,7 +19,7 @@
                 justifyContent: 'space-around',
             }"
         >
-            <span>W czwartek, 20 marca, o 17/18</span>
+            <span>W czwartek, 20 marca, o 17</span>
             <span
                 ><span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'Delord' }}</span
                 >{{ ' vs ' }}<span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'MokrySuchar' }}</span></span

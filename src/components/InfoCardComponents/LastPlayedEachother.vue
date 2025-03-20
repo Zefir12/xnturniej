@@ -21,13 +21,13 @@
                 justifyContent: 'space-around',
             }"
         >
-            <span>🤺 Ostatnio zagrali między sobą: 🐱‍👤</span>
+            <span>🤺 Ostatnio zagrali między sobą: 🤺 </span>
             <span
-                >{{ getWinText() }}:
-                <span v-if="getWinText() != 'Remis'" :style="{ color: 'orange', fontWeight: 'bold' }">{{
-                    playerMappings[getWinner() as PlayerAccounts]?.name
-                }}</span></span
-            >
+                >{{ getWinText() }}
+                <span v-if="getWinText() != 'Remis'" :style="{ color: 'orange', fontWeight: 'bold' }">
+                    {{ playerMappings[getWinner() as PlayerAccounts]?.name }}
+                </span>
+            </span>
         </div>
         <img width="50px" :src="playerMappings[props.game.black.username.toLowerCase() as PlayerAccounts]?.avatar" />
     </a>

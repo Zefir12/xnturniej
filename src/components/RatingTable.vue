@@ -176,7 +176,7 @@
                         <HoverableText>
                             <span
                                 v-if="playerMappings[data.player as PlayerAccounts].name == 'Nieuczesana'"
-                                v-tooltip="'Podobno wariant morzeszczański 🤷‍♀️'"
+                                v-tooltip.top="'Podobno wariant morzeszczański 🤷‍♀️'"
                                 :style="{
                                     color: getColor(data?.mostPlayedOpening?.count ?? 0, 0, 200),
                                     textAlign: 'center',

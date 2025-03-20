@@ -21,7 +21,7 @@
                 }"
                 >Najnowsze
             </span>
-            <CustomCard />
+
             <MostEloCard
                 v-if="mostElo() && mostElo()?.elo != 0"
                 :player="mostElo()?.player ?? ''"
@@ -37,6 +37,7 @@
                 v-if="store.events?.lastPlayedEachOther"
                 :game="JSON.parse(store.events?.lastPlayedEachOther.game)"
             />
+            <CustomCard />
         </div>
     </div>
 </template>
