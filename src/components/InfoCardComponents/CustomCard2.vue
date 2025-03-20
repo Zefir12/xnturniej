@@ -19,12 +19,14 @@
                 justifyContent: 'space-around',
             }"
         >
-            <span>W czwartek, 20 marca, o 17</span>
+            <span>W czwartek, 20 marca, o 17:00</span>
             <span
                 ><span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'Delord' }}</span
                 >{{ ' vs ' }}<span :style="{ color: 'orange', fontWeight: 'bold' }">{{ 'MokrySuchar' }}</span></span
             >
             <span>Best of 5, o 75 subów, na kicku</span>
+            <span :style="{ color: 'orange', fontWeight: 'bold' }">Zwycięża Delord 3:2 </span
+            ><span>[Ale suchar sie podłożył w dwóch partiach]</span>
         </div>
         <a href="https://kick.com/mokrysuchar" target="_blank"><img width="80px" :src="mokrysuchar" /></a>
     </div>
@@ -39,7 +41,7 @@ import delord from '../../assets/twitchicons/delord.png'
     transition-property: all;
     transition-duration: 0.2s;
     overflow: hidden;
-    height: 80px;
+    height: 120px;
     font-size: 12px;
 }
 

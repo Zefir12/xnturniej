@@ -10,7 +10,6 @@
                 >Nadchodzące Wydarzenia
             </span>
 
-            <CustomCard2 />
             <span
                 :style="{
                     textAlign: 'center',
@@ -37,6 +36,7 @@
                 v-if="store.events?.lastPlayedEachOther"
                 :game="JSON.parse(store.events?.lastPlayedEachOther.game)"
             />
+            <CustomCard2 />
             <CustomCard />
         </div>
     </div>
@@ -67,7 +67,7 @@ const mostElo = (): { player: string; elo: number } | null => {
 .main-container {
     position: relative;
     display: flex;
-    height: 600px;
+    height: 700px;
     flex-direction: column;
     align-items: center;
     border-radius: 12px;
