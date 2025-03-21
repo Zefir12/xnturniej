@@ -13,3 +13,52 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+:root {
+  color-scheme: dark !important;
+  --color-background: #121212;
+  --surface-overlay: #18181b;
+  --text-color: #fff;
+  --p-multiselect-background: #121212 !important;
+  --p-multiselect-border-color: #27272a !important;
+  --p-multiselect-overlay-background: #18181b !important;
+  --p-inputtext-background: #121212 !important;
+  --p-checkbox-background: #121212 !important;
+  --p-multiselect-option-focus-background: #27272a !important;
+  --p-inputtext-color: #fff !important;
+  --p-multiselect-option-color: #fff !important;
+  --p-multiselect-option-focus-color: #fff !important;
+  --p-multiselect-overlay-border-color: #27272a !important;
+  --p-chip-background: #27272a !important;
+  --p-chip-color: #fff !important;
+  --p-chip-remove-icon-color: #fff !important;
+  --p-datepicker-panel-background: #121212 !important;
+  --p-datepicker-header-background: #121212 !important;
+  --p-datepicker-header-border-color: #27272a !important;
+  --p-datepicker-panel-border-color: #27272a !important;
+  --p-datepicker-date-color: #fff !important;
+  --p-datepicker-header-color: #fff !important;
+}
+
+.p-datatable-tbody > tr > td {
+  border-color: #27272a !important;
+}
+
+.p-datatable .p-datatable-thead th {
+  background: var(--surface-overlay) !important;
+  color: var(--text-color-primary) !important;
+}
+
+.p-datatable-header-cell {
+  border-color: #27272a !important;
+}
+
+.p-datatable .p-datatable-tbody tr {
+  background: var(--surface-overlay) !important;
+  color: var(--text-color-primary) !important;
+}
+
+.p-datatable-scrollable .p-datatable-frozen-column {
+  background: var(--surface-overlay) !important;
+  color: var(--text-color-primary) !important;
+}
