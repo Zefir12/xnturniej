@@ -1,7 +1,7 @@
 <template>
     <div
         :style="{
-            width: '100vw',
+            width: '100%',
             display: 'flex',
             justifyContent: 'center',
             minHeight: '100vh',
@@ -177,6 +177,13 @@ onBeforeMount(async () => {
     background-color: #18181b;
     border-radius: 20px;
     overflow: hidden;
+}
+
+@media (min-width: 868px) {
+    .page-container {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
 }
 
 .vertical-container {

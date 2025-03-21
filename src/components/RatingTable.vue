@@ -56,18 +56,57 @@
                             <div :style="{ display: 'flex', flexDirection: 'row' }">
                                 <a
                                     v-if="playerMappings[data.player as PlayerAccounts].twitch"
-                                    :style="{ width: '16px', height: '16px', marginLeft: '8px' }"
+                                    :style="{
+                                        width: '16px',
+                                        height: '16px',
+                                        marginLeft: '8px',
+                                        filter: store.twitchStreamers.find(
+                                            (x) =>
+                                                x.uuid == playerMappings[data.player as PlayerAccounts].uuid && x.live,
+                                        )
+                                            ? ''
+                                            : 'saturate(0)',
+                                    }"
                                     :href="playerMappings[data.player as PlayerAccounts].twitch"
                                     target="_blank"
                                 >
+                                    <OverlayBadge
+                                        severity="danger"
+                                        v-if="
+                                            store.twitchStreamers.find(
+                                                (x) =>
+                                                    x.uuid == playerMappings[data.player as PlayerAccounts].uuid &&
+                                                    x.game == 'Chess',
+                                            )
+                                        " />
                                     <img class="hoverable" :style="{ width: '16px', height: '16px' }" :src="TwitchIcon"
                                 /></a>
                                 <a
                                     v-if="playerMappings[data.player as PlayerAccounts].kick"
-                                    :style="{ width: '16px', height: '16px', marginLeft: '4px', cursor: 'pointer' }"
+                                    :style="{
+                                        width: '16px',
+                                        height: '16px',
+                                        marginLeft: '4px',
+                                        cursor: 'pointer',
+                                        filter: store.kickStreamers.find(
+                                            (x) =>
+                                                x.player == playerMappings[data.player as PlayerAccounts].name &&
+                                                x.live,
+                                        )
+                                            ? ''
+                                            : 'saturate(0)',
+                                    }"
                                     :href="playerMappings[data.player as PlayerAccounts].kick"
                                     target="_blank"
-                                >
+                                    ><OverlayBadge
+                                        severity="danger"
+                                        v-if="
+                                            store.kickStreamers.find(
+                                                (x) =>
+                                                    x.player == playerMappings[data.player as PlayerAccounts].name &&
+                                                    x.game == 'Chess',
+                                            )
+                                        " />
                                     <img :style="{ width: '16px', height: '16px' }" :src="KickIcon"
                                 /></a>
                                 <a
@@ -318,7 +357,7 @@ import KickIcon from '../assets/icons/kick.png'
 import ChesscomIcon from '../assets/icons/chesscom.png'
 import { IconArrowsMaximize, IconArrowsMinimize } from '@tabler/icons-vue'
 import avatar from '../assets/twitchicons/defaultavatar.png'
-
+import { OverlayBadge } from 'primevue'
 import HoverableText from './HoverableText.vue'
 import { useUiStore } from '@/stores/uiStore'
 import { useRouter } from 'vue-router'
