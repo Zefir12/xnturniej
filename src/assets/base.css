@@ -38,6 +38,7 @@ body {
   --p-datepicker-panel-border-color: #27272a !important;
   --p-datepicker-date-color: #fff !important;
   --p-datepicker-header-color: #fff !important;
+  --p-overlaybadge-outline-color: #000000 !important;
 }
 
 .p-datatable-tbody > tr > td {
