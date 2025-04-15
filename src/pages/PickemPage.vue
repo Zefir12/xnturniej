@@ -24,7 +24,7 @@
 
             <a
                 v-if="userStore.pickemTwitchUser == null"
-                href="https://id.twitch.tv/oauth2/authorize?client_id=rria64c2ylpvlo1iazn2gnt8mkw4zc&redirect_uri=http://localhost:5173/twitch/callback&response_type=code&scope=user:read:email"
+                :href="`https://id.twitch.tv/oauth2/authorize?client_id=rria64c2ylpvlo1iazn2gnt8mkw4zc&redirect_uri=${callback}/twitch/callback&response_type=code&scope=user:read:email`"
             >
                 <div class="twitch-button">
                     <span :style="{ fontWeight: 'bold', textDecoration: 'none' }">Połącz z kontem Twitch</span>
@@ -123,7 +123,7 @@
                                     grupie: +1pkt✅
                                 </p>
 
-                                W sumie do zgarnięcia za fazę grupową są aż 32 punkty. Aby wziąść udział w rankingu
+                                W sumie do zgarnięcia za fazę grupową są aż 32 punkty. Aby wziąć udział w rankingu
                                 trzeba podłączyć konto Twitch na górze
                             </div>
                         </div>
@@ -208,6 +208,7 @@ import { Button } from 'primevue'
 const userStore = useUserStore()
 const panelTab = ref('0')
 const lastSelect = ref({})
+const callback = import.meta.env.VITE_ENV != 'prod' ? 'https://xnturniej.info' : 'http://localhost:5137'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const clickedNode = (x: any) => {
