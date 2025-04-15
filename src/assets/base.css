@@ -63,3 +63,24 @@ body {
   background: var(--surface-overlay) !important;
   color: var(--text-color-primary) !important;
 }
+
+.p-tablist-tab-list {
+  justify-content: center;
+}
+
+.p-tablist-tab-list {
+  background-color: transparent !important;
+}
+
+.p-tabpanels {
+  background-color: transparent !important;
+}
+
+.p-tablist-active-bar {
+  background-color: transparent !important;
+}
+
+.p-tab-active {
+  color: #6441a4 !important;
+  border-color: #6441a4 !important;
+}

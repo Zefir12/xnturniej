@@ -14,6 +14,21 @@ const router = createRouter({
             component: () => import('../pages/PlayerPage.vue'),
             props: true,
         },
+        {
+            path: '/amdin',
+            name: 'amdin',
+            component: () => import('../pages/AdminPage.vue'),
+        },
+        {
+            path: '/pickem',
+            name: 'pickem',
+            component: () => import('../pages/PickemPage.vue'),
+        },
+        {
+            path: '/twitch/callback',
+            name: 'TwitchCallback',
+            component: () => import('../pages/TwitchCallback.vue'),
+        },
     ],
 })
 

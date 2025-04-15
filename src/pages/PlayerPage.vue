@@ -17,11 +17,20 @@
                         paddingTop: '4px',
                         paddingLeft: '20px',
                         paddingRight: '20px',
+                        width: '100%',
                         backgroundColor: 'transparent',
                     }"
                 >
-                    <h2 :style="{ marginTop: '0px' }">Dane zawodnika</h2>
-                    <div :style="{ display: 'flex', flexDirection: 'row', gap: '10px', alignItems: 'flex-start' }">
+                    <h2 class="hidden" :style="{ marginTop: '0px' }">Dane zawodnika</h2>
+                    <div
+                        :style="{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            gap: '10px',
+                            alignItems: 'flex-start',
+                            marginRight: '20px',
+                        }"
+                    >
                         <div :class="activePage == 0 ? 'filled-button' : 'styled-button'" @click="activePage = 0">
                             Statystyki
                         </div>
@@ -46,10 +55,10 @@
                     <div
                         :style="{
                             display: 'flex',
+                            width: '100%',
                             flexDirection: 'row',
                             height: '130px',
                             margin: '20px',
-                            width: '1000px',
                             overflowX: 'scroll',
                         }"
                     >
@@ -59,7 +68,7 @@
                                 height: '100%',
                                 backgroundColor: 'transparent',
                                 width: '120px',
-                                minWidth: '120px',
+                                minWidth: '80px',
                                 display: 'flex',
                                 alignItems: 'center',
                                 flexDirection: 'column',
@@ -135,7 +144,8 @@ const fetchPlayerWinrates = async (playerUuid: string) => {
 
 onBeforeMount(async () => {
     const response = await fetchPlayerWinrates(getPlayerByNiceName(props.playerName ?? '')?.uuid ?? '')
-    winrates.value = response.sort((a, b) => a.winrate - b.winrate)
+    winrates.value = response.sort((a: { winrate: number }, b: { winrate: number }) => a.winrate - b.winrate)
+    //winrates.value = [...winrates.value, ...winrates.value]
 })
 </script>
 
@@ -169,6 +179,22 @@ onBeforeMount(async () => {
     cursor: pointer;
 }
 
+.hidden {
+}
+
+@media (max-width: 540px) {
+    .hidden {
+        display: none;
+    }
+}
+
+@media (min-width: 868px) {
+    .page-container {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
+
 .main-column {
     display: flex;
     margin: 20px;
@@ -177,6 +203,18 @@ onBeforeMount(async () => {
     background-color: #18181b;
     border-radius: 20px;
     overflow: hidden;
+}
+
+@media (max-width: 868px) {
+    .main-column {
+        display: flex;
+        margin: 20px;
+        flex-direction: column;
+        width: 1400px;
+        background-color: #18181b;
+        border-radius: 20px;
+        overflow: hidden;
+    }
 }
 
 @media (min-width: 868px) {

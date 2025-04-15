@@ -17,11 +17,13 @@
   "dependencies": {
     "@primeuix/themes": "^1.0.0",
     "@tabler/icons-vue": "^3.31.0",
+    "axios": "^1.8.4",
     "chart.js": "^4.4.8",
     "chartjs-adapter-date-fns": "^3.0.0",
     "date-fns": "^4.1.0",
     "pinia": "^3.0.1",
     "primevue": "^4.3.1",
+    "sortablejs": "^1.15.6",
     "vite-svg-loader": "^5.1.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
@@ -30,6 +32,7 @@
     "@tsconfig/node22": "^22.0.0",
     "@types/chart.js": "^2.9.41",
     "@types/node": "^22.13.4",
+    "@types/sortablejs": "^1.15.8",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.4.0",
@@ -45,5 +48,10 @@
     "vite": "^6.1.0",
     "vite-plugin-vue-devtools": "^7.7.2",
     "vue-tsc": "^2.2.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

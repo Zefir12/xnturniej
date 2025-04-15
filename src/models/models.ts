@@ -45,3 +45,10 @@ export interface GameDbData {
     fetchedAt: Date
     players: string[]
 }
+
+export interface TwitchUserWithId {
+    _id: string
+    twitchId: string
+    displayName: string
+    email?: string
+}
