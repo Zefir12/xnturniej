@@ -208,7 +208,7 @@ import { Button } from 'primevue'
 const userStore = useUserStore()
 const panelTab = ref('0')
 const lastSelect = ref({})
-const callback = import.meta.env.VITE_ENV != 'prod' ? 'https://xnturniej.info' : 'http://localhost:5137'
+const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5137'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const clickedNode = (x: any) => {
