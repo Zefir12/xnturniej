@@ -93,7 +93,7 @@ export const playerMappings = {
         name: 'Nieuczesana',
         avatar: nieuczesana,
         twitch: 'https://www.twitch.tv/nieuczesana',
-        kick: undefined,
+        kick: 'https://kick.com/nieuczeska',
         uuid: '59482f96-4e7b-11eb-b365-3d75dc4dac27',
         charColor: '#942603',
     },

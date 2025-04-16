@@ -46,7 +46,7 @@
                     <Tab value="3" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Kryształowa Kula</span>
                     </Tab>
-                    <Tab disabled value="4" as="div" class="flex items-center gap-2">
+                    <Tab value="4" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Ranking Twitcha</span>
                     </Tab>
                 </TabList>
@@ -95,7 +95,7 @@
                         </div>
                     </TabPanel>
                     <TabPanel value="1" as="p" class="m-0">
-                        <div :style="{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '40px' }">
+                        <div :style="{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0px' }">
                             <div
                                 class="no-select"
                                 :style="{
@@ -115,6 +115,7 @@
                                 <GroupContainer group="c" />
                                 <GroupContainer group="d" />
                             </div>
+                            <div><h4>GRUPY TESTOWE NA RAZIE, właściwe grupy będą po losowaniu zawodników!</h4></div>
                             <div :style="{ maxWidth: '800px' }">
                                 <h2>📜 ZASADY – FAZA GRUPOWA PICK’EM CHALLENGE</h2>
                                 <p>Okej, jak działa punktacja w fazie grupowej?</p>
@@ -143,7 +144,6 @@
                             </template>
                         </OrganizationChart>
                     </TabPanel>
-
                     <TabPanel value="3" as="p" class="m-0">
                         <div
                             :style="{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center' }"
@@ -185,7 +185,52 @@
                             </div>
                         </div>
                     </TabPanel>
-                    <TabPanel disabled value="4" as="p" class="m-0"> </TabPanel>
+                    <TabPanel value="4" as="p" class="m-0">
+                        <div
+                            :style="{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                            }"
+                        >
+                            <DataTable
+                                :value="pickemPlayers"
+                                scrollable
+                                scrollHeight="400px"
+                                tableStyle="min-width: 50rem max-width: 100rem"
+                            >
+                                <Column :style="{ width: '10em' }" header="Miejsce w rankingu">
+                                    <template #body="{ data }"
+                                        ><div
+                                            :style="{
+                                                height: '2rem',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                marginLeft: '1rem',
+                                            }"
+                                        >
+                                            {{ pickemPlayers.findIndex((x) => x === data) + 1 }}
+                                        </div></template
+                                    >
+                                </Column>
+                                <Column :style="{ width: '10em' }" header="Nick">
+                                    <template #body="{ data }">{{ data }}</template>
+                                </Column>
+                                <Column header="Punkty fazy grupowej"
+                                    ><template #body="{ data }">{{ 0 }}</template></Column
+                                >
+                                <Column header="Punkty w drabince"
+                                    ><template #body="{ data }">{{ 0 }}</template></Column
+                                >
+                                <Column header="Punkty za kryształową kule"
+                                    ><template #body="{ data }">{{ 0 }}</template></Column
+                                >
+                                <Column header="Punkty razem"
+                                    ><template #body="{ data }">{{ 0 }}</template></Column
+                                >
+                            </DataTable>
+                        </div>
+                    </TabPanel>
                 </TabPanels>
             </Tabs>
         </div>
@@ -194,7 +239,7 @@
 
 <script setup lang="ts">
 import { useUserStore } from '@/stores/userStore'
-import { ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import OrganizationChart from 'primevue/organizationchart'
 import Tabs from 'primevue/tabs'
 import TabList from 'primevue/tablist'
@@ -207,6 +252,8 @@ import CrystallBallItem from '@/components/PickEmComponents/CrystallBallItem.vue
 import TwitchIcon from '@/assets/icons/twitch-icon.png'
 import { Button } from 'primevue'
 import BlindManLogo from '@/assets/icons/pickem/blindmanlogo.png'
+import { DataTable, Column } from 'primevue'
+import api from '@/common/api'
 
 const userStore = useUserStore()
 const panelTab = ref('0')
@@ -225,6 +272,13 @@ const clickedNode = (x: any) => {
         lastSelect.value = x
     }
 }
+
+const pickemPlayers = ref<string[]>([])
+
+onBeforeMount(async () => {
+    const response = await api.get('/pickemranking')
+    pickemPlayers.value = response.data
+})
 
 const data = ref({
     key: '0',
