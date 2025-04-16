@@ -6,6 +6,7 @@
                 top: '0px',
                 right: '0px',
                 zIndex: 3,
+                pointerEvents: 'none',
                 backgroundColor: '#6441a4',
                 padding: '10px',
                 fontWeight: '700',
@@ -21,6 +22,7 @@
                 top: '0px',
                 right: '0px',
                 zIndex: 2,
+                pointerEvents: 'none',
                 backgroundColor: '#6441a4',
                 padding: '10px',
                 filter: 'blur(16px) opacity(0.1)',
@@ -41,7 +43,7 @@
                         <img
                             class="itemp"
                             :style="{ height: '94px', width: '94px', marginRight: '-94px', marginLeft: '1px' }"
-                            :src="playerMappings[uuidToPlayer(item)].avatar"
+                            :src="(playerMappings as any)[uuidToPlayer(item)].avatar"
                         />
                         <img
                             :style="{
@@ -50,7 +52,7 @@
                                 marginLeft: '-8px',
                                 zIndex: 2,
                             }"
-                            :src="playerMappings[uuidToPlayer(item)].avatar"
+                            :src="(playerMappings as any)[uuidToPlayer(item)].avatar"
                         />
                     </div>
 
@@ -64,7 +66,8 @@
                             marginLeft: '40px',
                         }"
                     >
-                        {{ curr.findIndex((x) => x == item) + 1 }}. {{ playerMappings[uuidToPlayer(item)].name }}
+                        {{ curr.findIndex((x: string) => x == item) + 1 }}.
+                        {{ (playerMappings as any)[uuidToPlayer(item)].name }}
                     </div>
                 </li>
             </ul>
@@ -101,9 +104,10 @@ const initializeSortable = () => {
         ghostClass: 'sortable-ghost',
         chosenClass: 'sortable-chosen',
         dragClass: 'sortable-drag',
-        onEnd: (evt) => {
-            const listItems = sortableListRef.value.querySelectorAll('li')
-            const order = Array.from(listItems).map((li) => li.dataset.id)
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        onEnd: (_evt) => {
+            const listItems = sortableListRef.value?.querySelectorAll('li')
+            const order = Array.from(listItems ?? []).map((li) => li.dataset.id)
             curr.value = order
             localStorage.setItem(`group-${props.group}`, JSON.stringify(order))
         },

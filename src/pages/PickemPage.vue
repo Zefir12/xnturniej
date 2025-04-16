@@ -66,10 +66,10 @@
                                 </p>
 
                                 <h2>🎯 Jak to działa?</h2>
-                                Żeby grać authentykujesz sie swoim kontem twitch, potrzebne aby Wbijasz na panele
-                                pick’em używając zakładek powyżej. Typujesz zawodników, którzy Twoim zdaniem dojdą
-                                najdalej. Oglądasz transmisję z turnieju, zgarniasz punkty i sprawdzasz, czy jesteś
-                                szefem predykcji czy tylko randomem z czatu
+                                Żeby grać authentykujesz sie swoim kontem twitch, potrzebnym aby brać udział w rankingu.
+                                Wbijasz na panele pick’em używając zakładek powyżej. Typujesz zawodników, którzy Twoim
+                                zdaniem dojdą najdalej. Oglądasz transmisję z turnieju, zgarniasz punkty i sprawdzasz,
+                                czy jesteś szefem predykcji czy tylko randomem z czatu
                                 <img
                                     :style="{ height: '20px' }"
                                     src="https://cdn.7tv.app/emote/01GPQJ1NKR000BGP5H3DVAPXAN/1x.avif"
@@ -97,6 +97,7 @@
                     <TabPanel value="1" as="p" class="m-0">
                         <div :style="{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '40px' }">
                             <div
+                                class="no-select"
                                 :style="{
                                     paddingLeft: '0px',
                                     width: '100%',
@@ -116,9 +117,9 @@
                             </div>
                             <div :style="{ maxWidth: '800px' }">
                                 <h2>📜 ZASADY – FAZA GRUPOWA PICK’EM CHALLENGE</h2>
-                                <p>Okej, konkrety – jak działa punktacja w fazie grupowej?</p>
+                                <p>Okej, jak działa punktacja w fazie grupowej?</p>
                                 <p>
-                                    Jeżeli trafisz prawidłowo czy zawodniku wychodzi z grupy, czy trafia do drabinki dla
+                                    Jeżeli trafisz prawidłowo czy zawodnik wychodzi z grupy, czy trafia do drabinki dla
                                     sprytnych inaczej: +1pkt✅ Jeżeli trafisz dokładne miejsce które zawodnik zajmie w
                                     grupie: +1pkt✅
                                 </p>
@@ -158,19 +159,20 @@
                                     justifyContent: 'center',
                                 }"
                             >
-                                <CrystallBallItem>
-                                    Niewidomi - którzy zawodnicy według ciebie podwalą hetmana
+                                <CrystallBallItem title="Niewidomi">
+                                    <img :style="{ width: '120px' }" :src="BlindManLogo" />
+                                    Którzy zawodnicy według ciebie podwalą hetmana?
                                 </CrystallBallItem>
                                 <CrystallBallItem
-                                    >Speedrunner - obstaw zawodnik który zużyje najmniej czasu śrendio podczas swoich
-                                    aprtii</CrystallBallItem
+                                    >Speedrunner - obstaw który zawodnik zużyje średnio najmniej czasu podczas swoich
+                                    partii</CrystallBallItem
                                 >
                                 <CrystallBallItem
-                                    >Słaby awans - ile pinków zostanie zaminionych w wieżę po osiągnięciu linii
+                                    >Słaby awans - ile pionków zostanie zamienionych w wieżę po osiągnięciu linii
                                     końcowej?</CrystallBallItem
                                 >
                                 <CrystallBallItem
-                                    >Blitzkrieg - ile ruchów potrwa najkrótsza partai turnieju?</CrystallBallItem
+                                    >Blitzkrieg - ile ruchów potrwa najkrótsza partia turnieju?</CrystallBallItem
                                 >
                                 <CrystallBallItem
                                     >Kolory - na przestrzeni całęgo turnieju w sumie: - czy więcej partii wygrają białe,
@@ -204,11 +206,12 @@ import GroupContainer from '@/components/PickEmComponents/GroupContainer.vue'
 import CrystallBallItem from '@/components/PickEmComponents/CrystallBallItem.vue'
 import TwitchIcon from '@/assets/icons/twitch-icon.png'
 import { Button } from 'primevue'
+import BlindManLogo from '@/assets/icons/pickem/blindmanlogo.png'
 
 const userStore = useUserStore()
 const panelTab = ref('0')
-const lastSelect = ref({})
-const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5137'
+const lastSelect = ref<{ [key: string]: unknown }>({})
+const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5173'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const clickedNode = (x: any) => {
@@ -275,6 +278,12 @@ const selection = ref({})
 </script>
 
 <style scped>
+.no-select {
+    user-select: none;
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For Internet Explorer/Edge */
+}
 .data-container {
     margin-top: -30px;
     display: flex;
