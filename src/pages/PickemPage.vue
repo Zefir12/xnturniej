@@ -243,7 +243,12 @@
                                         Ile wydarzy się patów podczas turnieju?
                                     </div></CrystallBallItem
                                 >
-                                <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
+                                <CrystallBallItem title="Początki" :image="BlindManLogo"
+                                    ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                        Czy E4 będzie zagrane więcej razy jako pierwszy ruch niż wszystkie pozostałe
+                                        opcje razem wzięte?
+                                    </div></CrystallBallItem
+                                >
                                 <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
                             </div>
                         </div>
