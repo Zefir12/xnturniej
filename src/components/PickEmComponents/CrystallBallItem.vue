@@ -1,12 +1,18 @@
 <template>
     <div class="container">
-        <span>{{ props.title }}</span>
+        <h2>{{ props.title }}</h2>
+        <img
+            :style="{ height: '120px', marginTop: '-5px', opacity: props.image != null ? 1 : 0.7 }"
+            :src="props.image ?? QuestionAvatar"
+        />
         <slot></slot>
     </div>
 </template>
 <script setup lang="ts">
+import QuestionAvatar from '@/assets/icons/question.png'
 const props = defineProps<{
     title: string
+    image?: string
 }>()
 </script>
 <style scoped>

@@ -39,13 +39,13 @@
                     class="sortable-item"
                     :data-id="item.place"
                 >
-                    <div :style="{ width: '94px', height: '94px', display: 'flex' }">
+                    <div :style="{ width: '94px', height: '94px', display: 'flex', alignItems: 'center' }">
                         <img
                             :style="{
-                                height: '94px',
-                                width: '94px',
-                                marginLeft: '-1px',
-                                opacity: item.uuid != '' ? '1' : '0.3',
+                                height: item.uuid != '' ? '94px' : '74px',
+                                width: item.uuid != '' ? '94px' : '74px',
+                                marginLeft: item.uuid != '' ? '-1px' : '9px',
+                                opacity: item.uuid != '' ? '1' : '0.6',
                             }"
                             :src="
                                 item.uuid != ''
@@ -62,7 +62,7 @@
                             display: 'flex',
                             alignItems: 'center',
                             fontWeight: '600',
-                            marginLeft: '40px',
+                            marginLeft: item.uuid != '' ? '30px' : '40px',
                         }"
                     >
                         {{ curr.findIndex((x: any) => x == item.place) + 1 }}.
@@ -109,14 +109,14 @@ const pickemStore = usePickemStore()
 const sortableListRef = ref<HTMLElement | null>(null)
 let itey = localStorage.getItem(`group-${props.group}`)
 if (itey != null) {
-    if (itey.length != 16) itey = null
+    if (itey.length != 17) itey = null
 }
 const curr = ref<string[]>(itey != null ? JSON.parse(itey) : pickemStore.getGroup(props.group).map((x) => x.place))
 
 const parseLocalStorageGroup = () => {
     let itey = localStorage.getItem(`group-${props.group}`)
     if (itey != null) {
-        if (itey.length != 16) itey = null
+        if (itey.length != 17) itey = null
     }
     const group = pickemStore.getGroup(props.group)
     if (itey != null) {

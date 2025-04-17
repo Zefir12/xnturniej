@@ -188,29 +188,47 @@
                                     gap: '8px',
                                     alignItems: 'center',
                                     justifyContent: 'center',
+                                    textAlign: 'center',
                                 }"
                             >
-                                <CrystallBallItem title="Niewidomi">
-                                    <img :style="{ width: '120px' }" :src="BlindManLogo" />
-                                    Którzy zawodnicy według ciebie podwalą hetmana?
+                                <CrystallBallItem title="Niewidomi" :image="BlindManLogo">
+                                    <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                        Którzy zawodnicy według ciebie podwalą hetmana?
+                                    </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Speedrunner"
-                                    >Obstaw który zawodnik zużyje średnio najmniej czasu podczas swoich
-                                    partii</CrystallBallItem
+                                <CrystallBallItem title="Speedrunner" :image="BlindManLogo"
+                                    ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                        Obstaw który zawodnik zużyje średnio najmniej czasu podczas swoich partii
+                                    </div>
+                                </CrystallBallItem>
+                                <CrystallBallItem title="Słaby awans" :image="BlindManLogo"
+                                    ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                        Ile pionków zostanie zamienionych w wieżę po osiągnięciu linii końcowej?
+                                    </div>
+                                </CrystallBallItem>
+                                <CrystallBallItem title="Blitzkrieg" :image="BlindManLogo"
+                                    ><div
+                                        :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }"
+                                    ></div>
+                                    Ile ruchów potrwa najkrótsza partia turnieju?</CrystallBallItem
                                 >
-                                <CrystallBallItem title="Speedrunner"
-                                    >Słaby awans - ile pionków zostanie zamienionych w wieżę po osiągnięciu linii
-                                    końcowej?</CrystallBallItem
+                                <CrystallBallItem title="Kolory" :image="BlindManLogo"
+                                    ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                        Na przestrzeni całęgo turnieju w sumie: - czy więcej partii wygrają białe, czy
+                                        może czarne?
+                                    </div>
+                                </CrystallBallItem>
+                                <CrystallBallItem title="Vox populi" :image="BlindManLogo">
+                                    <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                        Kto będzie obstawiany jako zwycięzca całego turnieju przez największą ilość
+                                        osób?
+                                    </div></CrystallBallItem
                                 >
-                                <CrystallBallItem title="Speedrunner"
-                                    >Blitzkrieg - ile ruchów potrwa najkrótsza partia turnieju?</CrystallBallItem
+                                <CrystallBallItem title="Czas Dziadek!" :image="BlindManLogo"
+                                    ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                        Czy Overpow przegra przynajmniej jedną partie na czas?
+                                    </div></CrystallBallItem
                                 >
-                                <CrystallBallItem title="Speedrunner"
-                                    >Kolory - na przestrzeni całęgo turnieju w sumie: - czy więcej partii wygrają białe,
-                                    czy może czarne?</CrystallBallItem
-                                >
-                                <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
-                                <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
                                 <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
                                 <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
                             </div>
