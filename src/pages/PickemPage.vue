@@ -1,14 +1,29 @@
 <template>
-    <div class="page-container">
+    <div class="page-container" :style="{ fontFamily: 'Source Sans Pro' }">
         <div class="user-container">
-            <img :style="{ width: '150px' }" :src="pickemlogo" />
-            <span v-if="userStore.pickemTwitchUser == null" :style="{ marginRight: '10px' }"
-                >Niepodłączone konto:
-            </span>
-            <div :style="{ display: 'flex', alignItems: 'center', gap: '10px' }" v-else>
+            <img
+                :style="{
+                    height: '130px',
+                    marginTop: '15px',
+                    marginBottom: '30px',
+                    marginRight: '30px',
+                }"
+                :src="SzachMatLogo"
+            />
+
+            <div
+                :style="{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    marginBottom: '20px',
+                    marginLeft: '-30px',
+                }"
+                v-if="userStore.pickemTwitchUser != null"
+            >
                 <img :style="{ width: '46px', height: '46px' }" :src="TwitchIcon" />
                 <div>
-                    <span>Użytkownik: </span>
+                    <span>Zalogowany jako: </span>
                     <div
                         :style="{
                             backgroundColor: 'transparent',
@@ -23,16 +38,17 @@
             </div>
 
             <a
+                :style="{ textDecoration: 'none', marginBottom: '20px' }"
                 v-if="userStore.pickemTwitchUser == null"
                 :href="`https://id.twitch.tv/oauth2/authorize?client_id=rria64c2ylpvlo1iazn2gnt8mkw4zc&redirect_uri=${callback}/twitch/callback&response_type=code&scope=user:read:email`"
             >
                 <div class="twitch-button">
-                    <span :style="{ fontWeight: 'bold', textDecoration: 'none' }">Połącz z kontem Twitch</span>
+                    <div :style="{ fontWeight: 'bold' }">Połącz z kontem Twitch</div>
                 </div>
             </a>
         </div>
         <div class="data-container">
-            <Tabs :style="{ width: '100vw', backgroundColor: 'transparent' }" v-model:value="panelTab">
+            <Tabs :style="{ width: '100%', backgroundColor: 'transparent' }" v-model:value="panelTab">
                 <TabList :style="{ justifyContent: 'center' }">
                     <Tab value="0" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Informacje</span>
@@ -95,7 +111,23 @@
                         </div>
                     </TabPanel>
                     <TabPanel value="1" as="p" class="m-0">
-                        <div :style="{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0px' }">
+                        <div
+                            :style="{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                gap: '40px',
+                                color: '#FAF9F6',
+                                fontFamily: 'Source Sans Pro',
+                            }"
+                        >
+                            <CountDownTimer
+                                class="no-select"
+                                rectColor="#18181b"
+                                :style="{ marginTop: '-20px' }"
+                                text="Grupy będą losowane za: "
+                                :date="new Date('2025-04-23T16:00:00')"
+                            />
                             <div
                                 class="no-select"
                                 :style="{
@@ -115,7 +147,6 @@
                                 <GroupContainer group="c" />
                                 <GroupContainer group="d" />
                             </div>
-                            <div><h4>GRUPY TESTOWE NA RAZIE, właściwe grupy będą po losowaniu zawodników!</h4></div>
                             <div :style="{ maxWidth: '800px' }">
                                 <h2>📜 ZASADY – FAZA GRUPOWA PICK’EM CHALLENGE</h2>
                                 <p>Okej, jak działa punktacja w fazie grupowej?</p>
@@ -163,25 +194,25 @@
                                     <img :style="{ width: '120px' }" :src="BlindManLogo" />
                                     Którzy zawodnicy według ciebie podwalą hetmana?
                                 </CrystallBallItem>
-                                <CrystallBallItem
-                                    >Speedrunner - obstaw który zawodnik zużyje średnio najmniej czasu podczas swoich
+                                <CrystallBallItem title="Speedrunner"
+                                    >Obstaw który zawodnik zużyje średnio najmniej czasu podczas swoich
                                     partii</CrystallBallItem
                                 >
-                                <CrystallBallItem
+                                <CrystallBallItem title="Speedrunner"
                                     >Słaby awans - ile pionków zostanie zamienionych w wieżę po osiągnięciu linii
                                     końcowej?</CrystallBallItem
                                 >
-                                <CrystallBallItem
+                                <CrystallBallItem title="Speedrunner"
                                     >Blitzkrieg - ile ruchów potrwa najkrótsza partia turnieju?</CrystallBallItem
                                 >
-                                <CrystallBallItem
+                                <CrystallBallItem title="Speedrunner"
                                     >Kolory - na przestrzeni całęgo turnieju w sumie: - czy więcej partii wygrają białe,
                                     czy może czarne?</CrystallBallItem
                                 >
-                                <CrystallBallItem>Do wymyślenia...</CrystallBallItem>
-                                <CrystallBallItem>Do wymyślenia...</CrystallBallItem>
-                                <CrystallBallItem>Do wymyślenia...</CrystallBallItem>
-                                <CrystallBallItem>Do wymyślenia...</CrystallBallItem>
+                                <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
+                                <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
+                                <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
+                                <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
                             </div>
                         </div>
                     </TabPanel>
@@ -213,20 +244,20 @@
                                         </div></template
                                     >
                                 </Column>
-                                <Column :style="{ width: '10em' }" header="Nick">
-                                    <template #body="{ data }">{{ data }}</template>
+                                <Column :style="{ width: '10em', backgroundColor: 'transparent' }" header="Nick">
+                                    <template #body="{ data }">{{ data.name }}</template>
                                 </Column>
                                 <Column header="Punkty fazy grupowej"
-                                    ><template #body="{ data }">{{ 0 }}</template></Column
+                                    ><template #body="">{{ 0 }}</template></Column
                                 >
                                 <Column header="Punkty w drabince"
-                                    ><template #body="{ data }">{{ 0 }}</template></Column
+                                    ><template #body="">{{ 0 }}</template></Column
                                 >
                                 <Column header="Punkty za kryształową kule"
-                                    ><template #body="{ data }">{{ 0 }}</template></Column
+                                    ><template #body="">{{ 0 }}</template></Column
                                 >
                                 <Column header="Punkty razem"
-                                    ><template #body="{ data }">{{ 0 }}</template></Column
+                                    ><template #body="">{{ 0 }}</template></Column
                                 >
                             </DataTable>
                         </div>
@@ -239,24 +270,25 @@
 
 <script setup lang="ts">
 import { useUserStore } from '@/stores/userStore'
-import { onBeforeMount, ref } from 'vue'
+import { onBeforeMount, ref, watch } from 'vue'
 import OrganizationChart from 'primevue/organizationchart'
 import Tabs from 'primevue/tabs'
 import TabList from 'primevue/tablist'
 import Tab from 'primevue/tab'
 import TabPanels from 'primevue/tabpanels'
 import TabPanel from 'primevue/tabpanel'
-import pickemlogo from '../assets/icons/pickemlogo.png'
 import GroupContainer from '@/components/PickEmComponents/GroupContainer.vue'
 import CrystallBallItem from '@/components/PickEmComponents/CrystallBallItem.vue'
 import TwitchIcon from '@/assets/icons/twitch-icon.png'
 import { Button } from 'primevue'
 import BlindManLogo from '@/assets/icons/pickem/blindmanlogo.png'
+import SzachMatLogo from '@/assets/icons/szachmatlogo.png'
 import { DataTable, Column } from 'primevue'
 import api from '@/common/api'
+import CountDownTimer from '@/components/CountDownTimer.vue'
 
 const userStore = useUserStore()
-const panelTab = ref('0')
+const panelTab = ref(localStorage.getItem('pickemTab') || '0')
 const lastSelect = ref<{ [key: string]: unknown }>({})
 const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5173'
 
@@ -273,11 +305,15 @@ const clickedNode = (x: any) => {
     }
 }
 
-const pickemPlayers = ref<string[]>([])
+watch(panelTab, (newVal) => {
+    localStorage.setItem('pickemTab', newVal)
+})
+
+const pickemPlayers = ref<{ name: string }[]>([])
 
 onBeforeMount(async () => {
     const response = await api.get('/pickemranking')
-    pickemPlayers.value = response.data
+    pickemPlayers.value = response.data.map((x: string) => ({ name: x }))
 })
 
 const data = ref({
@@ -339,7 +375,7 @@ const selection = ref({})
     -ms-user-select: none; /* For Internet Explorer/Edge */
 }
 .data-container {
-    margin-top: -30px;
+    margin-top: -11px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -347,9 +383,12 @@ const selection = ref({})
 }
 .user-container {
     display: flex;
+    width: 100%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-color: #2c2633;
+    margin-bottom: -42px;
 }
 .page-container {
     display: flex;

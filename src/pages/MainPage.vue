@@ -2,7 +2,7 @@
     <div class="page-container">
         <div class="content-container">
             <div :style="{ marginBottom: '3rem', marginTop: '1rem' }">
-                <CountDownTimer text="Do startu turnieju pozostało: " :date="new Date('2025-04-24T17:00:00')" />
+                <CountDownTimer text="Do startu turnieju pozostało: " :date="new Date('2025-04-24T16:00:00')" />
                 <div :style="{ position: 'absolute', top: '0.4rem', right: '1rem' }">
                     <MyInfo />
                 </div>

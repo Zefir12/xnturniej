@@ -2,10 +2,10 @@
     <div class="countdown">
         <h2>{{ props.text }}</h2>
         <div class="timer">
-            <span>{{ timeLeft.days }}d</span>
-            <span>{{ timeLeft.hours }}h</span>
-            <span>{{ timeLeft.minutes }}m</span>
-            <span>{{ timeLeft.seconds }}s</span>
+            <span :style="{ backgroundColor: props.rectColor }">{{ timeLeft.days }}d</span>
+            <span :style="{ backgroundColor: props.rectColor }">{{ timeLeft.hours }}h</span>
+            <span :style="{ backgroundColor: props.rectColor }">{{ timeLeft.minutes }}m</span>
+            <span :style="{ backgroundColor: props.rectColor }">{{ timeLeft.seconds }}s</span>
         </div>
     </div>
 </template>
@@ -16,6 +16,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 const props = defineProps<{
     text: string
     date: Date
+    rectColor?: string
 }>()
 // Target date: April 24, 2025, at 17:00
 const targetDate = props.date.getTime()
