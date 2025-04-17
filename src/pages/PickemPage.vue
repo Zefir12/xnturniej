@@ -210,14 +210,33 @@
                                         Którzy zawodnicy według ciebie podwalą hetmana?
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Speedrunner" :image="BlindManLogo"
+                                <CrystallBallItem title="Speedrunner" :image="TimerLogo"
                                     ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Obstaw który zawodnik zużyje średnio najmniej czasu podczas swoich partii
+                                        Który zawodnik zużyje średnio najmniej czasu podczas swoich partii
                                     </div>
                                 </CrystallBallItem>
                                 <CrystallBallItem title="Słaby awans" :image="BlindManLogo"
-                                    ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Ile pionków zostanie zamienionych w wieżę po osiągnięciu linii końcowej?
+                                    ><div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '40px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Ile pionków zostanie zamienionych w wieżę po osiągnięciu linii końcowej?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <InputNumber fluid size="small" :style="{ width: '60px' }" />
+                                        </div>
                                     </div>
                                 </CrystallBallItem>
                                 <CrystallBallItem title="Blitzkrieg" :image="BlindManLogo"
@@ -226,7 +245,7 @@
                                     ></div>
                                     Ile ruchów potrwa najkrótsza partia turnieju?</CrystallBallItem
                                 >
-                                <CrystallBallItem title="Kolory" :image="BlindManLogo"
+                                <CrystallBallItem title="Dwie armie" :image="BlindManLogo"
                                     ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                         Na przestrzeni całego turnieju w sumie: - czy więcej partii wygrają białe, czy
                                         może czarne?
@@ -249,7 +268,11 @@
                                         opcje razem wzięte?
                                     </div></CrystallBallItem
                                 >
-                                <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
+                                <CrystallBallItem title="Do ostatniej kropli krwi" :image="BlindManLogo">
+                                    <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                        W której z grup wydarzy się najwięcej dogrywek?
+                                    </div>
+                                </CrystallBallItem>
                             </div>
                         </div>
                     </TabPanel>
@@ -319,10 +342,12 @@ import CrystallBallItem from '@/components/PickEmComponents/CrystallBallItem.vue
 import TwitchIcon from '@/assets/icons/twitch-icon.png'
 import { Button } from 'primevue'
 import BlindManLogo from '@/assets/icons/pickem/blindmanlogo.png'
+import TimerLogo from '@/assets/icons/pickem/timerb.png'
 import SzachMatLogo from '@/assets/icons/szachmatlogo.png'
 import { DataTable, Column } from 'primevue'
 import api from '@/common/api'
 import CountDownTimer from '@/components/CountDownTimer.vue'
+import { InputNumber } from 'primevue'
 
 const userStore = useUserStore()
 const panelTab = ref(localStorage.getItem('pickemTab') || '0')
