@@ -189,6 +189,7 @@
                     </TabPanel>
                     <TabPanel value="3" as="p" class="m-0">
                         <div
+                            class="no-select"
                             :style="{
                                 width: '100%',
                                 display: 'flex',
