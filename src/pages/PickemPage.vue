@@ -228,7 +228,7 @@
                                 >
                                 <CrystallBallItem title="Kolory" :image="BlindManLogo"
                                     ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Na przestrzeni całęgo turnieju w sumie: - czy więcej partii wygrają białe, czy
+                                        Na przestrzeni całego turnieju w sumie: - czy więcej partii wygrają białe, czy
                                         może czarne?
                                     </div>
                                 </CrystallBallItem>
