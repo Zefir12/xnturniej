@@ -265,7 +265,6 @@
                             <DataTable
                                 :value="pickemPlayers"
                                 scrollable
-                                scrollHeight="400px"
                                 tableStyle="min-width: 50rem max-width: 100rem"
                             >
                                 <Column :style="{ width: '10em' }" header="Miejsce w rankingu">
