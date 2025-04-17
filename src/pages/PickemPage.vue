@@ -34,6 +34,7 @@
                     >
                         {{ userStore.pickemTwitchUser.displayName }}
                     </div>
+                    <div>🏆 0 punktów</div>
                 </div>
             </div>
 
@@ -78,7 +79,7 @@
                             }"
                         >
                             <div :style="{ maxWidth: '800px', margin: 'auto' }">
-                                <h2>💡 Czym jest Pick’em Challenge?</h2>
+                                <h2>Czym jest Pick’em Challenge?</h2>
                                 <p>
                                     To Twój moment, żeby pokazać, że masz szachową intuicję i znasz zawodników jak
                                     własną kieszeń. Wybierasz w jaki sposób według Ciebie potoczy sie turniej oraz co
@@ -89,8 +90,7 @@
                                     Twitchu.
                                 </p>
 
-                                <h2>🎯 Jak to działa?</h2>
-                                Żeby grać authentykujesz sie swoim kontem twitch, potrzebnym aby brać udział w rankingu.
+                                <h2>Jak to działa?</h2>
                                 Wbijasz na panele pick’em używając zakładek powyżej. Typujesz zawodników, którzy Twoim
                                 zdaniem dojdą najdalej. Oglądasz transmisję z turnieju, zgarniasz punkty i sprawdzasz,
                                 czy jesteś szefem predykcji czy tylko randomem z czatu
@@ -98,11 +98,15 @@
                                     :style="{ height: '20px' }"
                                     src="https://cdn.7tv.app/emote/01GPQJ1NKR000BGP5H3DVAPXAN/1x.avif"
                                 />
+                                <p>
+                                    Żeby być w rankingu i mieć zliczane punkty musisz zalogować sie twitchem, ale można
+                                    też typować samemu dla siebie anonimowo
+                                </p>
                                 <h2>🏆 Co jest do wygrania?</h2>
-                                <p>Chwała i sława z bycia topką rankingu Twitcha!</p>
+                                <p>Chwała i sława z bycia topką rankingu Twitcha!*</p>
                                 <p :style="{ fontSize: '12px' }">
-                                    To sie jeszcze może zmienić. (Może dorzuce 20 zł psc, może XN dorzuci szachowy
-                                    kursik czy coś, kto wie 👀)
+                                    *To sie jeszcze może zmienić. (Może dorzuce 20 zł psc, może XN dorzuci szachowy
+                                    kursik czy coś, może nawet toster, kto wie 👀)
                                 </p>
                             </div>
                             <Button
@@ -159,13 +163,13 @@
                                 <h2>📜 ZASADY – FAZA GRUPOWA PICK’EM CHALLENGE</h2>
                                 <p>Okej, jak działa punktacja w fazie grupowej?</p>
                                 <p>
-                                    Jeżeli trafisz prawidłowo czy zawodnik wychodzi z grupy, czy trafia do drabinki dla
-                                    sprytnych inaczej: +1pkt✅ Jeżeli trafisz dokładne miejsce które zawodnik zajmie w
-                                    grupie: +1pkt✅
+                                    Jeżeli trafisz prawidłowo czy zawodnik wychodzi z grupy, czy trafia do drabinki
+                                    pocieszenia: +1pkt✅
                                 </p>
+                                <p>Dodatkowo jeżeli trafisz dokładne miejsce które zawodnik zajmie w grupie: +2pkt✅</p>
 
-                                W sumie do zgarnięcia za fazę grupową są aż 32 punkty. Aby wziąć udział w rankingu
-                                trzeba podłączyć konto Twitch na górze
+                                W sumie do zgarnięcia za fazę grupową jest aż 48 punktóww. Aby wziąć udział w rankingu
+                                online trzeba być zalogowanym
                             </div>
                         </div>
                     </TabPanel>
@@ -205,7 +209,7 @@
                                     textAlign: 'center',
                                 }"
                             >
-                                <CrystallBallItem title="Niewidomi" :image="BlindManLogo">
+                                <CrystallBallItem title="Botez Gambit" :image="BlindManLogo">
                                     <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                         Którzy zawodnicy według ciebie podwalą hetmana?
                                     </div>
@@ -226,7 +230,8 @@
                                         }"
                                     >
                                         <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                            Ile pionków zostanie zamienionych w wieżę po osiągnięciu linii końcowej?
+                                            Ile pionków zostanie zamienionych w w coś innego niż hetman po osiągnięciu
+                                            linii końcowej?
                                         </div>
                                         <div
                                             :style="{
@@ -243,8 +248,28 @@
                                     ><div
                                         :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }"
                                     ></div>
-                                    Ile ruchów potrwa najkrótsza partia turnieju?</CrystallBallItem
-                                >
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '60px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Ile ruchów potrwa najkrótsza partia w turnieju?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <InputNumber fluid size="small" :style="{ width: '60px' }" />
+                                        </div></div
+                                ></CrystallBallItem>
                                 <CrystallBallItem title="Dwie armie" :image="BlindManLogo"
                                     ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                         Na przestrzeni całego turnieju w sumie: - czy więcej partii wygrają białe, czy
