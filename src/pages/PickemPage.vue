@@ -219,7 +219,7 @@
                                         Który zawodnik zużyje średnio najmniej czasu podczas swoich partii
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Słaby awans" :image="BlindManLogo"
+                                <CrystallBallItem title="Słaby awans" :image="EvolveLogo"
                                     ><div
                                         :style="{
                                             width: '100%',
@@ -270,7 +270,7 @@
                                             <InputNumber fluid size="small" :style="{ width: '60px' }" />
                                         </div></div
                                 ></CrystallBallItem>
-                                <CrystallBallItem title="Dwie armie" :image="BlindManLogo"
+                                <CrystallBallItem title="Dwie armie" :image="ArmyLogo"
                                     ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                         Na przestrzeni całego turnieju w sumie: - czy więcej partii wygrają białe, czy
                                         może czarne?
@@ -293,7 +293,7 @@
                                         opcje razem wzięte?
                                     </div></CrystallBallItem
                                 >
-                                <CrystallBallItem title="Do ostatniej kropli krwi" :image="BlindManLogo">
+                                <CrystallBallItem title="Do ostatniej kropli krwi" :image="ArmyLogo">
                                     <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                         W której z grup wydarzy się najwięcej dogrywek?
                                     </div>
@@ -368,6 +368,8 @@ import TwitchIcon from '@/assets/icons/twitch-icon.png'
 import { Button } from 'primevue'
 import BlindManLogo from '@/assets/icons/pickem/blindmanlogo.png'
 import TimerLogo from '@/assets/icons/pickem/timerb.png'
+import EvolveLogo from '@/assets/icons/pickem/evolve.png'
+import ArmyLogo from '@/assets/icons/pickem/army.png'
 import SzachMatLogo from '@/assets/icons/szachmatlogo.png'
 import { DataTable, Column } from 'primevue'
 import api from '@/common/api'
