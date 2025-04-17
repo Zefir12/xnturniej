@@ -68,7 +68,15 @@
                 </TabList>
                 <TabPanels>
                     <TabPanel value="0" as="p" class="m-0">
-                        <div :style="{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }">
+                        <div
+                            :style="{
+                                width: '100%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                color: '#FAF9F6',
+                            }"
+                        >
                             <div :style="{ maxWidth: '800px', margin: 'auto' }">
                                 <h2>💡 Czym jest Pick’em Challenge?</h2>
                                 <p>
@@ -177,7 +185,13 @@
                     </TabPanel>
                     <TabPanel value="3" as="p" class="m-0">
                         <div
-                            :style="{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center' }"
+                            :style="{
+                                width: '100%',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                color: '#FAF9F6',
+                            }"
                         >
                             <div
                                 :style="{
@@ -218,15 +232,15 @@
                                         może czarne?
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Vox populi" :image="BlindManLogo">
+                                <CrystallBallItem title="Vox Populi" :image="BlindManLogo">
                                     <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                         Kto będzie obstawiany jako zwycięzca całego turnieju przez największą ilość
                                         osób?
                                     </div></CrystallBallItem
                                 >
-                                <CrystallBallItem title="Czas Dziadek!" :image="BlindManLogo"
+                                <CrystallBallItem title="Wypadek przy pracy..." :image="BlindManLogo"
                                     ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Czy Overpow przegra przynajmniej jedną partie na czas?
+                                        Ile wydarzy się patów podczas turnieju?
                                     </div></CrystallBallItem
                                 >
                                 <CrystallBallItem title="Do wymyślenia..."></CrystallBallItem>
@@ -240,6 +254,7 @@
                                 display: 'flex',
                                 flexDirection: 'column',
                                 alignItems: 'center',
+                                color: '#FAF9F6',
                             }"
                         >
                             <DataTable
