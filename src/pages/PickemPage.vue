@@ -104,8 +104,8 @@
                                 </p>
                                 <h2>🏆 Co jest do wygrania?</h2>
                                 <p>
-                                    Chwała i sława z bycia topką rankingu Twitcha! A dla trzech najlepiej typujących - 3
-                                    dowolne kursy z ostre-debiuty.pl
+                                    Chwała i sława z bycia topką rankingu Twitcha! A dla trzech najlepiej typujących -
+                                    dowolny kurs z ostre-debiuty.pl
                                 </p>
                             </div>
                             <Button
