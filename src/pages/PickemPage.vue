@@ -103,10 +103,9 @@
                                     też typować samemu dla siebie anonimowo
                                 </p>
                                 <h2>🏆 Co jest do wygrania?</h2>
-                                <p>Chwała i sława z bycia topką rankingu Twitcha!*</p>
-                                <p :style="{ fontSize: '12px' }">
-                                    *To sie jeszcze może zmienić. (Może dorzuce 20 zł psc, może XN dorzuci szachowy
-                                    kursik czy coś, może nawet toster, kto wie 👀)
+                                <p>
+                                    Chwała i sława z bycia topką rankingu Twitcha! A dla trzech najlepiej typujących - 3
+                                    dowolne kursy z ostre-debiuty.pl
                                 </p>
                             </div>
                             <Button
