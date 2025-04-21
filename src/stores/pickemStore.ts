@@ -15,7 +15,7 @@ export const usePickemStore = defineStore('Pickem Store', () => {
         {
             group: 'b',
             players: [
-                { place: '1', uuid: 'a869eba0-ad12-11eb-b429-1d193d279471' }, //a869eba0-ad12-11eb-b429-1d193d279471
+                { place: '1', uuid: '' }, //a869eba0-ad12-11eb-b429-1d193d279471
                 { place: '2', uuid: '' },
                 { place: '3', uuid: '' },
                 { place: '4', uuid: '' },

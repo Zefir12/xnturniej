@@ -155,20 +155,38 @@
                     Gracze na <b>pozycji startowej</b> 1. - pierwszej (Gracz 1) i 3. - trzeciej (Gracz 3) otrzymują
                     białe bierki/figury w pierwszej partii meczu dwukrotnie.
                 </p>
-                Runda 1:
-                <ul>
-                    <li>Gracz 1 (białe) vs Gracz 3 (czarne)</li>
-                    <li>Gracz 2 (białe) vs Gracz 4 (czarne)</li>
+                <b>Runda 1</b>:
+                <ul :style="{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }">
+                    <li>
+                        <ColorBlock variant="white">Gracz 1 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">Gracz 3 (czarne)</ColorBlock>
+                    </li>
+                    <li>
+                        <ColorBlock variant="white">Gracz 2 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">Gracz 4 (czarne)</ColorBlock>
+                    </li>
                 </ul>
-                Runda 2:
-                <ul>
-                    <li>Gracz 3 (białe) vs Gracz 2 (czarne)</li>
-                    <li>Gracz 4 (białe) vs Gracz 1 (czarne)</li>
+                <b>Runda 2</b>:
+                <ul :style="{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }">
+                    <li>
+                        <ColorBlock variant="white">Gracz 3 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">Gracz 2 (czarne)</ColorBlock>
+                    </li>
+                    <li>
+                        <ColorBlock variant="white">Gracz 4 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">Gracz 1 (czarne)</ColorBlock>
+                    </li>
                 </ul>
-                Runda 3:
-                <ul>
-                    <li>Gracz 1 (białe) vs Gracz 2 (czarne)</li>
-                    <li>Gracz 3 (białe) vs Gracz 4 (czarne)</li>
+                <b>Runda 3</b>:
+                <ul :style="{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }">
+                    <li>
+                        <ColorBlock variant="white">Gracz 1 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">Gracz 2 (czarne)</ColorBlock>
+                    </li>
+                    <li>
+                        <ColorBlock variant="white">Gracz 3 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">Gracz 4 (czarne)</ColorBlock>
+                    </li>
                 </ul>
             </section>
             <section id="additionalRounds">
@@ -205,10 +223,19 @@
                     (Gracze są przypisywani w miejsca “Gracz 1”, “Gracz 2”, “Gracz 3”, opisane poniżej, według
                     pierwotnej kolejności wylosowania do grupy/pozycji startowej)
                 </p>
-                <ul>
-                    <li>Mecz 1: Gracz 1 (białe) vs Gracz 2 (czarne)</li>
-                    <li>Mecz 2: Gracz 2 (białe) vs Gracz 3 (czarne)</li>
-                    <li>Mecz 3: Gracz 3 (białe) vs Gracz 1 (czarne)</li>
+                <ul :style="{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }">
+                    <li>
+                        Mecz 1: <ColorBlock variant="white">Gracz 1 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">Gracz 2 (czarne)</ColorBlock>
+                    </li>
+                    <li>
+                        Mecz 2: <ColorBlock variant="white">Gracz 2 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">Gracz 3 (czarne)</ColorBlock>
+                    </li>
+                    <li>
+                        Mecz 3: <ColorBlock variant="white">Gracz 3 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">Gracz 1 (czarne)</ColorBlock>
+                    </li>
                 </ul>
                 <p>
                     W przypadku kolejnego remisu po pierwszej rundzie dogrywkowej, gracze grają kolejną rundę do
@@ -270,20 +297,33 @@
                 </p>
                 <p>Mecze w ćwierćfinałach rozgrywane są następująco:</p>
                 <ul :style="{ display: 'flex', flexDirection: 'column', gap: '1rem' }">
-                    <li>
-                        Drabinka wygranych: <br />Mecz 1: A1 (białe) vs B2 (czarne) <br />Mecz 2: B1 (białe) vs C2
-                        (czarne) <br />Mecz 3: C1 (białe) vs D2 (czarne) <br />Mecz 4: D1 (białe) vs A2 (czarne)
+                    <li :style="{ lineHeight: '1.6rem' }">
+                        Drabinka wygranych: <br />Mecz 1: <ColorBlock variant="white">A1 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">B2 (czarne)</ColorBlock> <br />Mecz 2:
+                        <ColorBlock variant="white">B1 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">C2 (czarne)</ColorBlock> <br />Mecz 3:
+                        <ColorBlock variant="white">C1 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">D2 (czarne)</ColorBlock> <br />Mecz 4:
+                        <ColorBlock variant="white">D1 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">A2 (czarne)</ColorBlock>
                     </li>
-                    <li>
-                        Drabinka przegranych:<br />Mecz 1: A3 (białe) vs B4 (czarne) <br />Mecz 2: B3 (białe) vs C4
-                        (czarne) <br />Mecz 3: C3 (białe) vs D4 (czarne) <br />Mecz 4: D3 (białe) vs A4 (czarne)
+                    <li :style="{ lineHeight: '1.6rem' }">
+                        Drabinka przegranych:<br />Mecz 1: <ColorBlock variant="white">A3 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">B4 (czarne)</ColorBlock> <br />Mecz 2:
+                        <ColorBlock variant="white">B3 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">C4 (czarne)</ColorBlock> <br />Mecz 3:
+                        <ColorBlock variant="white">C3 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">D4 (czarne)</ColorBlock> <br />Mecz 4:
+                        <ColorBlock variant="white">D3 (białe)</ColorBlock> vs
+                        <ColorBlock variant="black">A4 (czarne)</ColorBlock>
                     </li>
                 </ul>
                 <p>Mecze w półfinałach rozgrywane są następująco:</p>
                 <ul :style="{ display: 'flex', flexDirection: 'column', gap: '1rem' }">
                     <li>
-                        Drabinka wygranych: <br />Mecz 1: Zwycięzca meczu A1 vs B2 vs Zwycięzca meczu B1 vs C2
-                        <br />Mecz 2: Zwycięzca meczu C1 vs D2 vs Zwycięzca meczu D1 vs A2
+                        Drabinka wygranych:
+                        <br />Mecz 1: Zwycięzca meczu A1 vs B2 vs Zwycięzca meczu B1 vs C2 <br />Mecz 2: Zwycięzca meczu
+                        C1 vs D2 vs Zwycięzca meczu D1 vs A2
                     </li>
                     <li>
                         Drabinka przegranych: <br />Mecz 1: Zwycięzca meczu A3 vs B4 vs Zwycięzca meczu B3 vs C4
@@ -339,9 +379,10 @@
                     Grupy dogrywkowe podlegają takim samym zasadom jak zwykłe grupy. Zasade te zostały szczegółowo
                     rozpisane w punktach
                     <b class="clickable-text" @click="() => scrollToSection('groups')">Grupy</b> oraz
-                    <b class="clickable-text" @click="() => scrollToSection('additionalRounds')"
-                        >Rundy dogrywkowe w grupie</b
-                    >, z tą różnicą, że tempo meczów to <TempoBlock time="5" increment="0" />.
+                    <b class="clickable-text" @click="() => scrollToSection('additionalRounds')">
+                        Rundy dogrywkowe w grupie</b
+                    >
+                    , z tą różnicą, że tempo meczów to <TempoBlock time="5" increment="0" />.
                 </p>
                 <div :style="{ height: '100px' }"></div>
             </section>
@@ -353,6 +394,7 @@
 import { IconArrowBackUp, IconArrowBadgeLeftFilled } from '@tabler/icons-vue'
 import ResultsBlock from '@/components/FormatComponents/ResultsBlock.vue'
 import TempoBlock from '@/components/FormatComponents/TempoBlock.vue'
+import ColorBlock from '@/components/FormatComponents/ColorBlock.vue'
 import PointsBlock from '@/components/FormatComponents/PointsBlock.vue'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 

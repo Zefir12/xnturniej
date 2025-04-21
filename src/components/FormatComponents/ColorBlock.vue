@@ -1,5 +1,5 @@
 <template>
-    <span class="textt"> <slot></slot></span>
+    <span :class="'textt' + ' ' + props.variant"> <slot></slot></span>
 </template>
 
 <script setup lang="ts">
@@ -17,8 +17,13 @@ const props = defineProps<{ variant: string }>()
     padding-right: 5px;
     white-space: nowrap;
 }
-.variant-black {
-    background-color: #222222;
-    color: orange;
+.black {
+    border: solid 1px #ffffff6c;
+    background-color: #000000;
+    color: #faf9f6;
+}
+.white {
+    background-color: #faf9f6;
+    color: #181818;
 }
 </style>
