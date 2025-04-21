@@ -25,6 +25,11 @@ const router = createRouter({
             component: () => import('../pages/PickemPage.vue'),
         },
         {
+            path: '/format-turnieju',
+            name: 'format',
+            component: () => import('../pages/TournamentFormat.vue'),
+        },
+        {
             path: '/twitch/callback',
             name: 'TwitchCallback',
             component: () => import('../pages/TwitchCallback.vue'),

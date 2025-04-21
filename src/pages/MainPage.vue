@@ -7,6 +7,7 @@
                     <MyInfo />
                 </div>
             </div>
+            <MainNavBar />
             <RatingTable :class="{ 'fullscreen-table': uiStore.dataTableFullscreen }" />
             <ContentPanel :style="{ display: uiStore.dataTableFullscreen ? 'none' : 'flex' }" />
         </div>
@@ -20,6 +21,7 @@ import MyInfo from '@/components/MyInfo.vue'
 import RatingTable from '@/components/RatingTable.vue'
 import { useUiStore } from '@/stores/uiStore'
 import ContentPanel from '@/components/ContentPanel.vue'
+import MainNavBar from '@/components/MainNavBar.vue'
 
 const uiStore = useUiStore()
 const handleKeydown = (event: KeyboardEvent) => {
