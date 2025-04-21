@@ -30,10 +30,10 @@
                 <h2>Ogólne założenia formatu:</h2>
 
                 Punkty za pojedyncze partie w meczu wyglądają następująco:
-                <ul>
-                    <li>Wygrana - 1 pkt</li>
-                    <li>Remis - 0.5 pkt</li>
-                    <li>Przegrana - 0 pkt</li>
+                <ul :style="{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }">
+                    <li>Wygrana - <PointsBlock points="1" /></li>
+                    <li>Remis - <PointsBlock points="0.5" /></li>
+                    <li>Przegrana - <PointsBlock points="0" /></li>
                 </ul>
 
                 <p>
@@ -41,7 +41,7 @@
                     gdzie X to liczba punktów wymagana do wygranej. W przypadku remisu X-X, gracze grają do jednego
                     punktu przewagi. Mecze składają się z tylu partii ile będzie potrzebne do wyłonienia zwycięzcy.
                 </p>
-                <p>Przykład meczu do 1.5 pkt:</p>
+                <p>Przykład meczu do <PointsBlock points="1.5" />:</p>
                 <ul :style="{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }">
                     <li>Wyniki <ResultsBlock l="1.5" r="0.5" />, <ResultsBlock l="2" r="0" /> oznaczają zwycięstwo.</li>
                     <li>
@@ -78,9 +78,12 @@
                     każdym z pozostałych.
                 </p>
                 <p>
-                    Mecze w grupie są rozgrywane do 1.5 pkt tempem <TempoBlock time="10" increment="0" />. W przypadku
-                    remisu w meczu (<ResultsBlock l="1.5" r="1.5" />), gracze grają dalej tempem
-                    <TempoBlock time="5" increment="0" />, aż jeden z nich osiągnie jeden punkt przewagi.
+                    Mecze w grupie są rozgrywane do <PointsBlock points="1.5" /> tempem
+                    <TempoBlock time="10" increment="0" />. W przypadku remisu w meczu (<ResultsBlock
+                        l="1.5"
+                        r="1.5"
+                    />), gracze grają dalej tempem <TempoBlock time="5" increment="0" />, aż jeden z nich osiągnie jeden
+                    punkt przewagi.
                 </p>
                 <p>
                     Pozycja w grupie zależy od bilansu wygranych i przegranych meczów. Bilans zapisywany jest formacie
@@ -125,21 +128,21 @@
                 </ul>
                 <p>
                     W przypadku potrójnego remisu, jak opisano wyżej, gracze z tym samym wynikiem grają dodatkową rundę
-                    tempem <TempoBlock time="5" increment="0" /> do 1.5 pkt.
+                    tempem <TempoBlock time="5" increment="0" /> do <PointsBlock points="1.5" />.
                 </p>
                 <p>
-                    Kolejność meczów w rundzie dogrywkowej wygląda następująco: (Gracze są przypisywani w miejsca “Gracz
-                    1”, “Gracz 2”, “Gracz 3” w kolejności wylosowania do grupy)
+                    Kolejność meczów w rundzie dogrywkowej wygląda następująco: <br />(Gracze są przypisywani w miejsca
+                    “Gracz 1”, “Gracz 2”, “Gracz 3” w kolejności wylosowania do grupy)
                 </p>
                 <p>
-                    Mecz 1: Gracz 1 (białe) vs Gracz 2 (czarne) Mecz 2: Gracz 2 (białe) vs Gracz 3 (czarne) Mecz 3:
-                    Gracz 3 (białe) vs Gracz 1 (czarne)
+                    Mecz 1: Gracz 1 (białe) vs Gracz 2 (czarne) <br />Mecz 2: Gracz 2 (białe) vs Gracz 3 (czarne)
+                    <br />Mecz 3: Gracz 3 (białe) vs Gracz 1 (czarne)
                 </p>
                 <p>
-                    W przypadku kolejnego remisu po pierwszej rundzie dogrywkowej, gracze grają kolejną rundę do 1.5
-                    pkt, ale tym razem tempem <TempoBlock time="1" increment="0" />. Każdy następny remis w rundzie
-                    powtarza ten proces do wyłonienia wyników grupy, mecze rozgrywane są do 1.5 pkt tempem
-                    <TempoBlock time="1" increment="0" />.
+                    W przypadku kolejnego remisu po pierwszej rundzie dogrywkowej, gracze grają kolejną rundę do
+                    <PointsBlock points="1.5" />, ale tym razem tempem <TempoBlock time="1" increment="0" />. Każdy
+                    następny remis w rundzie powtarza ten proces do wyłonienia wyników grupy, mecze rozgrywane są do
+                    <PointsBlock points="1.5" /> tempem <TempoBlock time="1" increment="0" />.
                 </p>
             </section>
             <section id="ladders">
@@ -154,24 +157,40 @@
                     drabinki do drugiej.
                 </p>
                 <p>
-                    W przypadku remisu w meczu (np. <ResultsBlock l="1.5" r="1.5" /> w meczu do 1.5 pkt), gracze grają
-                    dalej tempem <TempoBlock time="5" increment="0" />, aż jeden z nich osiągnie jeden punkt przewagi.
+                    W przypadku remisu w meczu (np. <ResultsBlock l="1.5" r="1.5" /> w meczu do
+                    <PointsBlock points="1.5" />), gracze grają dalej tempem <TempoBlock time="5" increment="0" />, aż
+                    jeden z nich osiągnie jeden punkt przewagi.
                 </p>
                 W drabince przegranych rozgrywane są następująco:
                 <ul :style="{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }">
-                    <li>Ćwierćfinały - do 1.5 pkt tempem <TempoBlock time="10" increment="0" /></li>
-                    <li>Półfinały - do 1.5 pkt tempem <TempoBlock time="10" increment="0" /></li>
-                    <li>Mecz o 11 miejsce - do 1.5 pkt tempem <TempoBlock time="10" increment="0" /></li>
-                    <li>Finał - do 1.5 pkt tempem <TempoBlock time="10" increment="0" /></li>
-                    <li>Grupy dogrywkowe (miejsca 13-16) - do 1.5 pkt tempem <TempoBlock time="10" increment="0" /></li>
+                    <li>
+                        Ćwierćfinały - do <PointsBlock points="1.5" /> tempem <TempoBlock time="10" increment="0" />
+                    </li>
+                    <li>Półfinały - do <PointsBlock points="1.5" /> tempem <TempoBlock time="10" increment="0" /></li>
+                    <li>
+                        Mecz o 11 miejsce - do <PointsBlock points="1.5" /> tempem
+                        <TempoBlock time="10" increment="0" />
+                    </li>
+                    <li>Finał - do <PointsBlock points="1.5" /> tempem <TempoBlock time="10" increment="0" /></li>
+                    <li>
+                        Grupy dogrywkowe (miejsca 13-16) - do <PointsBlock points="1.5" /> tempem
+                        <TempoBlock time="10" increment="0" />
+                    </li>
                 </ul>
                 W drabince wygranych rozgrywane są następująco:
                 <ul :style="{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }">
-                    <li>Ćwierćfinały - do 1.5 pkt tempem <TempoBlock time="10" increment="0" /></li>
-                    <li>Półfinały - do 2.5 pkt tempem <TempoBlock time="10" increment="0" /></li>
-                    <li>Mecz o 3 miejsce - do 2.5 pkt tempem <TempoBlock time="10" increment="0" /></li>
-                    <li>Finał - do 4 pkt tempem <TempoBlock time="10" increment="0" /></li>
-                    <li>Grupy dogrywkowe (miejsca 5-8) - do 1.5 pkt tempem <TempoBlock time="10" increment="0" /></li>
+                    <li>
+                        Ćwierćfinały - do <PointsBlock points="1.5" /> tempem <TempoBlock time="10" increment="0" />
+                    </li>
+                    <li>Półfinały - do <PointsBlock points="2.5" /> tempem <TempoBlock time="10" increment="0" /></li>
+                    <li>
+                        Mecz o 3 miejsce - do <PointsBlock points="2.5" /> tempem <TempoBlock time="10" increment="0" />
+                    </li>
+                    <li>Finał - do <PointsBlock points="4" /> tempem <TempoBlock time="10" increment="0" /></li>
+                    <li>
+                        Grupy dogrywkowe (miejsca 5-8) - do <PointsBlock points="1.5" /> tempem
+                        <TempoBlock time="10" increment="0" />
+                    </li>
                 </ul>
                 <p>
                     W poniższych zapisach litera oznacza grupę, a numer to pozycja wyjściowa gracza. Przykład: “A1” to
@@ -261,6 +280,7 @@
 import { IconArrowBackUp } from '@tabler/icons-vue'
 import ResultsBlock from '@/components/FormatComponents/ResultsBlock.vue'
 import TempoBlock from '@/components/FormatComponents/TempoBlock.vue'
+import PointsBlock from '@/components/FormatComponents/PointsBlock.vue'
 
 const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
@@ -288,6 +308,11 @@ const scrollToSection = (id: string) => {
 }
 .content-container {
     max-width: 800px;
+}
+
+.content-container ul li::marker {
+    color: orange;
+    font-weight: 700;
 }
 
 .content-container h2 {
