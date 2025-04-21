@@ -1,12 +1,10 @@
 <template>
-    <div class="main-container">
+    <div :style="{ position: 'fixed', top: '20px', left: '20px' }">
         <a
             href="/"
             :style="{
                 textDecoration: 'none',
-                position: 'absolute',
-                top: '20px',
-                left: '20px',
+
                 cursor: 'pointer',
                 color: 'orange',
                 backgroundColor: '#222222',
@@ -22,8 +20,52 @@
         >
             <IconArrowBackUp />Strona Główna
         </a>
+        <div class="section-navigation" :style="{ marginTop: '10px' }">
+            <div
+                class="section-name-navigation"
+                v-for="section in sections"
+                :key="section"
+                @click="scrollToSection(section)"
+            >
+                {{ sectionNameMap[section as keyof typeof sectionNameMap] }}
+                <IconArrowBadgeLeftFilled
+                    size="20"
+                    :style="{
+                        color: 'orange',
+                        marginBottom: '-6px',
+                        transition: 'all 0.2s ease',
+                        opacity: section == activeSection ? '1' : '0',
+                        transform: section == activeSection ? 'translateX(0px)' : 'translateX(40px)',
+                    }"
+                />
+                <IconArrowBadgeLeftFilled
+                    size="20"
+                    :style="{
+                        color: 'orange',
+                        marginBottom: '-6px',
+                        transition: 'all 0.4s ease',
+                        marginLeft: '-10px',
+                        opacity: section == activeSection ? '1' : '0',
+                        transform: section == activeSection ? 'translateX(0px)' : 'translateX(40px)',
+                    }"
+                />
+                <IconArrowBadgeLeftFilled
+                    size="20"
+                    :style="{
+                        color: 'orange',
+                        marginBottom: '-6px',
+                        marginLeft: '-10px',
+                        transition: 'all 0.5s ease',
+                        opacity: section == activeSection ? '1' : '0',
+                        transform: section == activeSection ? 'translateX(0px)' : 'translateX(40px)',
+                    }"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="main-container">
         <div class="content-container">
-            <h1 :style="{ marginTop: '2rem', marginBottom: '4rem', width: '100%', textAlign: 'center' }">
+            <h1 :style="{ marginTop: '6rem', marginBottom: '2rem', width: '100%', textAlign: 'center' }">
                 Format Turnieju
             </h1>
             <section id="main">
@@ -277,10 +319,43 @@
 </template>
 
 <script setup lang="ts">
-import { IconArrowBackUp } from '@tabler/icons-vue'
+import { IconArrowBackUp, IconArrowBadgeLeftFilled } from '@tabler/icons-vue'
 import ResultsBlock from '@/components/FormatComponents/ResultsBlock.vue'
 import TempoBlock from '@/components/FormatComponents/TempoBlock.vue'
 import PointsBlock from '@/components/FormatComponents/PointsBlock.vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+
+const activeSection = ref<string>('main')
+const sections = ['main', 'groups', 'additionalRounds', 'ladders', 'additional']
+
+const sectionNameMap = {
+    main: 'Ogólne',
+    groups: 'Grupy',
+    additionalRounds: 'Rundy dogrywkowe',
+    ladders: 'Drabinki',
+    additional: 'Dogrywki w drabinkach',
+}
+
+const handleScroll = () => {
+    for (const link of sections) {
+        const section = document.getElementById(link)
+        if (!section) continue
+
+        const rect = section.getBoundingClientRect()
+        if (rect.top <= 100 && rect.bottom >= 100) {
+            activeSection.value = link
+            break
+        }
+    }
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll)
+})
+
+onBeforeUnmount(() => {
+    window.removeEventListener('scroll', handleScroll)
+})
 
 const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
@@ -291,6 +366,12 @@ const scrollToSection = (id: string) => {
 </script>
 
 <style scoped>
+.section-name-navigation {
+    cursor: pointer;
+}
+.section-name-navigation:hover {
+    color: orange;
+}
 .clickable-text {
     cursor: pointer;
     background-color: #222222;
@@ -304,10 +385,11 @@ const scrollToSection = (id: string) => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
 }
 .content-container {
     max-width: 800px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .content-container ul li::marker {
@@ -319,5 +401,17 @@ const scrollToSection = (id: string) => {
     margin-top: 4rem;
     margin-bottom: 1.5rem;
     color: orange;
+}
+.section-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-weight: 700;
+    font-size: 14px;
+}
+@media (max-width: 1000px) {
+    .section-navigation {
+        display: none;
+    }
 }
 </style>
