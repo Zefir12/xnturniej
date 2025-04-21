@@ -15,5 +15,6 @@ const props = defineProps<{ l: string; r: string }>()
     border-radius: 4px;
     padding-left: 8px;
     padding-right: 8px;
+    white-space: nowrap;
 }
 </style>
