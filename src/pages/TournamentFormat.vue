@@ -1,5 +1,5 @@
 <template>
-    <div :style="{ position: 'fixed', top: '20px', left: '20px' }">
+    <div :style="{ position: 'fixed', top: '20px', left: '20px', color: '#FAF9F6' }">
         <a
             href="/"
             :style="{
@@ -79,13 +79,17 @@
                 </ul>
 
                 <p>
-                    Wszystkie mecze turnieju będą rozgrywane w stylu "pierwszy gracz, który osiągnie X punktów wygrywa",
-                    gdzie X to liczba punktów wymagana do wygranej. W przypadku remisu X-X, gracze grają do jednego
-                    punktu przewagi. Mecze składają się z tylu partii ile będzie potrzebne do wyłonienia zwycięzcy.
+                    Wszystkie mecze turnieju będą rozgrywane w stylu
+                    <b>"pierwszy gracz, który osiągnie X punktów wygrywa"</b>, gdzie X to liczba punktów wymagana do
+                    wygranej. W przypadku remisu X-X, gracze grają do jednego punktu przewagi. Mecze składają się z tylu
+                    partii, ile będzie konieczne, by wyłonić zwycięzcę meczu.
                 </p>
                 <p>Przykład meczu do <PointsBlock points="1.5" />:</p>
                 <ul :style="{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }">
-                    <li>Wyniki <ResultsBlock l="1.5" r="0.5" />, <ResultsBlock l="2" r="0" /> oznaczają zwycięstwo.</li>
+                    <li>
+                        Wyniki <ResultsBlock l="1.5" r="0.5" />, <ResultsBlock l="2" r="0" /> oznaczają zwycięstwo
+                        jednego z graczy.
+                    </li>
                     <li>
                         Wynik <ResultsBlock l="1" r="1" /> - żaden gracz nie osiągnął wymaganej liczby punktów, mecz
                         trwa dalej.
@@ -96,8 +100,8 @@
                     </li>
                 </ul>
                 <p>
-                    Zapisy takie jak "(białe)" lub "(czarne)" oznaczają kolor bierek, którymi gracz zaczyna pierwszą
-                    partię meczu.
+                    Zapisy takie jak <b>"(białe)"</b> lub <b>"(czarne)"</b> oznaczają kolor bierek/figur, którymi gracz
+                    zaczyna pierwszą partię meczu. <b>Uczestnicy zamieniają się kolorami co partię.</b>
                 </p>
 
                 Wszystkie tempa w dalszej części dokumentu są w tym formacie:
@@ -115,34 +119,57 @@
             </section>
             <section id="groups">
                 <h2>Grupy:</h2>
+                <p>Szesnastu graczy zostanie rozlosowanych do 4 grup: A, B, C i D.</p>
                 <p>
-                    16 graczy zostanie rozlosowanych do 4 grup: A, B, C i D. Każdy gracz w grupie rozgrywa jeden mecz z
-                    każdym z pozostałych.
+                    Grupy zostaną wylosowane na żywo na kanale
+                    <a :href="'https://twitch.tv/xntentacion'">twitch.tv/xntentacion</a> dzień przed rozpoczęciem
+                    Turnieju, dokładniej <b>23.04.2025</b>.
+                </p>
+                <p>
+                    Pozycja startowa w grupie określana jest na podstawie kolejności wylosowania uczestników do grup.
+                    Każdy gracz w grupie rozgrywa jeden mecz z każdym z pozostałych.
                 </p>
                 <p>
                     Mecze w grupie są rozgrywane do <PointsBlock points="1.5" /> tempem
-                    <TempoBlock time="10" increment="0" />. W przypadku remisu w meczu (<ResultsBlock
-                        l="1.5"
-                        r="1.5"
-                    />), gracze grają dalej tempem <TempoBlock time="5" increment="0" />, aż jeden z nich osiągnie jeden
-                    punkt przewagi.
+                    <TempoBlock time="10" increment="0" />.<br />
+                </p>
+                <p>W przypadku grup dogrywkowych jest to tempo <TempoBlock time="5" increment="0" />. <br /></p>
+                <p>
+                    W przypadku remisu w meczu (<ResultsBlock l="1.5" r="1.5" />), gracze grają dalej tempem
+                    <TempoBlock time="5" increment="0" />, aż jeden z nich osiągnie jeden punkt przewagi.
                 </p>
                 <p>
                     Pozycja w grupie zależy od bilansu wygranych i przegranych meczów. Bilans zapisywany jest formacie
                     "Wygrane mecze - Przegrane mecze", np. <ResultsBlock l="1" r="0" />.
                 </p>
                 <p>
-                    Bilans jest sumowany, np. gracz z wynikiem <ResultsBlock l="1" r="0" /> po kolejnej wygranej ma
-                    <ResultsBlock l="2" r="0" />, a po przegranej <ResultsBlock l="1" r="1" />.
+                    W fazie grupowej każdy uczestnik będzie miał zapisywany bilans meczów w formacie „wygrane mecze -
+                    przegrane mecze” (np. <ResultsBlock l="2" r="1" />). Pozycja w grupie zależy od różnicy pomiędzy
+                    liczbą wygranych i przegranych, im wyższa względem innych zawodników, tym lepsze miejsce w tabeli.
+                    Bilans jest sumowany po każdym meczu, np. gracz z wynikiem <ResultsBlock l="1 " r="0" /> po kolejnym
+                    wygranym meczu będzie mieć <ResultsBlock l="2" r="0" />, a po przegranym
+                    <ResultsBlock l="2" r="1" />.
                 </p>
-                <h2>Sposób rozgrywania grup:</h2>
+                <h4 :style="{ color: 'orange' }">Sposób rozgrywania grup:</h4>
                 <p>
-                    Kolejność wylosowania zawodników do grupy ma znaczenie — gracze wylosowani jako pierwszy (Gracz 1) i
-                    trzeci (Gracz 3) otrzymują białe bierki w pierwszej partii meczu dwukrotnie.
+                    Gracze na <b>pozycji startowej</b> 1. - pierwszej (Gracz 1) i 3. - trzeciej (Gracz 3) otrzymują
+                    białe bierki/figury w pierwszej partii meczu dwukrotnie.
                 </p>
-                <p>Runda 1: Gracz 1 (białe) vs Gracz 3 (czarne) Gracz 2 (białe) vs Gracz 4 (czarne)</p>
-                <p>Runda 2: Gracz 3 (białe) vs Gracz 2 (czarne) Gracz 4 (białe) vs Gracz 1 (czarne)</p>
-                <p>Runda 3: Gracz 1 (białe) vs Gracz 2 (czarne) Gracz 3 (białe) vs Gracz 4 (czarne)</p>
+                Runda 1:
+                <ul>
+                    <li>Gracz 1 (białe) vs Gracz 3 (czarne)</li>
+                    <li>Gracz 2 (białe) vs Gracz 4 (czarne)</li>
+                </ul>
+                Runda 2:
+                <ul>
+                    <li>Gracz 3 (białe) vs Gracz 2 (czarne)</li>
+                    <li>Gracz 4 (białe) vs Gracz 1 (czarne)</li>
+                </ul>
+                Runda 3:
+                <ul>
+                    <li>Gracz 1 (białe) vs Gracz 2 (czarne)</li>
+                    <li>Gracz 3 (białe) vs Gracz 4 (czarne)</li>
+                </ul>
             </section>
             <section id="additionalRounds">
                 <h2>Rundy dogrywkowe w grupie:</h2>
@@ -151,7 +178,7 @@
                     <li>
                         <ResultsBlock l="2" r="1" />, <ResultsBlock l="2" r="1" />, <ResultsBlock l="1" r="2" />,
                         <ResultsBlock l="1" r="2" /> - w tym przypadku to kto wychodzi, na którym miejscu z grupy zależy
-                        od bezpośredniego wyniku starcia graczy 1. i 2. oraz graczy 3. i 4.
+                        od bezpośrednich wyników starć pomiędzy zawodnikami z miejsc 1, 2 oraz 3, 4.
                     </li>
                     <li>
                         <ResultsBlock l="3" r="0" />, <ResultsBlock l="1" r="2" />, <ResultsBlock l="1" r="2" />,
@@ -172,14 +199,17 @@
                     W przypadku potrójnego remisu, jak opisano wyżej, gracze z tym samym wynikiem grają dodatkową rundę
                     tempem <TempoBlock time="5" increment="0" /> do <PointsBlock points="1.5" />.
                 </p>
+
                 <p>
-                    Kolejność meczów w rundzie dogrywkowej wygląda następująco: <br />(Gracze są przypisywani w miejsca
-                    “Gracz 1”, “Gracz 2”, “Gracz 3” w kolejności wylosowania do grupy)
+                    <b>Kolejność meczów w rundzie dogrywkowej wygląda następująco:</b><br />
+                    (Gracze są przypisywani w miejsca “Gracz 1”, “Gracz 2”, “Gracz 3”, opisane poniżej, według
+                    pierwotnej kolejności wylosowania do grupy/pozycji startowej)
                 </p>
-                <p>
-                    Mecz 1: Gracz 1 (białe) vs Gracz 2 (czarne) <br />Mecz 2: Gracz 2 (białe) vs Gracz 3 (czarne)
-                    <br />Mecz 3: Gracz 3 (białe) vs Gracz 1 (czarne)
-                </p>
+                <ul>
+                    <li>Mecz 1: Gracz 1 (białe) vs Gracz 2 (czarne)</li>
+                    <li>Mecz 2: Gracz 2 (białe) vs Gracz 3 (czarne)</li>
+                    <li>Mecz 3: Gracz 3 (białe) vs Gracz 1 (czarne)</li>
+                </ul>
                 <p>
                     W przypadku kolejnego remisu po pierwszej rundzie dogrywkowej, gracze grają kolejną rundę do
                     <PointsBlock points="1.5" />, ale tym razem tempem <TempoBlock time="1" increment="0" />. Każdy
@@ -199,7 +229,7 @@
                     drabinki do drugiej.
                 </p>
                 <p>
-                    W przypadku remisu w meczu (np. <ResultsBlock l="1.5" r="1.5" /> w meczu do
+                    W poniżej opisanych meczach, w przypadku remisu (np. <ResultsBlock l="1.5" r="1.5" /> w meczu do
                     <PointsBlock points="1.5" />), gracze grają dalej tempem <TempoBlock time="5" increment="0" />, aż
                     jeden z nich osiągnie jeden punkt przewagi.
                 </p>
@@ -216,7 +246,7 @@
                     <li>Finał - do <PointsBlock points="1.5" /> tempem <TempoBlock time="10" increment="0" /></li>
                     <li>
                         Grupy dogrywkowe (miejsca 13-16) - do <PointsBlock points="1.5" /> tempem
-                        <TempoBlock time="10" increment="0" />
+                        <TempoBlock time="5" increment="0" />
                     </li>
                 </ul>
                 W drabince wygranych rozgrywane są następująco:
@@ -228,10 +258,10 @@
                     <li>
                         Mecz o 3 miejsce - do <PointsBlock points="2.5" /> tempem <TempoBlock time="10" increment="0" />
                     </li>
-                    <li>Finał - do <PointsBlock points="4" /> tempem <TempoBlock time="10" increment="0" /></li>
+                    <li>Finał - do <PointsBlock points="3.5" /> tempem <TempoBlock time="10" increment="0" /></li>
                     <li>
                         Grupy dogrywkowe (miejsca 5-8) - do <PointsBlock points="1.5" /> tempem
-                        <TempoBlock time="10" increment="0" />
+                        <TempoBlock time="5" increment="0" />
                     </li>
                 </ul>
                 <p>
@@ -269,7 +299,7 @@
                     <li>Przegrany “Meczu 1” z półfinału vs Przegrany “Meczu 2” z półfinału</li>
                 </ul>
                 <p>
-                    Kolory startowe bierek dla graczy w półfinałach, meczach o 3. oraz 11. miejsce i finałach są
+                    Kolory startowe bierek/figur dla graczy w półfinałach, meczach o 3. oraz 11. miejsce i finałach są
                     losowane na żywo przed meczem.
                 </p>
             </section>
@@ -282,8 +312,9 @@
                 </ul>
                 <p>
                     Do grup dogrywkowych trafiają gracze którzy przegrali w ćwierćfinałach w poszczególnych grupach,
-                    mają one na celu wyłonienie graczy na miejscach 5-8 oraz 13-16.
+                    mają one na celu wyłonienie graczy na miejscach 5-8(Grupa W) oraz 13-16(Grupa L).
                 </p>
+                <b>Pozycja startowa graczy w grupach dogrywkowych:</b>
                 <ul>
                     <li>
                         Grupa W:
@@ -310,7 +341,7 @@
                     <b class="clickable-text" @click="() => scrollToSection('groups')">Grupy</b> oraz
                     <b class="clickable-text" @click="() => scrollToSection('additionalRounds')"
                         >Rundy dogrywkowe w grupie</b
-                    >.
+                    >, z tą różnicą, że tempo meczów to <TempoBlock time="5" increment="0" />.
                 </p>
                 <div :style="{ height: '100px' }"></div>
             </section>
@@ -383,6 +414,7 @@ const scrollToSection = (id: string) => {
 }
 .main-container {
     display: flex;
+    color: #faf9f6;
     flex-direction: column;
     align-items: center;
 }
