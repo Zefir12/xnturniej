@@ -187,6 +187,13 @@
                         </OrganizationChart>
                     </TabPanel>
                     <TabPanel value="3" as="p" class="m-0">
+                        <CountDownTimer
+                            class="no-select"
+                            rectColor="#18181b"
+                            :style="{ marginTop: '-4px', marginBottom: '30px' }"
+                            text="Obstawianie wystartuje za: "
+                            :date="new Date('2025-04-23T16:00:00')"
+                        />
                         <div
                             class="no-select"
                             :style="{
