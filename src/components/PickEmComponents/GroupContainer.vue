@@ -7,7 +7,8 @@
                 right: '0px',
                 zIndex: 3,
                 pointerEvents: 'none',
-                backgroundColor: '#6441a4',
+                backgroundColor: '#222222',
+                border: '1px solid #ffa6006b',
                 padding: '10px',
                 fontWeight: '700',
                 borderBottomLeftRadius: '12px',
@@ -23,9 +24,9 @@
                 right: '0px',
                 zIndex: 2,
                 pointerEvents: 'none',
-                backgroundColor: '#6441a4',
+                backgroundColor: 'orange',
                 padding: '10px',
-                filter: 'blur(16px) opacity(0.1)',
+                filter: 'blur(18px) opacity(0.1)',
             }"
         >
             Grupa {{ props.group.toUpperCase() }}
@@ -201,5 +202,8 @@ onUnmounted(() => {
 }
 
 .sortable-drag {
+}
+.test {
+    color: #ffa6006b;
 }
 </style>

@@ -158,6 +158,7 @@
                                 <GroupContainer group="c" />
                                 <GroupContainer group="d" />
                             </div>
+                            <StyledButton>Zapisz zmiany</StyledButton>
                             <div :style="{ maxWidth: '800px' }">
                                 <h2>📜 ZASADY – FAZA GRUPOWA PICK’EM CHALLENGE</h2>
                                 <p>Okej, jak działa punktacja w fazie grupowej?</p>
@@ -247,7 +248,12 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <InputNumber fluid size="small" :style="{ width: '60px' }" />
+                                            <InputNumber
+                                                :disabled="true"
+                                                fluid
+                                                size="small"
+                                                :style="{ width: '60px' }"
+                                            />
                                         </div>
                                     </div>
                                 </CrystallBallItem>
@@ -274,7 +280,12 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <InputNumber fluid size="small" :style="{ width: '60px' }" />
+                                            <InputNumber
+                                                :disabled="true"
+                                                fluid
+                                                size="small"
+                                                :style="{ width: '60px' }"
+                                            />
                                         </div></div
                                 ></CrystallBallItem>
                                 <CrystallBallItem title="Dwie armie" :image="ArmyLogo"
@@ -382,6 +393,7 @@ import { DataTable, Column } from 'primevue'
 import api from '@/common/api'
 import CountDownTimer from '@/components/CountDownTimer.vue'
 import { InputNumber } from 'primevue'
+import StyledButton from '@/components/StyledButton.vue'
 
 const userStore = useUserStore()
 const panelTab = ref(localStorage.getItem('pickemTab') || '0')
@@ -463,7 +475,7 @@ const data = ref({
 const selection = ref({})
 </script>
 
-<style scped>
+<style scoped>
 .no-select {
     user-select: none;
     -webkit-user-select: none; /* For Safari */
