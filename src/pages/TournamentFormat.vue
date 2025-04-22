@@ -139,10 +139,6 @@
                     <TempoBlock time="5" increment="0" />, aż jeden z nich osiągnie jeden punkt przewagi.
                 </p>
                 <p>
-                    Pozycja w grupie zależy od bilansu wygranych i przegranych meczów. Bilans zapisywany jest formacie
-                    "Wygrane mecze - Przegrane mecze", np. <ResultsBlock l="1" r="0" />.
-                </p>
-                <p>
                     W fazie grupowej każdy uczestnik będzie miał zapisywany bilans meczów w formacie „wygrane mecze -
                     przegrane mecze” (np. <ResultsBlock l="2" r="1" />). Pozycja w grupie zależy od różnicy pomiędzy
                     liczbą wygranych i przegranych, im wyższa względem innych zawodników, tym lepsze miejsce w tabeli.
@@ -295,7 +291,7 @@
                     W poniższych zapisach litera oznacza grupę, a numer to pozycja wyjściowa gracza. Przykład: “A1” to
                     gracz, który zajął 1. miejsce w grupie A; “B3” to gracz z 3. miejsca w grupie B.
                 </p>
-                <p>Mecze w ćwierćfinałach rozgrywane są następująco:</p>
+                <p>Mecze w ćwierćfinałach:</p>
                 <ul :style="{ display: 'flex', flexDirection: 'column', gap: '1rem' }">
                     <li :style="{ lineHeight: '1.6rem' }">
                         Drabinka wygranych: <br />Mecz 1: <ColorBlock variant="white">A1 (białe)</ColorBlock> vs
@@ -318,7 +314,7 @@
                         <ColorBlock variant="black">A4 (czarne)</ColorBlock>
                     </li>
                 </ul>
-                <p>Mecze w półfinałach rozgrywane są następująco:</p>
+                <p>Mecze w półfinałach:</p>
                 <ul :style="{ display: 'flex', flexDirection: 'column', gap: '1rem' }">
                     <li>
                         Drabinka wygranych:
@@ -330,11 +326,11 @@
                         <br />Mecz 2: Zwycięzca meczu C3 vs D4 vs Zwycięzca meczu D3 vs A4
                     </li>
                 </ul>
-                Mecze w finałach obydwu drabinek rozgrywane są następująco:
+                Mecze w finałach obydwu drabinek:
                 <ul>
                     <li>Zwycięzca “Meczu 1” z półfinału vs Zwycięzca “Meczu 2” z półfinału</li>
                 </ul>
-                Mecze o 3. oraz 11. miejsce rozgrywane są następująco:
+                Mecze o 3. oraz 11. miejsce:
                 <ul>
                     <li>Przegrany “Meczu 1” z półfinału vs Przegrany “Meczu 2” z półfinału</li>
                 </ul>

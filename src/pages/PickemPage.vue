@@ -167,7 +167,7 @@
                                 </p>
                                 <p>Dodatkowo jeżeli trafisz dokładne miejsce które zawodnik zajmie w grupie: +2pkt✅</p>
 
-                                W sumie do zgarnięcia za fazę grupową jest aż 48 punktóww. Aby wziąć udział w rankingu
+                                W sumie do zgarnięcia za fazę grupową jest aż 48 punktów. Aby wziąć udział w rankingu
                                 online trzeba być zalogowanym
                             </div>
                         </div>
