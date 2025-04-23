@@ -19,6 +19,25 @@
             <h2>{{ props.title }}</h2>
             <slot></slot>
         </div>
+        <div
+            :style="{
+                position: 'absolute',
+                left: '0px',
+                bottom: '0px',
+                width: '50px',
+                height: '30px',
+                fontWeight: 700,
+                fontSize: '14px',
+                color: 'orange',
+                backgroundColor: '#121212',
+                borderTopRightRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }"
+        >
+            {{ props.points + ' pkt' }}
+        </div>
     </div>
 </template>
 <script setup lang="ts">
@@ -26,6 +45,7 @@ import QuestionAvatar from '@/assets/icons/question.png'
 const props = defineProps<{
     title: string
     image?: string
+    points: number
 }>()
 </script>
 <style scoped>

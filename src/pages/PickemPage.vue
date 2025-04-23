@@ -227,6 +227,7 @@
                             class="no-select"
                             :style="{
                                 width: '100%',
+                                maxWidth: '1200px',
                                 display: 'flex',
                                 flexDirection: 'row',
                                 justifyContent: 'center',
@@ -245,7 +246,7 @@
                                     textAlign: 'center',
                                 }"
                             >
-                                <CrystallBallItem title="Botez Gambit" :image="BlindManLogo">
+                                <CrystallBallItem :points="15" title="Botez Gambit" :image="BlindManLogo">
                                     <div
                                         :style="{
                                             width: '100%',
@@ -269,7 +270,7 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Speedrunner" :image="TimerLogo">
+                                <CrystallBallItem :points="5" title="Speedrunner" :image="TimerLogo">
                                     <div
                                         :style="{
                                             width: '100%',
@@ -289,23 +290,22 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <PlayerSelector v-model="crystalBallPicks.speedrunner" />
+                                            <SelectPlayerPickem v-model="crystalBallPicks.speedrunner" />
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Słaby awans" :image="EvolveLogo">
+                                <CrystallBallItem :points="15" title="Narodziny wojownika" :image="EvolveLogo">
                                     <div
                                         :style="{
                                             width: '100%',
                                             height: '100%',
                                             display: 'flex',
-                                            gap: '40px',
+                                            gap: '60px',
                                             flexDirection: 'column',
                                         }"
                                     >
                                         <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                            Ile pionków zostanie zamienionych w w coś innego niż hetman po osiągnięciu
-                                            linii końcowej?
+                                            Ile pionków zostanie zamienionych w hetmana podczas turnieju?
                                         </div>
                                         <div
                                             :style="{
@@ -323,7 +323,7 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Blitzkrieg" :image="BlindManLogo"
+                                <CrystallBallItem :points="8" title="Blitzkrieg" :image="BlindManLogo"
                                     ><div
                                         :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }"
                                     ></div>
@@ -354,14 +354,66 @@
                                             />
                                         </div></div
                                 ></CrystallBallItem>
-                                <CrystallBallItem title="Dwie armie" :image="ArmyLogo"
-                                    ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Na przestrzeni całego turnieju w sumie: - czy więcej partii wygrają białe, czy
-                                        może czarne?
+                                <CrystallBallItem :points="15" title="Życie w okopach" :image="BlindManLogo"
+                                    ><div
+                                        :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }"
+                                    ></div>
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '60px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Ile ruchów potrwa najdłuższa partia w turnieju?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <InputNumber
+                                                :disabled="false"
+                                                fluid
+                                                size="small"
+                                                :style="{ width: '60px' }"
+                                            />
+                                        </div></div
+                                ></CrystallBallItem>
+                                <CrystallBallItem :points="5" title="Dwie armie" :image="ArmyLogo">
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '60px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Na przestrzeni całego turnieju w sumie: - czy więcej partii wygrają białe,
+                                            czy może czarne?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <ChooseOption>
+                                                <template #a>tak</template>
+                                                <template #b>nie</template>
+                                            </ChooseOption>
+                                        </div>
                                     </div>
                                 </CrystallBallItem>
-
-                                <CrystallBallItem title="Wypadek przy pracy..." :image="BlindManLogo">
+                                <CrystallBallItem :points="10" title="Wypadek przy pracy..." :image="BlindManLogo">
                                     <div
                                         :style="{
                                             width: '100%',
@@ -390,52 +442,136 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Początki" :image="BlindManLogo"
+                                <CrystallBallItem :points="2" title="Biskup i Osioł" :image="BlindManLogo">
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '40px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Czy podczas turnieju do końca partii w sumie dożyje więcej skoczków czy
+                                            gońców?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        ></div>
+                                    </div>
+                                </CrystallBallItem>
+                                <CrystallBallItem :points="12" title="Czarny koń" :image="BlindManLogo">
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '24px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Który gracz według Ciebie będzie miał największą różnicę między zajętym
+                                            miejscem w grupie a tym które przewidywała publiczność?(pozytywnie zaskoczy)
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <SelectPlayerPickem v-model="crystalBallPicks.blackhorse" />
+                                        </div>
+                                    </div>
+                                </CrystallBallItem>
+                                <CrystallBallItem :points="10" title="Zawód rodziny" :image="BlindManLogo">
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '24px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Który gracz według Ciebie będzie miał największą różnicę między zajętym
+                                            miejscem w grupie a tym które przewidywała publiczność?(roczaruje)
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <SelectPlayerPickem v-model="crystalBallPicks.familydisappointment" />
+                                        </div>
+                                    </div>
+                                </CrystallBallItem>
+                                <CrystallBallItem :points="2" title="Początki" :image="BlindManLogo"
                                     ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                         Czy E4 będzie zagrane więcej razy jako pierwszy ruch niż wszystkie pozostałe
                                         opcje razem wzięte?
                                     </div></CrystallBallItem
                                 >
-                                <CrystallBallItem title="Do ostatniej kropli krwi" :image="ArmyLogo">
+                                <CrystallBallItem :points="5" title="Do ostatniej kropli krwi" :image="ArmyLogo">
                                     <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                         W której z grup wydarzy się najwięcej dogrywek?
                                     </div>
                                 </CrystallBallItem>
-                            </div>
-                        </div>
-                        <CountDownTimer
-                            class="no-select"
-                            rectColor="#18181b"
-                            :style="{ marginTop: '50px', marginBottom: '30px' }"
-                            text="Obstawianie fazy drabinkowej zostanie odblokowane po zakończeniu fazy grupowej: "
-                            :date="new Date('2025-04-25T20:00:00')"
-                        />
-                        <div
-                            class="no-select"
-                            :style="{
-                                width: '100%',
-                                display: 'flex',
-                                flexDirection: 'row',
-                                justifyContent: 'center',
-                                color: '#FAF9F6',
-                            }"
-                        >
-                            <div
-                                :style="{
-                                    maxWidth: '1200px',
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    flexWrap: 'wrap',
-                                    gap: '8px',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    textAlign: 'center',
-                                }"
-                            >
-                                <CrystallBallItem title="Vox Populi" :image="BlindManLogo">
-                                    <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Kto będzie obstawiany jako zwycięzca całego turnieju przez największą ilość
-                                        osób?
+                                <CrystallBallItem :points="8" title="Najlepiej zrobić samemu" :image="TimerLogo">
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '40px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Który zawodnik podczas turnieju w sumie zbije najwięcej materiału królem?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <SelectPlayerPickem v-model="crystalBallPicks.bestalone" />
+                                        </div>
+                                    </div>
+                                </CrystallBallItem>
+                                <CrystallBallItem :points="8" title="Nigdzie nie ide" :image="TimerLogo">
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '40px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Który zawodnik wykona najmniej roszad(w % rozegranych partii)?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <SelectPlayerPickem v-model="crystalBallPicks.standingstill" />
+                                        </div>
                                     </div>
                                 </CrystallBallItem>
                             </div>
@@ -524,7 +660,8 @@ import { useToast } from 'primevue/usetoast'
 import Toast from 'primevue/toast'
 import { getRandomSuccessMessage } from '@/common/helpers'
 import { IconArrowBackUp, IconLock } from '@tabler/icons-vue'
-import PlayerSelector from '@/components/AdminComponents/PlayerSelector.vue'
+import SelectPlayerPickem from '@/components/PickEmComponents/SelectPlayerPickem.vue'
+import ChooseOption from '@/components/PickEmComponents/ChooseOption.vue'
 
 const toast = useToast()
 
@@ -538,6 +675,10 @@ const loading = ref(true)
 const crystalBallPicks = ref({
     botezPlayers: [],
     speedrunner: null,
+    blackhorse: null,
+    familydisappointment: null,
+    bestalone: null,
+    standingstill: null,
 })
 
 function haveGroupsChanged() {
@@ -622,56 +763,6 @@ onBeforeMount(async () => {
     const response = await api.get('/pickemranking')
     pickemPlayers.value = response.data.map((x: string) => ({ name: x }))
 })
-
-const data = ref({
-    key: '0',
-    data: {
-        name: '',
-    },
-    children: [
-        {
-            key: '0_0',
-            data: {
-                name: '',
-            },
-            children: [
-                {
-                    key: '0_0_0',
-                    data: {
-                        name: 'Anna Fali',
-                    },
-                },
-                {
-                    key: '0_0_1',
-                    data: {
-                        name: 'Anna Fali',
-                    },
-                },
-            ],
-        },
-        {
-            key: '0_1',
-            data: {
-                name: '',
-            },
-            children: [
-                {
-                    key: '0_1_0',
-                    data: {
-                        name: '',
-                    },
-                },
-                {
-                    key: '0_1_1',
-                    data: {
-                        name: '',
-                    },
-                },
-            ],
-        },
-    ],
-})
-const selection = ref({})
 </script>
 
 <style scoped>
