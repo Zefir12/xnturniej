@@ -38,14 +38,23 @@
         >
             {{ props.points + ' pkt' }}
         </div>
+        <IconHelpHexagonFilled
+            v-if="props.desc"
+            v-tooltip.top="props.desc"
+            :size="20"
+            color="orange"
+            :style="{ position: 'absolute', right: '3px', top: '3px' }"
+        />
     </div>
 </template>
 <script setup lang="ts">
 import QuestionAvatar from '@/assets/icons/question.png'
+import { IconHelpHexagonFilled } from '@tabler/icons-vue'
 const props = defineProps<{
     title: string
     image?: string
     points: number
+    desc?: string
 }>()
 </script>
 <style scoped>

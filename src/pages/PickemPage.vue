@@ -281,7 +281,12 @@
                                     textAlign: 'center',
                                 }"
                             >
-                                <CrystallBallItem :points="15" title="Botez Gambit" :image="BlindManLogo">
+                                <CrystallBallItem
+                                    :points="15"
+                                    title="Botez Gambit"
+                                    desc="Każdy ruch gracza po którym przeciwnik może zbić hetmana, i zawodnik by stracił więcej niż 5 punktów w ocenie silnika, jest liczony jako podwalenie, bo jakoś trzeba odsortować poświęcenia"
+                                    :image="BlindManLogo"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
@@ -314,7 +319,12 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="5" title="Speedrunner" :image="TimerLogo">
+                                <CrystallBallItem
+                                    :points="5"
+                                    title="Speedrunner"
+                                    desc="Ile średnio z wszystkich pratii zawodnikowi zostaje % czasu na koniec partii, np: kończy 10 minutową partie z 8 minutami na zegarze: 80% czasu, i jest liczony średni % z wszystkich gier"
+                                    :image="TimerLogo"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
@@ -368,7 +378,11 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="8" title="Blitzkrieg" :image="BlindManLogo"
+                                <CrystallBallItem
+                                    desc="Liczymy ruchy obu zawodników: 1.e4 e5 2.Gc4 Sc6 3.Hh5 Sf6?? 4.Hxf7# to 7 ruchów"
+                                    :points="8"
+                                    title="Blitzkrieg"
+                                    :image="BlindManLogo"
                                     ><div
                                         :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }"
                                     ></div>
@@ -400,7 +414,11 @@
                                             />
                                         </div></div
                                 ></CrystallBallItem>
-                                <CrystallBallItem :points="15" title="Życie w okopach" :image="BlindManLogo"
+                                <CrystallBallItem
+                                    desc="Liczymy ruchy obu zawodników: 1.e4 e5 2.Gc4 Sc6 3.Hh5 Sf6?? 4.Hxf7# to 7 ruchów"
+                                    :points="15"
+                                    title="Życie w okopach"
+                                    :image="BlindManLogo"
                                     ><div
                                         :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }"
                                     ></div>
@@ -490,7 +508,12 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="2" title="Biskup i Osioł" :image="BlindManLogo">
+                                <CrystallBallItem
+                                    desc="Liczone są wszystkie figury we wszystkich partiach turniejowych w sumie"
+                                    :points="2"
+                                    title="Biskup i Osioł"
+                                    :image="BlindManLogo"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
@@ -524,7 +547,12 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="12" title="Czarny koń" :image="BlindManLogo">
+                                <CrystallBallItem
+                                    desc="Przykładowo, licząc średnią arytmetyczną z głosów wszystkich obstawiających, Fornal miałby 3.14 miejsce średnio, a zajmie 1 miejsce w grupie, to dostanie 2.14 punktów różnicy w tej kategorii. Zwycięża największa dodatnia różnica"
+                                    :points="12"
+                                    title="Czarny koń"
+                                    :image="BlindManLogo"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
