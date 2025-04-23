@@ -712,8 +712,8 @@
                                 :value="pickemPlayers"
                                 scrollable
                                 paginator
-                                :rows="20"
-                                :rowsPerPageOptions="[5, 10, 20, 50, 100]"
+                                :rows="15"
+                                :rowsPerPageOptions="[5, 10, 15, 20, 50, 100, 500, 1000]"
                                 tableStyle="min-width: 50rem max-width: 100rem"
                             >
                                 <Column :style="{ width: '10em' }" header="Miejsce w rankingu">
