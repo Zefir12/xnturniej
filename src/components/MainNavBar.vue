@@ -1,13 +1,25 @@
 <template>
     <div class="main-container">
         <a :style="{ textDecoration: 'none' }" href="/format-turnieju"><div class="option">Format Turnieju</div></a>
-        <a :style="{ textDecoration: 'none' }" href="/pickem"><div class="option">Pick'em Challenge</div></a>
+        <a :style="{ textDecoration: 'none', position: 'relative' }" href="/pickem"
+            ><div class="option">Pick'em Challenge</div>
+            <div class="dot"></div
+        ></a>
     </div>
 </template>
 
 <script setup lang="ts"></script>
 
 <style scoped>
+.dot {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+}
 .option {
     cursor: pointer;
     font-size: 16px;

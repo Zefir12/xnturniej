@@ -55,11 +55,22 @@
                 </Dialog>
                 <div
                     @click="showAvatarModal = true"
-                    :style="{ width: '60px', height: '60px', border: '1px solid black', cursor: 'pointer' }"
+                    :style="{
+                        width: '60px',
+                        height: '60px',
+                        border: '1px solid black',
+                        cursor: 'pointer',
+                        position: 'relative',
+                    }"
                 >
                     <img
                         :style="{ width: '100%', height: '100%', opacity: '0.5' }"
                         :src="favourite ? getPlayerByUuid(favourite)?.avatar : avatar"
+                    />
+                    <span
+                        v-if="getPlayerByUuid(favourite as string)?.avatar == undefined"
+                        :style="{ position: 'absolute', top: '2px', right: '2px' }"
+                        class="dot"
                     />
                 </div>
                 <div>
