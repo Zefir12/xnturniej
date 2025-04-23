@@ -40,6 +40,7 @@ body {
   --p-datepicker-header-color: #fff !important;
   --p-overlaybadge-outline-color: #000000 !important;
   --p-select-background: #121212 !important;
+  --p-paginator-background: #18181b !important;
 }
 
 .p-datatable-tbody > tr > td {

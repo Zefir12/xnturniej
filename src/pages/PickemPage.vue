@@ -224,6 +224,21 @@
                             :date="new Date('2025-04-23T16:00:00')"
                         />
                         <div
+                            :style="{
+                                width: '100%',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                marginBottom: '30px',
+                            }"
+                        >
+                            <div :style="{ display: 'flex', gap: '10px' }">
+                                <StyledButton :disabled="!changesBall" @click="saveCrystallBall"
+                                    >Zapisz zmiany</StyledButton
+                                >
+                            </div>
+                        </div>
+                        <div
                             class="no-select"
                             :style="{
                                 width: '100%',
@@ -252,7 +267,7 @@
                                             width: '100%',
                                             height: '100%',
                                             display: 'flex',
-                                            gap: '60px',
+                                            gap: '55px',
                                             flexDirection: 'column',
                                         }"
                                     >
@@ -266,7 +281,16 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <div>Wybierz:</div>
+                                            <MultiSelect
+                                                v-model="crystalBallPicks.botezPlayers"
+                                                display="chip"
+                                                option-value="uuid"
+                                                :style="{ flexGrow: 1, maxWidth: '150px' }"
+                                                :options="Object.values(playerMappings)"
+                                                optionLabel="name"
+                                                placeholder="Wybierz graczy"
+                                                class="w-full md:w-80 multi-selector"
+                                            />
                                         </div>
                                     </div>
                                 </CrystallBallItem>
@@ -316,6 +340,7 @@
                                         >
                                             <InputNumber
                                                 :disabled="false"
+                                                v-model="crystalBallPicks.newhetmans"
                                                 fluid
                                                 size="small"
                                                 :style="{ width: '60px' }"
@@ -349,6 +374,7 @@
                                             <InputNumber
                                                 :disabled="false"
                                                 fluid
+                                                v-model="crystalBallPicks.shortestmoves"
                                                 size="small"
                                                 :style="{ width: '60px' }"
                                             />
@@ -379,6 +405,7 @@
                                         >
                                             <InputNumber
                                                 :disabled="false"
+                                                v-model="crystalBallPicks.longestmoves"
                                                 fluid
                                                 size="small"
                                                 :style="{ width: '60px' }"
@@ -406,7 +433,7 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <ChooseOption>
+                                            <ChooseOption v-model="crystalBallPicks.blackorwhite">
                                                 <template #a>Tak</template>
                                                 <template #b>Nie</template>
                                             </ChooseOption>
@@ -435,6 +462,7 @@
                                         >
                                             <InputNumber
                                                 :disabled="false"
+                                                v-model="crystalBallPicks.pats"
                                                 fluid
                                                 size="small"
                                                 :style="{ width: '60px' }"
@@ -463,7 +491,7 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <ChooseOption>
+                                            <ChooseOption v-model="crystalBallPicks.bishopsandknights">
                                                 <template #a
                                                     >Więcej<br />
                                                     Gońców</template
@@ -547,7 +575,7 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <ChooseOption>
+                                            <ChooseOption v-model="crystalBallPicks.beginings">
                                                 <template #a>Będzie</template>
                                                 <template #b>Nie będzie</template>
                                             </ChooseOption>
@@ -732,6 +760,8 @@ import { IconArrowBackUp, IconLock } from '@tabler/icons-vue'
 import SelectPlayerPickem from '@/components/PickEmComponents/SelectPlayerPickem.vue'
 import ChooseOption from '@/components/PickEmComponents/ChooseOption.vue'
 import { RadioButton } from 'primevue'
+import { MultiSelect } from 'primevue'
+import { playerMappings } from '@/common/consts'
 
 const toast = useToast()
 
@@ -740,16 +770,24 @@ const panelTab = ref(localStorage.getItem('pickemTab') || '0')
 const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5173'
 const pickemStore = usePickemStore()
 const changes = ref(false)
+const changesBall = ref(true)
 const loading = ref(true)
 
 const crystalBallPicks = ref({
-    botezPlayers: [],
+    botezPlayers: [] as string[],
     speedrunner: null,
     blackhorse: null,
     familydisappointment: null,
     bestalone: null,
     standingstill: null,
     bloodyGroup: null as string | null,
+    newhetmans: null as null | number,
+    shortestmoves: null as null | number,
+    longestmoves: null as null | number,
+    pats: null as null | number,
+    beginings: null as null | string,
+    blackorwhite: null as null | string,
+    bishopsandknights: null as null | string,
 })
 
 function haveGroupsChanged() {
@@ -763,6 +801,50 @@ function haveGroupsChanged() {
     })
     changes.value = b
 }
+
+const saveCrystallBall = async () => {
+    if (localStorage.getItem('pickemTwitchUser') == null) {
+        toast.add({
+            severity: 'error',
+            summary: 'Błąd',
+            group: 'br',
+            detail: 'Aby brac udział w rankingu trzeba byc zalogowanym',
+            life: 3000,
+        })
+        return
+    }
+    const result = await api.post('/pickem/choosecrystalball', {
+        id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
+        picks: crystalBallPicks.value,
+    })
+    if (!result) {
+        toast.add({
+            severity: 'error',
+            summary: 'Błąd',
+            group: 'br',
+            detail: 'Wystąpił błąd podczas zapisywania zmian',
+            life: 3000,
+        })
+        return
+    }
+    localStorage.setItem('crystallBallSelections', JSON.stringify(crystalBallPicks.value))
+    changesBall.value = false
+    toast.add({
+        severity: 'success',
+        summary: 'Zapisano zmiany',
+        group: 'br',
+        detail: getRandomSuccessMessage(),
+        life: 3000,
+    })
+}
+
+watch(
+    crystalBallPicks,
+    () => {
+        changesBall.value = true
+    },
+    { deep: true },
+)
 
 watch(
     () => pickemStore.changesCounter,
@@ -827,6 +909,26 @@ onBeforeMount(async () => {
     localStorage.setItem(`temp-group-b`, localStorage.getItem(`group-b`) ?? '["1","2","3","4"]')
     localStorage.setItem(`temp-group-c`, localStorage.getItem(`group-c`) ?? '["1","2","3","4"]')
     localStorage.setItem(`temp-group-d`, localStorage.getItem(`group-d`) ?? '["1","2","3","4"]')
+
+    const it = localStorage.getItem('crystallBallSelections')
+    crystalBallPicks.value = it
+        ? JSON.parse(it)
+        : {
+              botezPlayers: [],
+              speedrunner: null,
+              blackhorse: null,
+              familydisappointment: null,
+              bestalone: null,
+              standingstill: null,
+              bloodyGroup: null as string | null,
+              newhetmans: null as null | number,
+              shortestmoves: null as null | number,
+              longestmoves: null as null | number,
+              pats: null as null | number,
+              beginings: null as null | string,
+              blackorwhite: null as null | string,
+              bishopsandknights: null as null | string,
+          }
 
     const groups = await api.get('/pickem/getgroups')
     pickemStore.setGroup(groups.data)

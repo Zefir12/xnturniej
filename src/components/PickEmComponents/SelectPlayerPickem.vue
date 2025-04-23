@@ -3,6 +3,7 @@
         v-model="model"
         :options="Object.values(playerMappings)"
         optionLabel="name"
+        optionValue="uuid"
         placeholder="Nie wybrano"
         scroll-height="400px"
         size="small"
@@ -11,8 +12,11 @@
     >
         <template #value="slotProps">
             <div v-if="slotProps.value" :style="{ display: 'flex', alignItems: 'center', gap: '10px' }">
-                <img :src="slotProps.value.avatar" :style="{ width: '18px', height: '18px', margin: '0' }" />
-                <div>{{ slotProps.value.name }}</div>
+                <img
+                    :src="getPlayerByUuid(slotProps.value)?.avatar"
+                    :style="{ width: '18px', height: '18px', margin: '0' }"
+                />
+                <div>{{ getPlayerByUuid(slotProps.value)?.name }}</div>
             </div>
             <span v-else>
                 {{ slotProps.placeholder }}
@@ -29,6 +33,7 @@
 
 <script setup lang="ts">
 import { playerMappings } from '@/common/consts'
+import { getPlayerByUuid } from '@/common/helpers'
 import Select from 'primevue/select'
 import { ref } from 'vue'
 

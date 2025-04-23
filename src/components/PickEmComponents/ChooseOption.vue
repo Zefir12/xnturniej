@@ -1,9 +1,17 @@
 <template>
     <div class="cont">
-        <div class="option" :style="model === 'a' ? { 'border-color': 'orange' } : {}" @click="model = 'a'">
+        <div
+            class="option"
+            :style="model === 'a' ? { 'border-color': 'orange', color: 'orange' } : {}"
+            @click="model = 'a'"
+        >
             <slot name="a" />
         </div>
-        <div class="option" :style="model === 'b' ? { 'border-color': 'orange' } : {}" @click="model = 'b'">
+        <div
+            class="option"
+            :style="model === 'b' ? { 'border-color': 'orange', color: 'orange' } : {}"
+            @click="model = 'b'"
+        >
             <slot name="b" />
         </div>
     </div>
