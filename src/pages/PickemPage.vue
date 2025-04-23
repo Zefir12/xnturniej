@@ -43,7 +43,25 @@
                 }"
                 v-if="userStore.pickemTwitchUser != null"
             >
-                <img :style="{ width: '46px', height: '46px' }" :src="TwitchIcon" />
+                <Dialog
+                    v-model:visible="showAvatarModal"
+                    modal
+                    header="Edit Profile"
+                    :style="{ width: '25rem', height: '25rem' }"
+                >
+                    Wybierz komu kibicujesz - będzie widoczne w rankingu obok nicku:
+                    <SelectPlayerPickem v-model="favourite" />
+                    <Button @click="favourite = null">Wyczysć</Button>
+                </Dialog>
+                <div
+                    @click="showAvatarModal = true"
+                    :style="{ width: '60px', height: '60px', border: '1px solid black', cursor: 'pointer' }"
+                >
+                    <img
+                        :style="{ width: '100%', height: '100%', opacity: '0.5' }"
+                        :src="favourite ? getPlayerByUuid(favourite)?.avatar : avatar"
+                    />
+                </div>
                 <div>
                     <span>Zalogowany jako: </span>
                     <div
@@ -135,7 +153,7 @@
                                 :style="{
                                     padding: '12px',
                                     fontWeight: '800',
-                                    backgroundColor: '#6441a5',
+                                    backgroundColor: '#eaa500',
                                     width: '200px',
                                     marginTop: '20px',
                                 }"
@@ -706,7 +724,15 @@
                                     >
                                 </Column>
                                 <Column :style="{ width: '10em', backgroundColor: 'transparent' }" header="Nick">
-                                    <template #body="{ data }">{{ data.name }}</template>
+                                    <template #body="{ data }">
+                                        <div :style="{ display: 'flex', alignItems: 'center' }">
+                                            <img
+                                                v-if="data.favourite"
+                                                :style="{ width: '40px', height: '40px' }"
+                                                :src="getPlayerByUuid(data?.favourite)?.avatar"
+                                            />{{ data.name }}
+                                        </div>
+                                    </template>
                                 </Column>
                                 <Column header="Punkty fazy grupowej"
                                     ><template #body="">{{ 0 }}</template></Column
@@ -739,7 +765,6 @@ import TabPanels from 'primevue/tabpanels'
 import TabPanel from 'primevue/tabpanel'
 import GroupContainer from '@/components/PickEmComponents/GroupContainer.vue'
 import CrystallBallItem from '@/components/PickEmComponents/CrystallBallItem.vue'
-import TwitchIcon from '@/assets/icons/twitch-icon.png'
 import { Button } from 'primevue'
 import BlindManLogo from '@/assets/icons/pickem/blindmanlogo.png'
 import TimerLogo from '@/assets/icons/pickem/timerb.png'
@@ -755,13 +780,17 @@ import StyledButton from '@/components/StyledButton.vue'
 import { usePickemStore } from '@/stores/pickemStore'
 import { useToast } from 'primevue/usetoast'
 import Toast from 'primevue/toast'
-import { getRandomSuccessMessage } from '@/common/helpers'
+import { getPlayerByUuid, getRandomSuccessMessage } from '@/common/helpers'
 import { IconArrowBackUp, IconLock } from '@tabler/icons-vue'
 import SelectPlayerPickem from '@/components/PickEmComponents/SelectPlayerPickem.vue'
 import ChooseOption from '@/components/PickEmComponents/ChooseOption.vue'
 import { RadioButton } from 'primevue'
 import { MultiSelect } from 'primevue'
 import { playerMappings } from '@/common/consts'
+import avatar from '../assets/twitchicons/defaultavatar.png'
+import { Dialog } from 'primevue'
+
+const showAvatarModal = ref(false)
 
 const toast = useToast()
 
@@ -772,6 +801,9 @@ const pickemStore = usePickemStore()
 const changes = ref(false)
 const changesBall = ref(false)
 const loading = ref(true)
+const favourite = ref<null | string>(
+    localStorage.getItem('favouritePickem') ? JSON.parse(localStorage.getItem('favouritePickem') ?? '{}') : null,
+)
 
 const crystalBallPicks = ref({
     botezPlayers: [] as string[],
@@ -857,6 +889,32 @@ watch(panelTab, (newVal) => {
     localStorage.setItem('pickemTab', newVal)
 })
 
+watch(favourite, async (newVal) => {
+    const result = await api.post('/pickem/choosefavourite', {
+        id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
+        favourite: favourite.value,
+    })
+    if (!result) {
+        toast.add({
+            severity: 'error',
+            summary: 'Błąd',
+            group: 'br',
+            detail: 'Wystąpił błąd podczas zapisywania zmian',
+            life: 3000,
+        })
+        return
+    }
+    localStorage.setItem('favouritePickem', JSON.stringify(newVal))
+    changesBall.value = false
+    toast.add({
+        severity: 'success',
+        summary: 'Zapisano zmiany',
+        group: 'br',
+        detail: getRandomSuccessMessage(),
+        life: 3000,
+    })
+})
+
 const saveGroups = async () => {
     loading.value = true
     const a = localStorage.getItem(`temp-group-a`) ?? '["1","2","3","4"]'
@@ -902,7 +960,7 @@ const saveGroups = async () => {
     })
 }
 
-const pickemPlayers = ref<{ name: string }[]>([])
+const pickemPlayers = ref<{ name: string; favourite: boolean }[]>([])
 
 onBeforeMount(async () => {
     localStorage.setItem(`temp-group-a`, localStorage.getItem(`group-a`) ?? '["1","2","3","4"]')
@@ -934,7 +992,7 @@ onBeforeMount(async () => {
     pickemStore.setGroup(groups.data)
 
     const response = await api.get('/pickemranking')
-    pickemPlayers.value = response.data.map((x: string) => ({ name: x }))
+    pickemPlayers.value = response.data
 })
 </script>
 
@@ -958,7 +1016,7 @@ onBeforeMount(async () => {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: #2c2633;
+    background-color: #18181b;
     margin-bottom: -42px;
 }
 .page-container {

@@ -39,14 +39,22 @@ export const playerByUuid = (
 
 export const getRandomSuccessMessage = (): string => {
     const successMessages = [
-        'Dobra robota!',
-        'Zrobione!',
         'Udało się!',
-        'Gotowe!',
+        'O dziwo jeszcze serwer to zapisał',
+        'Chyba zadziałało',
+        'Ledwo ale sie zapisało',
         'Operacja zakończona sukcesem.',
-        'Super, wszystko gotowe!',
-        'Ujdzie',
-        'Może być',
+        'Cudem się udało, nie pytaj jak',
+        'No i poszło... chyba dobrze',
+        'Zapisało się, zanim coś wybuchło',
+        'Server nie umarł, więc uznajmy to za sukces',
+        'Zapisane! Przynajmniej według logów',
+        'Powiedzmy, że działa',
+        'Technicznie rzecz biorąc — sukces',
+        'Nie wiemy czemu, ale działa',
+        'Nie rozwaliło niczego, więc git',
+        'Tym razem obeszło się bez dramy',
+        'Jakimś cudem przeszło — nie ruszaj już',
     ]
     return successMessages[Math.floor(Math.random() * successMessages.length)]
 }
