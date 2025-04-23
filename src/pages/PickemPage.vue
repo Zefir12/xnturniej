@@ -1,4 +1,26 @@
 <template>
+    <div :style="{ position: 'fixed', top: '20px', left: '20px', color: '#FAF9F6' }">
+        <a
+            href="/"
+            :style="{
+                textDecoration: 'none',
+
+                cursor: 'pointer',
+                color: 'orange',
+                backgroundColor: '#222222',
+                paddingLeft: '1rem',
+                paddingRight: '1.5rem',
+                display: 'flex',
+                gap: '8px',
+                alignItems: 'center',
+                height: '3rem',
+                fontWeight: '700',
+                borderRadius: '4px',
+            }"
+        >
+            <IconArrowBackUp />Strona Główna
+        </a>
+    </div>
     <div class="page-container" :style="{ fontFamily: 'Source Sans Pro' }">
         <div class="user-container">
             <img
@@ -57,7 +79,7 @@
                     <Tab value="1" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Faza grupowa</span>
                     </Tab>
-                    <Tab :disabled="true" value="2" as="div" class="flex items-center gap-2">
+                    <Tab :disabled="false" value="2" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Drabinka</span>
                     </Tab>
                     <Tab value="3" as="div" class="flex items-center gap-2">
@@ -167,7 +189,7 @@
                                 <p>Okej, jak działa punktacja w fazie grupowej?</p>
                                 <p>
                                     Jeżeli trafisz prawidłowo czy zawodnik wychodzi z grupy, czy trafia do drabinki
-                                    pocieszenia zdobywasz: <PointsBlock points="1" />
+                                    pocieszenia zdobywasz: <PointsBlock points="+1" />
                                 </p>
                                 <p>
                                     Dodatkowo jeżeli trafisz dokładne miejsce które zawodnik zajmie w grupie:
@@ -180,18 +202,18 @@
                         </div>
                     </TabPanel>
                     <TabPanel value="2" as="p" class="m-0">
-                        <OrganizationChart
-                            v-model:selectionKeys="selection"
-                            :value="data"
-                            @update:selectionKeys="(x) => clickedNode(x)"
-                            selectionMode="multiple"
+                        <CountDownTimer
+                            class="no-select"
+                            rectColor="#18181b"
+                            :style="{ marginTop: '-4px', marginBottom: '30px' }"
+                            text="Drabinka odblokuje sie po zakończeniu fazy grupowej: "
+                            :date="new Date('2025-04-25T20:00:00')"
+                        />
+                        <div
+                            :style="{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center' }"
                         >
-                            <template #default="slotProps">
-                                <div>
-                                    <span>{{ slotProps.node.data.name }}</span>
-                                </div>
-                            </template>
-                        </OrganizationChart>
+                            <IconLock size="240" color="#18181b" />
+                        </div>
                     </TabPanel>
                     <TabPanel value="3" as="p" class="m-0">
                         <CountDownTimer
@@ -224,17 +246,55 @@
                                 }"
                             >
                                 <CrystallBallItem title="Botez Gambit" :image="BlindManLogo">
-                                    <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Którzy zawodnicy według ciebie podwalą hetmana?
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '60px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Którzy zawodnicy według ciebie podwalą hetmana?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <div>Wybierz:</div>
+                                        </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Speedrunner" :image="TimerLogo"
-                                    ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Który zawodnik zużyje średnio najmniej czasu podczas swoich partii
+                                <CrystallBallItem title="Speedrunner" :image="TimerLogo">
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '40px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Który zawodnik zużyje średnio najmniej czasu podczas swoich partii
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <PlayerSelector v-model="crystalBallPicks.speedrunner" />
+                                        </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Słaby awans" :image="EvolveLogo"
-                                    ><div
+                                <CrystallBallItem title="Słaby awans" :image="EvolveLogo">
+                                    <div
                                         :style="{
                                             width: '100%',
                                             height: '100%',
@@ -255,7 +315,7 @@
                                             }"
                                         >
                                             <InputNumber
-                                                :disabled="true"
+                                                :disabled="false"
                                                 fluid
                                                 size="small"
                                                 :style="{ width: '60px' }"
@@ -287,7 +347,7 @@
                                             }"
                                         >
                                             <InputNumber
-                                                :disabled="true"
+                                                :disabled="false"
                                                 fluid
                                                 size="small"
                                                 :style="{ width: '60px' }"
@@ -300,17 +360,36 @@
                                         może czarne?
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem title="Vox Populi" :image="BlindManLogo">
-                                    <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Kto będzie obstawiany jako zwycięzca całego turnieju przez największą ilość
-                                        osób?
-                                    </div></CrystallBallItem
-                                >
-                                <CrystallBallItem title="Wypadek przy pracy..." :image="BlindManLogo"
-                                    ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Ile wydarzy się patów podczas turnieju?
-                                    </div></CrystallBallItem
-                                >
+
+                                <CrystallBallItem title="Wypadek przy pracy..." :image="BlindManLogo">
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '60px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Ile wydarzy się patów podczas turnieju?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <InputNumber
+                                                :disabled="false"
+                                                fluid
+                                                size="small"
+                                                :style="{ width: '60px' }"
+                                            />
+                                        </div>
+                                    </div>
+                                </CrystallBallItem>
                                 <CrystallBallItem title="Początki" :image="BlindManLogo"
                                     ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                         Czy E4 będzie zagrane więcej razy jako pierwszy ruch niż wszystkie pozostałe
@@ -320,6 +399,43 @@
                                 <CrystallBallItem title="Do ostatniej kropli krwi" :image="ArmyLogo">
                                     <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                         W której z grup wydarzy się najwięcej dogrywek?
+                                    </div>
+                                </CrystallBallItem>
+                            </div>
+                        </div>
+                        <CountDownTimer
+                            class="no-select"
+                            rectColor="#18181b"
+                            :style="{ marginTop: '50px', marginBottom: '30px' }"
+                            text="Obstawianie fazy drabinkowej zostanie odblokowane po zakończeniu fazy grupowej: "
+                            :date="new Date('2025-04-25T20:00:00')"
+                        />
+                        <div
+                            class="no-select"
+                            :style="{
+                                width: '100%',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                color: '#FAF9F6',
+                            }"
+                        >
+                            <div
+                                :style="{
+                                    maxWidth: '1200px',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    flexWrap: 'wrap',
+                                    gap: '8px',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    textAlign: 'center',
+                                }"
+                            >
+                                <CrystallBallItem title="Vox Populi" :image="BlindManLogo">
+                                    <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                        Kto będzie obstawiany jako zwycięzca całego turnieju przez największą ilość
+                                        osób?
                                     </div>
                                 </CrystallBallItem>
                             </div>
@@ -383,7 +499,6 @@
 <script setup lang="ts">
 import { useUserStore } from '@/stores/userStore'
 import { onBeforeMount, ref, watch } from 'vue'
-import OrganizationChart from 'primevue/organizationchart'
 import Tabs from 'primevue/tabs'
 import TabList from 'primevue/tablist'
 import Tab from 'primevue/tab'
@@ -408,29 +523,22 @@ import { usePickemStore } from '@/stores/pickemStore'
 import { useToast } from 'primevue/usetoast'
 import Toast from 'primevue/toast'
 import { getRandomSuccessMessage } from '@/common/helpers'
+import { IconArrowBackUp, IconLock } from '@tabler/icons-vue'
+import PlayerSelector from '@/components/AdminComponents/PlayerSelector.vue'
 
 const toast = useToast()
 
 const userStore = useUserStore()
 const panelTab = ref(localStorage.getItem('pickemTab') || '0')
-const lastSelect = ref<{ [key: string]: unknown }>({})
 const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5173'
 const pickemStore = usePickemStore()
 const changes = ref(false)
 const loading = ref(true)
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const clickedNode = (x: any) => {
-    if (lastSelect.value) {
-        const addedKeys = Object.keys(x).filter((key) => !lastSelect.value[key])
-        const removedKeys = Object.keys(lastSelect.value).filter((key) => !x[key])
-        const changedKeys = [...addedKeys, ...removedKeys]
-        console.log('Changed keys:', changedKeys[0])
-        lastSelect.value = x
-    } else {
-        lastSelect.value = x
-    }
-}
+const crystalBallPicks = ref({
+    botezPlayers: [],
+    speedrunner: null,
+})
 
 function haveGroupsChanged() {
     const groupLetters = ['a', 'b', 'c', 'd']
