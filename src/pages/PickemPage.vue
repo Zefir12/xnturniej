@@ -51,7 +51,7 @@
                 >
                     Wybierz komu kibicujesz - będzie widoczne w rankingu obok nicku:
                     <SelectPlayerPickem v-model="favourite" />
-                    <Button @click="favourite = null">Wyczysć</Button>
+                    <Button :style="{ backgroundColor: 'red' }" @click="favourite = null">Wyczysć X</Button>
                 </Dialog>
                 <div
                     @click="showAvatarModal = true"
@@ -96,12 +96,14 @@
                     </Tab>
                     <Tab value="1" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Faza grupowa</span>
+                        <span v-if="!getLocalStoreItem('hasVisitedGroupPhase')" class="dot" />
                     </Tab>
                     <Tab :disabled="false" value="2" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Drabinka</span>
                     </Tab>
                     <Tab value="3" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Kryształowa Kula</span>
+                        <span v-if="!getLocalStoreItem('hasVisitedGroupPhase')" class="dot" />
                     </Tab>
                     <Tab value="4" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Ranking Twitcha</span>
@@ -854,6 +856,10 @@ function haveGroupsChanged() {
     changes.value = b
 }
 
+const getLocalStoreItem = (key: string): string | null => {
+    return localStorage.getItem(key)
+}
+
 const saveCrystallBall = async () => {
     if (localStorage.getItem('pickemTwitchUser') == null) {
         toast.add({
@@ -925,6 +931,7 @@ watch(favourite, async (newVal) => {
         return
     }
     localStorage.setItem('favouritePickem', JSON.stringify(newVal))
+    showAvatarModal.value = false
     changesBall.value = false
     toast.add({
         severity: 'success',
@@ -997,6 +1004,15 @@ onBeforeMount(async () => {
 </script>
 
 <style scoped>
+.dot {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: rgb(168, 14, 14);
+    border-radius: 50%;
+}
 .no-select {
     user-select: none;
     -webkit-user-select: none; /* For Safari */

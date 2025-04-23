@@ -71,7 +71,7 @@
             <section id="main">
                 <h2>Ogólne założenia formatu:</h2>
 
-                Punkty za pojedyncze partie w meczu wyglądają następująco:
+                Punkty za pojedyńcze partie w meczu wyglądają następująco:
                 <ul :style="{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }">
                     <li>Wygrana - <PointsBlock points="1" /></li>
                     <li>Remis - <PointsBlock points="0.5" /></li>
