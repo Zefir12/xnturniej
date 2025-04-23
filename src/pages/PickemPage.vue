@@ -300,7 +300,7 @@
                                             width: '100%',
                                             height: '100%',
                                             display: 'flex',
-                                            gap: '60px',
+                                            gap: '55px',
                                             flexDirection: 'column',
                                         }"
                                     >
@@ -391,7 +391,7 @@
                                             width: '100%',
                                             height: '100%',
                                             display: 'flex',
-                                            gap: '60px',
+                                            gap: '40px',
                                             flexDirection: 'column',
                                         }"
                                     >
@@ -407,8 +407,8 @@
                                             }"
                                         >
                                             <ChooseOption>
-                                                <template #a>tak</template>
-                                                <template #b>nie</template>
+                                                <template #a>Tak</template>
+                                                <template #b>Nie</template>
                                             </ChooseOption>
                                         </div>
                                     </div>
@@ -462,7 +462,18 @@
                                                 display: 'flex',
                                                 justifyContent: 'center',
                                             }"
-                                        ></div>
+                                        >
+                                            <ChooseOption>
+                                                <template #a
+                                                    >Więcej<br />
+                                                    Gońców</template
+                                                >
+                                                <template #b
+                                                    >Więcej<br />
+                                                    Skoczków</template
+                                                >
+                                            </ChooseOption>
+                                        </div>
                                     </div>
                                 </CrystallBallItem>
                                 <CrystallBallItem :points="12" title="Czarny koń" :image="BlindManLogo">
@@ -515,15 +526,73 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="2" title="Początki" :image="BlindManLogo"
-                                    ><div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        Czy E4 będzie zagrane więcej razy jako pierwszy ruch niż wszystkie pozostałe
-                                        opcje razem wzięte?
-                                    </div></CrystallBallItem
-                                >
+                                <CrystallBallItem :points="2" title="Początki" :image="BlindManLogo">
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '40px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            Czy E4 będzie zagrane więcej razy jako pierwszy ruch niż wszystkie pozostałe
+                                            opcje razem wzięte?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <ChooseOption>
+                                                <template #a>Będzie</template>
+                                                <template #b>Nie będzie</template>
+                                            </ChooseOption>
+                                        </div>
+                                    </div>
+                                </CrystallBallItem>
                                 <CrystallBallItem :points="5" title="Do ostatniej kropli krwi" :image="ArmyLogo">
-                                    <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
-                                        W której z grup wydarzy się najwięcej dogrywek?
+                                    <div
+                                        :style="{
+                                            width: '100%',
+                                            height: '100%',
+                                            display: 'flex',
+                                            gap: '60px',
+                                            flexDirection: 'column',
+                                        }"
+                                    >
+                                        <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
+                                            W której z grup wydarzy się najwięcej dogrywek?
+                                        </div>
+                                        <div
+                                            :style="{
+                                                width: '100%',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                            }"
+                                        >
+                                            <div
+                                                v-for="category in ['A', 'B', 'C', 'D']"
+                                                :key="category"
+                                                :style="{
+                                                    display: 'flex',
+                                                    alignItems: 'center',
+                                                    gap: '0px',
+                                                    flexDirection: 'column',
+                                                }"
+                                            >
+                                                <RadioButton
+                                                    v-model="crystalBallPicks.bloodyGroup"
+                                                    :inputId="category"
+                                                    name="dynamic"
+                                                    :value="category"
+                                                />
+                                                <label :for="category">{{ category }}</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </CrystallBallItem>
                                 <CrystallBallItem :points="8" title="Najlepiej zrobić samemu" :image="TimerLogo">
@@ -556,7 +625,7 @@
                                             width: '100%',
                                             height: '100%',
                                             display: 'flex',
-                                            gap: '40px',
+                                            gap: '55px',
                                             flexDirection: 'column',
                                         }"
                                     >
@@ -662,6 +731,7 @@ import { getRandomSuccessMessage } from '@/common/helpers'
 import { IconArrowBackUp, IconLock } from '@tabler/icons-vue'
 import SelectPlayerPickem from '@/components/PickEmComponents/SelectPlayerPickem.vue'
 import ChooseOption from '@/components/PickEmComponents/ChooseOption.vue'
+import { RadioButton } from 'primevue'
 
 const toast = useToast()
 
@@ -679,6 +749,7 @@ const crystalBallPicks = ref({
     familydisappointment: null,
     bestalone: null,
     standingstill: null,
+    bloodyGroup: null as string | null,
 })
 
 function haveGroupsChanged() {

@@ -3,11 +3,11 @@
         v-model="model"
         :options="Object.values(playerMappings)"
         optionLabel="name"
-        placeholder="pusto"
+        placeholder="Nie wybrano"
         scroll-height="400px"
         size="small"
+        class="select"
         :fluid="true"
-        class="w-full md:w-56"
     >
         <template #value="slotProps">
             <div v-if="slotProps.value" :style="{ display: 'flex', alignItems: 'center', gap: '10px' }">
@@ -34,3 +34,12 @@ import { ref } from 'vue'
 
 const model = ref()
 </script>
+<style scoped>
+.select {
+    max-width: 150px;
+}
+
+.select :deep(.p-select) {
+    background: blanchedalmond !important;
+}
+</style>
