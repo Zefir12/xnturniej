@@ -452,8 +452,8 @@
                                             }"
                                         >
                                             <ChooseOption v-model="crystalBallPicks.blackorwhite">
-                                                <template #a>Tak</template>
-                                                <template #b>Nie</template>
+                                                <template #a>Białe</template>
+                                                <template #b>Czarne</template>
                                             </ChooseOption>
                                         </div>
                                     </div>
@@ -559,7 +559,7 @@
                                     >
                                         <div :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }">
                                             Który gracz według Ciebie będzie miał największą różnicę między zajętym
-                                            miejscem w grupie a tym które przewidywała publiczność?(roczaruje)
+                                            miejscem w grupie a tym które przewidywała publiczność?(rozczaruje)
                                         </div>
                                         <div
                                             :style="{
@@ -701,6 +701,9 @@
                                 color: '#FAF9F6',
                             }"
                         >
+                            <div :style="{ color: '#FAF9F6', marginBottom: '1rem', fontSize: '0.8rem' }">
+                                Ranking jest odświeżany co 5 minut (jak będzie trzymać to podkręce troche potem)
+                            </div>
                             <DataTable
                                 :value="pickemPlayers"
                                 scrollable
@@ -727,6 +730,9 @@
                                     <template #body="{ data }">
                                         <div :style="{ display: 'flex', alignItems: 'center' }">
                                             <img
+                                                v-tooltip.top="
+                                                    `${data.name} kibicuje: ${getPlayerByUuid(data?.favourite)?.name}`
+                                                "
                                                 v-if="data.favourite"
                                                 :style="{ width: '40px', height: '40px' }"
                                                 :src="getPlayerByUuid(data?.favourite)?.avatar"
