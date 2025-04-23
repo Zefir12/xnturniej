@@ -742,9 +742,9 @@
                             }"
                         >
                             <div :style="{ color: '#FAF9F6', marginBottom: '1rem', fontSize: '0.8rem' }">
-                                Ranking jest odświeżany co 5 minut (jak będzie trzymać to podkręce troche potem)<br />Potem
-                                dodam wyszukiwanie i ładny wygląd, dzisiaj w pierwszy dzień pilnuje serwera żeby sie nie
-                                wywrócił xd
+                                Ranking jest odświeżany co 2 minuty (jak będzie serwer sie dobrze trzymać to podkręce
+                                potem)<br />Potem dodam wyszukiwanie i ładny wygląd, dzisiaj w pierwszy dzień pilnuje
+                                serwera żeby sie nie wywrócił xd
                             </div>
                             <DataTable
                                 :value="pickemPlayers"
