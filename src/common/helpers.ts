@@ -36,3 +36,17 @@ export const playerByUuid = (
         }
     }
 }
+
+export const getRandomSuccessMessage = (): string => {
+    const successMessages = [
+        'Dobra robota!',
+        'Zrobione!',
+        'Udało się!',
+        'Gotowe!',
+        'Operacja zakończona sukcesem.',
+        'Super, wszystko gotowe!',
+        'Ujdzie',
+        'Może być',
+    ]
+    return successMessages[Math.floor(Math.random() * successMessages.length)]
+}

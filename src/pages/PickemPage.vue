@@ -167,9 +167,12 @@
                                 <p>Okej, jak działa punktacja w fazie grupowej?</p>
                                 <p>
                                     Jeżeli trafisz prawidłowo czy zawodnik wychodzi z grupy, czy trafia do drabinki
-                                    pocieszenia: +1pkt✅
+                                    pocieszenia zdobywasz: <PointsBlock points="1" />
                                 </p>
-                                <p>Dodatkowo jeżeli trafisz dokładne miejsce które zawodnik zajmie w grupie: +2pkt✅</p>
+                                <p>
+                                    Dodatkowo jeżeli trafisz dokładne miejsce które zawodnik zajmie w grupie:
+                                    <PointsBlock points="+2" />
+                                </p>
 
                                 W sumie do zgarnięcia za fazę grupową jest aż 48 punktów. Aby wziąć udział w rankingu
                                 online trzeba być zalogowanym
@@ -334,6 +337,9 @@
                             <DataTable
                                 :value="pickemPlayers"
                                 scrollable
+                                paginator
+                                :rows="20"
+                                :rowsPerPageOptions="[5, 10, 20, 50, 100]"
                                 tableStyle="min-width: 50rem max-width: 100rem"
                             >
                                 <Column :style="{ width: '10em' }" header="Miejsce w rankingu">
@@ -393,6 +399,7 @@ import EvolveLogo from '@/assets/icons/pickem/evolve.png'
 import ArmyLogo from '@/assets/icons/pickem/army.png'
 import SzachMatLogo from '@/assets/icons/szachmatlogo.png'
 import { DataTable, Column } from 'primevue'
+import PointsBlock from '@/components/FormatComponents/PointsBlock.vue'
 import api from '@/common/api'
 import CountDownTimer from '@/components/CountDownTimer.vue'
 import { InputNumber } from 'primevue'
@@ -400,6 +407,7 @@ import StyledButton from '@/components/StyledButton.vue'
 import { usePickemStore } from '@/stores/pickemStore'
 import { useToast } from 'primevue/usetoast'
 import Toast from 'primevue/toast'
+import { getRandomSuccessMessage } from '@/common/helpers'
 
 const toast = useToast()
 
@@ -457,6 +465,16 @@ const saveGroups = async () => {
     localStorage.setItem(`group-b`, b)
     localStorage.setItem(`group-c`, c)
     localStorage.setItem(`group-d`, d)
+    if (localStorage.getItem('pickemTwitchUser') == null) {
+        toast.add({
+            severity: 'error',
+            summary: 'Błąd',
+            group: 'br',
+            detail: 'Aby brac udział w rankingu trzeba byc zalogowanym',
+            life: 3000,
+        })
+        return
+    }
     const result = await api.post('/pickem/choosegroups', {
         id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
         groups: `${a}-${b}-${c}-${d}`,
@@ -477,7 +495,7 @@ const saveGroups = async () => {
         severity: 'success',
         summary: 'Zapisano zmiany',
         group: 'br',
-        detail: result ? 'Tak' : 'Nie',
+        detail: getRandomSuccessMessage(),
         life: 3000,
     })
 }
