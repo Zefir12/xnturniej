@@ -84,37 +84,37 @@ const saveGroups = async () => {
         {
             group: 'a',
             players: [
-                { place: '1', uuid: players.a1 == '' ? '' : players.a1.uuid },
-                { place: '2', uuid: players.a2 == '' ? '' : players.a2.uuid },
-                { place: '3', uuid: players.a3 == '' ? '' : players.a3.uuid },
-                { place: '4', uuid: players.a4 == '' ? '' : players.a4.uuid },
+                { place: '1', uuid: !players.a1 ? '' : players.a1.uuid },
+                { place: '2', uuid: !players.a2 ? '' : players.a2.uuid },
+                { place: '3', uuid: !players.a3 ? '' : players.a3.uuid },
+                { place: '4', uuid: !players.a4 ? '' : players.a4.uuid },
             ],
         },
         {
             group: 'b',
             players: [
-                { place: '1', uuid: players.b1 == '' ? '' : players.b1.uuid },
-                { place: '2', uuid: players.b2 == '' ? '' : players.b2.uuid },
-                { place: '3', uuid: players.b3 == '' ? '' : players.b3.uuid },
-                { place: '4', uuid: players.b4 == '' ? '' : players.b4.uuid },
+                { place: '1', uuid: !players.b1 ? '' : players.b1.uuid },
+                { place: '2', uuid: !players.b2 ? '' : players.b2.uuid },
+                { place: '3', uuid: !players.b3 ? '' : players.b3.uuid },
+                { place: '4', uuid: !players.b4 ? '' : players.b4.uuid },
             ],
         },
         {
             group: 'c',
             players: [
-                { place: '1', uuid: players.c1 == '' ? '' : players.c1.uuid },
-                { place: '2', uuid: players.c2 == '' ? '' : players.c2.uuid },
-                { place: '3', uuid: players.c3 == '' ? '' : players.c3.uuid },
-                { place: '4', uuid: players.c4 == '' ? '' : players.c4.uuid },
+                { place: '1', uuid: !players.c1 ? '' : players.c1.uuid },
+                { place: '2', uuid: !players.c2 ? '' : players.c2.uuid },
+                { place: '3', uuid: !players.c3 ? '' : players.c3.uuid },
+                { place: '4', uuid: !players.c4 ? '' : players.c4.uuid },
             ],
         },
         {
             group: 'd',
             players: [
-                { place: '1', uuid: players.d1 == '' ? '' : players.d1.uuid },
-                { place: '2', uuid: players.d2 == '' ? '' : players.d2.uuid },
-                { place: '3', uuid: players.d3 == '' ? '' : players.d3.uuid },
-                { place: '4', uuid: players.d4 == '' ? '' : players.d4.uuid },
+                { place: '1', uuid: !players.d1 ? '' : players.d1.uuid },
+                { place: '2', uuid: !players.d2 ? '' : players.d2.uuid },
+                { place: '3', uuid: !players.d3 ? '' : players.d3.uuid },
+                { place: '4', uuid: !players.d4 ? '' : players.d4.uuid },
             ],
         },
     ]
