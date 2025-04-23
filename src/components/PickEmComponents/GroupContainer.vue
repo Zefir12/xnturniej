@@ -43,16 +43,12 @@
                     <div :style="{ width: '94px', height: '94px', display: 'flex', alignItems: 'center' }">
                         <img
                             :style="{
-                                height: item.uuid != '' ? '94px' : '74px',
-                                width: item.uuid != '' ? '94px' : '74px',
-                                marginLeft: item.uuid != '' ? '-1px' : '9px',
-                                opacity: item.uuid != '' ? '1' : '0.6',
+                                height: item.uuid ? '94px' : '74px',
+                                width: item.uuid ? '94px' : '74px',
+                                marginLeft: item.uuid ? '-1px' : '9px',
+                                opacity: item.uuid ? '1' : '0.6',
                             }"
-                            :src="
-                                item.uuid != ''
-                                    ? (playerMappings as any)[uuidToPlayer(item.uuid)].avatar
-                                    : QuestionAvatar
-                            "
+                            :src="item.uuid ? (playerMappings as any)[uuidToPlayer(item.uuid)].avatar : QuestionAvatar"
                         />
                     </div>
 
@@ -67,7 +63,7 @@
                         }"
                     >
                         {{ curr.findIndex((x: any) => x == item.place) + 1 }}.
-                        {{ item.uuid != '' ? (playerMappings as any)[uuidToPlayer(item.uuid)].name : 'TBD' }}
+                        {{ item.uuid ? (playerMappings as any)[uuidToPlayer(item.uuid)].name : 'TBD' }}
                         <div>
                             <img
                                 :style="{
@@ -92,7 +88,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import Sortable from 'sortablejs'
 import { usePickemStore } from '@/stores/pickemStore'
 import { playerMappings, uuidToPlayer } from '@/common/consts'
@@ -143,7 +139,8 @@ const initializeSortable = () => {
             const listItems = sortableListRef.value?.querySelectorAll('li')
             const order = Array.from(listItems ?? []).map((li) => li.dataset.id ?? '')
             curr.value = order
-            localStorage.setItem(`group-${props.group}`, JSON.stringify(order))
+            localStorage.setItem(`temp-group-${props.group}`, JSON.stringify(order))
+            pickemStore.addChangesCounter()
         },
     })
 }
@@ -151,6 +148,14 @@ const initializeSortable = () => {
 onMounted(() => {
     initializeSortable()
 })
+
+watch(
+    () => pickemStore.groups,
+    () => {
+        items.value = parseLocalStorageGroup()
+    },
+    { deep: true },
+)
 
 onUnmounted(() => {
     if (sortableInstance) {

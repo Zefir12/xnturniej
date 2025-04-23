@@ -132,6 +132,7 @@
                                 fontFamily: 'Source Sans Pro',
                             }"
                         >
+                            <Toast />
                             <CountDownTimer
                                 class="no-select"
                                 rectColor="#18181b"
@@ -158,7 +159,9 @@
                                 <GroupContainer group="c" />
                                 <GroupContainer group="d" />
                             </div>
-                            <StyledButton>Zapisz zmiany</StyledButton>
+                            <div :style="{ display: 'flex', gap: '10px' }">
+                                <StyledButton :disabled="!changes" @click="saveGroups">Zapisz zmiany</StyledButton>
+                            </div>
                             <div :style="{ maxWidth: '800px' }">
                                 <h2>📜 ZASADY – FAZA GRUPOWA PICK’EM CHALLENGE</h2>
                                 <p>Okej, jak działa punktacja w fazie grupowej?</p>
@@ -394,11 +397,19 @@ import api from '@/common/api'
 import CountDownTimer from '@/components/CountDownTimer.vue'
 import { InputNumber } from 'primevue'
 import StyledButton from '@/components/StyledButton.vue'
+import { usePickemStore } from '@/stores/pickemStore'
+import { useToast } from 'primevue/usetoast'
+import Toast from 'primevue/toast'
+
+const toast = useToast()
 
 const userStore = useUserStore()
 const panelTab = ref(localStorage.getItem('pickemTab') || '0')
 const lastSelect = ref<{ [key: string]: unknown }>({})
 const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5173'
+const pickemStore = usePickemStore()
+const changes = ref(false)
+const loading = ref(true)
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const clickedNode = (x: any) => {
@@ -413,13 +424,75 @@ const clickedNode = (x: any) => {
     }
 }
 
+function haveGroupsChanged() {
+    const groupLetters = ['a', 'b', 'c', 'd']
+    const defaultValue = '["1","2","3","4"]'
+
+    const b = groupLetters.some((group) => {
+        const original = localStorage.getItem(`group-${group}`) ?? defaultValue
+        const temp = localStorage.getItem(`temp-group-${group}`) ?? defaultValue
+        return original !== temp
+    })
+    changes.value = b
+}
+
+watch(
+    () => pickemStore.changesCounter,
+    () => {
+        haveGroupsChanged()
+    },
+)
+
 watch(panelTab, (newVal) => {
     localStorage.setItem('pickemTab', newVal)
 })
 
+const saveGroups = async () => {
+    loading.value = true
+    const a = localStorage.getItem(`temp-group-a`) ?? '["1","2","3","4"]'
+    const b = localStorage.getItem(`temp-group-b`) ?? '["1","2","3","4"]'
+    const c = localStorage.getItem(`temp-group-c`) ?? '["1","2","3","4"]'
+    const d = localStorage.getItem(`temp-group-d`) ?? '["1","2","3","4"]'
+    localStorage.setItem(`group-a`, a)
+    localStorage.setItem(`group-b`, b)
+    localStorage.setItem(`group-c`, c)
+    localStorage.setItem(`group-d`, d)
+    const result = await api.post('/pickem/choosegroups', {
+        id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
+        groups: `${a}-${b}-${c}-${d}`,
+    })
+    if (!result) {
+        toast.add({
+            severity: 'error',
+            summary: 'Błąd',
+            group: 'br',
+            detail: 'Wystąpił błąd podczas zapisywania zmian',
+            life: 3000,
+        })
+        return
+    }
+    pickemStore.addChangesCounter()
+    loading.value = false
+    toast.add({
+        severity: 'success',
+        summary: 'Zapisano zmiany',
+        group: 'br',
+        detail: result ? 'Tak' : 'Nie',
+        life: 3000,
+    })
+}
+
 const pickemPlayers = ref<{ name: string }[]>([])
 
 onBeforeMount(async () => {
+    localStorage.setItem(`temp-group-a`, localStorage.getItem(`group-a`) ?? '["1","2","3","4"]')
+    localStorage.setItem(`temp-group-b`, localStorage.getItem(`group-b`) ?? '["1","2","3","4"]')
+    localStorage.setItem(`temp-group-c`, localStorage.getItem(`group-c`) ?? '["1","2","3","4"]')
+    localStorage.setItem(`temp-group-d`, localStorage.getItem(`group-d`) ?? '["1","2","3","4"]')
+
+    const groups = await api.get('/pickem/getgroups')
+    pickemStore.setGroup(groups.data)
+
     const response = await api.get('/pickemranking')
     pickemPlayers.value = response.data.map((x: string) => ({ name: x }))
 })

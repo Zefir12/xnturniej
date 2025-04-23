@@ -17,7 +17,6 @@ export const useUserStore = defineStore('user', () => {
     const login = async (login: string, password: string) => {
         const res = await loginUser(login, password)
         if (res) {
-            console.log(res)
             localStorage.setItem('access_token', res.accessToken)
             localStorage.setItem('refresh_token', res.refreshToken)
             userLoggedIn.value = true

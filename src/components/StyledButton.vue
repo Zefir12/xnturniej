@@ -1,10 +1,12 @@
 <template>
-    <div class="buton">
-        <slot></slot>
-    </div>
+    <button class="buton" :disabled="props.disabled">
+        <slot />
+    </button>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps<{ disabled: boolean }>()
+</script>
 
 <style scoped>
 .buton {
@@ -18,9 +20,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 4px;
+    border: none;
+    transition:
+        opacity 0.2s,
+        cursor 0.2s;
+}
+
+/* Disabled state styling */
+.buton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: grey;
 }
 </style>

@@ -41,11 +41,21 @@ export const usePickemStore = defineStore('Pickem Store', () => {
         },
     ])
 
+    const changesCounter = ref(0)
+
     const getGroup = (group: string) => {
         const grp = groups.value.find((x) => x.group == group)
         if (grp == null) return []
         return grp.players
     }
 
-    return { getGroup }
+    const setGroup = (item: { group: string; players: { place: string; uuid: string }[] }[]) => {
+        groups.value = item
+    }
+
+    const addChangesCounter = () => {
+        changesCounter.value++
+    }
+
+    return { getGroup, groups, setGroup, changesCounter, addChangesCounter }
 })

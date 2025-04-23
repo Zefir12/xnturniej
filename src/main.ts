@@ -9,6 +9,7 @@ import router from './router'
 import Aura from '@primeuix/themes/aura'
 import Tooltip from 'primevue/tooltip'
 import { definePreset } from '@primeuix/themes'
+import ToastService from 'primevue/toastservice'
 
 const MyPreset = definePreset(Aura, {
     semantic: {
@@ -35,6 +36,7 @@ const app = createApp(App)
 
 app.directive('tooltip', Tooltip)
 app.use(createPinia())
+app.use(ToastService)
 app.use(router)
 app.use(PrimeVue, {
     theme: {
