@@ -577,7 +577,12 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="10" title="Zawód rodziny" :image="BlindManLogo">
+                                <CrystallBallItem
+                                    desc="Przykładowo, licząc średnią arytmetyczną z głosów wszystkich obstawiających, Fornal miałby 1.14 miejsce średnio, a zajmie 2 miejsce w grupie, to dostanie -0.86 punktów różnicy w tej kategorii. Zwycięża największa ujemna różnica"
+                                    :points="10"
+                                    title="Zawód rodziny"
+                                    :image="BlindManLogo"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
