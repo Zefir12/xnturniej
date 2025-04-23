@@ -700,7 +700,12 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="8" title="Nigdzie nie ide" :image="TimerLogo">
+                                <CrystallBallItem
+                                    desc="Liczy sie % więc jak ktoś zagrałby 1 mecz i zrobił w nim roszade ma 100% i wygrywa tą kategorie"
+                                    :points="8"
+                                    title="Nigdzie nie ide"
+                                    :image="TimerLogo"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
