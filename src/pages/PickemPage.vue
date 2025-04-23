@@ -770,7 +770,7 @@ const panelTab = ref(localStorage.getItem('pickemTab') || '0')
 const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5173'
 const pickemStore = usePickemStore()
 const changes = ref(false)
-const changesBall = ref(true)
+const changesBall = ref(false)
 const loading = ref(true)
 
 const crystalBallPicks = ref({
