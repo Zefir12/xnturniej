@@ -179,8 +179,8 @@
                                 class="no-select"
                                 rectColor="#18181b"
                                 :style="{ marginTop: '-20px' }"
-                                text="Grupy będą losowane za: "
-                                :date="new Date('2025-04-23T16:00:00')"
+                                text="Możliwość wyboru zostanie zablokowana za: "
+                                :date="new Date('2025-04-24T16:00:00')"
                             />
                             <div
                                 class="no-select"
@@ -240,8 +240,8 @@
                             class="no-select"
                             rectColor="#18181b"
                             :style="{ marginTop: '-4px', marginBottom: '30px' }"
-                            text="Obstawianie wystartuje za: "
-                            :date="new Date('2025-04-23T16:00:00')"
+                            text="Możliwość wyboru zostanie zablokowana za: "
+                            :date="new Date('2025-04-24T16:00:00')"
                         />
                         <div
                             :style="{
