@@ -728,9 +728,16 @@
                                         </div></template
                                     >
                                 </Column>
-                                <Column :style="{ width: '10em', backgroundColor: 'transparent' }" header="Nick">
+                                <Column :style="{ width: '15em', backgroundColor: 'transparent' }" header="Nick">
                                     <template #body="{ data }">
-                                        <div :style="{ display: 'flex', alignItems: 'center' }">
+                                        <div
+                                            :style="{
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                height: '40px',
+                                                gap: '5px',
+                                            }"
+                                        >
                                             <img
                                                 v-tooltip.top="
                                                     `${data.name} kibicuje: ${getPlayerByUuid(data?.favourite)?.name}`
