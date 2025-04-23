@@ -77,7 +77,7 @@ export const playerMappings = {
         name: 'Hiszpan',
         avatar: hiszpan,
         twitch: 'https://www.twitch.tv/hiszpanitos',
-        kick: undefined,
+        kick: 'https://kick.com/hiszpanitoss',
         uuid: '071f3ac4-5f0c-11eb-828b-1768796e906d',
         charColor: '#57312f',
     },
