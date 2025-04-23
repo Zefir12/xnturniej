@@ -804,23 +804,28 @@ const loading = ref(true)
 const favourite = ref<null | string>(
     localStorage.getItem('favouritePickem') ? JSON.parse(localStorage.getItem('favouritePickem') ?? '{}') : null,
 )
+const ballLocal = localStorage.getItem('crystallBallSelections')
 
-const crystalBallPicks = ref({
-    botezPlayers: [] as string[],
-    speedrunner: null,
-    blackhorse: null,
-    familydisappointment: null,
-    bestalone: null,
-    standingstill: null,
-    bloodyGroup: null as string | null,
-    newhetmans: null as null | number,
-    shortestmoves: null as null | number,
-    longestmoves: null as null | number,
-    pats: null as null | number,
-    beginings: null as null | string,
-    blackorwhite: null as null | string,
-    bishopsandknights: null as null | string,
-})
+const crystalBallPicks = ref(
+    ballLocal
+        ? JSON.parse(ballLocal)
+        : {
+              botezPlayers: [],
+              speedrunner: null,
+              blackhorse: null,
+              familydisappointment: null,
+              bestalone: null,
+              standingstill: null,
+              bloodyGroup: null as string | null,
+              newhetmans: null as null | number,
+              shortestmoves: null as null | number,
+              longestmoves: null as null | number,
+              pats: null as null | number,
+              beginings: null as null | string,
+              blackorwhite: null as null | string,
+              bishopsandknights: null as null | string,
+          },
+)
 
 function haveGroupsChanged() {
     const groupLetters = ['a', 'b', 'c', 'd']
@@ -967,26 +972,6 @@ onBeforeMount(async () => {
     localStorage.setItem(`temp-group-b`, localStorage.getItem(`group-b`) ?? '["1","2","3","4"]')
     localStorage.setItem(`temp-group-c`, localStorage.getItem(`group-c`) ?? '["1","2","3","4"]')
     localStorage.setItem(`temp-group-d`, localStorage.getItem(`group-d`) ?? '["1","2","3","4"]')
-
-    const it = localStorage.getItem('crystallBallSelections')
-    crystalBallPicks.value = it
-        ? JSON.parse(it)
-        : {
-              botezPlayers: [],
-              speedrunner: null,
-              blackhorse: null,
-              familydisappointment: null,
-              bestalone: null,
-              standingstill: null,
-              bloodyGroup: null as string | null,
-              newhetmans: null as null | number,
-              shortestmoves: null as null | number,
-              longestmoves: null as null | number,
-              pats: null as null | number,
-              beginings: null as null | string,
-              blackorwhite: null as null | string,
-              bishopsandknights: null as null | string,
-          }
 
     const groups = await api.get('/pickem/getgroups')
     pickemStore.setGroup(groups.data)
