@@ -125,7 +125,14 @@
                     >
                         {{ userStore.pickemTwitchUser.displayName }}
                     </div>
-                    <div>🏆 0 punktów</div>
+                    <div>
+                        🏆
+                        {{
+                            pickemPlayers.find((x) => x.name == userStore.pickemTwitchUser?.displayName)
+                                ?.total_points ?? 0
+                        }}
+                        punktów
+                    </div>
                 </div>
             </div>
 
