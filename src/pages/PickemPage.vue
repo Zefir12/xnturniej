@@ -146,7 +146,7 @@
                 </div>
             </a>
         </div>
-        <div class="data-container">
+        <div class="data-container" :style="{ width: '100%' }">
             <Tabs :style="{ width: '100%', backgroundColor: 'transparent' }" v-model:value="panelTab">
                 <TabList :style="{ justifyContent: 'center' }">
                     <Tab value="0" as="div" class="flex items-center gap-2">
@@ -167,7 +167,7 @@
                         <span class="font-bold whitespace-nowrap">Ranking Twitcha</span>
                     </Tab>
                 </TabList>
-                <TabPanels>
+                <TabPanels :style="{ display: 'flex', justifyContent: 'center' }">
                     <TabPanel value="0" as="p" class="m-0">
                         <div
                             :style="{
