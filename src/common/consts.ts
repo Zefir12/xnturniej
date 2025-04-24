@@ -214,3 +214,9 @@ export const playerMappings = {
         charColor: '#fff',
     },
 }
+
+export const expirationDates = {
+    groups: new Date('2025-04-24T14:30:00Z'),
+    crystalball: new Date('2025-04-24T14:30:00Z'),
+    laddersOpen: new Date('2025-04-25T19:00:00Z'),
+}

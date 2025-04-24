@@ -1,5 +1,5 @@
 <template>
-    <div class="cont">
+    <div class="cont" :style="{ opacity: props.disabled ? 0.7 : 1, pointerEvents: props.disabled ? 'none' : 'auto' }">
         <div
             class="option"
             :style="model === 'a' ? { 'border-color': 'orange', color: 'orange' } : {}"
@@ -19,6 +19,7 @@
 
 <script setup lang="ts">
 const model = defineModel<string | null>({ default: null })
+const props = defineProps<{ disabled?: boolean }>()
 </script>
 
 <style scoped>

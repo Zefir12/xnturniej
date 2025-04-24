@@ -34,7 +34,10 @@
         <div>
             <ul ref="sortableListRef" class="sortable-list">
                 <li
-                    :style="{ height: '94px' }"
+                    :style="{
+                        height: '94px',
+                        pointerEvents: expirationDates.groups.getTime() < Date.now() ? 'none' : 'all',
+                    }"
                     v-for="(item, index) in items"
                     :key="index"
                     class="sortable-item"
@@ -91,7 +94,7 @@
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import Sortable from 'sortablejs'
 import { usePickemStore } from '@/stores/pickemStore'
-import { playerMappings, uuidToPlayer } from '@/common/consts'
+import { expirationDates, playerMappings, uuidToPlayer } from '@/common/consts'
 import QuestionAvatar from '@/assets/icons/question.png'
 import CrownIcon from '@/assets/icons/crown.png'
 

@@ -220,7 +220,12 @@
                                         >{{ 'Zacznij typować'.toUpperCase() }}</Button
                                     >
                                 </div>
-
+                                <br /><br />
+                                <h1>Patch Noty v1.2</h1>
+                                <p>
+                                    - wydłużenie czasu na typowanie do 16:30 żeby dać czas ludziom którzy dopiero po
+                                    pracy/szkole/spaniu zauważą że wszedł Taku za Fornala
+                                </p>
                                 <br /><br />
                                 <h1>Patch Noty v1.1</h1>
                                 - Tomasz Fornal stety albo niestety wygrał w siatkę, i nie będzie miał czasu na turniej.
@@ -275,12 +280,14 @@
                         >
                             <Toast />
                             <CountDownTimer
+                                v-if="expirationDates.groups.getTime() > Date.now()"
                                 class="no-select"
                                 rectColor="#18181b"
                                 :style="{ marginTop: '-20px' }"
                                 text="Możliwość wyboru zostanie zablokowana za: "
-                                :date="new Date('2025-04-24T16:00:00')"
+                                :date="expirationDates.groups"
                             />
+                            <h3 v-if="expirationDates.groups.getTime() < Date.now()">Czas na wybór minął</h3>
                             <div
                                 class="no-select"
                                 :style="{
@@ -300,7 +307,10 @@
                                 <GroupContainer group="c" />
                                 <GroupContainer group="d" />
                             </div>
-                            <div :style="{ display: 'flex', gap: '10px' }">
+                            <div
+                                v-if="expirationDates.groups.getTime() > Date.now()"
+                                :style="{ display: 'flex', gap: '10px' }"
+                            >
                                 <StyledButton :disabled="!changes" @click="saveGroups">Zapisz zmiany</StyledButton>
                             </div>
                             <div :style="{ maxWidth: '800px' }">
@@ -326,7 +336,7 @@
                             rectColor="#18181b"
                             :style="{ marginTop: '-4px', marginBottom: '30px' }"
                             text="Drabinka odblokuje sie po zakończeniu fazy grupowej: "
-                            :date="new Date('2025-04-25T20:00:00')"
+                            :date="expirationDates.laddersOpen"
                         />
                         <div
                             :style="{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center' }"
@@ -336,11 +346,12 @@
                     </TabPanel>
                     <TabPanel value="3" as="p" class="m-0">
                         <CountDownTimer
+                            v-if="expirationDates.crystalball.getTime() > Date.now()"
                             class="no-select"
                             rectColor="#18181b"
                             :style="{ marginTop: '-4px', marginBottom: '30px' }"
                             text="Możliwość wyboru zostanie zablokowana za: "
-                            :date="new Date('2025-04-24T16:00:00')"
+                            :date="expirationDates.crystalball"
                         />
                         <div
                             :style="{
@@ -351,7 +362,11 @@
                                 marginBottom: '30px',
                             }"
                         >
-                            <div :style="{ display: 'flex', gap: '10px' }">
+                            <h3 v-if="expirationDates.crystalball.getTime() < Date.now()">Czas na wybór minął</h3>
+                            <div
+                                v-if="expirationDates.crystalball.getTime() > Date.now()"
+                                :style="{ display: 'flex', gap: '10px' }"
+                            >
                                 <StyledButton :disabled="!changesBall" @click="saveCrystallBall"
                                     >Zapisz zmiany</StyledButton
                                 >
@@ -409,6 +424,7 @@
                                                 v-model="crystalBallPicks.botezPlayers"
                                                 display="chip"
                                                 option-value="uuid"
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
                                                 :style="{ flexGrow: 1, maxWidth: '150px' }"
                                                 :options="Object.values(playerMappings)"
                                                 optionLabel="name"
@@ -443,7 +459,10 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <SelectPlayerPickem v-model="crystalBallPicks.speedrunner" />
+                                            <SelectPlayerPickem
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
+                                                v-model="crystalBallPicks.speedrunner"
+                                            />
                                         </div>
                                     </div>
                                 </CrystallBallItem>
@@ -468,7 +487,7 @@
                                             }"
                                         >
                                             <InputNumber
-                                                :disabled="false"
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
                                                 v-model="crystalBallPicks.newhetmans"
                                                 fluid
                                                 size="small"
@@ -505,7 +524,7 @@
                                             }"
                                         >
                                             <InputNumber
-                                                :disabled="false"
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
                                                 fluid
                                                 v-model="crystalBallPicks.shortestmoves"
                                                 size="small"
@@ -541,7 +560,7 @@
                                             }"
                                         >
                                             <InputNumber
-                                                :disabled="false"
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
                                                 v-model="crystalBallPicks.longestmoves"
                                                 fluid
                                                 size="small"
@@ -570,7 +589,10 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <ChooseOption v-model="crystalBallPicks.blackorwhite">
+                                            <ChooseOption
+                                                v-model="crystalBallPicks.blackorwhite"
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
+                                            >
                                                 <template #a>Białe</template>
                                                 <template #b>Czarne</template>
                                             </ChooseOption>
@@ -598,7 +620,7 @@
                                             }"
                                         >
                                             <InputNumber
-                                                :disabled="false"
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
                                                 v-model="crystalBallPicks.pats"
                                                 fluid
                                                 size="small"
@@ -633,7 +655,10 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <ChooseOption v-model="crystalBallPicks.bishopsandknights">
+                                            <ChooseOption
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
+                                                v-model="crystalBallPicks.bishopsandknights"
+                                            >
                                                 <template #a
                                                     >Więcej<br />
                                                     Gońców</template
@@ -672,7 +697,10 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <SelectPlayerPickem v-model="crystalBallPicks.blackhorse" />
+                                            <SelectPlayerPickem
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
+                                                v-model="crystalBallPicks.blackhorse"
+                                            />
                                         </div>
                                     </div>
                                 </CrystallBallItem>
@@ -702,7 +730,10 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <SelectPlayerPickem v-model="crystalBallPicks.familydisappointment" />
+                                            <SelectPlayerPickem
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
+                                                v-model="crystalBallPicks.familydisappointment"
+                                            />
                                         </div>
                                     </div>
                                 </CrystallBallItem>
@@ -727,7 +758,10 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <ChooseOption v-model="crystalBallPicks.beginings">
+                                            <ChooseOption
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
+                                                v-model="crystalBallPicks.beginings"
+                                            >
                                                 <template #a>Będzie</template>
                                                 <template #b>Nie będzie</template>
                                             </ChooseOption>
@@ -770,6 +804,7 @@
                                                 }"
                                             >
                                                 <RadioButton
+                                                    :disabled="expirationDates.crystalball.getTime() < Date.now()"
                                                     v-model="crystalBallPicks.bloodyGroup"
                                                     :inputId="category"
                                                     name="dynamic"
@@ -805,7 +840,10 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <SelectPlayerPickem v-model="crystalBallPicks.bestalone" />
+                                            <SelectPlayerPickem
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
+                                                v-model="crystalBallPicks.bestalone"
+                                            />
                                         </div>
                                     </div>
                                 </CrystallBallItem>
@@ -834,7 +872,10 @@
                                                 justifyContent: 'center',
                                             }"
                                         >
-                                            <SelectPlayerPickem v-model="crystalBallPicks.standingstill" />
+                                            <SelectPlayerPickem
+                                                :disabled="expirationDates.crystalball.getTime() < Date.now()"
+                                                v-model="crystalBallPicks.standingstill"
+                                            />
                                         </div>
                                     </div>
                                 </CrystallBallItem>
@@ -950,7 +991,7 @@ import SelectPlayerPickem from '@/components/PickEmComponents/SelectPlayerPickem
 import ChooseOption from '@/components/PickEmComponents/ChooseOption.vue'
 import { RadioButton } from 'primevue'
 import { MultiSelect } from 'primevue'
-import { playerMappings } from '@/common/consts'
+import { expirationDates, playerMappings } from '@/common/consts'
 import avatar from '../assets/twitchicons/defaultavatar.png'
 import { Dialog } from 'primevue'
 
