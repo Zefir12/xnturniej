@@ -903,7 +903,22 @@
                                 :rows="15"
                                 :rowsPerPageOptions="[5, 10, 15, 20, 50, 100, 500, 1000]"
                                 tableStyle="min-width: 50rem max-width: 100rem"
+                                v-model:filters="filters"
+                                :globalFilterFields="['name']"
                             >
+                                <template #header>
+                                    <div class="flex justify-end">
+                                        <IconField>
+                                            <InputIcon>
+                                                <i class="pi pi-search" />
+                                            </InputIcon>
+                                            <InputText
+                                                v-model="filters['global'].value"
+                                                placeholder="Szukaj po nicku"
+                                            />
+                                        </IconField>
+                                    </div>
+                                </template>
                                 <Column :style="{ width: '10em' }" header="Miejsce w rankingu">
                                     <template #body="{ data }"
                                         ><div
@@ -918,7 +933,12 @@
                                         </div></template
                                     >
                                 </Column>
-                                <Column :style="{ width: '15em', backgroundColor: 'transparent' }" header="Nick">
+                                <Column
+                                    field="name"
+                                    sortable
+                                    :style="{ width: '15em', backgroundColor: 'transparent' }"
+                                    header="Nick"
+                                >
                                     <template #body="{ data }">
                                         <div
                                             :style="{
@@ -938,18 +958,26 @@
                                             />{{ data.name }}
                                         </div>
                                     </template>
+                                    <template #filter="{ filterModel, filterCallback }">
+                                        <InputText
+                                            v-model="filterModel.value"
+                                            type="text"
+                                            @input="filterCallback()"
+                                            placeholder="Search by name"
+                                        />
+                                    </template>
                                 </Column>
-                                <Column header="Punkty fazy grupowej"
+                                <Column sortable field="group_points" header="Punkty fazy grupowej"
+                                    ><template #body="{ data }">{{ data.group_points ?? 0 }}</template></Column
+                                >
+                                <Column sortable header="Punkty w drabince"
                                     ><template #body="">{{ 0 }}</template></Column
                                 >
-                                <Column header="Punkty w drabince"
+                                <Column sortable header="Punkty za kryształową kule"
                                     ><template #body="">{{ 0 }}</template></Column
                                 >
-                                <Column header="Punkty za kryształową kule"
-                                    ><template #body="">{{ 0 }}</template></Column
-                                >
-                                <Column header="Punkty razem"
-                                    ><template #body="">{{ 0 }}</template></Column
+                                <Column sortable field="total_points" header="Punkty razem"
+                                    ><template #body="{ data }">{{ data.total_points ?? 0 }}</template></Column
                                 >
                             </DataTable>
                         </div>
@@ -994,6 +1022,18 @@ import { MultiSelect } from 'primevue'
 import { expirationDates, playerMappings } from '@/common/consts'
 import avatar from '../assets/twitchicons/defaultavatar.png'
 import { Dialog } from 'primevue'
+import { FilterMatchMode } from '@primevue/core'
+import { InputText } from 'primevue'
+import { IconField } from 'primevue'
+
+const filters = ref({
+    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    'country.name': { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    representative: { value: null, matchMode: FilterMatchMode.IN },
+    status: { value: null, matchMode: FilterMatchMode.EQUALS },
+    verified: { value: null, matchMode: FilterMatchMode.EQUALS },
+})
 
 const showAvatarModal = ref(false)
 
@@ -1071,29 +1111,31 @@ const saveCrystallBall = async () => {
         })
         return
     }
-    const result = await api.post('/pickem/choosecrystalball', {
-        id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
-        picks: crystalBallPicks.value,
-    })
-    if (!result) {
+    try {
+        await api.post('/pickem/choosecrystalball', {
+            id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
+            picks: crystalBallPicks.value,
+        })
+        localStorage.setItem('crystallBallSelections', JSON.stringify(crystalBallPicks.value))
+        changesBall.value = false
+        toast.add({
+            severity: 'success',
+            summary: 'Zapisano zmiany',
+            group: 'br',
+            detail: getRandomSuccessMessage(),
+            life: 3000,
+        })
+    } catch (error) {
+        console.log(error)
         toast.add({
             severity: 'error',
             summary: 'Błąd',
             group: 'br',
-            detail: 'Wystąpił błąd podczas zapisywania zmian',
+            detail: error.response.data.error,
             life: 3000,
         })
         return
     }
-    localStorage.setItem('crystallBallSelections', JSON.stringify(crystalBallPicks.value))
-    changesBall.value = false
-    toast.add({
-        severity: 'success',
-        summary: 'Zapisano zmiany',
-        group: 'br',
-        detail: getRandomSuccessMessage(),
-        life: 3000,
-    })
 }
 
 watch(
@@ -1162,32 +1204,33 @@ const saveGroups = async () => {
         })
         return
     }
-    const result = await api.post('/pickem/choosegroups', {
-        id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
-        groups: `${a}-${b}-${c}-${d}`,
-    })
-    if (!result) {
+    try {
+        await api.post('/pickem/choosegroups', {
+            id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
+            groups: `${a}-${b}-${c}-${d}`,
+        })
+        pickemStore.addChangesCounter()
+        loading.value = false
+        toast.add({
+            severity: 'success',
+            summary: 'Zapisano zmiany',
+            group: 'br',
+            detail: getRandomSuccessMessage(),
+            life: 3000,
+        })
+    } catch (error) {
         toast.add({
             severity: 'error',
             summary: 'Błąd',
             group: 'br',
-            detail: 'Wystąpił błąd podczas zapisywania zmian',
+            detail: error.response.data.error,
             life: 3000,
         })
         return
     }
-    pickemStore.addChangesCounter()
-    loading.value = false
-    toast.add({
-        severity: 'success',
-        summary: 'Zapisano zmiany',
-        group: 'br',
-        detail: getRandomSuccessMessage(),
-        life: 3000,
-    })
 }
 
-const pickemPlayers = ref<{ name: string; favourite: boolean }[]>([])
+const pickemPlayers = ref<{ name: string; favourite: boolean; group_points: number; total_points: number }[]>([])
 
 onBeforeMount(async () => {
     localStorage.setItem(`temp-group-a`, localStorage.getItem(`group-a`) ?? '["1","2","3","4"]')

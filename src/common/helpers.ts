@@ -9,6 +9,39 @@ export const isDarkMode = () => {
     return rootColorScheme === 'dark'
 }
 
+export const getGroupsFromString = (input: string) => {
+    const result = input
+        .split('-') // Split the string into separate JSON arrays
+        .map((str) => JSON.parse(str)) // Parse each JSON array
+        .map((arr) => arr.map(Number))
+    return result
+}
+
+const getGroupPoints = (guess: number[], answer: number[]) => {
+    let score = 0
+
+    for (let i = 0; i < 4; i++) {
+        if (guess[i] === answer[i]) {
+            score += 3 // exact match
+        } else {
+            const inSameHalf =
+                (i < 2 && (guess[0] === answer[i] || guess[1] === answer[i])) ||
+                (i >= 2 && (guess[2] === answer[i] || guess[3] === answer[i]))
+
+            if (inSameHalf) {
+                score += 1
+            }
+        }
+    }
+    console.log(score, guess, answer)
+    return score
+}
+
+export const getGroupAPoints = (guess: number[][]) => {
+    const res = getGroupPoints(guess[0], [1, 2, 3, 4])
+    return res
+}
+
 export const getAllPlayers = () => {
     const playerKeys = Object.keys(playerMappings)
     return playerKeys.map((player) => playerMappings[player as PlayerAccounts])

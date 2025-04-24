@@ -11,6 +11,9 @@ importers:
       '@primeuix/themes':
         specifier: ^1.0.0
         version: 1.0.0
+      '@primevue/core':
+        specifier: ^4.3.3
+        version: 4.3.3(vue@3.5.13(typescript@5.7.3))
       '@tabler/icons-vue':
         specifier: ^3.31.0
         version: 3.31.0(vue@3.5.13(typescript@5.7.3))
@@ -548,6 +551,12 @@ packages:
 
   '@primevue/core@4.3.1':
     resolution: {integrity: sha512-Z2JfYk7I477qdlWHH5yiqUK0cwNe5joZJLwFtSEFkmBi/ocXvkGNAYk8XYNCz6UTDePUQSHKseKJxMkFHlfRtw==}
+    engines: {node: '>=12.11.0'}
+    peerDependencies:
+      vue: ^3.5.0
+
+  '@primevue/core@4.3.3':
+    resolution: {integrity: sha512-kSkN5oourG7eueoFPIqiNX3oDT/f0I5IRK3uOY/ytz+VzTZp5yuaCN0Nt42ZQpVXjDxMxDvUhIdaXVrjr58NhQ==}
     engines: {node: '>=12.11.0'}
     peerDependencies:
       vue: ^3.5.0
@@ -2334,6 +2343,12 @@ snapshots:
   '@primeuix/utils@0.5.1': {}
 
   '@primevue/core@4.3.1(vue@3.5.13(typescript@5.7.3))':
+    dependencies:
+      '@primeuix/styled': 0.5.0
+      '@primeuix/utils': 0.5.1
+      vue: 3.5.13(typescript@5.7.3)
+
+  '@primevue/core@4.3.3(vue@3.5.13(typescript@5.7.3))':
     dependencies:
       '@primeuix/styled': 0.5.0
       '@primeuix/utils': 0.5.1
