@@ -35,7 +35,7 @@
         <h3>Dodatkowe informacje</h3>
         <p>- Aby wybrać komu kibicujesz kilkasz na ikonkę avatara na górze</p>
         <p>
-            - Karty w kryształowej kuli mają pytajnik w praym górnym rogu, po najechaniu wyświetla dokładniejszy opis
+            - Karty w kryształowej kuli mają pytajnik w prawym górnym rogu, po najechaniu wyświetla dokładniejszy opis
             karty
         </p>
     </Dialog>
@@ -256,7 +256,7 @@
                                 <h3>Dodatkowe informacje</h3>
                                 <p>- Aby wybrać komu kibicujesz kilkasz na ikonkę avatara na górze</p>
                                 <p>
-                                    - Karty w kryształowej kuli mają pytajnik w praym górnym rogu, po najechaniu
+                                    - Karty w kryształowej kuli mają pytajnik w prawym górnym rogu, po najechaniu
                                     wyświetla dokładniejszy opis karty
                                 </p>
                             </div>
