@@ -421,7 +421,7 @@
                                 <CrystallBallItem
                                     :points="5"
                                     title="Speedrunner"
-                                    desc="Ile średnio z wszystkich pratii zawodnikowi zostaje % czasu na koniec partii, np: kończy 10 minutową partie z 8 minutami na zegarze: 80% czasu, i jest liczony średni % z wszystkich gier"
+                                    desc="Ile średnio z wszystkich partii zawodnikowi zostaje % czasu na koniec partii, np: kończy 10 minutową partie z 8 minutami na zegarze: 80% czasu, i jest liczony średni % z wszystkich gier"
                                     :image="TimerLogo"
                                 >
                                     <div
