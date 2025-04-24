@@ -12,7 +12,7 @@
         - Zmiany w kryształowej kuli na 7:30, 24.04.2025:
         <br />
         <h3>Botez Gambit</h3>
-        Nie wiem czemu, odcieło mi myślenie i dałem 1pkt na każdego zawodnika i jakoś mi wyszło 15<br /><br />
+        Nie wiem czemu, odcięło mi myślenie i dałem 1pkt na każdego zawodnika i jakoś mi wyszło 15<br /><br />
         Zmiana: 15pkt -> 16pkt
         <p>
             Dodatkowe informacje o punktacji: <br /><br />
@@ -20,12 +20,12 @@
             zawodnika który nie podwali. Jeżeli w turnieju 3 osoby podwalą, a nie zaznaczysz nikogo, otrzymasz za tę
             kategorię 13 pkt. <br />Analogicznie jeśli zaznaczysz wszystkich a tylko 3 osoby podwalą otrzymasz 3 pkt.
         </p>
-        <h3>Blietzcrieg & Życie w okopach</h3>
+        <h3>Blitzcrieg & Życie w okopach</h3>
         Tutaj to samo, większość osób naturalnie liczy ruchy e4 e5 jako jeden ruch, a ja chciałem dokładniejszą
         predykcję licząc to jako dwa ruchy.
         <p>
             Zmiana w przyznawaniu punktów: <br />
-            Dla zawodników którzy przczytali pytajnik i poprawnie wybrali według zasady że e4 e5 to dwa ruchy nic sie
+            Dla zawodników którzy przeczytali pytajnik i poprawnie wybrali według zasady że e4 e5 to dwa ruchy nic sie
             nie zmienia, natomiast jeśli najkrótsza partia naprzykład potrwa 7 ruchów, (13 ruchów licząc każde
             posunięcie) to za wpisanie 13 jest pełna liczba punktów, natomiast za wpisanie 7 przyznaję połowę, w związku
             z tym że ten kto zgadywał 7 równoczesnie obstawia ruch 13 i 14, więc ma większe szanse na trafienie.
@@ -230,7 +230,7 @@
                                 - Zmiany w kryształowej kuli na 7:30, 24.04.2025:
                                 <br />
                                 <h3>Botez Gambit</h3>
-                                Nie wiem czemu, odcieło mi myślenie i dałem 1pkt na każdego zawodnika i jakoś mi wyszło
+                                Nie wiem czemu, odcięło mi myślenie i dałem 1pkt na każdego zawodnika i jakoś mi wyszło
                                 15<br /><br />
                                 Zmiana: 15pkt -> 16pkt
                                 <p>
@@ -240,13 +240,13 @@
                                     nie zaznaczysz nikogo, otrzymasz za tę kategorię 13 pkt. <br />Analogicznie jeśli
                                     zaznaczysz wszystkich a tylko 3 osoby podwalą otrzymasz 3 pkt.
                                 </p>
-                                <h3>Blietzcrieg & Życie w okopach</h3>
+                                <h3>Blitzcrieg & Życie w okopach</h3>
                                 Tutaj to samo, większość osób naturalnie liczy ruchy e4 e5 jako jeden ruch, a ja
                                 chciałem dokładniejszą predykcję licząc to jako dwa ruchy.
                                 <p>
                                     Zmiana w przyznawaniu punktów: <br />
-                                    Dla zawodników którzy przczytali pytajnik i poprawnie wybrali według zasady że e4 e5
-                                    to dwa ruchy nic sie nie zmienia, natomiast jeśli najkrótsza partia naprzykład
+                                    Dla zawodników którzy przeczytali pytajnik i poprawnie wybrali według zasady że e4
+                                    e5 to dwa ruchy nic sie nie zmienia, natomiast jeśli najkrótsza partia naprzykład
                                     potrwa 7 ruchów, (13 ruchów licząc każde posunięcie) to za wpisanie 13 jest pełna
                                     liczba punktów, natomiast za wpisanie 7 przyznaję połowę, w związku z tym że ten kto
                                     zgadywał 7 równoczesnie obstawia ruch 13 i 14, więc ma większe szanse na trafienie.
