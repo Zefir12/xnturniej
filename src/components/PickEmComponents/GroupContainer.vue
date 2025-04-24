@@ -63,6 +63,7 @@
                             alignItems: 'center',
                             fontWeight: '600',
                             marginLeft: item.uuid != '' ? '30px' : '40px',
+                            position: 'relative',
                         }"
                     >
                         {{ curr.findIndex((x: any) => x == item.place) + 1 }}.
@@ -83,6 +84,12 @@
                                 :src="CrownIcon"
                             />
                         </div>
+                        <div :style="{ position: 'absolute', bottom: '3px', right: '3px' }">
+                            <PointsBlock
+                                :points="`${testFor1(index + 1)}`"
+                                v-if="groupsResults.find((x) => x.name == props.group).players.length > 0"
+                            />
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -97,9 +104,36 @@ import { usePickemStore } from '@/stores/pickemStore'
 import { expirationDates, playerMappings, uuidToPlayer } from '@/common/consts'
 import QuestionAvatar from '@/assets/icons/question.png'
 import CrownIcon from '@/assets/icons/crown.png'
+import { groupsResults } from '@/common/consts'
+import PointsBlock from '@/components/FormatComponents/PointsBlock.vue'
+import { getPlayerByUuid } from '@/common/helpers'
 
 interface Props {
     group: string
+}
+
+const testFor1 = (index: number) => {
+    if (index > 2) {
+        const namePicked = getPlayerByUuid(items.value[index - 1]?.uuid ?? '')?.name
+        const nameCorrect = groupsResults.find((x) => x.name == props.group).players[index - 1]
+        if (namePicked == nameCorrect) {
+            return '3'
+        }
+        if (namePicked == groupsResults.find((x) => x.name == props.group).players[index - 1 == 3 ? 2 : 3]) {
+            return '1'
+        }
+        return 0
+    } else {
+        const namePicked = getPlayerByUuid(items.value[index - 1]?.uuid ?? '')?.name
+        const nameCorrect = groupsResults.find((x) => x.name == props.group).players[index - 1]
+        if (namePicked == nameCorrect) {
+            return '3'
+        }
+        if (namePicked == groupsResults.find((x) => x.name == props.group).players[index - 1 == 0 ? 1 : 0]) {
+            return '1'
+        }
+        return 0
+    }
 }
 
 const props = defineProps<Props>()
