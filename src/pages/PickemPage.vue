@@ -1,4 +1,44 @@
 <template>
+    <Dialog
+        v-model:visible="showPatchNotes"
+        modal
+        header="Patch Noty v1.1"
+        :style="{ width: '800px', fontSize: '14px' }"
+        @hide="() => setLocalStoreItem('hasViewedPatchNotes', 'true')"
+    >
+        - Tomasz Fornal stety albo niestety wygrał w siatkę, i nie będzie miał czasu na turniej. Zamiast niego wchodzi
+        Taku, podmienię ich pozycję(jak ktoś nic nie zmieni po prostu będzie mieć Taku tam gdzie obstawiał Fornala) żeby
+        jak najmniej popsuć Pick'emy osobom które nie zdażą wejść i nanieść zmiany <br /><br /><br />
+        - Zmiany w kryształowej kuli na 7:30, 24.04.2025:
+        <br />
+        <h3>Botez Gambit</h3>
+        Nie wiem czemu, odcieło mi myślenie i dałem 1pkt na każdego zawodnika i jakoś mi wyszło 15<br /><br />
+        Zmiana: 15pkt -> 16pkt
+        <p>
+            Dodatkowe informacje o punktacji: <br /><br />
+            Punkt dostaje się za zaznaczenie że zawodnik podwali i on faktycznie podwali, oraz za niezaznaczenie
+            zawodnika który nie podwali. Jeżeli w turnieju 3 osoby podwalą, a nie zaznaczysz nikogo, otrzymasz za tę
+            kategorię 13 pkt. <br />Analogicznie jeśli zaznaczysz wszystkich a tylko 3 osoby podwalą otrzymasz 3 pkt.
+        </p>
+        <h3>Blietzcrieg & Życie w okopach</h3>
+        Tutaj to samo, większość osób naturalnie liczy ruchy e4 e5 jako jeden ruch, a ja chciałem dokładniejszą
+        predykcję licząc to jako dwa ruchy.
+        <p>
+            Zmiana w przyznawaniu punktów: <br />
+            Dla zawodników którzy przczytali pytajnik i poprawnie wybrali według zasady że e4 e5 to dwa ruchy nic sie
+            nie zmienia, natomiast jeśli najkrótsza partia naprzykład potrwa 7 ruchów, (13 ruchów licząc każde
+            posunięcie) to za wpisanie 13 jest pełna liczba punktów, natomiast za wpisanie 7 przyznaję połowę, w związku
+            z tym że ten kto zgadywał 7 równoczesnie obstawia ruch 13 i 14, więc ma większe szanse na trafienie.
+            <br />
+            <br />Zmiana: Życie w okopach 15pkt -> 16pkt
+        </p>
+        <h3>Dodatkowe informacje</h3>
+        <p>- Aby wybrać komu kibicujesz kilkasz na ikonkę avatara na górze</p>
+        <p>
+            - Karty w kryształowej kuli mają pytajnik w praym górnym rogu, po najechaniu wyświetla dokładniejszy opis
+            karty
+        </p>
+    </Dialog>
     <div :style="{ position: 'fixed', top: '20px', left: '20px', color: '#FAF9F6' }">
         <a
             href="/"
@@ -160,18 +200,66 @@
                                     Chwała i sława z bycia topką rankingu Twitcha! A dla trzech najlepiej typujących -
                                     dowolny kurs z ostre-debiuty.pl
                                 </p>
+                                <div
+                                    :style="{
+                                        width: '100%',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                    }"
+                                >
+                                    <Button
+                                        @click="panelTab = '1'"
+                                        :style="{
+                                            padding: '12px',
+                                            fontWeight: '800',
+                                            backgroundColor: '#eaa500',
+                                            width: '200px',
+                                            marginTop: '20px',
+                                        }"
+                                        >{{ 'Zacznij typować'.toUpperCase() }}</Button
+                                    >
+                                </div>
+
+                                <br /><br />
+                                <h1>Patch Noty v1.1</h1>
+                                - Tomasz Fornal stety albo niestety wygrał w siatkę, i nie będzie miał czasu na turniej.
+                                Zamiast niego wchodzi Taku, podmienię ich pozycję(jak ktoś nic nie zmieni po prostu
+                                będzie mieć Taku tam gdzie obstawiał Fornala) żeby jak najmniej popsuć Pick'emy osobom
+                                które nie zdażą wejść i nanieść zmiany <br /><br /><br />
+                                - Zmiany w kryształowej kuli na 7:30, 24.04.2025:
+                                <br />
+                                <h3>Botez Gambit</h3>
+                                Nie wiem czemu, odcieło mi myślenie i dałem 1pkt na każdego zawodnika i jakoś mi wyszło
+                                15<br /><br />
+                                Zmiana: 15pkt -> 16pkt
+                                <p>
+                                    Dodatkowe informacje o punktacji: <br /><br />
+                                    Punkt dostaje się za zaznaczenie że zawodnik podwali i on faktycznie podwali, oraz
+                                    za niezaznaczenie zawodnika który nie podwali. Jeżeli w turnieju 3 osoby podwalą, a
+                                    nie zaznaczysz nikogo, otrzymasz za tę kategorię 13 pkt. <br />Analogicznie jeśli
+                                    zaznaczysz wszystkich a tylko 3 osoby podwalą otrzymasz 3 pkt.
+                                </p>
+                                <h3>Blietzcrieg & Życie w okopach</h3>
+                                Tutaj to samo, większość osób naturalnie liczy ruchy e4 e5 jako jeden ruch, a ja
+                                chciałem dokładniejszą predykcję licząc to jako dwa ruchy.
+                                <p>
+                                    Zmiana w przyznawaniu punktów: <br />
+                                    Dla zawodników którzy przczytali pytajnik i poprawnie wybrali według zasady że e4 e5
+                                    to dwa ruchy nic sie nie zmienia, natomiast jeśli najkrótsza partia naprzykład
+                                    potrwa 7 ruchów, (13 ruchów licząc każde posunięcie) to za wpisanie 13 jest pełna
+                                    liczba punktów, natomiast za wpisanie 7 przyznaję połowę, w związku z tym że ten kto
+                                    zgadywał 7 równoczesnie obstawia ruch 13 i 14, więc ma większe szanse na trafienie.
+                                    <br />
+                                    <br />Zmiana: Życie w okopach 15pkt -> 16pkt
+                                </p>
+                                <h3>Dodatkowe informacje</h3>
+                                <p>- Aby wybrać komu kibicujesz kilkasz na ikonkę avatara na górze</p>
+                                <p>
+                                    - Karty w kryształowej kuli mają pytajnik w praym górnym rogu, po najechaniu
+                                    wyświetla dokładniejszy opis karty
+                                </p>
                             </div>
-                            <Button
-                                @click="panelTab = '1'"
-                                :style="{
-                                    padding: '12px',
-                                    fontWeight: '800',
-                                    backgroundColor: '#eaa500',
-                                    width: '200px',
-                                    marginTop: '20px',
-                                }"
-                                >{{ 'Zacznij typować'.toUpperCase() }}</Button
-                            >
                         </div>
                     </TabPanel>
                     <TabPanel value="1" as="p" class="m-0">
@@ -293,7 +381,7 @@
                                 }"
                             >
                                 <CrystallBallItem
-                                    :points="15"
+                                    :points="16"
                                     title="Botez Gambit"
                                     desc="Każdy ruch gracza po którym przeciwnik może zbić hetmana, i zawodnik by stracił więcej niż 5 punktów w ocenie silnika, jest liczony jako podwalenie, bo jakoś trzeba odsortować poświęcenia"
                                     :image="BlindManLogo"
@@ -867,6 +955,7 @@ const pickemStore = usePickemStore()
 const changes = ref(false)
 const changesBall = ref(false)
 const loading = ref(true)
+const showPatchNotes = ref(localStorage.getItem('hasViewedPatchNotes') == null)
 const favourite = ref<null | string>(
     localStorage.getItem('favouritePickem') ? JSON.parse(localStorage.getItem('favouritePickem') ?? '{}') : null,
 )
@@ -907,6 +996,10 @@ function haveGroupsChanged() {
 
 const getLocalStoreItem = (key: string): string | null => {
     return localStorage.getItem(key)
+}
+
+const setLocalStoreItem = (key: string, value: string) => {
+    return localStorage.setItem(key, value)
 }
 
 const saveCrystallBall = async () => {
