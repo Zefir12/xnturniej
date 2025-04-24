@@ -1024,7 +1024,7 @@ import avatar from '../assets/twitchicons/defaultavatar.png'
 import { Dialog } from 'primevue'
 import { FilterMatchMode } from '@primevue/core'
 import { InputText } from 'primevue'
-import { IconField } from 'primevue'
+import { IconField, InputIcon } from 'primevue'
 
 const filters = ref({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
