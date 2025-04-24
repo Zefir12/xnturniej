@@ -971,9 +971,16 @@ const favourite = ref<null | string>(
 )
 const ballLocal = localStorage.getItem('crystallBallSelections')
 
+const replaceUUID = (input: string, fromUUID: string, toUUID: string): string => {
+    const escapedUUID = fromUUID.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') // escape special characters
+    const regex = new RegExp(escapedUUID, 'g')
+    return input.replace(regex, toUUID)
+}
 const crystalBallPicks = ref(
     ballLocal
-        ? JSON.parse(ballLocal)
+        ? JSON.parse(
+              replaceUUID(ballLocal, '420d7862-acbe-11eb-9289-c516bf3f58be', '97709332-e8df-11ef-ae1f-699fe3713de1'),
+          )
         : {
               botezPlayers: [],
               speedrunner: null,
