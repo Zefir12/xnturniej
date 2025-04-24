@@ -515,7 +515,7 @@
                                 ></CrystallBallItem>
                                 <CrystallBallItem
                                     desc="Liczymy ruchy obu zawodników: 1.e4 e5 2.Gc4 Sc6 3.Hh5 Sf6?? 4.Hxf7# to 7 ruchów"
-                                    :points="15"
+                                    :points="16"
                                     title="Życie w okopach"
                                     :image="BlindManLogo"
                                     ><div
