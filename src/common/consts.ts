@@ -15,6 +15,7 @@ export enum PlayerAccounts {
     Demonz = 'demonzz1',
     Bladii = 'kptbladii',
     Zwierzak = 'zwierzaak',
+    Taku = 'uczesie_takuliskiszachuli',
 }
 import bagieta from '../assets/twitchicons/bagieta.png'
 import kasix from '../assets/twitchicons/kasix.png'
@@ -32,6 +33,7 @@ import demonz from '../assets/twitchicons/demonz.png'
 import bladii from '../assets/twitchicons/bladii.png'
 import zwierzak from '../assets/twitchicons/zwierzak.png'
 import hiszpan from '../assets/twitchicons/hiszpan.png'
+import taku from '../assets/twitchicons/taku.png'
 
 export const uuidToPlayer = (uuid: string): string => {
     switch (uuid) {
@@ -67,6 +69,8 @@ export const uuidToPlayer = (uuid: string): string => {
             return PlayerAccounts.Bladii
         case '661e726e-b17c-11ed-97ad-175efc8ca79c':
             return PlayerAccounts.Zwierzak
+        case '97709332-e8df-11ef-ae1f-699fe3713de1':
+            return PlayerAccounts.Taku
         default:
             throw new Error('Player not found')
     }
@@ -200,5 +204,13 @@ export const playerMappings = {
         kick: undefined,
         uuid: '661e726e-b17c-11ed-97ad-175efc8ca79c',
         charColor: '#d02f9f',
+    },
+    [PlayerAccounts.Taku]: {
+        name: 'Taku',
+        avatar: taku,
+        twitch: undefined,
+        kick: 'https://kick.com/takuu',
+        uuid: '97709332-e8df-11ef-ae1f-699fe3713de1',
+        charColor: '#fff',
     },
 }
