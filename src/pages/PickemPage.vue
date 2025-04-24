@@ -383,7 +383,7 @@
                                 <CrystallBallItem
                                     :points="16"
                                     title="Botez Gambit"
-                                    desc="Każdy ruch gracza po którym przeciwnik może zbić hetmana, i zawodnik by stracił więcej niż 5 punktów w ocenie silnika, jest liczony jako podwalenie, bo jakoś trzeba odsortować poświęcenia"
+                                    desc="Każdy ruch gracza po którym przeciwnik może zbić hetmana, i zawodnik by stracił więcej niż 5 punktów w ocenie silnika, jest liczony jako podwalenie, bo jakoś trzeba odsortować poświęcenia. Punkt otrzymuje się za każde trafienie: albo że zawodonik podwali albo że NIE podwali"
                                     :image="BlindManLogo"
                                 >
                                     <div
@@ -647,7 +647,7 @@
                                     </div>
                                 </CrystallBallItem>
                                 <CrystallBallItem
-                                    desc="Przykładowo, licząc średnią arytmetyczną z głosów wszystkich obstawiających, Fornal miałby 3.14 miejsce średnio, a zajmie 1 miejsce w grupie, to dostanie 2.14 punktów różnicy w tej kategorii. Zwycięża największa dodatnia różnica"
+                                    desc="Przykładowo, licząc średnią arytmetyczną z głosów wszystkich obstawiających, Fornal miałby 3.14 miejsce średnio, a zajmie 1 miejsce w grupie, to dostanie 2.14 punktów różnicy w tej kategorii. Zwycięża największa dodatnia różnica. Jeśli kilka osób będzie miało remis na pierwszym miejscu, zaznaczenie dowolnej z nich daje pęlną liczbę punktów, natomiast liczone będzie z dokładnością do 3 miejsc po przecinku"
                                     :points="12"
                                     title="Czarny koń"
                                     :image="BlindManLogo"
@@ -677,7 +677,7 @@
                                     </div>
                                 </CrystallBallItem>
                                 <CrystallBallItem
-                                    desc="Przykładowo, licząc średnią arytmetyczną z głosów wszystkich obstawiających, Fornal miałby 1.14 miejsce średnio, a zajmie 2 miejsce w grupie, to dostanie -0.86 punktów różnicy w tej kategorii. Zwycięża największa ujemna różnica"
+                                    desc="Przykładowo, licząc średnią arytmetyczną z głosów wszystkich obstawiających, Fornal miałby 1.14 miejsce średnio, a zajmie 2 miejsce w grupie, to dostanie -0.86 punktów różnicy w tej kategorii. Zwycięża największa ujemna różnica. Jeśli kilka osób będzie miało remis na pierwszym miejscu, zaznaczenie dowolnej z nich daje pęlną liczbę punktów, natomiast liczone będzie z dokładnością do 3 miejsc po przecinku"
                                     :points="10"
                                     title="Zawód rodziny"
                                     :image="BlindManLogo"
@@ -734,7 +734,12 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="5" title="Do ostatniej kropli krwi" :image="ArmyLogo">
+                                <CrystallBallItem
+                                    desc="Jeśli kilka grup będzie miało remis na pierwszym miejscu, zaznaczenie dowolnej z nich daje pęlną liczbę punktów"
+                                    :points="5"
+                                    title="Do ostatniej kropli krwi"
+                                    :image="ArmyLogo"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
@@ -775,7 +780,12 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="8" title="Najlepiej zrobić samemu" :image="TimerLogo">
+                                <CrystallBallItem
+                                    :points="8"
+                                    desc="Jeśli kilka osób będzie miało remis na pierwszym miejscu zaznaczenie dowolnej z nich daje pęlną liczbę punktów"
+                                    title="Najlepiej zrobić samemu"
+                                    :image="TimerLogo"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
@@ -800,7 +810,7 @@
                                     </div>
                                 </CrystallBallItem>
                                 <CrystallBallItem
-                                    desc="Liczy sie % więc jak ktoś zagrałby 1 mecz i zrobił w nim roszade ma 100% i wygrywa tą kategorie"
+                                    desc="Liczy sie % więc jak ktoś zagrałby 1 mecz i zrobił w nim roszade ma 100% i wygrywa tą kategorie. Jeśli kilka osób będzie miało remis na pierwszym miejscu zaznaczenie dowolnej z nich daje pęlną liczbę punktów"
                                     :points="8"
                                     title="Nigdzie nie ide"
                                     :image="TimerLogo"
