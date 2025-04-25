@@ -1,4 +1,6 @@
+import api from '@/common/api'
 import type { TwitchUserWithId } from '@/models/models'
+import type { PlayerPrivateData } from '@/models/player'
 import { loginUser } from '@/services/userService'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
@@ -13,6 +15,8 @@ export const useUserStore = defineStore('user', () => {
             ? JSON.parse(localStorage.getItem('pickemTwitchUser') as string)
             : null,
     )
+
+    const playerData = ref<PlayerPrivateData | null>(null)
 
     const login = async (login: string, password: string) => {
         const res = await loginUser(login, password)
@@ -35,5 +39,14 @@ export const useUserStore = defineStore('user', () => {
         pickemTwitchUser.value = user
     }
 
-    return { userLoggedIn, login, logout, pickemTwitchUser, logTwitchUser }
+    const onBeforeMount = async () => {
+        try {
+            const result = await api.get(`/pickem/playerdataprivate?uuid=${pickemTwitchUser.value?._id}`)
+            playerData.value = result.data as PlayerPrivateData
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    return { userLoggedIn, login, logout, pickemTwitchUser, logTwitchUser, onBeforeMount, playerData }
 })

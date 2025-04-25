@@ -90,8 +90,17 @@
                     :style="{ width: '25rem', height: '25rem' }"
                 >
                     Wybierz komu kibicujesz - będzie widoczne w rankingu obok nicku:
-                    <SelectPlayerPickem v-model="favourite" />
-                    <Button :style="{ backgroundColor: 'red' }" @click="favourite = null">Wyczysć X</Button>
+                    <SelectPlayerPickem v-model="favourite" @onSelected="(t) => saveFavourite(t)" />
+                    <Button
+                        :style="{ backgroundColor: 'red' }"
+                        @click="
+                            () => {
+                                saveFavourite(null)
+                                favourite = null
+                            }
+                        "
+                        >Wyczysć X</Button
+                    >
                 </Dialog>
                 <div
                     @click="showAvatarModal = true"
@@ -127,10 +136,7 @@
                     </div>
                     <div>
                         🏆
-                        {{
-                            pickemPlayers.find((x) => x.name == userStore.pickemTwitchUser?.displayName)
-                                ?.total_points ?? 0
-                        }}
+                        {{ userStore.playerData?.group_points ?? 0 }}
                         punktów
                     </div>
                 </div>
@@ -228,7 +234,23 @@
                                     >
                                 </div>
                                 <br /><br />
+                                <h1>Patch Noty v1.2.1</h1>
+                                25.04.2025
+                                <p>
+                                    Do tej pory wybory były zapisywane zarówno na serwerze jak i lokalnie. Żeby
+                                    oszczędzić serwerowi obciążenia - skoro i tak to te same dane to po co pytać serwer.
+                                    Natomiast ten system nie pozwalał przelogować się na inne urządzenie/przeglądarke bo
+                                    nie było na nich lokalnie tych danych. Po tym updacie powinno wszystko się
+                                    zsynchronizować i od teraz wyświetla dane prosto z serwera.
+                                </p>
+                                <p>
+                                    Jak dobrze pójdzie to dorzuce dzisiaj nową zakładke statystyki żeby móc porównywać
+                                    swoje wybory i zobaczyc jak głosowła publiczność. I może poprawie czas ładowania i
+                                    sortowania rankingu
+                                </p>
+                                <br /><br />
                                 <h1>Patch Noty v1.2</h1>
+                                24.04.2025
                                 <p>
                                     - wydłużenie czasu na typowanie do 16:30 żeby dać czas ludziom którzy dopiero po
                                     pracy/szkole/spaniu zauważą że wszedł Taku za Fornala
@@ -286,14 +308,6 @@
                             }"
                         >
                             <Toast />
-                            <CountDownTimer
-                                v-if="expirationDates.groups.getTime() > Date.now()"
-                                class="no-select"
-                                rectColor="#18181b"
-                                :style="{ marginTop: '-20px' }"
-                                text="Możliwość wyboru zostanie zablokowana za: "
-                                :date="expirationDates.groups"
-                            />
                             <h3 v-if="expirationDates.groups.getTime() < Date.now()">Czas na wybór minął</h3>
                             <div
                                 class="no-select"
@@ -313,12 +327,6 @@
                                 <GroupContainer group="b" />
                                 <GroupContainer group="c" />
                                 <GroupContainer group="d" />
-                            </div>
-                            <div
-                                v-if="expirationDates.groups.getTime() > Date.now()"
-                                :style="{ display: 'flex', gap: '10px' }"
-                            >
-                                <StyledButton :disabled="!changes" @click="saveGroups">Zapisz zmiany</StyledButton>
                             </div>
                             <div :style="{ maxWidth: '800px' }">
                                 <h2>📜 ZASADY – FAZA GRUPOWA PICK’EM CHALLENGE</h2>
@@ -370,14 +378,6 @@
                             }"
                         >
                             <h3 v-if="expirationDates.crystalball.getTime() < Date.now()">Czas na wybór minął</h3>
-                            <div
-                                v-if="expirationDates.crystalball.getTime() > Date.now()"
-                                :style="{ display: 'flex', gap: '10px' }"
-                            >
-                                <StyledButton :disabled="!changesBall" @click="saveCrystallBall"
-                                    >Zapisz zmiany</StyledButton
-                                >
-                            </div>
                         </div>
                         <div
                             class="no-select"
@@ -1016,7 +1016,7 @@ import PointsBlock from '@/components/FormatComponents/PointsBlock.vue'
 import api from '@/common/api'
 import CountDownTimer from '@/components/CountDownTimer.vue'
 import { InputNumber } from 'primevue'
-import StyledButton from '@/components/StyledButton.vue'
+
 import { usePickemStore } from '@/stores/pickemStore'
 import { useToast } from 'primevue/usetoast'
 import Toast from 'primevue/toast'
@@ -1036,10 +1036,6 @@ import { IconField, InputIcon } from 'primevue'
 const filters = ref({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
     name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    'country.name': { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    representative: { value: null, matchMode: FilterMatchMode.IN },
-    status: { value: null, matchMode: FilterMatchMode.EQUALS },
-    verified: { value: null, matchMode: FilterMatchMode.EQUALS },
 })
 
 const showAvatarModal = ref(false)
@@ -1050,13 +1046,8 @@ const userStore = useUserStore()
 const panelTab = ref(localStorage.getItem('pickemTab') || '0')
 const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5173'
 const pickemStore = usePickemStore()
-const changes = ref(false)
-const changesBall = ref(false)
-const loading = ref(true)
 const showPatchNotes = ref(localStorage.getItem('hasViewedPatchNotes') == null)
-const favourite = ref<null | string>(
-    localStorage.getItem('favouritePickem') ? JSON.parse(localStorage.getItem('favouritePickem') ?? '{}') : null,
-)
+const favourite = ref<null | string>()
 const ballLocal = localStorage.getItem('crystallBallSelections')
 
 const replaceUUID = (input: string, fromUUID: string, toUUID: string): string => {
@@ -1087,18 +1078,6 @@ const crystalBallPicks = ref(
           },
 )
 
-function haveGroupsChanged() {
-    const groupLetters = ['a', 'b', 'c', 'd']
-    const defaultValue = '["1","2","3","4"]'
-
-    const b = groupLetters.some((group) => {
-        const original = localStorage.getItem(`group-${group}`) ?? defaultValue
-        const temp = localStorage.getItem(`temp-group-${group}`) ?? defaultValue
-        return original !== temp
-    })
-    changes.value = b
-}
-
 const getLocalStoreItem = (key: string): string | null => {
     return localStorage.getItem(key)
 }
@@ -1107,67 +1086,14 @@ const setLocalStoreItem = (key: string, value: string) => {
     return localStorage.setItem(key, value)
 }
 
-const saveCrystallBall = async () => {
-    if (localStorage.getItem('pickemTwitchUser') == null) {
-        toast.add({
-            severity: 'error',
-            summary: 'Błąd',
-            group: 'br',
-            detail: 'Aby brac udział w rankingu trzeba byc zalogowanym',
-            life: 3000,
-        })
-        return
-    }
-    try {
-        await api.post('/pickem/choosecrystalball', {
-            id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
-            picks: crystalBallPicks.value,
-        })
-        localStorage.setItem('crystallBallSelections', JSON.stringify(crystalBallPicks.value))
-        changesBall.value = false
-        toast.add({
-            severity: 'success',
-            summary: 'Zapisano zmiany',
-            group: 'br',
-            detail: getRandomSuccessMessage(),
-            life: 3000,
-        })
-    } catch (error) {
-        console.log(error)
-        toast.add({
-            severity: 'error',
-            summary: 'Błąd',
-            group: 'br',
-            detail: error.response.data.error,
-            life: 3000,
-        })
-        return
-    }
-}
-
-watch(
-    crystalBallPicks,
-    () => {
-        changesBall.value = true
-    },
-    { deep: true },
-)
-
-watch(
-    () => pickemStore.changesCounter,
-    () => {
-        haveGroupsChanged()
-    },
-)
-
 watch(panelTab, (newVal) => {
     localStorage.setItem('pickemTab', newVal)
 })
 
-watch(favourite, async (newVal) => {
+const saveFavourite = async (newFavourite: string | null) => {
     const result = await api.post('/pickem/choosefavourite', {
         id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
-        favourite: favourite.value,
+        favourite: newFavourite,
     })
     if (!result) {
         toast.add({
@@ -1179,9 +1105,7 @@ watch(favourite, async (newVal) => {
         })
         return
     }
-    localStorage.setItem('favouritePickem', JSON.stringify(newVal))
     showAvatarModal.value = false
-    changesBall.value = false
     toast.add({
         severity: 'success',
         summary: 'Zapisano zmiany',
@@ -1189,64 +1113,29 @@ watch(favourite, async (newVal) => {
         detail: getRandomSuccessMessage(),
         life: 3000,
     })
-})
-
-const saveGroups = async () => {
-    loading.value = true
-    const a = localStorage.getItem(`temp-group-a`) ?? '["1","2","3","4"]'
-    const b = localStorage.getItem(`temp-group-b`) ?? '["1","2","3","4"]'
-    const c = localStorage.getItem(`temp-group-c`) ?? '["1","2","3","4"]'
-    const d = localStorage.getItem(`temp-group-d`) ?? '["1","2","3","4"]'
-    localStorage.setItem(`group-a`, a)
-    localStorage.setItem(`group-b`, b)
-    localStorage.setItem(`group-c`, c)
-    localStorage.setItem(`group-d`, d)
-    if (localStorage.getItem('pickemTwitchUser') == null) {
-        toast.add({
-            severity: 'error',
-            summary: 'Błąd',
-            group: 'br',
-            detail: 'Aby brac udział w rankingu trzeba byc zalogowanym',
-            life: 3000,
-        })
-        return
-    }
-    try {
-        await api.post('/pickem/choosegroups', {
-            id: JSON.parse(localStorage.getItem('pickemTwitchUser') ?? '{}')._id,
-            groups: `${a}-${b}-${c}-${d}`,
-        })
-        pickemStore.addChangesCounter()
-        loading.value = false
-        toast.add({
-            severity: 'success',
-            summary: 'Zapisano zmiany',
-            group: 'br',
-            detail: getRandomSuccessMessage(),
-            life: 3000,
-        })
-    } catch (error) {
-        toast.add({
-            severity: 'error',
-            summary: 'Błąd',
-            group: 'br',
-            detail: error.response.data.error,
-            life: 3000,
-        })
-        return
-    }
 }
 
-const pickemPlayers = ref<{ name: string; favourite: boolean; group_points: number; total_points: number }[]>([])
+const pickemPlayers = ref<{ name: string; favourite: string; group_points: number; total_points: number }[]>([])
 
 onBeforeMount(async () => {
-    localStorage.setItem(`temp-group-a`, localStorage.getItem(`group-a`) ?? '["1","2","3","4"]')
-    localStorage.setItem(`temp-group-b`, localStorage.getItem(`group-b`) ?? '["1","2","3","4"]')
-    localStorage.setItem(`temp-group-c`, localStorage.getItem(`group-c`) ?? '["1","2","3","4"]')
-    localStorage.setItem(`temp-group-d`, localStorage.getItem(`group-d`) ?? '["1","2","3","4"]')
+    await userStore.onBeforeMount()
+    favourite.value = userStore.playerData?.favourite
 
     const groups = await api.get('/pickem/getgroups')
-    pickemStore.setGroup(groups.data)
+    const grupsData = groups.data as string[][]
+
+    if (userStore.playerData) {
+        const shiftOrder = userStore.playerData.groups.split('-').map((order) => JSON.parse(order))
+        grupsData.forEach((group, index) => {
+            const order = shiftOrder[index] // Get the order for this group
+            group.players = order.map((placeIndex: string) => {
+                const player = group.players.find((p) => p.place === placeIndex)
+                return player
+            })
+        })
+
+        pickemStore.setGroup(grupsData)
+    }
 
     const response = await api.get('/pickemranking')
     pickemPlayers.value = response.data

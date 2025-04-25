@@ -1,9 +1,5 @@
 import { PlayerAccounts, playerMappings } from './consts'
 
-// export const isDarkMode = () => {
-//     return window.matchMedia('(prefers-color-scheme: dark)').matches
-// }
-
 export const isDarkMode = () => {
     const rootColorScheme = getComputedStyle(document.documentElement).getPropertyValue('color-scheme').trim()
     return rootColorScheme === 'dark'

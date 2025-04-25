@@ -66,7 +66,7 @@
                             position: 'relative',
                         }"
                     >
-                        {{ curr.findIndex((x: any) => x == item.place) + 1 }}.
+                        {{ index + 1 }}.
                         {{ item.uuid ? (playerMappings as any)[uuidToPlayer(item.uuid)].name : 'TBD' }}
                         <div>
                             <img
@@ -75,11 +75,8 @@
                                     height: '20px',
                                     marginLeft: '4px',
                                     transition: 'all 0.3s ease',
-                                    opacity: curr.findIndex((x: any) => x == item.place) <= 1 ? '1' : '0',
-                                    transform:
-                                        curr.findIndex((x: any) => x == item.place) <= 1
-                                            ? 'translateX(0px)'
-                                            : 'translateX(100px)',
+                                    opacity: index <= 1 ? '1' : '0',
+                                    transform: index <= 1 ? 'translateX(0px)' : 'translateX(100px)',
                                 }"
                                 :src="CrownIcon"
                             />
@@ -108,10 +105,6 @@ import { groupsResults } from '@/common/consts'
 import PointsBlock from '@/components/FormatComponents/PointsBlock.vue'
 import { getPlayerByUuid } from '@/common/helpers'
 
-interface Props {
-    group: string
-}
-
 const testFor1 = (index: number) => {
     if (index > 2) {
         const namePicked = getPlayerByUuid(items.value[index - 1]?.uuid ?? '')?.name
@@ -136,31 +129,10 @@ const testFor1 = (index: number) => {
     }
 }
 
-const props = defineProps<Props>()
-
+const props = defineProps<{ group: string }>()
 const pickemStore = usePickemStore()
-
 const sortableListRef = ref<HTMLElement | null>(null)
-let itey = localStorage.getItem(`group-${props.group}`)
-if (itey != null) {
-    if (itey.length != 17) itey = null
-}
-const curr = ref<string[]>(itey != null ? JSON.parse(itey) : pickemStore.getGroup(props.group).map((x) => x.place))
-
-const parseLocalStorageGroup = () => {
-    let itey = localStorage.getItem(`group-${props.group}`)
-    if (itey != null) {
-        if (itey.length != 17) itey = null
-    }
-    const group = pickemStore.getGroup(props.group)
-    if (itey != null) {
-        const curr = itey != null ? JSON.parse(itey) : group
-        return curr.map((place: string) => group.find((item) => item.place === place))
-    }
-    return group
-}
-
-const items = ref<{ uuid: string; place: string }[]>(parseLocalStorageGroup())
+const items = ref<{ place: string; uuid: string }[]>(pickemStore.getGroup(props.group))
 let sortableInstance: Sortable | null = null
 
 const initializeSortable = () => {
@@ -173,11 +145,8 @@ const initializeSortable = () => {
         dragClass: 'sortable-drag',
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         onEnd: (_evt) => {
-            const listItems = sortableListRef.value?.querySelectorAll('li')
-            const order = Array.from(listItems ?? []).map((li) => li.dataset.id ?? '')
-            curr.value = order
-            localStorage.setItem(`temp-group-${props.group}`, JSON.stringify(order))
-            pickemStore.addChangesCounter()
+            //const listItems = sortableListRef.value?.querySelectorAll('li')
+            //const order = Array.from(listItems ?? []).map((li) => li.dataset.id ?? '')
         },
     })
 }
@@ -189,7 +158,7 @@ onMounted(() => {
 watch(
     () => pickemStore.groups,
     () => {
-        items.value = parseLocalStorageGroup()
+        items.value = pickemStore.getGroup(props.group)
     },
     { deep: true },
 )

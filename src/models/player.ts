@@ -12,3 +12,10 @@ export interface PlayerData {
 export interface PlayerDTO {
     [key: string]: PlayerData | null
 }
+
+export type PlayerPrivateData = {
+    groups: string
+    crystallBall?: Record<string, string | string[] | null | number>
+    group_points: number
+    favourite?: string
+}

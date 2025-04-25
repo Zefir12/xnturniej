@@ -9,6 +9,7 @@
         size="small"
         class="select"
         :fluid="true"
+        @update:modelValue="onPlayerSelected"
     >
         <template #value="slotProps">
             <div v-if="slotProps.value" :style="{ display: 'flex', alignItems: 'center', gap: '10px' }">
@@ -38,6 +39,11 @@ import Select from 'primevue/select'
 import { ref } from 'vue'
 
 const model = ref()
+const emit = defineEmits(['onSelected'])
+
+const onPlayerSelected = (selectedUuid: string) => {
+    emit('onSelected', selectedUuid)
+}
 </script>
 <style scoped>
 .select {

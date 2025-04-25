@@ -1,8 +1,10 @@
 <template>
     <div class="page-container">
         <div class="content-container">
-            <div :style="{ marginBottom: '3rem', marginTop: '1rem' }">
-                <CountDownTimer text="Do startu turnieju pozostało: " :date="new Date('2025-04-24T16:00:00')" />
+            <div :style="{ marginBottom: '3rem', marginTop: '1rem', textAlign: 'center' }">
+                <h2>Turniej Wystartował!</h2>
+                Codziennie na kanale <a :href="'https://twitch.tv/xntentacion'">twitch.tv/xntentacion</a> o 16:00, 24-27
+                kwietnia
                 <div :style="{ position: 'absolute', top: '0.4rem', right: '1rem' }">
                     <MyInfo />
                 </div>
@@ -16,7 +18,6 @@
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted } from 'vue'
-import CountDownTimer from '@/components/CountDownTimer.vue'
 import MyInfo from '@/components/MyInfo.vue'
 import RatingTable from '@/components/RatingTable.vue'
 import { useUiStore } from '@/stores/uiStore'
