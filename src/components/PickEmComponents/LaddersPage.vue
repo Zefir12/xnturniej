@@ -297,7 +297,7 @@ watch(
         // Set a new timeout to save the ladder after 3 seconds
         saveTimeout = setTimeout(() => {
             saveLadder() // Call saveLadder after 3 seconds
-        }, 2000) // 3000 ms (3 seconds)
+        }, 6000) // 3000 ms (3 seconds)
     },
     { immediate: false, deep: true },
 )
