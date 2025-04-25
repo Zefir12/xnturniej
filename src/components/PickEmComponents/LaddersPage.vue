@@ -27,7 +27,7 @@
             <LadderSelectPlayerBox
                 v-model="ladderW.c"
                 a="2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b"
-                b="97709332-e8df-11ef-ae1f-699fe3713de1"
+                b="071f3ac4-5f0c-11eb-828b-1768796e906d"
             />
             <LadderSelectPlayerBox
                 v-model="ladderW.d"
@@ -107,11 +107,11 @@
             <LadderSelectPlayerBox
                 v-model="ladderL.c"
                 a="9182bba4-8cec-11ed-9f28-a1a555fdd6af"
-                b="071f3ac4-5f0c-11eb-828b-1768796e906d"
+                b="7814e9b0-410a-11eb-8e01-ef8706c45d64"
             />
             <LadderSelectPlayerBox
                 v-model="ladderL.d"
-                a="8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1"
+                a="97709332-e8df-11ef-ae1f-699fe3713de1"
                 b="cc9cbaec-71fe-11eb-b3f6-4b737133070f"
             />
         </div>
