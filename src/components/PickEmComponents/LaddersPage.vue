@@ -111,7 +111,7 @@
             />
             <LadderSelectPlayerBox
                 v-model="ladderL.d"
-                a="7814e9b0-410a-11eb-8e01-ef8706c45d64"
+                a="8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1"
                 b="cc9cbaec-71fe-11eb-b3f6-4b737133070f"
             />
         </div>
