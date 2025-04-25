@@ -5,7 +5,11 @@
         rectColor="#222222"
     />
     <br /><br />
-    <StyledButton @click="saveLadder" :disabled="!changes">Zapisz</StyledButton>
+    <div :style="{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem' }">
+        <StyledButton @click="saveLadder" :disabled="!changes">Zapisz</StyledButton
+        ><StyledButton @click="resetLadders">Reset</StyledButton>
+    </div>
+
     <div :style="{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '2rem' }">
         <img :src="CrownIcon" :style="{ width: '20px', height: '20px', marginTop: '16px', marginRight: '12px' }" />
         <h2 :style="{ marginBottom: '2rem', marginTop: '3rem', color: 'orange' }">Drabinka wygranych</h2>
@@ -237,6 +241,37 @@ export type Ladder = {
     second: string
     third: string
     fourth: string
+}
+
+const resetLadders = () => {
+    ladderW.value = {
+        a: '',
+        b: '',
+        c: '',
+        d: '',
+        w1: '',
+        w2: '',
+        l1: '',
+        l2: '',
+        first: '',
+        second: '',
+        third: '',
+        fourth: '',
+    }
+    ladderL.value = {
+        a: '',
+        b: '661e726e-b17c-11ed-97ad-175efc8ca79c',
+        c: '',
+        d: '',
+        w1: '',
+        w2: '',
+        l1: '',
+        l2: '',
+        first: '',
+        second: '',
+        third: '',
+        fourth: '',
+    }
 }
 
 watch(
