@@ -160,14 +160,13 @@
                     </Tab>
                     <Tab value="1" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Faza grupowa</span>
-                        <span v-if="!getLocalStoreItem('hasVisitedGroupPhase')" class="dot" />
                     </Tab>
                     <Tab :disabled="false" value="2" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Drabinka</span>
+                        <span v-if="!getLocalStoreItem('hasVisitedGroupPhase')" class="dot" />
                     </Tab>
                     <Tab value="3" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Kryształowa Kula</span>
-                        <span v-if="!getLocalStoreItem('hasVisitedGroupPhase')" class="dot" />
                     </Tab>
                     <Tab value="4" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Ranking Twitcha</span>
@@ -348,17 +347,33 @@
                         </div>
                     </TabPanel>
                     <TabPanel value="2" as="p" class="m-0">
-                        <CountDownTimer
-                            class="no-select"
-                            rectColor="#18181b"
-                            :style="{ marginTop: '-4px', marginBottom: '30px' }"
-                            text="Drabinka odblokuje sie po zakończeniu fazy grupowej: "
-                            :date="expirationDates.laddersOpen"
-                        />
                         <div
-                            :style="{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'center' }"
+                            v-if="expirationDates.laddersOpen.getTime() > Date.now()"
+                            :style="{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }"
                         >
-                            <IconLock size="240" color="#18181b" />
+                            <CountDownTimer
+                                class="no-select"
+                                rectColor="#18181b"
+                                :style="{ marginTop: '-4px', marginBottom: '30px' }"
+                                text="Drabinka odblokuje sie po zakończeniu fazy grupowej: "
+                                :date="expirationDates.laddersOpen"
+                            />
+                            <div
+                                :style="{
+                                    width: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                }"
+                            >
+                                <IconLock size="240" color="#18181b" />
+                            </div>
+                        </div>
+                        <div
+                            v-else
+                            :style="{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }"
+                        >
+                            <LaddersPage />
                         </div>
                     </TabPanel>
                     <TabPanel value="3" as="p" class="m-0">
@@ -1018,7 +1033,7 @@ import PointsBlock from '@/components/FormatComponents/PointsBlock.vue'
 import api from '@/common/api'
 import CountDownTimer from '@/components/CountDownTimer.vue'
 import { InputNumber } from 'primevue'
-
+import LaddersPage from '@/components/PickEmComponents/LaddersPage.vue'
 import { usePickemStore } from '@/stores/pickemStore'
 import { useToast } from 'primevue/usetoast'
 import Toast from 'primevue/toast'
@@ -1147,11 +1162,11 @@ onBeforeMount(async () => {
 <style scoped>
 .dot {
     position: absolute;
-    top: 10px;
-    right: 0;
+    top: 16px;
+    right: 10px;
     width: 8px;
     height: 8px;
-    background-color: rgb(168, 14, 14);
+    background-color: rgb(255, 14, 14);
     border-radius: 50%;
 }
 .no-select {
