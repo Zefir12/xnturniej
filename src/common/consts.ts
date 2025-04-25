@@ -222,11 +222,8 @@ export const expirationDates = {
 }
 
 export const groupsResults = [
-    {
-        name: 'a',
-        players: ['Nitro', 'Kubon', 'Nieuczesana', 'Bladii'],
-    },
+    { name: 'a', players: ['Nitro', 'Kubon', 'Nieuczesana', 'Bladii'] },
     { name: 'b', players: ['RandomBruce', 'Kasix', 'Zwierzak', 'Netrodal'] },
-    { name: 'c', players: [] },
+    { name: 'c', players: [] }, //'Delord', 'Overpow', 'Bagieta', 'MokrySuchar'
     { name: 'd', players: [] },
 ]
