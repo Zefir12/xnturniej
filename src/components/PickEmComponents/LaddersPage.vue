@@ -147,7 +147,7 @@
                 v-model:lost="ladderL.second"
             />
             <LadderSelectPlayerBox
-                text="3 miejsce"
+                text="11 miejsce"
                 :a="ladderL.l1"
                 :b="ladderL.l2"
                 v-model="ladderL.third"
@@ -180,7 +180,7 @@
         międzyczasie<br /><span :style="{ fontWeight: 'bold' }">Punktacja: </span>
         <span :style="{ fontWeight: 'bold' }">+3pkt</span> za poprawny pick w ćwierćfinale,
         <span :style="{ fontWeight: 'bold' }">+5pkt</span> za poprawny pick w półfinale,
-        <span :style="{ fontWeight: 'bold' }">+8pkt</span> za poprawny pick w walce o 3 miejsce i
+        <span :style="{ fontWeight: 'bold' }">+8pkt</span> za poprawny pick w walce o 3 miejsce i 11 miejsce i
         <span :style="{ fontWeight: 'bold' }">+10pkt</span> za poprawne wytypowanie finalisty. <br />
         Punktacje te same dla obu drabinek, maks do zdobycia 80pkt.
     </p>
