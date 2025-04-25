@@ -1,3 +1,5 @@
+import type { Ladder } from '@/components/PickEmComponents/LaddersPage.vue'
+
 export interface PlayerData {
     rating: number
     elo: number
@@ -18,4 +20,6 @@ export type PlayerPrivateData = {
     crystallBall?: Record<string, string | string[] | null | number>
     group_points: number
     favourite?: string
+    ladderW?: Ladder
+    ladderL?: Ladder
 }

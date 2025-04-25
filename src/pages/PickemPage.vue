@@ -160,14 +160,13 @@
                     </Tab>
                     <Tab value="1" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Faza grupowa</span>
-                        <span v-if="!getLocalStoreItem('hasVisitedGroupPhase')" class="dot" />
                     </Tab>
                     <Tab :disabled="false" value="2" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Drabinka</span>
+                        <span v-if="!getLocalStoreItem('hasVisitedGroupPhase')" class="dot" />
                     </Tab>
                     <Tab value="3" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Kryształowa Kula</span>
-                        <span v-if="!getLocalStoreItem('hasVisitedGroupPhase')" class="dot" />
                     </Tab>
                     <Tab value="4" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Ranking Twitcha</span>
@@ -1163,11 +1162,11 @@ onBeforeMount(async () => {
 <style scoped>
 .dot {
     position: absolute;
-    top: 10px;
-    right: 0;
+    top: 16px;
+    right: 10px;
     width: 8px;
     height: 8px;
-    background-color: rgb(168, 14, 14);
+    background-color: rgb(255, 14, 14);
     border-radius: 50%;
 }
 .no-select {
