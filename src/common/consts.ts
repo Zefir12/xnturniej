@@ -218,12 +218,12 @@ export const playerMappings = {
 export const expirationDates = {
     groups: new Date('2025-04-24T14:30:00Z'),
     crystalball: new Date('2025-04-24T14:30:00Z'),
-    laddersOpen: new Date('2025-04-25T19:00:00Z'),
+    laddersOpen: new Date('2025-04-25T16:00:00Z'),
 }
 
 export const groupsResults = [
     { name: 'a', players: ['Nitro', 'Kubon', 'Nieuczesana', 'Bladii'] },
     { name: 'b', players: ['RandomBruce', 'Kasix', 'Zwierzak', 'Netrodal'] },
-    { name: 'c', players: [] }, //'Delord', 'Overpow', 'Bagieta', 'MokrySuchar'
+    { name: 'c', players: ['Delord', 'Overpow', 'Bagieta', 'MokrySuchar'] },
     { name: 'd', players: [] },
 ]
