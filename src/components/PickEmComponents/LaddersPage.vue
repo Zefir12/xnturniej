@@ -24,8 +24,16 @@
                 a="d56506e2-747d-11ed-b280-8d2bac408b0d"
                 b="dd3a3172-ee19-11ef-84e3-1d869f158093"
             />
-            <LadderSelectPlayerBox v-model="ladderW.c" a="2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b" b="b" />
-            <LadderSelectPlayerBox v-model="ladderW.d" a="a" b="5177ad7a-3e3e-11eb-b1e4-4fc24844be0f" />
+            <LadderSelectPlayerBox
+                v-model="ladderW.c"
+                a="2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b"
+                b="97709332-e8df-11ef-ae1f-699fe3713de1"
+            />
+            <LadderSelectPlayerBox
+                v-model="ladderW.d"
+                a="8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1"
+                b="5177ad7a-3e3e-11eb-b1e4-4fc24844be0f"
+            />
         </div>
         <div class="column" :style="{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }">
             <LadderSelectPlayerBox
@@ -96,8 +104,16 @@
                 b="b68f03f2-41ef-11eb-b636-9ddfe076e3d4"
                 disabled
             />
-            <LadderSelectPlayerBox v-model="ladderL.c" a="9182bba4-8cec-11ed-9f28-a1a555fdd6af" b="b" />
-            <LadderSelectPlayerBox v-model="ladderL.d" a="a" b="cc9cbaec-71fe-11eb-b3f6-4b737133070f" />
+            <LadderSelectPlayerBox
+                v-model="ladderL.c"
+                a="9182bba4-8cec-11ed-9f28-a1a555fdd6af"
+                b="071f3ac4-5f0c-11eb-828b-1768796e906d"
+            />
+            <LadderSelectPlayerBox
+                v-model="ladderL.d"
+                a="7814e9b0-410a-11eb-8e01-ef8706c45d64"
+                b="cc9cbaec-71fe-11eb-b3f6-4b737133070f"
+            />
         </div>
         <div class="column" :style="{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }">
             <LadderSelectPlayerBox
