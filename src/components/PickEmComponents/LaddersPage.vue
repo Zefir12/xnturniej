@@ -202,6 +202,7 @@ import { expirationDates } from '@/common/consts'
 const changes = ref(false)
 const userStore = useUserStore()
 const toast = useToast()
+const counter = ref(0)
 
 const ladderW = ref<Ladder>({
     a: '',
@@ -279,10 +280,24 @@ const resetLadders = () => {
     }
 }
 
+let saveTimeout: ReturnType<typeof setTimeout> | null = null // Store the timeout reference
+
 watch(
-    [() => ladderW.value, () => ladderW.value],
+    [() => ladderW.value, () => ladderL.value], // Watch for changes in both ladders
     () => {
+        counter.value++
+        if (counter.value <= 1) return
         changes.value = true
+
+        // If there's an existing timeout, clear it
+        if (saveTimeout) {
+            clearTimeout(saveTimeout)
+        }
+
+        // Set a new timeout to save the ladder after 3 seconds
+        saveTimeout = setTimeout(() => {
+            saveLadder() // Call saveLadder after 3 seconds
+        }, 2000) // 3000 ms (3 seconds)
     },
     { immediate: false, deep: true },
 )
