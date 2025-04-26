@@ -1,4 +1,5 @@
 <template>
+    Czas na wybór minął
     <CountDownTimer
         v-if="expirationDates.laddersClose.getTime() > Date.now()"
         text="Możliwość wyboru zablokuje się za:"
