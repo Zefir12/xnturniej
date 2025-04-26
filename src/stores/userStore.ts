@@ -7,7 +7,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 export const useUserStore = defineStore('user', () => {
-    const userLoggedIn = ref(false)
+    const userLoggedIn = ref(localStorage.getItem('access_token') != null ? true : false)
     const router = useRouter()
 
     const pickemTwitchUser = ref<null | TwitchUserWithId>(

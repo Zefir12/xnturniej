@@ -30,8 +30,10 @@
                     <PlayerSelector v-model="players.d3" />
                     <PlayerSelector v-model="players.d4" />
                 </div>
+                <StyledButton @click="saveGroups">Zapisz zmiany</StyledButton>
             </div>
-            <StyledButton @click="saveGroups">Zapisz zmiany</StyledButton>
+            <div><StyledButton @click="saveGroups">Clear serwer cache</StyledButton></div>
+            <RealTimeChart />
             <div v-if="false" @click="userStore.logout()" severity="danger">Logout</div>
         </template>
         <template v-if="!userStore.userLoggedIn">
@@ -57,6 +59,7 @@ import PlayerSelector from '@/components/AdminComponents/PlayerSelector.vue'
 import StyledButton from '@/components/StyledButton.vue'
 import api from '@/common/api'
 import { getPlayerByUuid } from '@/common/helpers'
+import RealTimeChart from './adminComponents/RealTimeChart.vue'
 
 const userStore = useUserStore()
 
@@ -129,6 +132,7 @@ onBeforeMount(async () => {
     groupLetters.forEach((group, gi) => {
         for (let pi = 0; pi < 4; pi++) {
             const uuid = groups.data[gi]?.players[pi]?.uuid || ''
+            // @ts-expect-error im lazy
             players[`${group}${pi + 1}`] = uuid === '' ? '' : getPlayerByUuid(uuid)
         }
     })
@@ -146,6 +150,7 @@ const password = ref('')
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    gap: 2rem;
 }
 .buttons {
     display: flex;
