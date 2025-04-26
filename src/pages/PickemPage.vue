@@ -392,7 +392,7 @@
                                 <CrystallBallItem
                                     :points="16"
                                     title="Botez Gambit"
-                                    desc="Każdy ruch gracza po którym przeciwnik może zbić hetmana, i zawodnik by stracił więcej niż 5 punktów w ocenie silnika, jest liczony jako podwalenie, bo jakoś trzeba odsortować poświęcenia. Punkt otrzymuje się za każde trafienie: albo że zawodonik podwali albo że NIE podwali"
+                                    desc="Każdy ruch gracza po którym przeciwnik może zbić hetmana, i zawodnik by stracił więcej niż 5 punktów w ocenie silnika, jest liczony jako podwalenie, bo jakoś trzeba odsortować poświęcenia. Punkt otrzymuje się za każde trafienie: albo że zawodnik podwali albo że NIE podwali"
                                     :image="BlindManLogo"
                                 >
                                     <div
