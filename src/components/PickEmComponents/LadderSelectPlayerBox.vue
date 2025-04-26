@@ -66,33 +66,33 @@
 <script setup lang="ts">
 import { getPlayerByUuid } from '@/common/helpers'
 import CrownIcon from '@/assets/icons/crown.png'
-import { watch } from 'vue'
+// import { watch } from 'vue'
 const model = defineModel<string | null>({ default: null })
 const modelLost = defineModel<string | null>('lost', { default: null }) // corresponds to v-model:lost
 const props = defineProps<{ a: string; b: string; disabled?: boolean; text?: string }>()
 
-watch([() => props.a, () => props.b], ([newA, newB], [oldA, oldB]) => {
-    if (newA != oldA) {
-        if (model.value == '') {
-            return
-        }
-        if (model.value == oldA) {
-            model.value = newA
-        } else {
-            modelLost.value = newA
-        }
-    }
-    if (newB != oldB) {
-        if (model.value == '') {
-            return
-        }
-        if (model.value == oldB) {
-            model.value = newB
-        } else {
-            modelLost.value = newB
-        }
-    }
-})
+// watch([() => props.a, () => props.b], ([newA, newB], [oldA, oldB]) => {
+//     if (newA != oldA) {
+//         if (model.value == '') {
+//             return
+//         }
+//         if (model.value == oldA) {
+//             model.value = newA
+//         } else {
+//             modelLost.value = newA
+//         }
+//     }
+//     if (newB != oldB) {
+//         if (model.value == '') {
+//             return
+//         }
+//         if (model.value == oldB) {
+//             model.value = newB
+//         } else {
+//             modelLost.value = newB
+//         }
+//     }
+// })
 </script>
 
 <style scoped>
