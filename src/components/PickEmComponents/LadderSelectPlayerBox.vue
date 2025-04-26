@@ -16,13 +16,8 @@
         </div>
         <div
             class="option"
-            :style="
-                model === props.a && model
-                    ? {
-                          backgroundColor: '#5c5c67',
-                      }
-                    : { opacity: '0.5' }
-            "
+            :class="{ win: model === props.a && model }"
+            :style="model === props.a && model ? {} : { opacity: '0.5' }"
             @click="
                 () => {
                     model = props.a
@@ -44,13 +39,8 @@
         </div>
         <div
             class="option"
-            :style="
-                model === props.b && model
-                    ? {
-                          backgroundColor: '#5c5c67',
-                      }
-                    : { opacity: '0.5' }
-            "
+            :class="{ win: model === props.b && model }"
+            :style="model === props.b && model ? {} : { opacity: '0.5' }"
             @click="
                 () => {
                     model = props.b
@@ -106,6 +96,11 @@ watch([() => props.a, () => props.b], ([newA, newB], [oldA, oldB]) => {
 </script>
 
 <style scoped>
+.win {
+    background-color: #5c5c69 !important;
+    border: 1px solid #b374168c !important;
+    font-weight: 700 !important;
+}
 .option {
     background-color: #121212;
     width: 220px;
