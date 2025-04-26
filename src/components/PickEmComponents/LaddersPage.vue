@@ -175,7 +175,7 @@
         </div>
     </div>
     <p :style="{ color: 'orange', fontSize: '12px', marginTop: '8rem' }">
-        Drabinka może pozwolić picknąć np. dwie kasie do połfinałów, trzeba to narazie niestety ręcznie poprawić, prosze
+        Drabinka może pozwolić picknąć np. dwie Kasie do połfinałów, trzeba to narazie niestety ręcznie poprawić, prosze
         uważać i pamiętać o zapisywaniu, dane są bezpieczne jak zapiszecie, a ja będe poprawiał wygląd drabinek w
         międzyczasie<br /><span :style="{ fontWeight: 'bold' }">Punktacja: </span>
         <span :style="{ fontWeight: 'bold' }">+3pkt</span> za poprawny pick w ćwierćfinale,

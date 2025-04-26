@@ -41,6 +41,9 @@ body {
   --p-overlaybadge-outline-color: #000000 !important;
   --p-select-background: #121212 !important;
   --p-paginator-background: #18181b !important;
+  --p-datatable-header-background: #18181b !important;
+  --p-tabs-tabpanel-color: #fff !important;
+  --p-tabs-tab-color: #fff !important;
 }
 
 .p-datatable-tbody > tr > td {
