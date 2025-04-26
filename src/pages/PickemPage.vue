@@ -191,7 +191,7 @@
                                     sie na nim wydarzy - i zbierasz punkty za trafne typy.
                                 </p>
                                 <p>
-                                    Proste? No własnie nie, ale być może to Ty będziesz TOP 1 jasnowidzem na polskim
+                                    Proste? No właśnie nie, ale być może to Ty będziesz TOP 1 jasnowidzem na polskim
                                     Twitchu.
                                 </p>
 
@@ -246,8 +246,8 @@
                                     Dodam dzisiaj system dodawania brakujących punktów osobom które dołączyły po czasie.
                                     Nie mają one nic zaznaczone w kryształowej kuli, ale ich wybór grup jest traktowany
                                     tak jakby wybrali ustawienie domyślnie wylosowane. Jak dobrze pójdzie to dorzuce
-                                    dzisiaj nową zakładke statystyki żeby móc porównywać swoje wybory i zobaczyc jak
-                                    głosowła publiczność. I może poprawie czas ładowania i sortowania rankingu
+                                    dzisiaj nową zakładke statystyki żeby móc porównywać swoje wybory i zobaczyć jak
+                                    głosowała publiczność. I może poprawie czas ładowania i sortowania rankingu
                                 </p>
                                 <br /><br />
                                 <h1>Patch Noty v1.2</h1>
