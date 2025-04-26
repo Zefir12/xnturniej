@@ -76,6 +76,47 @@ export const uuidToPlayer = (uuid: string): string => {
     }
 }
 
+export const playerToUuid = (player: PlayerAccounts): string => {
+    switch (player) {
+        case PlayerAccounts.Hiszpan:
+            return '071f3ac4-5f0c-11eb-828b-1768796e906d'
+        case PlayerAccounts.Kasix:
+            return '98f224b0-998c-11eb-9cd5-abe66a43618c'
+        case PlayerAccounts.Nieuczesana:
+            return '59482f96-4e7b-11eb-b365-3d75dc4dac27'
+        case PlayerAccounts.Delord:
+            return '2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b'
+        case PlayerAccounts.Nitro:
+            return 'a869eba0-ad12-11eb-b429-1d193d279471'
+        case PlayerAccounts.Fornal:
+            return '420d7862-acbe-11eb-9289-c516bf3f58be'
+        case PlayerAccounts.RandomBruces:
+            return 'd56506e2-747d-11ed-b280-8d2bac408b0d'
+        case PlayerAccounts.Diables:
+            return '7814e9b0-410a-11eb-8e01-ef8706c45d64'
+        case PlayerAccounts.Netrodal:
+            return 'c49386f0-a924-11ed-88da-cd5896a24560'
+        case PlayerAccounts.Bagieta:
+            return '9182bba4-8cec-11ed-9f28-a1a555fdd6af'
+        case PlayerAccounts.Suchar:
+            return 'b68f03f2-41ef-11eb-b636-9ddfe076e3d4'
+        case PlayerAccounts.Overpow:
+            return 'dd3a3172-ee19-11ef-84e3-1d869f158093'
+        case PlayerAccounts.Kubon:
+            return '5177ad7a-3e3e-11eb-b1e4-4fc24844be0f'
+        case PlayerAccounts.Demonz:
+            return '8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1'
+        case PlayerAccounts.Bladii:
+            return 'cc9cbaec-71fe-11eb-b3f6-4b737133070f'
+        case PlayerAccounts.Zwierzak:
+            return '661e726e-b17c-11ed-97ad-175efc8ca79c'
+        case PlayerAccounts.Taku:
+            return '97709332-e8df-11ef-ae1f-699fe3713de1'
+        default:
+            throw new Error('UUID not found for this player')
+    }
+}
+
 export const playerMappings = {
     [PlayerAccounts.Hiszpan]: {
         name: 'Hiszpan',
@@ -220,7 +261,7 @@ export const expirationDates = {
     crystalball: new Date('2025-04-24T14:30:00Z'),
     laddersOpen: new Date('2025-04-25T19:00:00Z'),
     laddersClose: new Date('2025-04-26T15:00:00Z'),
-    fianallOpen: new Date('2025-04-27T15:00:00Z'),
+    fianallClose: new Date('2025-04-27T15:00:00Z'),
 }
 
 export const groupsResults = [

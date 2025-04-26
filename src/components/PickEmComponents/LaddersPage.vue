@@ -5,20 +5,16 @@
     </p>
     <p>
         🚨 Natomiast ze względu na wycofanie się zawodników, oraz błędy w zapisie półfinałów i finałów, będzie można
-        wciąż jutro obstawiać finały oraz półfinały 🚨
+        wciąż obstawiać finały oraz półfinały 🚨
     </p>
-    Obstawianie zostanie odblokowane po zakończeniu wszystkich dzisiejszych(sobotnich) partii
-    <!-- <CountDownTimer
-        text="Obstawianie półfinałów i finałów odblokuje sie za:"
-        :date="expirationDates.fianallOpen"
+    <CountDownTimer
+        text="Obstawianie półfinałów i finałów zablokuje sie za:"
+        :date="expirationDates.fianallClose"
         rectColor="#222222"
-    /> -->
-    <br v-if="expirationDates.laddersClose.getTime() > Date.now()" /><br
-        v-if="expirationDates.laddersClose.getTime() > Date.now()"
     />
     <div
-        v-if="expirationDates.laddersClose.getTime() > Date.now()"
-        :style="{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem' }"
+        v-if="expirationDates.fianallClose.getTime() > Date.now()"
+        :style="{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem', marginTop: '2rem' }"
     >
         <StyledButton @click="saveLadder" :disabled="!changes">Zapisz</StyledButton
         ><StyledButton @click="resetLadders">Reset</StyledButton>
@@ -37,24 +33,28 @@
     >
         <div class="column" :style="{ display: 'flex', flexDirection: 'column', gap: '1rem' }">
             <LadderSelectPlayerBox
+                :watchOn="loaded"
                 :disabled="expirationDates.laddersClose.getTime() < Date.now()"
                 v-model="ladderW.a"
                 a="a869eba0-ad12-11eb-b429-1d193d279471"
                 b="98f224b0-998c-11eb-9cd5-abe66a43618c"
             />
             <LadderSelectPlayerBox
+                :watchOn="loaded"
                 :disabled="expirationDates.laddersClose.getTime() < Date.now()"
                 v-model="ladderW.b"
                 a="d56506e2-747d-11ed-b280-8d2bac408b0d"
                 b="dd3a3172-ee19-11ef-84e3-1d869f158093"
             />
             <LadderSelectPlayerBox
+                :watchOn="loaded"
                 :disabled="expirationDates.laddersClose.getTime() < Date.now()"
                 v-model="ladderW.c"
                 a="2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b"
                 b="071f3ac4-5f0c-11eb-828b-1768796e906d"
             />
             <LadderSelectPlayerBox
+                :watchOn="loaded"
                 :disabled="expirationDates.laddersClose.getTime() < Date.now()"
                 v-model="ladderW.d"
                 a="8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1"
@@ -63,18 +63,20 @@
         </div>
         <div class="column" :style="{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }">
             <LadderSelectPlayerBox
-                :disabled="expirationDates.laddersClose.getTime() < Date.now()"
+                :watchOn="loaded"
+                :disabled="expirationDates.fianallClose.getTime() < Date.now()"
                 text="Półfinał"
-                :a="ladderW.a"
-                :b="ladderW.b"
+                :a="playerToUuid(PlayerAccounts.Kasix)"
+                :b="playerToUuid(PlayerAccounts.RandomBruces)"
                 v-model="ladderW.w1"
                 v-model:lost="ladderW.l1"
             />
             <LadderSelectPlayerBox
-                :disabled="expirationDates.laddersClose.getTime() < Date.now()"
+                :watchOn="loaded"
+                :disabled="expirationDates.fianallClose.getTime() < Date.now()"
                 text="Półfinał"
-                :a="ladderW.c"
-                :b="ladderW.d"
+                :a="playerToUuid(PlayerAccounts.Delord)"
+                :b="playerToUuid(PlayerAccounts.Kubon)"
                 v-model="ladderW.w2"
                 v-model:lost="ladderW.l2"
             />
@@ -84,7 +86,8 @@
             :style="{ display: 'flex', flexDirection: 'column', gap: '2rem', justifyContent: 'center' }"
         >
             <LadderSelectPlayerBox
-                :disabled="expirationDates.laddersClose.getTime() < Date.now()"
+                :watchOn="loaded"
+                :disabled="expirationDates.fianallClose.getTime() < Date.now()"
                 text="Finał"
                 :a="ladderW.w1"
                 :b="ladderW.w2"
@@ -92,7 +95,8 @@
                 v-model:lost="ladderW.second"
             />
             <LadderSelectPlayerBox
-                :disabled="expirationDates.laddersClose.getTime() < Date.now()"
+                :watchOn="loaded"
+                :disabled="expirationDates.fianallClose.getTime() < Date.now()"
                 text="3 miejsce"
                 :a="ladderW.l1"
                 :b="ladderW.l2"
@@ -128,24 +132,28 @@
     >
         <div class="column" :style="{ display: 'flex', flexDirection: 'column', gap: '1rem' }">
             <LadderSelectPlayerBox
+                :watchOn="loaded"
                 :disabled="expirationDates.laddersClose.getTime() < Date.now()"
                 v-model="ladderL.a"
                 a="59482f96-4e7b-11eb-b365-3d75dc4dac27"
                 b="c49386f0-a924-11ed-88da-cd5896a24560"
             />
             <LadderSelectPlayerBox
+                :watchOn="loaded"
                 :disabled="expirationDates.laddersClose.getTime() < Date.now()"
                 v-model="ladderL.b"
                 a="661e726e-b17c-11ed-97ad-175efc8ca79c"
                 b="b68f03f2-41ef-11eb-b636-9ddfe076e3d4"
             />
             <LadderSelectPlayerBox
+                :watchOn="loaded"
                 :disabled="expirationDates.laddersClose.getTime() < Date.now()"
                 v-model="ladderL.c"
                 a="9182bba4-8cec-11ed-9f28-a1a555fdd6af"
                 b="7814e9b0-410a-11eb-8e01-ef8706c45d64"
             />
             <LadderSelectPlayerBox
+                :watchOn="loaded"
                 :disabled="expirationDates.laddersClose.getTime() < Date.now()"
                 v-model="ladderL.d"
                 a="97709332-e8df-11ef-ae1f-699fe3713de1"
@@ -154,18 +162,20 @@
         </div>
         <div class="column" :style="{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }">
             <LadderSelectPlayerBox
-                :disabled="expirationDates.laddersClose.getTime() < Date.now()"
+                :watchOn="loaded"
+                :disabled="expirationDates.fianallClose.getTime() < Date.now()"
                 text="Półfinał"
-                :a="ladderL.a"
-                :b="ladderL.b"
+                :a="playerToUuid(PlayerAccounts.Nieuczesana)"
+                :b="playerToUuid(PlayerAccounts.Zwierzak)"
                 v-model="ladderL.w1"
                 v-model:lost="ladderL.l1"
             />
             <LadderSelectPlayerBox
-                :disabled="expirationDates.laddersClose.getTime() < Date.now()"
+                :watchOn="loaded"
+                :disabled="expirationDates.fianallClose.getTime() < Date.now()"
                 text="Półfinał"
-                :a="ladderL.c"
-                :b="ladderL.d"
+                :a="playerToUuid(PlayerAccounts.Diables)"
+                :b="playerToUuid(PlayerAccounts.Bladii)"
                 v-model="ladderL.w2"
                 v-model:lost="ladderL.l2"
             />
@@ -175,7 +185,8 @@
             :style="{ display: 'flex', flexDirection: 'column', gap: '2rem', justifyContent: 'center' }"
         >
             <LadderSelectPlayerBox
-                :disabled="expirationDates.laddersClose.getTime() < Date.now()"
+                :watchOn="loaded"
+                :disabled="expirationDates.fianallClose.getTime() < Date.now()"
                 text="Finał"
                 :a="ladderL.w1"
                 :b="ladderL.w2"
@@ -183,7 +194,8 @@
                 v-model:lost="ladderL.second"
             />
             <LadderSelectPlayerBox
-                :disabled="expirationDates.laddersClose.getTime() < Date.now()"
+                :watchOn="loaded"
+                :disabled="expirationDates.fianallClose.getTime() < Date.now()"
                 text="11 miejsce"
                 :a="ladderL.l1"
                 :b="ladderL.l2"
@@ -232,7 +244,8 @@ import { useUserStore } from '@/stores/userStore'
 import { useToast } from 'primevue'
 import CrownIcon from '@/assets/icons/crown.png'
 import CountDownTimer from '../CountDownTimer.vue'
-import { expirationDates } from '@/common/consts'
+const loaded = ref(false)
+import { expirationDates, PlayerAccounts, playerToUuid } from '@/common/consts'
 
 const changes = ref(false)
 const userStore = useUserStore()
@@ -331,7 +344,7 @@ watch(
 
         // Set a new timeout to save the ladder after 3 seconds
         saveTimeout = setTimeout(() => {
-            if (expirationDates.laddersClose.getTime() > Date.now()) {
+            if (expirationDates.fianallClose.getTime() > Date.now()) {
                 saveLadder() // Call saveLadder after 3 seconds
             }
         }, 6000) // 3000 ms (3 seconds)
@@ -344,6 +357,7 @@ watch(
     () => {
         if (!userStore.playerData?.ladderL) return
         ladderL.value = userStore.playerData?.ladderL
+        loaded.value = true
     },
 )
 watch(
@@ -355,7 +369,7 @@ watch(
 )
 
 const saveLadder = async () => {
-    if (expirationDates.laddersClose.getTime() < Date.now()) {
+    if (expirationDates.fianallClose.getTime() < Date.now()) {
         return
     }
     changes.value = false
