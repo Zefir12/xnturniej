@@ -1,7 +1,7 @@
 <template>
     <p :style="{ color: 'orange', fontSize: '12px', marginTop: '-1rem' }">
         Punkty za ćwierćfinały będą rozdane z opóźnieniem dzisiaj, muszę przemyśleć co zrobić w związku z wycofaniem się
-        zwodników i jak to punktować
+        zzwodników i jak to punktować
     </p>
     <p>
         🚨 Natomiast ze względu na wycofanie się zawodników, oraz błędy w zapisie półfinałów i finałów, będzie można
@@ -269,8 +269,8 @@ const ladderW = ref<Ladder>({
 
 const ladderL = ref<Ladder>({
     a: '',
-    b: '661e726e-b17c-11ed-97ad-175efc8ca79c',
-    c: '7814e9b0-410a-11eb-8e01-ef8706c45d64',
+    b: '',
+    c: '',
     d: '',
     w1: '',
     w2: '',
@@ -314,8 +314,8 @@ const resetLadders = () => {
     }
     ladderL.value = {
         a: '',
-        b: '661e726e-b17c-11ed-97ad-175efc8ca79c',
-        c: '7814e9b0-410a-11eb-8e01-ef8706c45d64',
+        b: '',
+        c: '',
         d: '',
         w1: '',
         w2: '',
@@ -334,7 +334,7 @@ watch(
     [() => ladderW.value, () => ladderL.value], // Watch for changes in both ladders
     () => {
         counter.value++
-        if (counter.value <= 1) return
+        if (counter.value <= 2) return
         changes.value = true
 
         // If there's an existing timeout, clear it
@@ -358,6 +358,7 @@ watch(
         if (!userStore.playerData?.ladderL) return
         ladderL.value = userStore.playerData?.ladderL
         loaded.value = true
+        console.log(ladderL.value)
     },
 )
 watch(
