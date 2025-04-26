@@ -1,5 +1,7 @@
 <template>
     <h3>Czas na wybór minął</h3>
+    punkty będą rozdane z opóźnieniem dzisiaj, muszę przemyśleć co zrobić w związku z wycofaniem się zwodników i jak to
+    punktować
     <CountDownTimer
         v-if="expirationDates.laddersClose.getTime() > Date.now()"
         text="Możliwość wyboru zablokuje się za:"
