@@ -1,7 +1,7 @@
 <template>
     <p :style="{ color: 'orange', fontSize: '12px', marginTop: '-1rem' }">
         Punkty za ćwierćfinały będą rozdane z opóźnieniem dzisiaj, muszę przemyśleć co zrobić w związku z wycofaniem się
-        zzwodników i jak to punktować
+        zawodników i jak to punktować
     </p>
     <p>
         🚨 Natomiast ze względu na wycofanie się zawodników, oraz błędy w zapisie półfinałów i finałów, będzie można
