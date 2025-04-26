@@ -112,6 +112,7 @@
                 v-model="ladderL.c"
                 a="9182bba4-8cec-11ed-9f28-a1a555fdd6af"
                 b="7814e9b0-410a-11eb-8e01-ef8706c45d64"
+                disabled
             />
             <LadderSelectPlayerBox
                 v-model="ladderL.d"
@@ -222,7 +223,7 @@ const ladderW = ref<Ladder>({
 const ladderL = ref<Ladder>({
     a: '',
     b: '661e726e-b17c-11ed-97ad-175efc8ca79c',
-    c: '',
+    c: '7814e9b0-410a-11eb-8e01-ef8706c45d64',
     d: '',
     w1: '',
     w2: '',
@@ -267,7 +268,7 @@ const resetLadders = () => {
     ladderL.value = {
         a: '',
         b: '661e726e-b17c-11ed-97ad-175efc8ca79c',
-        c: '',
+        c: '7814e9b0-410a-11eb-8e01-ef8706c45d64',
         d: '',
         w1: '',
         w2: '',

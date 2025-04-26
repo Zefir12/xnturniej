@@ -2,42 +2,12 @@
     <Dialog
         v-model:visible="showPatchNotes"
         modal
-        header="Patch Noty v1.1"
+        header="Informacja!"
         :style="{ width: '800px', fontSize: '14px' }"
-        @hide="() => setLocalStoreItem('hasViewedPatchNotes', 'true')"
-    >
-        - Tomasz Fornal stety albo niestety wygrał w siatkę, i nie będzie miał czasu na turniej. Zamiast niego wchodzi
-        Taku, podmienię ich pozycję(jak ktoś nic nie zmieni po prostu będzie mieć Taku tam gdzie obstawiał Fornala) żeby
-        jak najmniej popsuć Pick'emy osobom które nie zdażą wejść i nanieść zmiany <br /><br /><br />
-        - Zmiany w kryształowej kuli na 7:30, 24.04.2025:
-        <br />
-        <h3>Botez Gambit</h3>
-        Nie wiem czemu, odcięło mi myślenie i dałem 1pkt na każdego zawodnika i jakoś mi wyszło 15<br /><br />
-        Zmiana: 15pkt -> 16pkt
-        <p>
-            Dodatkowe informacje o punktacji: <br /><br />
-            Punkt dostaje się za zaznaczenie że zawodnik podwali i on faktycznie podwali, oraz za niezaznaczenie
-            zawodnika który nie podwali. Jeżeli w turnieju 3 osoby podwalą, a nie zaznaczysz nikogo, otrzymasz za tę
-            kategorię 13 pkt. <br />Analogicznie jeśli zaznaczysz wszystkich a tylko 3 osoby podwalą otrzymasz 3 pkt.
-        </p>
-        <h3>Blitzcrieg & Życie w okopach</h3>
-        Tutaj to samo, większość osób naturalnie liczy ruchy e4 e5 jako jeden ruch, a ja chciałem dokładniejszą
-        predykcję licząc to jako dwa ruchy.
-        <p>
-            Zmiana w przyznawaniu punktów: <br />
-            Dla zawodników którzy przeczytali pytajnik i poprawnie wybrali według zasady że e4 e5 to dwa ruchy nic sie
-            nie zmienia, natomiast jeśli najkrótsza partia naprzykład potrwa 7 ruchów, (13 ruchów licząc każde
-            posunięcie) to za wpisanie 13 jest pełna liczba punktów, natomiast za wpisanie 7 przyznaję połowę, w związku
-            z tym że ten kto zgadywał 7 równoczesnie obstawia ruch 13 i 14, więc ma większe szanse na trafienie.
-            <br />
-            <br />Zmiana: Życie w okopach 15pkt -> 16pkt
-        </p>
-        <h3>Dodatkowe informacje</h3>
-        <p>- Aby wybrać komu kibicujesz kilkasz na ikonkę avatara na górze</p>
-        <p>
-            - Karty w kryształowej kuli mają pytajnik w prawym górnym rogu, po najechaniu wyświetla dokładniejszy opis
-            karty
-        </p>
+        @hide="() => setLocalStoreItem('hasViewedPatchNotesv2', 'true')"
+        >Bagieta wycofuje się z turnieju(sprawy prywatne), kto ma jeszcze okazje niech pozmienia sobie pickemy w
+        drabince. Natomiast dla ludzi którzy nie zdażą zareagować, podmieniam w jego miejsce Diablesa. Nie jest to
+        rozwiązanie idealne, ale nie mam lepszego.
     </Dialog>
     <div :style="{ position: 'fixed', top: '20px', left: '20px', color: '#FAF9F6' }">
         <a
@@ -1061,7 +1031,7 @@ const userStore = useUserStore()
 const panelTab = ref(localStorage.getItem('pickemTab') || '0')
 const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5173'
 const pickemStore = usePickemStore()
-const showPatchNotes = ref(localStorage.getItem('hasViewedPatchNotes') == null)
+const showPatchNotes = ref(localStorage.getItem('hasViewedPatchNotesv2') == null)
 const favourite = ref<null | string>()
 const ballLocal = localStorage.getItem('crystallBallSelections')
 
