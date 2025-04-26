@@ -1,13 +1,18 @@
 <template>
-    <h3>Czas na wybór minął</h3>
-    punkty będą rozdane z opóźnieniem dzisiaj, muszę przemyśleć co zrobić w związku z wycofaniem się zwodników i jak to
-    punktować
-    <CountDownTimer
-        v-if="expirationDates.laddersClose.getTime() > Date.now()"
-        text="Możliwość wyboru zablokuje się za:"
-        :date="expirationDates.laddersClose"
+    <p :style="{ color: 'orange', fontSize: '12px', marginTop: '-1rem' }">
+        Punkty za ćwierćfinały będą rozdane z opóźnieniem dzisiaj, muszę przemyśleć co zrobić w związku z wycofaniem się
+        zwodników i jak to punktować
+    </p>
+    <p>
+        🚨 Natomiast ze względu na wycofanie się zawodników, oraz błędy w zapisie półfinałów i finałów, będzie można
+        wciąż jutro obstawiać finały oraz półfinały 🚨
+    </p>
+    Obstawianie zostanie odblokowane po zakończeniu wszystkich dzisiejszych(sobotnich) partii
+    <!-- <CountDownTimer
+        text="Obstawianie półfinałów i finałów odblokuje sie za:"
+        :date="expirationDates.fianallOpen"
         rectColor="#222222"
-    />
+    /> -->
     <br v-if="expirationDates.laddersClose.getTime() > Date.now()" /><br
         v-if="expirationDates.laddersClose.getTime() > Date.now()"
     />

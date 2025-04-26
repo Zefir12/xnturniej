@@ -220,6 +220,7 @@ export const expirationDates = {
     crystalball: new Date('2025-04-24T14:30:00Z'),
     laddersOpen: new Date('2025-04-25T19:00:00Z'),
     laddersClose: new Date('2025-04-26T15:00:00Z'),
+    fianallOpen: new Date('2025-04-27T15:00:00Z'),
 }
 
 export const groupsResults = [
