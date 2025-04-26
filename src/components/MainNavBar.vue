@@ -5,6 +5,18 @@
             ><div class="option">Pick'em Challenge</div>
             <div class="dot"></div
         ></a>
+        <a
+            :style="{ textDecoration: 'none', position: 'relative' }"
+            target="_blank"
+            href="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vTmj4F987IO9rbvwLKVnnLbf8kKMRpczOqv8t1RWPtBkGgnvVFDbh399OuVybHA9ZPLvYlixeAEEcDi/pubhtml#"
+            ><div class="option">Wyniki</div>
+        </a>
+        <a
+            :style="{ textDecoration: 'none', position: 'relative' }"
+            target="_blank"
+            href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT9fPsRcHXfM7LuroYkpvAOTx6IvJTdcGV-78EKy1du6DAOkofn8nt1YVA9QsPp8rfnT6lc87HU1Kqv/pubhtml"
+            ><div class="option">Harmonogram</div>
+        </a>
     </div>
 </template>
 
