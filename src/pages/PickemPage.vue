@@ -1128,7 +1128,7 @@ const showAvatarModal = ref(false)
 const toast = useToast()
 
 const userStore = useUserStore()
-const panelTab = ref('2') //ref(localStorage.getItem('pickemTab') || '0')
+const panelTab = ref(localStorage.getItem('pickemTab') || '0')
 const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' : 'http://localhost:5173'
 const pickemStore = usePickemStore()
 const showPatchNotes = ref(localStorage.getItem('hasViewedPatchNotesv2') == null)
