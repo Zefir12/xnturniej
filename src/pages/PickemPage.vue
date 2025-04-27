@@ -1202,7 +1202,7 @@ onBeforeMount(async () => {
 
 <style scoped>
 .player-column {
-    width: 200px;
+    width: 290px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
