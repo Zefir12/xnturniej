@@ -359,7 +359,6 @@ watch(
         if (!userStore.playerData?.ladderL) return
         ladderL.value = userStore.playerData?.ladderL
         loaded.value = true
-        console.log(ladderL.value)
     },
 )
 watch(

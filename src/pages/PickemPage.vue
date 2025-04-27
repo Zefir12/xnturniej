@@ -1044,35 +1044,23 @@ const callback = import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.info' :
 const pickemStore = usePickemStore()
 const showPatchNotes = ref(localStorage.getItem('hasViewedPatchNotesv2') == null)
 const favourite = ref<null | string>()
-const ballLocal = localStorage.getItem('crystallBallSelections')
 
-const replaceUUID = (input: string, fromUUID: string, toUUID: string): string => {
-    const escapedUUID = fromUUID.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') // escape special characters
-    const regex = new RegExp(escapedUUID, 'g')
-    return input.replace(regex, toUUID)
-}
-const crystalBallPicks = ref(
-    ballLocal
-        ? JSON.parse(
-              replaceUUID(ballLocal, '420d7862-acbe-11eb-9289-c516bf3f58be', '97709332-e8df-11ef-ae1f-699fe3713de1'),
-          )
-        : {
-              botezPlayers: [],
-              speedrunner: null,
-              blackhorse: null,
-              familydisappointment: null,
-              bestalone: null,
-              standingstill: null,
-              bloodyGroup: null as string | null,
-              newhetmans: null as null | number,
-              shortestmoves: null as null | number,
-              longestmoves: null as null | number,
-              pats: null as null | number,
-              beginings: null as null | string,
-              blackorwhite: null as null | string,
-              bishopsandknights: null as null | string,
-          },
-)
+const crystalBallPicks = ref({
+    botezPlayers: [],
+    speedrunner: null,
+    blackhorse: null,
+    familydisappointment: null,
+    bestalone: null,
+    standingstill: null,
+    bloodyGroup: null as string | null,
+    newhetmans: null as null | number,
+    shortestmoves: null as null | number,
+    longestmoves: null as null | number,
+    pats: null as null | number,
+    beginings: null as null | string,
+    blackorwhite: null as null | string,
+    bishopsandknights: null as null | string,
+})
 
 const getLocalStoreItem = (key: string): string | null => {
     return localStorage.getItem(key)
@@ -1116,6 +1104,10 @@ const pickemPlayers = ref<{ name: string; favourite: string; group_points: numbe
 onBeforeMount(async () => {
     await userStore.onBeforeMount()
     favourite.value = userStore.playerData?.favourite
+
+    if (userStore.playerData?.crystallBall) {
+        crystalBallPicks.value = userStore.playerData?.crystallBall
+    }
 
     const groups = await api.get('/pickem/getgroups')
     const grupsData = groups.data as string[][]
