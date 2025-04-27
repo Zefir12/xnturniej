@@ -83,6 +83,7 @@
                 v-model="ladderW.w2"
                 v-model:lost="ladderW.l2"
                 points="+5"
+                :correct="playerToUuid(PlayerAccounts.Delord)"
             />
         </div>
         <div
