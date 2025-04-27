@@ -109,6 +109,7 @@
                 v-model="ladderW.third"
                 v-model:lost="ladderW.fourth"
                 points="+8"
+                :correct="playerToUuid(PlayerAccounts.Kubon)"
             />
         </div>
         <div
