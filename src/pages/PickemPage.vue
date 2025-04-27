@@ -1038,7 +1038,38 @@
                                 marginTop: '50px',
                             }"
                             v-if="true"
-                        ></div>
+                        >
+                            <div class="player-column">
+                                <h3 :style="{ color: 'orange' }">Do ostatniej kropli krwi:</h3>
+                                <div v-for="stat in stats.bloodyGroup" :key="stat.option">
+                                    <OptionProgressBar :name="stat.option" :value="stat.percent" />
+                                </div>
+                            </div>
+                            <div class="player-column">
+                                <h3 :style="{ color: 'orange' }">Narodziny wojownika:</h3>
+                                <div v-for="stat in stats.newhetmans" :key="stat.option">
+                                    <OptionProgressBar :name="stat.option" :value="stat.percent" />
+                                </div>
+                            </div>
+                            <div class="player-column">
+                                <h3 :style="{ color: 'orange' }">Blitzkrieg:</h3>
+                                <div v-for="stat in stats.shortestmoves" :key="stat.option">
+                                    <OptionProgressBar :name="stat.option" :value="stat.percent" />
+                                </div>
+                            </div>
+                            <div class="player-column">
+                                <h3 :style="{ color: 'orange' }">Życie w okopach:</h3>
+                                <div v-for="stat in stats.longestmoves" :key="stat.option">
+                                    <OptionProgressBar :name="stat.option" :value="stat.percent" />
+                                </div>
+                            </div>
+                            <div class="player-column">
+                                <h3 :style="{ color: 'orange' }">Wypadek przy pracy:</h3>
+                                <div v-for="stat in stats.pats" :key="stat.option">
+                                    <OptionProgressBar :name="stat.option" :value="stat.percent" />
+                                </div>
+                            </div>
+                        </div>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
@@ -1085,6 +1116,7 @@ import { InputText } from 'primevue'
 import { IconField, InputIcon } from 'primevue'
 import statsJson from '@/assets/stats.json'
 import PlayerProgressBar from '@/components/PickEmComponents/PlayerProgressBar.vue'
+import OptionProgressBar from '@/components/PickEmComponents/OptionProgressBar.vue'
 
 const filters = ref({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },

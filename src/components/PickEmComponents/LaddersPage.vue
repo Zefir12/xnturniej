@@ -71,6 +71,8 @@
                 :b="playerToUuid(PlayerAccounts.RandomBruces)"
                 v-model="ladderW.w1"
                 v-model:lost="ladderW.l1"
+                points="+5"
+                :correct="playerToUuid(PlayerAccounts.RandomBruces)"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
@@ -80,6 +82,7 @@
                 :b="playerToUuid(PlayerAccounts.Kubon)"
                 v-model="ladderW.w2"
                 v-model:lost="ladderW.l2"
+                points="+5"
             />
         </div>
         <div
@@ -94,6 +97,7 @@
                 :b="ladderW.w2"
                 v-model="ladderW.first"
                 v-model:lost="ladderW.second"
+                points="+10"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
@@ -103,6 +107,7 @@
                 :b="ladderW.l2"
                 v-model="ladderW.third"
                 v-model:lost="ladderW.fourth"
+                points="+8"
             />
         </div>
         <div
