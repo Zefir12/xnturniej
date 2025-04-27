@@ -101,6 +101,7 @@
                 v-model="ladderW.first"
                 v-model:lost="ladderW.second"
                 points="+10"
+                :correct="playerToUuid(PlayerAccounts.Delord)"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
