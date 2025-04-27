@@ -141,6 +141,9 @@
                     <Tab value="4" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Ranking Twitcha</span>
                     </Tab>
+                    <Tab value="5" as="div" class="flex items-center gap-2">
+                        <span class="font-bold whitespace-nowrap">Statystyki</span>
+                    </Tab>
                 </TabList>
                 <TabPanels :style="{ display: 'flex', justifyContent: 'center' }">
                     <TabPanel value="0" as="p" class="m-0">
@@ -985,6 +988,55 @@
                             </DataTable>
                         </div>
                     </TabPanel>
+                    <TabPanel value="5" as="p" class="m-0">
+                        <h1>Jak obstawiali ludzie:</h1>
+                        <div
+                            :style="{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '50px' }"
+                            v-if="true"
+                        >
+                            <div class="player-column">
+                                <h2 :style="{ color: 'orange' }">Speedrunner:</h2>
+                                <div v-for="stat in stats.speedrunner" :key="stat.option">
+                                    <template v-if="stat.option">
+                                        <img
+                                            :style="{ width: '30px', height: '30px' }"
+                                            :src="playerMappings[uuidToPlayer(stat.option)].avatar"
+                                        />
+                                        {{ playerMappings[uuidToPlayer(stat.option)].name }}
+                                        <ProgressBar :value="stat.percent" show-value></ProgressBar>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <div class="player-column">
+                                <h2 :style="{ color: 'orange' }">Czarny Koń:</h2>
+                                <div v-for="stat in stats.blackhorse" :key="stat.option">
+                                    <template v-if="stat.option">
+                                        <img
+                                            :style="{ width: '30px', height: '30px' }"
+                                            :src="playerMappings[uuidToPlayer(stat.option)].avatar"
+                                        />
+                                        {{ playerMappings[uuidToPlayer(stat.option)].name }}
+                                        <ProgressBar :value="stat.percent" show-value></ProgressBar>
+                                    </template>
+                                </div>
+                            </div>
+
+                            <div class="player-column">
+                                <h2 :style="{ color: 'orange' }">Zawód Rodziny:</h2>
+                                <div v-for="stat in stats.familydisappointment" :key="stat.option">
+                                    <template v-if="stat.option">
+                                        <img
+                                            :style="{ width: '30px', height: '30px' }"
+                                            :src="playerMappings[uuidToPlayer(stat.option)].avatar"
+                                        />
+                                        {{ playerMappings[uuidToPlayer(stat.option)].name }}
+                                        <ProgressBar :value="stat.percent" show-value></ProgressBar>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </TabPanel>
                 </TabPanels>
             </Tabs>
         </div>
@@ -1021,13 +1073,15 @@ import { IconArrowBackUp, IconLock } from '@tabler/icons-vue'
 import SelectPlayerPickem from '@/components/PickEmComponents/SelectPlayerPickem.vue'
 import ChooseOption from '@/components/PickEmComponents/ChooseOption.vue'
 import { RadioButton } from 'primevue'
+import ProgressBar from 'primevue/progressbar'
 import { MultiSelect } from 'primevue'
-import { expirationDates, playerMappings } from '@/common/consts'
+import { expirationDates, playerMappings, uuidToPlayer } from '@/common/consts'
 import avatar from '../assets/twitchicons/defaultavatar.png'
 import { Dialog } from 'primevue'
 import { FilterMatchMode } from '@primevue/core'
 import { InputText } from 'primevue'
 import { IconField, InputIcon } from 'primevue'
+import statsJson from '@/assets/stats.json'
 
 const filters = ref({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -1061,6 +1115,8 @@ const crystalBallPicks = ref({
     blackorwhite: null as null | string,
     bishopsandknights: null as null | string,
 })
+
+const stats = ref(statsJson)
 
 const getLocalStoreItem = (key: string): string | null => {
     return localStorage.getItem(key)
@@ -1131,6 +1187,13 @@ onBeforeMount(async () => {
 </script>
 
 <style scoped>
+.player-column {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
 .dot {
     position: absolute;
     top: 16px;

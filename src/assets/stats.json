@@ -1,0 +1,726 @@
+{
+  "botezPlayers": [
+    {
+      "option": "9182bba4-8cec-11ed-9f28-a1a555fdd6af",
+      "percent": 13.03
+    },
+    {
+      "option": "c49386f0-a924-11ed-88da-cd5896a24560",
+      "percent": 9.78
+    },
+    {
+      "option": "5177ad7a-3e3e-11eb-b1e4-4fc24844be0f",
+      "percent": 9.7
+    },
+    {
+      "option": "7814e9b0-410a-11eb-8e01-ef8706c45d64",
+      "percent": 8.67
+    },
+    {
+      "option": "d56506e2-747d-11ed-b280-8d2bac408b0d",
+      "percent": 7.75
+    },
+    {
+      "option": "661e726e-b17c-11ed-97ad-175efc8ca79c",
+      "percent": 7.71
+    },
+    {
+      "option": "420d7862-acbe-11eb-9289-c516bf3f58be",
+      "percent": 6.55
+    },
+    {
+      "option": "dd3a3172-ee19-11ef-84e3-1d869f158093",
+      "percent": 6.32
+    },
+    {
+      "option": "cc9cbaec-71fe-11eb-b3f6-4b737133070f",
+      "percent": 4.8
+    },
+    {
+      "option": "071f3ac4-5f0c-11eb-828b-1768796e906d",
+      "percent": 4.08
+    },
+    {
+      "option": "98f224b0-998c-11eb-9cd5-abe66a43618c",
+      "percent": 3.95
+    },
+    {
+      "option": "97709332-e8df-11ef-ae1f-699fe3713de1",
+      "percent": 3.61
+    },
+    {
+      "option": "2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b",
+      "percent": 3.4
+    },
+    {
+      "option": "8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1",
+      "percent": 3.27
+    },
+    {
+      "option": "59482f96-4e7b-11eb-b365-3d75dc4dac27",
+      "percent": 3.11
+    },
+    {
+      "option": "b68f03f2-41ef-11eb-b636-9ddfe076e3d4",
+      "percent": 2.7
+    }
+  ],
+  "speedrunner": [
+    {
+      "option": "d56506e2-747d-11ed-b280-8d2bac408b0d",
+      "percent": 43.25
+    },
+    {
+      "option": "9182bba4-8cec-11ed-9f28-a1a555fdd6af",
+      "percent": 27.52
+    },
+    {
+      "option": "071f3ac4-5f0c-11eb-828b-1768796e906d",
+      "percent": 9.92
+    },
+    {
+      "option": "a869eba0-ad12-11eb-b429-1d193d279471",
+      "percent": 6.23
+    },
+    {
+      "option": "420d7862-acbe-11eb-9289-c516bf3f58be",
+      "percent": 1.63
+    },
+    {
+      "option": "8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1",
+      "percent": 1.4
+    },
+    {
+      "option": "c49386f0-a924-11ed-88da-cd5896a24560",
+      "percent": 1.39
+    },
+    {
+      "option": "2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b",
+      "percent": 1.38
+    },
+    {
+      "option": "b68f03f2-41ef-11eb-b636-9ddfe076e3d4",
+      "percent": 1.15
+    },
+    {
+      "option": "661e726e-b17c-11ed-97ad-175efc8ca79c",
+      "percent": 1.03
+    },
+    {
+      "option": "",
+      "percent": 0.96
+    },
+    {
+      "option": "97709332-e8df-11ef-ae1f-699fe3713de1",
+      "percent": 0.87
+    },
+    {
+      "option": "7814e9b0-410a-11eb-8e01-ef8706c45d64",
+      "percent": 0.82
+    },
+    {
+      "option": "dd3a3172-ee19-11ef-84e3-1d869f158093",
+      "percent": 0.64
+    },
+    {
+      "option": "cc9cbaec-71fe-11eb-b3f6-4b737133070f",
+      "percent": 0.64
+    },
+    {
+      "option": "5177ad7a-3e3e-11eb-b1e4-4fc24844be0f",
+      "percent": 0.51
+    }
+  ],
+  "blackhorse": [
+    {
+      "option": "cc9cbaec-71fe-11eb-b3f6-4b737133070f",
+      "percent": 15.94
+    },
+    {
+      "option": "dd3a3172-ee19-11ef-84e3-1d869f158093",
+      "percent": 15.64
+    },
+    {
+      "option": "9182bba4-8cec-11ed-9f28-a1a555fdd6af",
+      "percent": 10.35
+    },
+    {
+      "option": "5177ad7a-3e3e-11eb-b1e4-4fc24844be0f",
+      "percent": 10.0
+    },
+    {
+      "option": "b68f03f2-41ef-11eb-b636-9ddfe076e3d4",
+      "percent": 9.51
+    },
+    {
+      "option": "661e726e-b17c-11ed-97ad-175efc8ca79c",
+      "percent": 6.23
+    },
+    {
+      "option": "7814e9b0-410a-11eb-8e01-ef8706c45d64",
+      "percent": 4.2
+    },
+    {
+      "option": "c49386f0-a924-11ed-88da-cd5896a24560",
+      "percent": 4.02
+    },
+    {
+      "option": "d56506e2-747d-11ed-b280-8d2bac408b0d",
+      "percent": 3.82
+    },
+    {
+      "option": "59482f96-4e7b-11eb-b365-3d75dc4dac27",
+      "percent": 3.25
+    },
+    {
+      "option": "8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1",
+      "percent": 3.19
+    },
+    {
+      "option": "420d7862-acbe-11eb-9289-c516bf3f58be",
+      "percent": 2.72
+    },
+    {
+      "option": "071f3ac4-5f0c-11eb-828b-1768796e906d",
+      "percent": 2.62
+    },
+    {
+      "option": "98f224b0-998c-11eb-9cd5-abe66a43618c",
+      "percent": 2.46
+    },
+    {
+      "option": "2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b",
+      "percent": 2.31
+    },
+    {
+      "option": "97709332-e8df-11ef-ae1f-699fe3713de1",
+      "percent": 1.96
+    }
+  ],
+  "familydisappointment": [
+    {
+      "option": "d56506e2-747d-11ed-b280-8d2bac408b0d",
+      "percent": 43.34
+    },
+    {
+      "option": "a869eba0-ad12-11eb-b429-1d193d279471",
+      "percent": 14.08
+    },
+    {
+      "option": "59482f96-4e7b-11eb-b365-3d75dc4dac27",
+      "percent": 7.54
+    },
+    {
+      "option": "2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b",
+      "percent": 6.45
+    },
+    {
+      "option": "b68f03f2-41ef-11eb-b636-9ddfe076e3d4",
+      "percent": 5.7
+    },
+    {
+      "option": "071f3ac4-5f0c-11eb-828b-1768796e906d",
+      "percent": 4.99
+    },
+    {
+      "option": "dd3a3172-ee19-11ef-84e3-1d869f158093",
+      "percent": 4.13
+    },
+    {
+      "option": "5177ad7a-3e3e-11eb-b1e4-4fc24844be0f",
+      "percent": 3.11
+    },
+    {
+      "option": "98f224b0-998c-11eb-9cd5-abe66a43618c",
+      "percent": 2.72
+    },
+    {
+      "option": "8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1",
+      "percent": 2.63
+    },
+    {
+      "option": "9182bba4-8cec-11ed-9f28-a1a555fdd6af",
+      "percent": 1.83
+    },
+    {
+      "option": "cc9cbaec-71fe-11eb-b3f6-4b737133070f",
+      "percent": 0.72
+    },
+    {
+      "option": "",
+      "percent": 0.71
+    },
+    {
+      "option": "420d7862-acbe-11eb-9289-c516bf3f58be",
+      "percent": 0.59
+    },
+    {
+      "option": "7814e9b0-410a-11eb-8e01-ef8706c45d64",
+      "percent": 0.59
+    },
+    {
+      "option": "c49386f0-a924-11ed-88da-cd5896a24560",
+      "percent": 0.42
+    }
+  ],
+  "bestalone": [
+    {
+      "option": "9182bba4-8cec-11ed-9f28-a1a555fdd6af",
+      "percent": 25.11
+    },
+    {
+      "option": "071f3ac4-5f0c-11eb-828b-1768796e906d",
+      "percent": 18.26
+    },
+    {
+      "option": "b68f03f2-41ef-11eb-b636-9ddfe076e3d4",
+      "percent": 13.7
+    },
+    {
+      "option": "a869eba0-ad12-11eb-b429-1d193d279471",
+      "percent": 12.58
+    },
+    {
+      "option": "d56506e2-747d-11ed-b280-8d2bac408b0d",
+      "percent": 8.29
+    },
+    {
+      "option": "2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b",
+      "percent": 5.18
+    },
+    {
+      "option": "5177ad7a-3e3e-11eb-b1e4-4fc24844be0f",
+      "percent": 3.0
+    },
+    {
+      "option": "dd3a3172-ee19-11ef-84e3-1d869f158093",
+      "percent": 2.63
+    },
+    {
+      "option": "8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1",
+      "percent": 2.21
+    },
+    {
+      "option": "59482f96-4e7b-11eb-b365-3d75dc4dac27",
+      "percent": 2.11
+    },
+    {
+      "option": "7814e9b0-410a-11eb-8e01-ef8706c45d64",
+      "percent": 1.27
+    },
+    {
+      "option": "c49386f0-a924-11ed-88da-cd5896a24560",
+      "percent": 1.15
+    },
+    {
+      "option": "98f224b0-998c-11eb-9cd5-abe66a43618c",
+      "percent": 1.12
+    },
+    {
+      "option": "420d7862-acbe-11eb-9289-c516bf3f58be",
+      "percent": 0.87
+    },
+    {
+      "option": "",
+      "percent": 0.86
+    },
+    {
+      "option": "661e726e-b17c-11ed-97ad-175efc8ca79c",
+      "percent": 0.84
+    }
+  ],
+  "standingstill": [
+    {
+      "option": "c49386f0-a924-11ed-88da-cd5896a24560",
+      "percent": 26.32
+    },
+    {
+      "option": "9182bba4-8cec-11ed-9f28-a1a555fdd6af",
+      "percent": 20.3
+    },
+    {
+      "option": "5177ad7a-3e3e-11eb-b1e4-4fc24844be0f",
+      "percent": 15.88
+    },
+    {
+      "option": "420d7862-acbe-11eb-9289-c516bf3f58be",
+      "percent": 6.9
+    },
+    {
+      "option": "7814e9b0-410a-11eb-8e01-ef8706c45d64",
+      "percent": 6.03
+    },
+    {
+      "option": "97709332-e8df-11ef-ae1f-699fe3713de1",
+      "percent": 3.93
+    },
+    {
+      "option": "661e726e-b17c-11ed-97ad-175efc8ca79c",
+      "percent": 3.73
+    },
+    {
+      "option": "d56506e2-747d-11ed-b280-8d2bac408b0d",
+      "percent": 2.63
+    },
+    {
+      "option": "8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1",
+      "percent": 2.44
+    },
+    {
+      "option": "dd3a3172-ee19-11ef-84e3-1d869f158093",
+      "percent": 2.17
+    },
+    {
+      "option": "cc9cbaec-71fe-11eb-b3f6-4b737133070f",
+      "percent": 2.03
+    },
+    {
+      "option": "071f3ac4-5f0c-11eb-828b-1768796e906d",
+      "percent": 1.43
+    },
+    {
+      "option": "2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b",
+      "percent": 1.43
+    },
+    {
+      "option": "a869eba0-ad12-11eb-b429-1d193d279471",
+      "percent": 1.25
+    },
+    {
+      "option": "98f224b0-998c-11eb-9cd5-abe66a43618c",
+      "percent": 1.13
+    },
+    {
+      "option": "b68f03f2-41ef-11eb-b636-9ddfe076e3d4",
+      "percent": 1.04
+    }
+  ],
+  "bloodyGroup": [
+    {
+      "option": "C",
+      "percent": 48.31
+    },
+    {
+      "option": "A",
+      "percent": 35.32
+    },
+    {
+      "option": "B",
+      "percent": 9.84
+    },
+    {
+      "option": "D",
+      "percent": 5.6
+    },
+    {
+      "option": "",
+      "percent": 0.93
+    }
+  ],
+  "newhetmans": [
+    {
+      "option": "8",
+      "percent": 5.23
+    },
+    {
+      "option": "7",
+      "percent": 4.9
+    },
+    {
+      "option": "10",
+      "percent": 4.7
+    },
+    {
+      "option": "15",
+      "percent": 4.45
+    },
+    {
+      "option": "5",
+      "percent": 4.41
+    },
+    {
+      "option": "12",
+      "percent": 3.98
+    },
+    {
+      "option": "6",
+      "percent": 3.92
+    },
+    {
+      "option": "20",
+      "percent": 3.91
+    },
+    {
+      "option": "4",
+      "percent": 3.57
+    },
+    {
+      "option": "27",
+      "percent": 3.17
+    },
+    {
+      "option": "25",
+      "percent": 3.02
+    },
+    {
+      "option": "9",
+      "percent": 2.93
+    },
+    {
+      "option": "3",
+      "percent": 2.87
+    },
+    {
+      "option": "13",
+      "percent": 2.61
+    },
+    {
+      "option": "11",
+      "percent": 2.46
+    },
+    {
+      "option": "17",
+      "percent": 2.38
+    }
+  ],
+  "shortestmoves": [
+    {
+      "option": "13",
+      "percent": 15.17
+    },
+    {
+      "option": "12",
+      "percent": 11.09
+    },
+    {
+      "option": "14",
+      "percent": 8.88
+    },
+    {
+      "option": "15",
+      "percent": 8.62
+    },
+    {
+      "option": "11",
+      "percent": 5.57
+    },
+    {
+      "option": "10",
+      "percent": 4.58
+    },
+    {
+      "option": "16",
+      "percent": 4.56
+    },
+    {
+      "option": "7",
+      "percent": 4.29
+    },
+    {
+      "option": "8",
+      "percent": 4.14
+    },
+    {
+      "option": "9",
+      "percent": 4.0
+    },
+    {
+      "option": "17",
+      "percent": 3.71
+    },
+    {
+      "option": "18",
+      "percent": 2.98
+    },
+    {
+      "option": "20",
+      "percent": 2.25
+    },
+    {
+      "option": "21",
+      "percent": 2.11
+    },
+    {
+      "option": "4",
+      "percent": 1.98
+    },
+    {
+      "option": "6",
+      "percent": 1.69
+    }
+  ],
+  "longestmoves": [
+    {
+      "option": "78",
+      "percent": 3.77
+    },
+    {
+      "option": "80",
+      "percent": 3.43
+    },
+    {
+      "option": "85",
+      "percent": 2.61
+    },
+    {
+      "option": "76",
+      "percent": 2.54
+    },
+    {
+      "option": "70",
+      "percent": 2.51
+    },
+    {
+      "option": "87",
+      "percent": 2.4
+    },
+    {
+      "option": "60",
+      "percent": 2.26
+    },
+    {
+      "option": "82",
+      "percent": 2.26
+    },
+    {
+      "option": "75",
+      "percent": 2.25
+    },
+    {
+      "option": "69",
+      "percent": 2.17
+    },
+    {
+      "option": "86",
+      "percent": 2.17
+    },
+    {
+      "option": "88",
+      "percent": 2.09
+    },
+    {
+      "option": "90",
+      "percent": 2.09
+    },
+    {
+      "option": "89",
+      "percent": 2.03
+    },
+    {
+      "option": "84",
+      "percent": 1.94
+    },
+    {
+      "option": "72",
+      "percent": 1.91
+    }
+  ],
+  "pats": [
+    {
+      "option": "3",
+      "percent": 24.25
+    },
+    {
+      "option": "2",
+      "percent": 22.56
+    },
+    {
+      "option": "4",
+      "percent": 15.69
+    },
+    {
+      "option": "5",
+      "percent": 11.38
+    },
+    {
+      "option": "1",
+      "percent": 7.31
+    },
+    {
+      "option": "6",
+      "percent": 5.19
+    },
+    {
+      "option": "7",
+      "percent": 3.68
+    },
+    {
+      "option": "8",
+      "percent": 2.34
+    },
+    {
+      "option": "0",
+      "percent": 2.18
+    },
+    {
+      "option": "10",
+      "percent": 1.39
+    },
+    {
+      "option": "9",
+      "percent": 0.97
+    },
+    {
+      "option": "",
+      "percent": 0.82
+    },
+    {
+      "option": "12",
+      "percent": 0.56
+    },
+    {
+      "option": "11",
+      "percent": 0.37
+    },
+    {
+      "option": "15",
+      "percent": 0.34
+    },
+    {
+      "option": "13",
+      "percent": 0.17
+    }
+  ],
+  "beginings": [
+    {
+      "option": "a",
+      "percent": 49.9
+    },
+    {
+      "option": "b",
+      "percent": 49.36
+    },
+    {
+      "option": "",
+      "percent": 0.75
+    }
+  ],
+  "blackorwhite": [
+    {
+      "option": "a",
+      "percent": 94.02
+    },
+    {
+      "option": "b",
+      "percent": 5.18
+    },
+    {
+      "option": "",
+      "percent": 0.8
+    }
+  ],
+  "bishopsandknights": [
+    {
+      "option": "a",
+      "percent": 56.14
+    },
+    {
+      "option": "b",
+      "percent": 42.52
+    },
+    {
+      "option": "",
+      "percent": 1.34
+    }
+  ]
+}
