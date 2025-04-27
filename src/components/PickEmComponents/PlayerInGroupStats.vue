@@ -22,7 +22,7 @@
             </div>
             <div>
                 <div v-for="(vote, index) in props.votes" :key="vote">
-                    Pierwsze miesjce: {{ vote }} głosów
+                    {{ index + 1 }}. miejsce: {{ vote }} głosów
                     <!-- <OptionProgrssBar :value="vote" /> -->
                 </div>
             </div>
