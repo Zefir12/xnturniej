@@ -974,7 +974,7 @@
                                     ><template #body="{ data }">{{ data.group_points ?? 0 }}</template></Column
                                 >
                                 <Column sortable header="Punkty w drabince"
-                                    ><template #body="">{{ 0 }}</template></Column
+                                    ><template #body="{ data }">{{ data.ladder_points ?? 0 }}</template></Column
                                 >
                                 <Column sortable header="Punkty za kryształową kule"
                                     ><template #body="">{{ 0 }}</template></Column
