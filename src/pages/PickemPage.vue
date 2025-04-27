@@ -1035,6 +1035,20 @@
                                     </template>
                                 </div>
                             </div>
+
+                            <div class="player-column">
+                                <h2 :style="{ color: 'orange' }">Zawód Rodziny:</h2>
+                                <div v-for="stat in stats.bestalone" :key="stat.option">
+                                    <template v-if="stat.option">
+                                        <img
+                                            :style="{ width: '30px', height: '30px' }"
+                                            :src="playerMappings[uuidToPlayer(stat.option)].avatar"
+                                        />
+                                        {{ playerMappings[uuidToPlayer(stat.option)].name }}
+                                        <ProgressBar :value="stat.percent" show-value></ProgressBar>
+                                    </template>
+                                </div>
+                            </div>
                         </div>
                     </TabPanel>
                 </TabPanels>
