@@ -42,7 +42,7 @@ const props = defineProps<{ name?: string; value: number }>()
 .progress {
     border-radius: 5px;
     min-width: 100%;
-    height: 20px;
+    height: 10px;
     background-color: #3f3f46;
 }
 </style>

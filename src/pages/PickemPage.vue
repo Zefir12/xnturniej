@@ -990,12 +990,28 @@
                     </TabPanel>
                     <TabPanel value="5" as="p" class="m-0">
                         <h2 :style="{ textAlign: 'center' }">Jak ludzie obstawiali kryształową kulę:</h2>
+                        <h3 :style="{ textAlign: 'center', marginBottom: '50px' }">
+                            Aż <span :style="{ color: 'orange', fontWeight: 'bold' }">8578</span> osób wrzuciło swoją
+                            kryształową kulę do puli
+                        </h3>
                         <div
                             :style="{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '50px' }"
                             v-if="true"
                         >
                             <div class="player-column">
+                                <h3 :style="{ color: 'orange' }">Botez Gambit:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Podwalą hetamana:
+                                </div>
+                                <div v-for="stat in stats.botezPlayers" :key="stat.option">
+                                    <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
+                                </div>
+                            </div>
+                            <div class="player-column">
                                 <h3 :style="{ color: 'orange' }">Speedrunner:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Zużyje najmniej czasu:
+                                </div>
                                 <div v-for="stat in stats.speedrunner" :key="stat.option">
                                     <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
@@ -1003,6 +1019,9 @@
 
                             <div class="player-column">
                                 <h3 :style="{ color: 'orange' }">Czarny Koń:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Najbardziej pozytywnie zaskoczy:
+                                </div>
                                 <div v-for="stat in stats.blackhorse" :key="stat.option">
                                     <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
@@ -1010,6 +1029,9 @@
 
                             <div class="player-column">
                                 <h3 :style="{ color: 'orange' }">Zawód Rodziny:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Najbardziej rozczaruje:
+                                </div>
                                 <div v-for="stat in stats.familydisappointment" :key="stat.option">
                                     <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
@@ -1017,6 +1039,9 @@
 
                             <div class="player-column">
                                 <h3 :style="{ color: 'orange', textWrap: 'nowrap' }">Najlepiej zrobić samemu:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Najwięcej materiału zbitego królem:
+                                </div>
                                 <div v-for="stat in stats.bestalone" :key="stat.option">
                                     <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
@@ -1024,6 +1049,9 @@
 
                             <div class="player-column">
                                 <h3 :style="{ color: 'orange' }">Nigdzie nie ide:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Najmniej roszad w (%):
+                                </div>
                                 <div v-for="stat in stats.standingstill" :key="stat.option">
                                     <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
@@ -1041,30 +1069,83 @@
                         >
                             <div class="player-column">
                                 <h3 :style="{ color: 'orange' }">Do ostatniej kropli krwi:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Najwięcej będzie dogrywek w grupie:
+                                </div>
                                 <div v-for="stat in stats.bloodyGroup" :key="stat.option">
-                                    <OptionProgressBar :name="stat.option" :value="stat.percent" />
+                                    <OptionProgressBar :name="`Grupa ${stat.option}`" :value="stat.percent" />
+                                </div>
+                                <h3 :style="{ color: 'orange', marginTop: '82px' }">Biskup i Osioł:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Do końca partii dożyje w sumie więcej:
+                                </div>
+                                <div v-for="stat in stats.bishopsandknights" :key="stat.option">
+                                    <OptionProgressBar
+                                        :name="stat.option == 'a' ? 'Koni' : stat.option == 'b' ? 'Gońców' : 'Brak'"
+                                        :value="stat.percent"
+                                    />
+                                </div>
+                            </div>
+                            <div class="player-column">
+                                <h3 :style="{ color: 'orange' }">Początki:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Najczęsciej granym otwarciem będzie:
+                                </div>
+                                <div v-for="stat in stats.beginings" :key="stat.option">
+                                    <OptionProgressBar
+                                        :name="
+                                            stat.option == 'a'
+                                                ? 'E4'
+                                                : stat.option == 'b'
+                                                  ? 'Pozostałe otwarcia'
+                                                  : 'Brak'
+                                        "
+                                        :value="stat.percent"
+                                    />
+                                </div>
+                                <h3 :style="{ color: 'orange', marginTop: '150px' }">Dwie armie:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Najwięcej partii wygrają:
+                                </div>
+                                <div v-for="stat in stats.blackorwhite" :key="stat.option">
+                                    <OptionProgressBar
+                                        :name="stat.option == 'a' ? 'Białe' : stat.option == 'b' ? 'Czarne' : 'Brak'"
+                                        :value="stat.percent"
+                                    />
                                 </div>
                             </div>
                             <div class="player-column">
                                 <h3 :style="{ color: 'orange' }">Narodziny wojownika:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    Ilość dorobionych hetmanów:
+                                </div>
                                 <div v-for="stat in stats.newhetmans" :key="stat.option">
                                     <OptionProgressBar :name="stat.option" :value="stat.percent" />
                                 </div>
                             </div>
                             <div class="player-column">
                                 <h3 :style="{ color: 'orange' }">Blitzkrieg:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    W najkrótszej partii będzie ruchów:
+                                </div>
                                 <div v-for="stat in stats.shortestmoves" :key="stat.option">
                                     <OptionProgressBar :name="stat.option" :value="stat.percent" />
                                 </div>
                             </div>
                             <div class="player-column">
                                 <h3 :style="{ color: 'orange' }">Życie w okopach:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    W najdłuższej partii będzie ruchów:
+                                </div>
                                 <div v-for="stat in stats.longestmoves" :key="stat.option">
                                     <OptionProgressBar :name="stat.option" :value="stat.percent" />
                                 </div>
                             </div>
                             <div class="player-column">
                                 <h3 :style="{ color: 'orange' }">Wypadek przy pracy:</h3>
+                                <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
+                                    W turnieju będzie patów:
+                                </div>
                                 <div v-for="stat in stats.pats" :key="stat.option">
                                     <OptionProgressBar :name="stat.option" :value="stat.percent" />
                                 </div>
@@ -1223,12 +1304,16 @@ onBeforeMount(async () => {
 
 <style scoped>
 .player-column {
-    width: 230px;
+    width: 250px;
     gap: 10px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
+    background-color: #18181b;
+    margin: -20px;
+    padding: 20px;
+    border-radius: 16px;
 }
 .dot {
     position: absolute;
