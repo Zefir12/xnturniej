@@ -1,5 +1,5 @@
 <template>
-    <p>🚨 Dzisiaj jest ostatni dzień i trzeb wypełnić tablekę do końca, wciąż można edytować finały i półfinały 🚨</p>
+    <p>🚨 Dzisiaj jest ostatni dzień i trzeba wypełnić tablekę do końca, wciąż można edytować finały i półfinały 🚨</p>
     <CountDownTimer
         text="Obstawianie półfinałów i finałów zablokuje sie za:"
         :date="expirationDates.fianallClose"
