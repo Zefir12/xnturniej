@@ -186,6 +186,7 @@
                 v-model="ladderL.w2"
                 v-model:lost="ladderL.l2"
                 points="+5"
+                :correct="playerToUuid(PlayerAccounts.Diables)"
             />
         </div>
         <div
