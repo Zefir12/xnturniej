@@ -41,8 +41,8 @@
                 :style="{ color: '#ffa500', marginLeft: 'auto' }"
                 v-if="props.correct == model && model && props.correct && props.a == model"
             >
-                <PointsBlock points="+3"
-            /></span>
+                <PointsBlock :points="`${props.points ?? '+3'}`" />
+            </span>
             <IconCheck
                 :style="{ marginLeft: '2px', marginRight: '10px' }"
                 stroke-width="4"
@@ -82,7 +82,7 @@
                 :style="{ color: '#ffa500', marginLeft: 'auto' }"
                 v-if="props.correct == model && model && props.correct && props.b == model"
             >
-                <PointsBlock points="+3"
+                <PointsBlock :points="`${props.points ?? '+3'}`"
             /></span>
             <IconCheck
                 :style="{ marginLeft: '2px', marginRight: '10px' }"
@@ -115,6 +115,7 @@ const props = defineProps<{
     text?: string
     watchOn: boolean
     correct?: string
+    points?: string
 }>()
 
 watch([() => props.a, () => props.b], ([newA, newB], [oldA, oldB]) => {

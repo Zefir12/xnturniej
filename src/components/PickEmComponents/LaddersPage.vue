@@ -174,6 +174,8 @@
                 :b="playerToUuid(PlayerAccounts.Zwierzak)"
                 v-model="ladderL.w1"
                 v-model:lost="ladderL.l1"
+                points="+5"
+                :correct="playerToUuid(PlayerAccounts.Nieuczesana)"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
@@ -183,6 +185,7 @@
                 :b="playerToUuid(PlayerAccounts.Bladii)"
                 v-model="ladderL.w2"
                 v-model:lost="ladderL.l2"
+                points="+5"
             />
         </div>
         <div
