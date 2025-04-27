@@ -997,56 +997,28 @@
                             <div class="player-column">
                                 <h2 :style="{ color: 'orange' }">Speedrunner:</h2>
                                 <div v-for="stat in stats.speedrunner" :key="stat.option">
-                                    <template v-if="stat.option">
-                                        <img
-                                            :style="{ width: '30px', height: '30px' }"
-                                            :src="playerMappings[uuidToPlayer(stat.option)].avatar"
-                                        />
-                                        {{ playerMappings[uuidToPlayer(stat.option)].name }}
-                                        <ProgressBar :value="stat.percent" show-value></ProgressBar>
-                                    </template>
+                                    <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
                             </div>
 
                             <div class="player-column">
                                 <h2 :style="{ color: 'orange' }">Czarny Koń:</h2>
                                 <div v-for="stat in stats.blackhorse" :key="stat.option">
-                                    <template v-if="stat.option">
-                                        <img
-                                            :style="{ width: '30px', height: '30px' }"
-                                            :src="playerMappings[uuidToPlayer(stat.option)].avatar"
-                                        />
-                                        {{ playerMappings[uuidToPlayer(stat.option)].name }}
-                                        <ProgressBar :value="stat.percent" show-value></ProgressBar>
-                                    </template>
+                                    <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
                             </div>
 
                             <div class="player-column">
                                 <h2 :style="{ color: 'orange' }">Zawód Rodziny:</h2>
                                 <div v-for="stat in stats.familydisappointment" :key="stat.option">
-                                    <template v-if="stat.option">
-                                        <img
-                                            :style="{ width: '30px', height: '30px' }"
-                                            :src="playerMappings[uuidToPlayer(stat.option)].avatar"
-                                        />
-                                        {{ playerMappings[uuidToPlayer(stat.option)].name }}
-                                        <ProgressBar :value="stat.percent" show-value></ProgressBar>
-                                    </template>
+                                    <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
                             </div>
 
                             <div class="player-column">
                                 <h2 :style="{ color: 'orange' }">Najlepiej zrobić samemu:</h2>
                                 <div v-for="stat in stats.bestalone" :key="stat.option">
-                                    <template v-if="stat.option">
-                                        <img
-                                            :style="{ width: '30px', height: '30px' }"
-                                            :src="playerMappings[uuidToPlayer(stat.option)].avatar"
-                                        />
-                                        {{ playerMappings[uuidToPlayer(stat.option)].name }}
-                                        <ProgressBar :value="stat.percent" show-value></ProgressBar>
-                                    </template>
+                                    <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
                             </div>
                         </div>
@@ -1089,13 +1061,14 @@ import ChooseOption from '@/components/PickEmComponents/ChooseOption.vue'
 import { RadioButton } from 'primevue'
 import ProgressBar from 'primevue/progressbar'
 import { MultiSelect } from 'primevue'
-import { expirationDates, playerMappings, uuidToPlayer } from '@/common/consts'
+import { expirationDates, PlayerAccounts, playerMappings, uuidToPlayer } from '@/common/consts'
 import avatar from '../assets/twitchicons/defaultavatar.png'
 import { Dialog } from 'primevue'
 import { FilterMatchMode } from '@primevue/core'
 import { InputText } from 'primevue'
 import { IconField, InputIcon } from 'primevue'
 import statsJson from '@/assets/stats.json'
+import PlayerProgressBar from '@/components/PickEmComponents/PlayerProgressBar.vue'
 
 const filters = ref({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -1203,6 +1176,7 @@ onBeforeMount(async () => {
 <style scoped>
 .player-column {
     width: 290px;
+    gap: 10px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
