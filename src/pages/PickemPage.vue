@@ -157,6 +157,7 @@
                             }"
                         >
                             <div :style="{ maxWidth: '800px', margin: 'auto' }">
+                                <h1>Finalna punktacja jutro o 18 po podliczeniu kryształowej kuli!</h1>
                                 <h2>Czym jest Pick’em Challenge?</h2>
                                 <p>
                                     To Twój moment, żeby pokazać, że masz szachową intuicję i znasz zawodników jak
@@ -367,7 +368,9 @@
                                 marginBottom: '30px',
                             }"
                         >
-                            <h3 v-if="expirationDates.crystalball.getTime() < Date.now()">Czas na wybór minął</h3>
+                            <h3 v-if="expirationDates.crystalball.getTime() < Date.now()">
+                                Finalna punktacja jutro o 18:00 po podliczeniu kryształowej kuli
+                            </h3>
                         </div>
                         <div
                             class="no-select"
@@ -896,6 +899,7 @@
                                     textAlign: 'center',
                                 }"
                             >
+                                <h1>Finalna punktacja jutro o 18:00 po podliczeniu kryształowej kuli</h1>
                                 Ranking jest odświeżany co 60 sekund <br />
                                 Wczoraj dopiero zorientowałem się że błędnie rozdałem punkty za grupę C, błąd został
                                 poprawiony. <br />Wyrazy współczucia dla Don_Frizer i JXKUBSIK którzy przez moją pomyłkę
@@ -1007,7 +1011,7 @@
                             <div class="player-column">
                                 <h3 :style="{ color: 'orange' }">Botez Gambit:</h3>
                                 <div :style="{ fontSize: '0.8rem', marginTop: '-1rem', marginBottom: '1rem' }">
-                                    Podwalą hetamana:
+                                    Podwalą hetmana:
                                 </div>
                                 <div v-for="stat in stats.botezPlayers" :key="stat.option">
                                     <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
@@ -1158,6 +1162,50 @@
                                 </div>
                             </div>
                         </div>
+                        <h2 :style="{ textAlign: 'center', marginTop: '140px' }">
+                            Jak ludzie obstawiali faze grupową:
+                        </h2>
+                        <h3 :style="{ textAlign: 'center', marginBottom: '50px' }">
+                            Aż <span :style="{ color: 'orange', fontWeight: 'bold' }">8425</span> osób obstawiło fazę
+                            grupową
+                        </h3>
+                        <div
+                            v-for="(group, index) in groupstats"
+                            :key="group.players[0].uuid"
+                            :style="{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                            }"
+                        >
+                            <h2>Grupa {{ index }}</h2>
+                            <div
+                                :style="{
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    gap: '10px',
+                                    justifyContent: 'center',
+                                    flexWrap: 'wrap',
+                                    alignItems: 'center',
+                                    marginRight: '50px',
+                                }"
+                            >
+                                <PlayerInGroupStats
+                                    v-for="group in index == 'A'
+                                        ? groupstats.A.players
+                                        : index == 'B'
+                                          ? groupstats.B.players
+                                          : index == 'C'
+                                            ? groupstats.C.players
+                                            : groupstats.D.players"
+                                    :key="group.uuid"
+                                    :uuid="group.uuid"
+                                    :place="group.averagePlacement"
+                                    :votes="group.votes"
+                                />
+                            </div>
+                        </div>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
@@ -1196,15 +1244,17 @@ import SelectPlayerPickem from '@/components/PickEmComponents/SelectPlayerPickem
 import ChooseOption from '@/components/PickEmComponents/ChooseOption.vue'
 import { RadioButton } from 'primevue'
 import { MultiSelect } from 'primevue'
-import { expirationDates, PlayerAccounts, playerMappings, uuidToPlayer } from '@/common/consts'
+import { expirationDates, playerMappings } from '@/common/consts'
 import avatar from '../assets/twitchicons/defaultavatar.png'
 import { Dialog } from 'primevue'
 import { FilterMatchMode } from '@primevue/core'
 import { InputText } from 'primevue'
 import { IconField, InputIcon } from 'primevue'
 import statsJson from '@/assets/stats.json'
+import groupstatsJson from '@/assets/groupstats.json'
 import PlayerProgressBar from '@/components/PickEmComponents/PlayerProgressBar.vue'
 import OptionProgressBar from '@/components/PickEmComponents/OptionProgressBar.vue'
+import PlayerInGroupStats from '@/components/PickEmComponents/PlayerInGroupStats.vue'
 
 const filters = ref({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -1240,6 +1290,7 @@ const crystalBallPicks = ref({
 })
 
 const stats = ref(statsJson)
+const groupstats = ref(groupstatsJson)
 
 const getLocalStoreItem = (key: string): string | null => {
     return localStorage.getItem(key)
