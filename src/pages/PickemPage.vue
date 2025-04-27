@@ -995,7 +995,13 @@
                             kryształową kulę do puli
                         </h3>
                         <div
-                            :style="{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '50px' }"
+                            :style="{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'flex-start',
+                                gap: '50px',
+                                flexWrap: 'wrap',
+                            }"
                             v-if="true"
                         >
                             <div class="player-column">
@@ -1064,6 +1070,7 @@
                                 alignItems: 'flex-start',
                                 gap: '50px',
                                 marginTop: '50px',
+                                flexWrap: 'wrap',
                             }"
                             v-if="true"
                         >
