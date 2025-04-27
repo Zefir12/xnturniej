@@ -973,7 +973,7 @@
                                 <Column sortable field="group_points" header="Punkty fazy grupowej"
                                     ><template #body="{ data }">{{ data.group_points ?? 0 }}</template></Column
                                 >
-                                <Column sortable header="Punkty w drabince"
+                                <Column sortable field="ladder_points" header="Punkty w drabince"
                                     ><template #body="{ data }">{{ data.ladder_points ?? 0 }}</template></Column
                                 >
                                 <Column sortable header="Punkty za kryształową kule"
