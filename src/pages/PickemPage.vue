@@ -106,7 +106,7 @@
                     </div>
                     <div>
                         🏆
-                        {{ userStore.playerData?.total_points ?? 0 }}
+                        {{ (userStore.playerData?.group_points ?? 0) + (userStore.playerData?.ladder_points ?? 0) }}
                         punktów
                     </div>
                 </div>
