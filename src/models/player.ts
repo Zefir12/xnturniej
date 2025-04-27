@@ -19,6 +19,8 @@ export type PlayerPrivateData = {
     groups: string
     crystallBall?: Record<string, string | string[] | null | number>
     group_points: number
+    total_points: number
+    ladder_points: number
     favourite?: string
     ladderW?: Ladder
     ladderL?: Ladder
