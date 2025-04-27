@@ -151,7 +151,7 @@ watch([() => props.a, () => props.b], ([newA, newB], [oldA, oldB]) => {
 }
 .option {
     background-color: #121212;
-    width: 220px;
+    width: 280px;
     height: 40px;
     cursor: pointer;
     display: flex;

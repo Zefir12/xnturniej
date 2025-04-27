@@ -409,13 +409,13 @@ const saveLadder = async () => {
     -ms-user-select: none; /* For Internet Explorer/Edge */
 }
 .main-container {
-    width: 900px;
+    width: 1050px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 .column {
-    width: 300px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;

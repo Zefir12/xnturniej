@@ -281,7 +281,7 @@
                     <li>
                         Mecz o 3 miejsce - do <PointsBlock points="2.5" /> tempem <TempoBlock time="10" increment="0" />
                     </li>
-                    <li>Finał - do <PointsBlock points="3.5" /> tempem <TempoBlock time="10" increment="0" /></li>
+                    <li>Finał - do <PointsBlock points="2.5" /> tempem <TempoBlock time="10" increment="0" /></li>
                     <li>
                         Grupy dogrywkowe (miejsca 5-8) - do <PointsBlock points="1.5" /> tempem
                         <TempoBlock time="5" increment="0" />
