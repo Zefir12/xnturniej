@@ -41,8 +41,8 @@
                 :style="{ color: '#ffa500', marginLeft: 'auto' }"
                 v-if="props.correct == model && model && props.correct && props.a == model"
             >
-                +3pkt</span
-            >
+                <PointsBlock points="+3"
+            /></span>
             <IconCheck
                 :style="{ marginLeft: '2px', marginRight: '10px' }"
                 stroke-width="4"
@@ -82,8 +82,8 @@
                 :style="{ color: '#ffa500', marginLeft: 'auto' }"
                 v-if="props.correct == model && model && props.correct && props.b == model"
             >
-                +3pkt</span
-            >
+                <PointsBlock points="+3"
+            /></span>
             <IconCheck
                 :style="{ marginLeft: '2px', marginRight: '10px' }"
                 stroke-width="4"
@@ -105,6 +105,7 @@ import { getPlayerByUuid } from '@/common/helpers'
 import CrownIcon from '@/assets/icons/crown.png'
 import { watch } from 'vue'
 import { IconCheck, IconX } from '@tabler/icons-vue'
+import PointsBlock from '../FormatComponents/PointsBlock.vue'
 const model = defineModel<string | null>({ default: null })
 const modelLost = defineModel<string | null>('lost', { default: null }) // corresponds to v-model:lost
 const props = defineProps<{
