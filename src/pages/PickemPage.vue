@@ -1037,7 +1037,7 @@
                             </div>
 
                             <div class="player-column">
-                                <h2 :style="{ color: 'orange' }">Zawód Rodziny:</h2>
+                                <h2 :style="{ color: 'orange' }">Najlepiej zrobić samemu:</h2>
                                 <div v-for="stat in stats.bestalone" :key="stat.option">
                                     <template v-if="stat.option">
                                         <img
