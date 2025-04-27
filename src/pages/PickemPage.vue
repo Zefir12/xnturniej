@@ -157,7 +157,9 @@
                             }"
                         >
                             <div :style="{ maxWidth: '800px', margin: 'auto' }">
-                                <h1>Finalna punktacja jutro o 18 po podliczeniu kryształowej kuli!</h1>
+                                <h1 :style="{ textAlign: 'center', marginBottom: '10rem' }">
+                                    Finalna punktacja jutro o 18 po podliczeniu kryształowej kuli!
+                                </h1>
                                 <h2>Czym jest Pick’em Challenge?</h2>
                                 <p>
                                     To Twój moment, żeby pokazać, że masz szachową intuicję i znasz zawodników jak
@@ -283,7 +285,9 @@
                             }"
                         >
                             <Toast />
-                            <h3 v-if="expirationDates.groups.getTime() < Date.now()">Czas na wybór minął</h3>
+                            <h3 v-if="expirationDates.groups.getTime() < Date.now()">
+                                Finalna punktacja jutro o 18:00 po podliczeniu kryształowej kuli
+                            </h3>
                             <div
                                 class="no-select"
                                 :style="{
