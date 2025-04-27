@@ -32,9 +32,9 @@
                 </div>
                 <StyledButton @click="saveGroups">Zapisz zmiany</StyledButton>
             </div>
-            <div><StyledButton @click="saveGroups">Clear serwer cache</StyledButton></div>
-            <RealTimeChart />
-            <div v-if="false" @click="userStore.logout()" severity="danger">Logout</div>
+            <div><StyledButton @click="clearCache">Clear serwer cache</StyledButton></div>
+            <!-- <RealTimeChart /> -->
+            <div v-if="true" @click="userStore.logout()" severity="danger">Logout</div>
         </template>
         <template v-if="!userStore.userLoggedIn">
             <div class="buttons">
@@ -122,6 +122,10 @@ const saveGroups = async () => {
         },
     ]
     await api.post('/pickem/setgroups', obj)
+}
+
+const clearCache = async () => {
+    await api.post('/invalidatecachedata')
 }
 
 onBeforeMount(async () => {
