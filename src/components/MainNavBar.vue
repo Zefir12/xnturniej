@@ -17,6 +17,12 @@
             href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT9fPsRcHXfM7LuroYkpvAOTx6IvJTdcGV-78EKy1du6DAOkofn8nt1YVA9QsPp8rfnT6lc87HU1Kqv/pubhtml"
             ><div class="option">Harmonogram</div>
         </a>
+        <a
+            :style="{ textDecoration: 'none', position: 'relative' }"
+            target="_blank"
+            href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT9wh7Ye3CWxLMreYcCGnTNwoCpwN2lahkMq96odywFllYChlk7bNTh6KWYUmjyrJW_C300ZGXpwBoF/pubhtml"
+            ><div class="option">Przebieg turnieju</div>
+        </a>
     </div>
 </template>
 
