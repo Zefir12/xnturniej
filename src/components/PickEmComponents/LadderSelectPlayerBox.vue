@@ -36,22 +36,25 @@
                 :style="{ width: '20px', height: '20px', marginLeft: '10px' }"
                 v-if="model === props.a && model && !props.correct"
             />
+
+            <span
+                :style="{ color: '#ffa500', marginLeft: 'auto' }"
+                v-if="props.correct == model && model && props.correct && props.a == model"
+            >
+                +3pkt</span
+            >
             <IconCheck
+                :style="{ marginLeft: '2px', marginRight: '10px' }"
                 stroke-width="4"
                 v-if="props.correct == model && model && props.correct && props.a == model"
                 color="#79f041"
             />
             <IconX
+                :style="{ marginLeft: 'auto', marginRight: '10px' }"
                 v-if="props.correct != model && model && props.correct && props.a == model"
                 stroke-width="3"
                 color="red"
             />
-            <span
-                :style="{ color: 'orange' }"
-                v-if="props.correct == model && model && props.correct && props.a == model"
-            >
-                +3pkt</span
-            >
         </div>
         <div
             class="option"
@@ -75,21 +78,24 @@
                 :style="{ width: '20px', height: '20px', marginLeft: '10px' }"
                 v-if="model === props.b && model && !props.correct"
             />
+            <span
+                :style="{ color: '#ffa500', marginLeft: 'auto' }"
+                v-if="props.correct == model && model && props.correct && props.b == model"
+            >
+                +3pkt</span
+            >
             <IconCheck
+                :style="{ marginLeft: '2px', marginRight: '10px' }"
                 stroke-width="4"
                 v-if="props.correct == model && model && props.correct && props.b == model"
                 color="#79f041"
             />
             <IconX
+                :style="{ marginLeft: 'auto', marginRight: '10px' }"
                 v-if="props.correct != model && model && props.correct && props.b == model"
                 stroke-width="3"
                 color="red"
-            /><span
-                :style="{ color: 'orange' }"
-                v-if="props.correct == model && model && props.correct && props.b == model"
-            >
-                +3pkt</span
-            >
+            />
         </div>
     </div>
 </template>
