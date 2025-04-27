@@ -213,6 +213,7 @@
                 v-model="ladderL.third"
                 v-model:lost="ladderL.fourth"
                 points="+8"
+                :correct="playerToUuid(PlayerAccounts.Bladii)"
             />
         </div>
         <div
