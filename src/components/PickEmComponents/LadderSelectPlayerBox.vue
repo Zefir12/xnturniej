@@ -39,7 +39,7 @@
             <IconCheck
                 stroke-width="4"
                 v-if="props.correct == model && model && props.correct && props.a == model"
-                color="green"
+                color="#79f041"
             />
             <IconX
                 v-if="props.correct != model && model && props.correct && props.a == model"
@@ -78,7 +78,7 @@
             <IconCheck
                 stroke-width="4"
                 v-if="props.correct == model && model && props.correct && props.b == model"
-                color="green"
+                color="#79f041"
             />
             <IconX
                 v-if="props.correct != model && model && props.correct && props.b == model"
