@@ -1,12 +1,5 @@
 <template>
-    <p :style="{ color: 'orange', fontSize: '12px', marginTop: '-1rem' }">
-        Punkty za ćwierćfinały będą rozdane z opóźnieniem dzisiaj, muszę przemyśleć co zrobić w związku z wycofaniem się
-        zawodników i jak to punktować
-    </p>
-    <p>
-        🚨 Natomiast ze względu na wycofanie się zawodników, oraz błędy w zapisie półfinałów i finałów, będzie można
-        wciąż obstawiać finały oraz półfinały 🚨
-    </p>
+    <p>🚨 Dzisiaj jest ostatni dzień i trzeb wypełnić tablekę do końca, wciąż można edytować finały i półfinały 🚨</p>
     <CountDownTimer
         text="Obstawianie półfinałów i finałów zablokuje sie za:"
         :date="expirationDates.fianallClose"
@@ -38,6 +31,7 @@
                 v-model="ladderW.a"
                 a="a869eba0-ad12-11eb-b429-1d193d279471"
                 b="98f224b0-998c-11eb-9cd5-abe66a43618c"
+                :correct="playerToUuid(PlayerAccounts.Kasix)"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
@@ -45,6 +39,7 @@
                 v-model="ladderW.b"
                 a="d56506e2-747d-11ed-b280-8d2bac408b0d"
                 b="dd3a3172-ee19-11ef-84e3-1d869f158093"
+                :correct="playerToUuid(PlayerAccounts.RandomBruces)"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
@@ -52,6 +47,7 @@
                 v-model="ladderW.c"
                 a="2eb6a6f0-3df4-11eb-b13f-edcfbaf98d7b"
                 b="071f3ac4-5f0c-11eb-828b-1768796e906d"
+                :correct="playerToUuid(PlayerAccounts.Delord)"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
@@ -59,6 +55,7 @@
                 v-model="ladderW.d"
                 a="8a2269ea-3dc0-11eb-8750-c5b5bc9f99f1"
                 b="5177ad7a-3e3e-11eb-b1e4-4fc24844be0f"
+                :correct="playerToUuid(PlayerAccounts.Kubon)"
             />
         </div>
         <div class="column" :style="{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }">
@@ -137,6 +134,7 @@
                 v-model="ladderL.a"
                 a="59482f96-4e7b-11eb-b365-3d75dc4dac27"
                 b="c49386f0-a924-11ed-88da-cd5896a24560"
+                :correct="playerToUuid(PlayerAccounts.Nieuczesana)"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
@@ -144,6 +142,7 @@
                 v-model="ladderL.b"
                 a="661e726e-b17c-11ed-97ad-175efc8ca79c"
                 b="b68f03f2-41ef-11eb-b636-9ddfe076e3d4"
+                :correct="playerToUuid(PlayerAccounts.Zwierzak)"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
@@ -151,6 +150,7 @@
                 v-model="ladderL.c"
                 a="9182bba4-8cec-11ed-9f28-a1a555fdd6af"
                 b="7814e9b0-410a-11eb-8e01-ef8706c45d64"
+                :correct="playerToUuid(PlayerAccounts.Diables)"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
@@ -158,6 +158,7 @@
                 v-model="ladderL.d"
                 a="97709332-e8df-11ef-ae1f-699fe3713de1"
                 b="cc9cbaec-71fe-11eb-b3f6-4b737133070f"
+                :correct="playerToUuid(PlayerAccounts.Bladii)"
             />
         </div>
         <div class="column" :style="{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }">
@@ -299,10 +300,10 @@ export type Ladder = {
 
 const resetLadders = () => {
     ladderW.value = {
-        a: '',
-        b: '',
-        c: '',
-        d: '',
+        a: userStore.playerData?.ladderW?.a ?? '',
+        b: userStore.playerData?.ladderW?.b ?? '',
+        c: userStore.playerData?.ladderW?.c ?? '',
+        d: userStore.playerData?.ladderW?.d ?? '',
         w1: '',
         w2: '',
         l1: '',
@@ -313,10 +314,10 @@ const resetLadders = () => {
         fourth: '',
     }
     ladderL.value = {
-        a: '',
-        b: '',
-        c: '',
-        d: '',
+        a: userStore.playerData?.ladderL?.a ?? '',
+        b: userStore.playerData?.ladderL?.b ?? '',
+        c: userStore.playerData?.ladderL?.c ?? '',
+        d: userStore.playerData?.ladderL?.d ?? '',
         w1: '',
         w2: '',
         l1: '',

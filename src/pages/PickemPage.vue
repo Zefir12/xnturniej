@@ -885,8 +885,19 @@
                                 color: '#FAF9F6',
                             }"
                         >
-                            <div :style="{ color: '#FAF9F6', marginBottom: '1rem', fontSize: '0.8rem' }">
+                            <div
+                                :style="{
+                                    color: '#FAF9F6',
+                                    marginBottom: '1rem',
+                                    fontSize: '0.8rem',
+                                    textAlign: 'center',
+                                }"
+                            >
                                 Ranking jest odświeżany co 60 sekund <br />
+                                Wczoraj dopiero zorientowałem się że błędnie rozdałem punkty za grupę C, błąd został
+                                poprawiony. <br />Wyrazy współczucia dla Don_Frizer i JXKUBSIK którzy przez moją pomyłkę
+                                zajmowali topke rankingu, oraz gratulacje dla jedynej osoby która przewidziała idealnie
+                                fazę grupową: Kr3tu__
                             </div>
                             <DataTable
                                 :value="pickemPlayers"

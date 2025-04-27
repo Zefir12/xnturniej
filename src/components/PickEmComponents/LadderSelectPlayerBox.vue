@@ -34,8 +34,24 @@
             <img
                 :src="CrownIcon"
                 :style="{ width: '20px', height: '20px', marginLeft: '10px' }"
-                v-if="model === props.a && model"
+                v-if="model === props.a && model && !props.correct"
             />
+            <IconCheck
+                stroke-width="4"
+                v-if="props.correct == model && model && props.correct && props.a == model"
+                color="green"
+            />
+            <IconX
+                v-if="props.correct != model && model && props.correct && props.a == model"
+                stroke-width="3"
+                color="red"
+            />
+            <span
+                :style="{ color: 'orange' }"
+                v-if="props.correct == model && model && props.correct && props.a == model"
+            >
+                +3pkt</span
+            >
         </div>
         <div
             class="option"
@@ -57,8 +73,23 @@
             <img
                 :src="CrownIcon"
                 :style="{ width: '20px', height: '20px', marginLeft: '10px' }"
-                v-if="model === props.b && model"
+                v-if="model === props.b && model && !props.correct"
             />
+            <IconCheck
+                stroke-width="4"
+                v-if="props.correct == model && model && props.correct && props.b == model"
+                color="green"
+            />
+            <IconX
+                v-if="props.correct != model && model && props.correct && props.b == model"
+                stroke-width="3"
+                color="red"
+            /><span
+                :style="{ color: 'orange' }"
+                v-if="props.correct == model && model && props.correct && props.b == model"
+            >
+                +3pkt</span
+            >
         </div>
     </div>
 </template>
@@ -67,9 +98,17 @@
 import { getPlayerByUuid } from '@/common/helpers'
 import CrownIcon from '@/assets/icons/crown.png'
 import { watch } from 'vue'
+import { IconCheck, IconX } from '@tabler/icons-vue'
 const model = defineModel<string | null>({ default: null })
 const modelLost = defineModel<string | null>('lost', { default: null }) // corresponds to v-model:lost
-const props = defineProps<{ a: string; b: string; disabled?: boolean; text?: string; watchOn: boolean }>()
+const props = defineProps<{
+    a: string
+    b: string
+    disabled?: boolean
+    text?: string
+    watchOn: boolean
+    correct?: string
+}>()
 
 watch([() => props.a, () => props.b], ([newA, newB], [oldA, oldB]) => {
     if (!props.watchOn) {
