@@ -1,6 +1,10 @@
 <template>
-    <p>🚨 Dzisiaj jest ostatni dzień i trzeba wypełnić tablekę do końca, wciąż można edytować finały i półfinały 🚨</p>
+    <p v-if="expirationDates.fianallClose.getTime() > Date.now()">
+        🚨 Dzisiaj jest ostatni dzień i trzeba wypełnić tablekę do końca, wciąż można edytować finały i półfinały 🚨
+    </p>
+    <h3 v-if="expirationDates.fianallClose.getTime() < Date.now()">Czas na wybór minął</h3>
     <CountDownTimer
+        v-if="expirationDates.fianallClose.getTime() > Date.now()"
         text="Obstawianie półfinałów i finałów zablokuje sie za:"
         :date="expirationDates.fianallClose"
         rectColor="#222222"
