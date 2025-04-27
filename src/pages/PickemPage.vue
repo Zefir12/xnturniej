@@ -989,39 +989,56 @@
                         </div>
                     </TabPanel>
                     <TabPanel value="5" as="p" class="m-0">
-                        <h1>Jak obstawiali ludzie:</h1>
+                        <h2 :style="{ textAlign: 'center' }">Jak ludzie obstawiali kryształową kulę:</h2>
                         <div
                             :style="{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '50px' }"
                             v-if="true"
                         >
                             <div class="player-column">
-                                <h2 :style="{ color: 'orange' }">Speedrunner:</h2>
+                                <h3 :style="{ color: 'orange' }">Speedrunner:</h3>
                                 <div v-for="stat in stats.speedrunner" :key="stat.option">
                                     <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
                             </div>
 
                             <div class="player-column">
-                                <h2 :style="{ color: 'orange' }">Czarny Koń:</h2>
+                                <h3 :style="{ color: 'orange' }">Czarny Koń:</h3>
                                 <div v-for="stat in stats.blackhorse" :key="stat.option">
                                     <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
                             </div>
 
                             <div class="player-column">
-                                <h2 :style="{ color: 'orange' }">Zawód Rodziny:</h2>
+                                <h3 :style="{ color: 'orange' }">Zawód Rodziny:</h3>
                                 <div v-for="stat in stats.familydisappointment" :key="stat.option">
                                     <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
                             </div>
 
                             <div class="player-column">
-                                <h2 :style="{ color: 'orange' }">Najlepiej zrobić samemu:</h2>
+                                <h3 :style="{ color: 'orange', textWrap: 'nowrap' }">Najlepiej zrobić samemu:</h3>
                                 <div v-for="stat in stats.bestalone" :key="stat.option">
                                     <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
                                 </div>
                             </div>
+
+                            <div class="player-column">
+                                <h3 :style="{ color: 'orange' }">Nigdzie nie ide:</h3>
+                                <div v-for="stat in stats.standingstill" :key="stat.option">
+                                    <PlayerProgressBar :value="stat.percent" :uuid="stat.option" />
+                                </div>
+                            </div>
                         </div>
+                        <div
+                            :style="{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'flex-start',
+                                gap: '50px',
+                                marginTop: '50px',
+                            }"
+                            v-if="true"
+                        ></div>
                     </TabPanel>
                 </TabPanels>
             </Tabs>
@@ -1059,7 +1076,6 @@ import { IconArrowBackUp, IconLock } from '@tabler/icons-vue'
 import SelectPlayerPickem from '@/components/PickEmComponents/SelectPlayerPickem.vue'
 import ChooseOption from '@/components/PickEmComponents/ChooseOption.vue'
 import { RadioButton } from 'primevue'
-import ProgressBar from 'primevue/progressbar'
 import { MultiSelect } from 'primevue'
 import { expirationDates, PlayerAccounts, playerMappings, uuidToPlayer } from '@/common/consts'
 import avatar from '../assets/twitchicons/defaultavatar.png'
@@ -1160,7 +1176,7 @@ onBeforeMount(async () => {
         grupsData.forEach((group, index) => {
             const order = shiftOrder[index] // Get the order for this group
             group.players = order.map((placeIndex: string) => {
-                const player = group.players.find((p) => p.place === placeIndex)
+                const player = group.players.find((p: { place: string }) => p.place === placeIndex)
                 return player
             })
         })
@@ -1175,7 +1191,7 @@ onBeforeMount(async () => {
 
 <style scoped>
 .player-column {
-    width: 290px;
+    width: 230px;
     gap: 10px;
     display: flex;
     flex-direction: column;
