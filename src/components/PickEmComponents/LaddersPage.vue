@@ -201,6 +201,8 @@
                 :b="ladderL.w2"
                 v-model="ladderL.first"
                 v-model:lost="ladderL.second"
+                points="+10"
+                :correct="playerToUuid(PlayerAccounts.Nieuczesana)"
             />
             <LadderSelectPlayerBox
                 :watchOn="loaded"
@@ -210,6 +212,7 @@
                 :b="ladderL.l2"
                 v-model="ladderL.third"
                 v-model:lost="ladderL.fourth"
+                points="+8"
             />
         </div>
         <div
