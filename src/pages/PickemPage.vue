@@ -517,7 +517,11 @@
                                     title="Blitzkrieg"
                                     :image="BlindManLogo"
                                     correct-value="12 (23 i 24 też, patrz znak zapytania)"
-                                    :isCorrect="[23, 12, 24].includes(crystalBallPicks.longestmoves as number)"
+                                    :isCorrect="
+                                        crystalBallPicks.shortestmoves == 12 ||
+                                        crystalBallPicks.shortestmoves == 23 ||
+                                        crystalBallPicks.shortestmoves == 24
+                                    "
                                     ><div
                                         :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }"
                                     ></div>
@@ -555,7 +559,11 @@
                                     title="Życie w okopach"
                                     :image="BlindManLogo"
                                     correct-value="96 (192 i 191 też, patrz znak zapytania)"
-                                    :isCorrect="[96, 191, 192].includes(crystalBallPicks.longestmoves as number)"
+                                    :isCorrect="
+                                        crystalBallPicks.longestmoves == 96 ||
+                                        crystalBallPicks.longestmoves == 192 ||
+                                        crystalBallPicks.longestmoves == 191
+                                    "
                                     ><div
                                         :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }"
                                     ></div>
@@ -1043,7 +1051,7 @@
                                     header="Punkty razem"
                                     :style="{ width: '10em', textAlign: 'center', color: 'orange', fontWeight: 'bold' }"
                                     ><template #body="{ data }"
-                                        ><PointsBlock :points="data.total_points ?? 0" /></template
+                                        ><PointsBlock :points="`${data.total_points ?? 0}`" /></template
                                 ></Column>
                             </DataTable>
                         </div>
@@ -1395,6 +1403,7 @@ onBeforeMount(async () => {
 
     if (userStore.playerData?.crystallBall) {
         crystalBallPicks.value = userStore.playerData?.crystallBall
+        console.log(crystalBallPicks.value.longestmoves)
     }
 
     const groups = await api.get('/pickem/getgroups')
