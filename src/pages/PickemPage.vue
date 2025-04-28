@@ -137,7 +137,6 @@
                     </Tab>
                     <Tab :disabled="false" value="2" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Drabinka</span>
-                        <span v-if="!getLocalStoreItem('hasVisitedGroupPhase')" class="dot" />
                     </Tab>
                     <Tab value="3" as="div" class="flex items-center gap-2">
                         <span class="font-bold whitespace-nowrap">Kryształowa Kula</span>
@@ -287,9 +286,9 @@
                             }"
                         >
                             <Toast />
-                            <h3 v-if="expirationDates.groups.getTime() < Date.now()">
+                            <!-- <h3 v-if="expirationDates.groups.getTime() < Date.now()">
                                 Finalna punktacja jutro o 18:00 po podliczeniu kryształowej kuli
-                            </h3>
+                            </h3> -->
                             <div
                                 class="no-select"
                                 :style="{
@@ -374,9 +373,9 @@
                                 marginBottom: '30px',
                             }"
                         >
-                            <h3 v-if="expirationDates.crystalball.getTime() < Date.now()">
+                            <!-- <h3 v-if="expirationDates.crystalball.getTime() < Date.now()">
                                 Finalna punktacja jutro o 18:00 po podliczeniu kryształowej kuli
-                            </h3>
+                            </h3> -->
                         </div>
                         <div
                             class="no-select"
@@ -951,12 +950,11 @@
                                     textAlign: 'center',
                                 }"
                             >
-                                <h1>Finalna punktacja jutro o 18:00 po podliczeniu kryształowej kuli</h1>
-                                Ranking jest odświeżany co 60 sekund <br />
-                                Wczoraj dopiero zorientowałem się że błędnie rozdałem punkty za grupę C, błąd został
-                                poprawiony. <br />Wyrazy współczucia dla Don_Frizer i JXKUBSIK którzy przez moją pomyłkę
-                                zajmowali topke rankingu, oraz gratulacje dla jedynej osoby która przewidziała idealnie
-                                fazę grupową: Kr3tu__
+                                <h1 :style="{ color: 'orange' }">
+                                    Finalny ranking pickemu Billin SZACH-MAT
+                                    <span :style="{ fontSize: '0.4rem' }">inwidej.. yyy...</span>
+                                    <span :style="{ fontSize: '0.6rem' }">inwita.. yyy...</span> Invitational!
+                                </h1>
                             </div>
                             <DataTable
                                 :value="pickemPlayers"
