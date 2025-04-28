@@ -951,7 +951,7 @@
                                 }"
                             >
                                 <h1 :style="{ color: 'orange' }">
-                                    Finalny ranking pickemu Billin SZACH-MAT
+                                    Finalny ranking Pick'em Billin SZACH-MAT
                                     <span :style="{ fontSize: '0.4rem' }">inwidej.. yyy...</span>
                                     <span :style="{ fontSize: '0.6rem' }">inwita.. yyy...</span> Invitational!
                                 </h1>
@@ -960,6 +960,7 @@
                                 :value="pickemPlayers"
                                 scrollable
                                 paginator
+                                :style="{ borderRadius: '8px', overflow: 'hidden' }"
                                 :rows="15"
                                 :rowsPerPageOptions="[5, 10, 15, 20, 50, 100, 500, 1000]"
                                 tableStyle="min-width: 50rem max-width: 100rem"
@@ -1036,9 +1037,14 @@
                                 <Column sortable header="Punkty za kryształową kule"
                                     ><template #body="{ data }">{{ data.ball_points ?? 0 }}</template></Column
                                 >
-                                <Column sortable field="total_points" header="Punkty razem"
-                                    ><template #body="{ data }">{{ data.total_points ?? 0 }}</template></Column
-                                >
+                                <Column
+                                    sortable
+                                    field="total_points"
+                                    header="Punkty razem"
+                                    :style="{ width: '10em', textAlign: 'center', color: 'orange', fontWeight: 'bold' }"
+                                    ><template #body="{ data }"
+                                        ><PointsBlock :points="data.total_points ?? 0" /></template
+                                ></Column>
                             </DataTable>
                         </div>
                     </TabPanel>
