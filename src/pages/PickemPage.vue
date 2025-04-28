@@ -106,7 +106,11 @@
                     </div>
                     <div>
                         🏆
-                        {{ (userStore.playerData?.group_points ?? 0) + (userStore.playerData?.ladder_points ?? 0) }}
+                        {{
+                            (userStore.playerData?.group_points ?? 0) +
+                            (userStore.playerData?.ladder_points ?? 0) +
+                            (userStore.playerData?.ball_points ?? 0)
+                        }}
                         punktów
                     </div>
                 </div>
@@ -157,9 +161,9 @@
                             }"
                         >
                             <div :style="{ maxWidth: '800px', margin: 'auto' }">
-                                <h1 :style="{ textAlign: 'center', marginBottom: '10rem' }">
+                                <!-- <h1 :style="{ textAlign: 'center', marginBottom: '10rem' }">
                                     Finalna punktacja jutro o 18 po podliczeniu kryształowej kuli!
-                                </h1>
+                                </h1> -->
                                 <h2>Czym jest Pick’em Challenge?</h2>
                                 <p>
                                     To Twój moment, żeby pokazać, że masz szachową intuicję i znasz zawodników jak

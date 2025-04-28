@@ -21,6 +21,7 @@ export type PlayerPrivateData = {
     group_points: number
     total_points: number
     ladder_points: number
+    ball_points: number
     favourite?: string
     ladderW?: Ladder
     ladderL?: Ladder
