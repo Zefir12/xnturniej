@@ -402,6 +402,8 @@
                                     title="Botez Gambit"
                                     desc="Każdy ruch gracza po którym przeciwnik może zbić hetmana, i zawodnik by stracił więcej niż 5 punktów w ocenie silnika, jest liczony jako podwalenie, bo jakoś trzeba odsortować poświęcenia. Punkt otrzymuje się za każde trafienie: albo że zawodnik podwali albo że NIE podwali"
                                     :image="BlindManLogo"
+                                    correct-value="Wszyscy poza sucharem i hiszpanem"
+                                    :isCorrect="crystalBallPicks.botezPlayers == crystalstats.botezGambit"
                                 >
                                     <div
                                         :style="{
@@ -441,6 +443,8 @@
                                     title="Speedrunner"
                                     desc="Ile średnio ze wszystkich partii zawodnikowi zostaje % czasu na koniec partii, np: kończy 10 minutową partie z 8 minutami na zegarze: 80% czasu, i jest liczony średni % z wszystkich gier"
                                     :image="TimerLogo"
+                                    correct-value="Netrodal"
+                                    :isCorrect="crystalBallPicks.speedrunner == crystalstats.speedrunner"
                                 >
                                     <div
                                         :style="{
@@ -468,7 +472,13 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="15" title="Narodziny wojownika" :image="EvolveLogo">
+                                <CrystallBallItem
+                                    :points="15"
+                                    title="Narodziny wojownika"
+                                    :image="EvolveLogo"
+                                    correct-value="52"
+                                    :isCorrect="crystalBallPicks.newhetmans == crystalstats.totalqueens"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
@@ -503,6 +513,8 @@
                                     :points="8"
                                     title="Blitzkrieg"
                                     :image="BlindManLogo"
+                                    correct-value="12 (23 i 24 też, patrz znak zapytania)"
+                                    :isCorrect="[23, 12, 24].includes(crystalBallPicks.longestmoves as number)"
                                     ><div
                                         :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }"
                                     ></div>
@@ -539,6 +551,8 @@
                                     :points="16"
                                     title="Życie w okopach"
                                     :image="BlindManLogo"
+                                    correct-value="96 (192 i 191 też, patrz znak zapytania)"
+                                    :isCorrect="[96, 191, 192].includes(crystalBallPicks.longestmoves as number)"
                                     ><div
                                         :style="{ paddingLeft: '10px', paddingRight: '10px', marginTop: '-5px' }"
                                     ></div>
@@ -570,7 +584,13 @@
                                             />
                                         </div></div
                                 ></CrystallBallItem>
-                                <CrystallBallItem :points="5" title="Dwie armie" :image="ArmyLogo">
+                                <CrystallBallItem
+                                    :points="5"
+                                    title="Dwie armie"
+                                    :image="ArmyLogo"
+                                    correct-value="Więcej wygrały białe"
+                                    :isCorrect="(crystalBallPicks.blackorwhite == 'a') == crystalstats.whiteOrBlack"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
@@ -601,7 +621,13 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="10" title="Wypadek przy pracy..." :image="BlindManLogo">
+                                <CrystallBallItem
+                                    :points="10"
+                                    title="Wypadek przy pracy..."
+                                    :image="BlindManLogo"
+                                    correct-value="5"
+                                    :isCorrect="crystalBallPicks.pats == crystalstats.pats"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
@@ -636,6 +662,10 @@
                                     :points="2"
                                     title="Biskup i Osioł"
                                     :image="BlindManLogo"
+                                    correct-value="Przeżyło więcej gońców"
+                                    :isCorrect="
+                                        (crystalBallPicks.bishopsandknights == 'a') == crystalstats.survivedTotal
+                                    "
                                 >
                                     <div
                                         :style="{
@@ -678,6 +708,8 @@
                                     :points="12"
                                     title="Czarny koń"
                                     :image="BlindManLogo"
+                                    correct-value="Kubon"
+                                    :isCorrect="crystalBallPicks.blackhorse == crystalstats.darkhorse"
                                 >
                                     <div
                                         :style="{
@@ -711,6 +743,8 @@
                                     :points="10"
                                     title="Zawód rodziny"
                                     :image="BlindManLogo"
+                                    correct-value="Suchar"
+                                    :isCorrect="crystalBallPicks.familydisappointment == crystalstats.zawodrodziny"
                                 >
                                     <div
                                         :style="{
@@ -739,7 +773,13 @@
                                         </div>
                                     </div>
                                 </CrystallBallItem>
-                                <CrystallBallItem :points="2" title="Początki" :image="BlindManLogo">
+                                <CrystallBallItem
+                                    :points="2"
+                                    title="Początki"
+                                    :image="BlindManLogo"
+                                    correct-value="E4 było zagrane częściej"
+                                    :isCorrect="(crystalBallPicks.beginings == 'a') == crystalstats.openings"
+                                >
                                     <div
                                         :style="{
                                             width: '100%',
@@ -775,6 +815,8 @@
                                     :points="5"
                                     title="Do ostatniej kropli krwi"
                                     :image="ArmyLogo"
+                                    correct-value="A"
+                                    :isCorrect="crystalBallPicks.bloodyGroup == crystalstats.bloodyGroup"
                                 >
                                     <div
                                         :style="{
@@ -822,6 +864,8 @@
                                     desc="Jeśli kilka osób będzie miało remis na pierwszym miejscu zaznaczenie dowolnej z nich daje pełną liczbę punktów"
                                     title="Najlepiej zrobić samemu"
                                     :image="TimerLogo"
+                                    correct-value="Kubon"
+                                    :isCorrect="crystalBallPicks.bestalone == crystalstats.bestalone"
                                 >
                                     <div
                                         :style="{
@@ -854,6 +898,8 @@
                                     :points="8"
                                     title="Nigdzie nie ide"
                                     :image="TimerLogo"
+                                    correct-value="Netrodal"
+                                    :isCorrect="crystalBallPicks.standingstill == crystalstats.standingstill"
                                 >
                                     <div
                                         :style="{
@@ -986,7 +1032,7 @@
                                     ><template #body="{ data }">{{ data.ladder_points ?? 0 }}</template></Column
                                 >
                                 <Column sortable header="Punkty za kryształową kule"
-                                    ><template #body="">{{ 0 }}</template></Column
+                                    ><template #body="{ data }">{{ data.ball_points ?? 0 }}</template></Column
                                 >
                                 <Column sortable field="total_points" header="Punkty razem"
                                     ><template #body="{ data }">{{ data.total_points ?? 0 }}</template></Column
@@ -1254,6 +1300,7 @@ import { InputText } from 'primevue'
 import { IconField, InputIcon } from 'primevue'
 import statsJson from '@/assets/stats.json'
 import groupstatsJson from '@/assets/groupstats.json'
+import crystalstatsJson from '@/assets/crystalstats.json'
 import PlayerProgressBar from '@/components/PickEmComponents/PlayerProgressBar.vue'
 import OptionProgressBar from '@/components/PickEmComponents/OptionProgressBar.vue'
 import PlayerInGroupStats from '@/components/PickEmComponents/PlayerInGroupStats.vue'
@@ -1293,6 +1340,7 @@ const crystalBallPicks = ref({
 
 const stats = ref(statsJson)
 const groupstats = ref(groupstatsJson)
+const crystalstats = ref(crystalstatsJson)
 
 const getLocalStoreItem = (key: string): string | null => {
     return localStorage.getItem(key)

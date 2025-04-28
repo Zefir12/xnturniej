@@ -28,7 +28,7 @@
                 height: '30px',
                 fontWeight: 700,
                 fontSize: '14px',
-                color: 'orange',
+                color: props.isCorrect ? 'green' : 'red',
                 backgroundColor: '#121212',
                 borderTopRightRadius: '8px',
                 display: 'flex',
@@ -37,6 +37,24 @@
             }"
         >
             {{ props.points + ' pkt' }}
+        </div>
+        <div
+            :style="{
+                position: 'absolute',
+                right: '0px',
+                bottom: '10px',
+                width: '130px',
+                height: '30px',
+                fontWeight: 700,
+                fontSize: '10px',
+                color: 'orange',
+                borderTopRightRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }"
+        >
+            {{ 'Wynik:' }}<br />{{ props.correctValue }}
         </div>
         <IconHelpHexagonFilled
             v-if="props.desc"
@@ -55,6 +73,8 @@ const props = defineProps<{
     image?: string
     points: number
     desc?: string
+    correctValue?: string
+    isCorrect?: boolean
 }>()
 </script>
 <style scoped>
