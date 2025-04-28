@@ -279,7 +279,7 @@
                                     - dla <a href="https://www.twitch.tv/kubica0012">Kubica0012</a> za pomoc przy
                                     stronie, zbieraniu informacji i zgłaszaniu bugów<br />
                                     - dla <a href="https://www.twitch.tv/xntentacion">Xntentacion</a> za oficjalne
-                                    podpięcie stronki pod turniej i sponsorowanie nagród dal zwycięzców<br />
+                                    podpięcie stronki pod turniej i sponsorowanie nagród dla zwycięzców<br />
                                     - dla <a href="https://www.twitch.tv/zalech23_">Zalech</a> za loga i materiały
                                 </p>
                             </div>
