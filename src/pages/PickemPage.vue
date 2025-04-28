@@ -1042,7 +1042,7 @@
                                 <Column sortable field="ladder_points" header="Punkty w drabince"
                                     ><template #body="{ data }">{{ data.ladder_points ?? 0 }}</template></Column
                                 >
-                                <Column sortable header="Punkty za kryształową kule"
+                                <Column field="ball_points" sortable header="Punkty za kryształową kule"
                                     ><template #body="{ data }">{{ data.ball_points ?? 0 }}</template></Column
                                 >
                                 <Column
