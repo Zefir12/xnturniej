@@ -31,6 +31,9 @@
             <IconArrowBackUp />Strona Główna
         </a>
     </div>
+    <div :style="{ position: 'fixed', top: '10px', right: '20px', color: '#FAF9F6' }">
+        <MyInfo />
+    </div>
     <div class="page-container" :style="{ fontFamily: 'Source Sans Pro' }">
         <div class="user-container">
             <img
@@ -1320,6 +1323,7 @@ import crystalstatsJson from '@/assets/crystalstats.json'
 import PlayerProgressBar from '@/components/PickEmComponents/PlayerProgressBar.vue'
 import OptionProgressBar from '@/components/PickEmComponents/OptionProgressBar.vue'
 import PlayerInGroupStats from '@/components/PickEmComponents/PlayerInGroupStats.vue'
+import MyInfo from '@/components/MyInfo.vue'
 
 const filters = ref({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
