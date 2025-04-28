@@ -210,7 +210,6 @@
                                 </div>
                                 <br /><br />
                                 <h1>Patch Noty v1.2.1</h1>
-                                25.04.2025
                                 <p>
                                     Do tej pory wybory były zapisywane zarówno na serwerze jak i lokalnie. Żeby
                                     oszczędzić serwerowi obciążenia - skoro i tak to te same dane to po co pytać serwer.
@@ -227,7 +226,6 @@
                                 </p>
                                 <br /><br />
                                 <h1>Patch Noty v1.2</h1>
-                                24.04.2025
                                 <p>
                                     - wydłużenie czasu na typowanie do 16:30 żeby dać czas ludziom którzy dopiero po
                                     pracy/szkole/spaniu zauważą że wszedł Taku za Fornala
@@ -238,7 +236,7 @@
                                 Zamiast niego wchodzi Taku, podmienię ich pozycję(jak ktoś nic nie zmieni po prostu
                                 będzie mieć Taku tam gdzie obstawiał Fornala) żeby jak najmniej popsuć Pick'emy osobom
                                 które nie zdażą wejść i nanieść zmiany <br /><br /><br />
-                                - Zmiany w kryształowej kuli na 7:30, 24.04.2025:
+                                - Zmiany w kryształowej kuli:
                                 <br />
                                 <h3>Botez Gambit</h3>
                                 Nie wiem czemu, odcięło mi myślenie i dałem 1pkt na każdego zawodnika i jakoś mi wyszło
