@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniej.online' : 'http://localhost:3000',
+    baseURL: import.meta.env.VITE_ENV == 'prod' ? 'https://xnturniejbackend.zefirlabs.net' : 'http://localhost:3000',
     timeout: 10000,
 })
 
