@@ -121,7 +121,7 @@ const fetchPlayerWinrates = async (playerUuid: string) => {
         }
         let url = 'http://localhost:3000'
         if (import.meta.env.VITE_ENV == 'prod') {
-            url = 'https://xnturniej.online'
+            url = 'https://xnturniejbackend.zefirlabs.net'
         }
         const response = await fetch(url + '/playerWinrateVsOtherPlayers', {
             method: 'POST', // POST method to send data to the server

@@ -6,7 +6,7 @@ const getPlayerData = async (): Promise<PlayerRankingDto[]> => {
     try {
         let url = 'http://localhost:3000/playerdata'
         if (import.meta.env.VITE_ENV == 'prod') {
-            url = 'https://xnturniej.online/playerdata'
+            url = 'https://xnturniejbackend.zefirlabs.net/playerdata'
         }
         const yesterday = new Date()
 
@@ -40,7 +40,7 @@ const getEventdata = async (): Promise<EventDataDto> => {
     try {
         let url = 'http://localhost:3000/eventdata'
         if (import.meta.env.VITE_ENV == 'prod') {
-            url = 'https://xnturniej.online/eventdata'
+            url = 'https://xnturniejbackend.zefirlabs.net/eventdata'
         }
         const response = await fetch(url, {
             method: 'GET',

@@ -8,7 +8,7 @@ const getStreamerTwitchData = async (): Promise<
     try {
         let url = 'http://localhost:3000/streamerdata'
         if (import.meta.env.VITE_ENV == 'prod') {
-            url = 'https://xnturniej.online/streamerdata'
+            url = 'https://xnturniejbackend.zefirlabs.net/streamerdata'
         }
         const response = await fetch(url, {
             method: 'GET',
